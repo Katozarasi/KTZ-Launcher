@@ -4,6 +4,7 @@
  */
 
 const KTZ_SERVER_SELECT_VIEW = '#serverSelectContainer'
+const ktzServerSelectBack = document.getElementById('ktzServerSelectBack')
 const ktzServerList = document.getElementById('ktzServerList')
 const ktzServerPreviewImage = document.getElementById('ktzServerPreviewImage')
 const ktzServerPreviewName = document.getElementById('ktzServerPreviewName')
@@ -14,6 +15,7 @@ const ktzServerSelectConfirm = document.getElementById('ktzServerSelectConfirm')
 
 let ktzSelectedServerId = null
 let ktzServerSelectShownThisSession = false
+let ktzServerSelectPreviousView = VIEWS.landing
 
 function getKtzServerMeta(rawServer){
     return rawServer.ktz || {}
@@ -97,6 +99,7 @@ async function ktzPopulateServerSelect(){
 
 async function ktzShowServerSelect(fromView = getCurrentView()){
     ktzServerSelectShownThisSession = true
+    ktzServerSelectPreviousView = fromView || VIEWS.landing
     await ktzPopulateServerSelect()
     switchView(fromView, KTZ_SERVER_SELECT_VIEW)
 }
@@ -111,6 +114,11 @@ ktzServerSelectConfirm.onclick = async () => {
     }
 
     switchView(KTZ_SERVER_SELECT_VIEW, VIEWS.landing)
+}
+
+ktzServerSelectBack.onclick = () => {
+    const targetView = ktzServerSelectPreviousView === KTZ_SERVER_SELECT_VIEW ? VIEWS.landing : ktzServerSelectPreviousView
+    switchView(KTZ_SERVER_SELECT_VIEW, targetView || VIEWS.landing)
 }
 
 setInterval(() => {

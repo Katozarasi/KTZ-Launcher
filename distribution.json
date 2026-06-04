@@ -14,7 +14,7 @@
       "id": "kato_empire_official",
       "name": "카토제국 공식서버",
       "description": "카토제국 공식 서버입니다.",
-      "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_official_thumb.png",
+      "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "version": "1.0.0",
       "address": "official.ktz.example.com:25565",
       "minecraftVersion": "1.21.4",
@@ -32,9 +32,9 @@
       "ktz": {
         "shortName": "카토제국 공식서버",
         "subtitle": "카토제국 공식 운영 서버",
-        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_official_thumb.png",
-        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_official_select_bg.png",
-        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_official_landing_bg.png",
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
         "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_official.xml"
       }
     },
@@ -61,8 +61,8 @@
         "shortName": "카토제국 테스트 서버",
         "subtitle": "기능 점검 및 테스트 서버",
         "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_thumb.png",
-        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_select_bg.png",
-        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_landing_bg.png",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_bg.png",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_bg.png",
         "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_test.xml"
       }
     },
@@ -70,7 +70,7 @@
       "id": "city_ability",
       "name": "도시능력자",
       "description": "도시능력자 서버입니다.",
-      "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/city_ability_thumb.png",
+      "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "version": "1.0.0",
       "address": "city.ktz.example.com:25565",
       "minecraftVersion": "1.21.4",
@@ -88,9 +88,9 @@
       "ktz": {
         "shortName": "도시능력자",
         "subtitle": "도시 능력자 서버",
-        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/city_ability_thumb.png",
-        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/city_ability_select_bg.png",
-        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/city_ability_landing_bg.png",
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
         "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/city_ability.xml"
       }
     }

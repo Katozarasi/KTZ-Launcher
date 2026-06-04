@@ -41,6 +41,11 @@ function getKtzServerDescription(rawServer){
     return meta.subtitle || rawServer.description || 'No server description.'
 }
 
+function getKtzServerDisplayAddress(rawServer){
+    const meta = getKtzServerMeta(rawServer)
+    return meta.displayAddress || '서버 주소 비공개'
+}
+
 function ktzSelectServerCard(serverId){
     const cards = Array.from(document.getElementsByClassName('ktzServerCard'))
     for(const card of cards){
@@ -58,7 +63,7 @@ function ktzUpdatePreview(rawServer){
     ktzServerPreviewName.innerHTML = getKtzServerTitle(rawServer)
     ktzServerPreviewDesc.innerHTML = getKtzServerDescription(rawServer)
     ktzServerPreviewVersion.innerHTML = rawServer.minecraftVersion || '-'
-    ktzServerPreviewAddress.innerHTML = rawServer.address || '-'
+    ktzServerPreviewAddress.innerHTML = getKtzServerDisplayAddress(rawServer)
 }
 
 async function ktzPopulateServerSelect(){

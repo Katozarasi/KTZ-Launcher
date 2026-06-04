@@ -1,13 +1,13 @@
 {
-  "name": "mrslauncher",
+  "name": "ktzlauncher",
   "version": "3.0.9",
-  "productName": "MRS Launcher",
-  "description": "Modded Minecraft Launcher",
-  "author": "Daniel Scalzi (https://github.com/dscalzi/), peunsu (https://github.com/peunsu)",
+  "productName": "KTZ Launcher",
+  "description": "KTZ Minecraft Server Launcher",
+  "author": "Daniel Scalzi (https://github.com/dscalzi/), peunsu (https://github.com/peunsu), Katozarasi",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/peunsu/MRSLauncher",
+  "homepage": "https://github.com/Katozarasi/KTZ-Launcher",
   "bugs": {
-    "url": "https://github.com/peunsu/MRSLauncher/issues"
+    "url": "https://github.com/Katozarasi/KTZ-Launcher/issues"
   },
   "private": true,
   "main": "index.js",
@@ -47,6 +47,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/peunsu/MRSLauncher.git"
+    "url": "git+https://github.com/Katozarasi/KTZ-Launcher.git"
   }
 }

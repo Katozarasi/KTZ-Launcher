@@ -1,0 +1,18 @@
+{
+  "rawBaseUrl": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main",
+  "servers": {
+    "city_ability": {
+      "modsDir": "files/mods/city_ability",
+      "modType": "ForgeMod",
+      "idPrefix": "ktz.cityability",
+      "preserveModuleTypes": [
+        "ForgeHosted",
+        "Fabric",
+        "LiteLoader",
+        "Library",
+        "VersionManifest",
+        "File"
+      ]
+    }
+  }
+}

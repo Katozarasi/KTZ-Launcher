@@ -5,6 +5,12 @@
     <link>https://github.com/Katozarasi/KTZ-Launcher</link>
     <description>KTZ 런처 전체 공지사항</description>
     <item>
+      <title>KTZ 런처 통합 뉴스 테스트</title>
+      <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+      <description>이 공지는 전체 뉴스 테스트용입니다. 어떤 서버를 선택해도 NEWS 화면에서 함께 표시됩니다.</description>
+      <pubDate>Thu, 04 Jun 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
       <title>KTZ 런처 전체 공지 테스트</title>
       <link>https://github.com/Katozarasi/KTZ-Launcher</link>
       <description>전체 서버에 공통으로 표시되는 공지입니다.</description>

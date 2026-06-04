@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="0.55" stop-color="#25364f"/>
+      <stop offset="1" stop-color="#4c5f83"/>
+    </linearGradient>
+    <radialGradient id="r" cx="70%" cy="25%" r="70%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <rect width="1280" height="720" fill="url(#r)"/>
+  <text x="86" y="610" font-size="82" font-family="Arial, sans-serif" font-weight="800" fill="#fff" opacity="0.84">KTZ Launcher</text>
+</svg>

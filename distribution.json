@@ -30,7 +30,8 @@
         "shortName": "카토제국 공식서버",
         "subtitle": "카토제국 공식 운영 서버",
         "thumbnail": "assets/images/servers/kato_empire_official_thumb.png",
-        "background": "assets/images/servers/kato_empire_official_bg.png"
+        "serverSelectBackground": "assets/images/servers/kato_empire_official_select_bg.png",
+        "landingBackground": "assets/images/servers/kato_empire_official_landing_bg.png"
       }
     },
     {
@@ -56,7 +57,8 @@
         "shortName": "카토제국 테스트 서버",
         "subtitle": "기능 점검 및 테스트 서버",
         "thumbnail": "assets/images/servers/kato_empire_test_thumb.png",
-        "background": "assets/images/servers/kato_empire_test_bg.png"
+        "serverSelectBackground": "assets/images/servers/kato_empire_test_select_bg.png",
+        "landingBackground": "assets/images/servers/kato_empire_test_landing_bg.png"
       }
     },
     {
@@ -82,7 +84,8 @@
         "shortName": "도시능력자",
         "subtitle": "도시 능력자 서버",
         "thumbnail": "assets/images/servers/city_ability_thumb.png",
-        "background": "assets/images/servers/city_ability_bg.png"
+        "serverSelectBackground": "assets/images/servers/city_ability_select_bg.png",
+        "landingBackground": "assets/images/servers/city_ability_landing_bg.png"
       }
     }
   ]

@@ -39,6 +39,14 @@ exports.setDataDirectory = function(dataDirectory){
     config.settings.launcher.dataDirectory = dataDirectory
 }
 
+exports.getLanguage = function(def = false){
+    return !def ? config.settings.launcher.language : DEFAULT_CONFIG.settings.launcher.language
+}
+
+exports.setLanguage = function(language){
+    config.settings.launcher.language = language
+}
+
 const configPath = path.join(exports.getLauncherDirectory(), 'config.json')
 const configPathLEGACY = path.join(dataPath, 'config.json')
 const firstLaunch = !fs.existsSync(configPath) && !fs.existsSync(configPathLEGACY)
@@ -86,7 +94,8 @@ const DEFAULT_CONFIG = {
         },
         launcher: {
             allowPrerelease: false,
-            dataDirectory: dataPath
+            dataDirectory: dataPath,
+            language: 'ko_KR'
         }
     },
     newsCache: {
@@ -257,6 +266,7 @@ exports.getInstanceDirectory = function(){
 
 /**
  * Retrieve the launcher's Client Token.
+ * 
  * There is no default client token.
  * 
  * @returns {string} The launcher's Client Token.
@@ -628,166 +638,15 @@ exports.setJavaExecutable = function(serverid, executable){
 }
 
 /**
+ * Validate a Java Executable value.
+ * 
+ * @param {string} executable The Java Executable value.
+ * @returns {boolean} Whether or not the value is valid.
+ */
+exports.validateJavaExecutable = function(executable){
+    return executable == null || executable === '' || fs.existsSync(executable)
+}
+
+/**
  * Retrieve the additional arguments for JVM initialization. Required arguments,
  * such as memory allocation, will be dynamically resolved and will not be included
- * in this value.
- * 
- * @param {string} serverid The server id.
- * @returns {Array.<string>} An array of the additional arguments for JVM initialization.
- */
-exports.getJVMOptions = function(serverid){
-    return config.javaConfig[serverid].jvmOptions
-}
-
-/**
- * Set the additional arguments for JVM initialization. Required arguments,
- * such as memory allocation, will be dynamically resolved and should not be
- * included in this value.
- * 
- * @param {string} serverid The server id.
- * @param {Array.<string>} jvmOptions An array of the new additional arguments for JVM 
- * initialization.
- */
-exports.setJVMOptions = function(serverid, jvmOptions){
-    config.javaConfig[serverid].jvmOptions = jvmOptions
-}
-
-// Game Settings
-
-/**
- * Retrieve the width of the game window.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {number} The width of the game window.
- */
-exports.getGameWidth = function(def = false){
-    return !def ? config.settings.game.resWidth : DEFAULT_CONFIG.settings.game.resWidth
-}
-
-/**
- * Set the width of the game window.
- * 
- * @param {number} resWidth The new width of the game window.
- */
-exports.setGameWidth = function(resWidth){
-    config.settings.game.resWidth = Number.parseInt(resWidth)
-}
-
-/**
- * Validate a potential new width value.
- * 
- * @param {number} resWidth The width value to validate.
- * @returns {boolean} Whether or not the value is valid.
- */
-exports.validateGameWidth = function(resWidth){
-    const nVal = Number.parseInt(resWidth)
-    return Number.isInteger(nVal) && nVal >= 0
-}
-
-/**
- * Retrieve the height of the game window.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {number} The height of the game window.
- */
-exports.getGameHeight = function(def = false){
-    return !def ? config.settings.game.resHeight : DEFAULT_CONFIG.settings.game.resHeight
-}
-
-/**
- * Set the height of the game window.
- * 
- * @param {number} resHeight The new height of the game window.
- */
-exports.setGameHeight = function(resHeight){
-    config.settings.game.resHeight = Number.parseInt(resHeight)
-}
-
-/**
- * Validate a potential new height value.
- * 
- * @param {number} resHeight The height value to validate.
- * @returns {boolean} Whether or not the value is valid.
- */
-exports.validateGameHeight = function(resHeight){
-    const nVal = Number.parseInt(resHeight)
-    return Number.isInteger(nVal) && nVal >= 0
-}
-
-/**
- * Check if the game should be launched in fullscreen mode.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {boolean} Whether or not the game is set to launch in fullscreen mode.
- */
-exports.getFullscreen = function(def = false){
-    return !def ? config.settings.game.fullscreen : DEFAULT_CONFIG.settings.game.fullscreen
-}
-
-/**
- * Change the status of if the game should be launched in fullscreen mode.
- * 
- * @param {boolean} fullscreen Whether or not the game should launch in fullscreen mode.
- */
-exports.setFullscreen = function(fullscreen){
-    config.settings.game.fullscreen = fullscreen
-}
-
-/**
- * Check if the game should auto connect to servers.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {boolean} Whether or not the game should auto connect to servers.
- */
-exports.getAutoConnect = function(def = false){
-    return !def ? config.settings.game.autoConnect : DEFAULT_CONFIG.settings.game.autoConnect
-}
-
-/**
- * Change the status of whether or not the game should auto connect to servers.
- * 
- * @param {boolean} autoConnect Whether or not the game should auto connect to servers.
- */
-exports.setAutoConnect = function(autoConnect){
-    config.settings.game.autoConnect = autoConnect
-}
-
-/**
- * Check if the game should launch as a detached process.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {boolean} Whether or not the game will launch as a detached process.
- */
-exports.getLaunchDetached = function(def = false){
-    return !def ? config.settings.game.launchDetached : DEFAULT_CONFIG.settings.game.launchDetached
-}
-
-/**
- * Change the status of whether or not the game should launch as a detached process.
- * 
- * @param {boolean} launchDetached Whether or not the game should launch as a detached process.
- */
-exports.setLaunchDetached = function(launchDetached){
-    config.settings.game.launchDetached = launchDetached
-}
-
-// Launcher Settings
-
-/**
- * Check if the launcher should download prerelease versions.
- * 
- * @param {boolean} def Optional. If true, the default value will be returned.
- * @returns {boolean} Whether or not the launcher should download prerelease versions.
- */
-exports.getAllowPrerelease = function(def = false){
-    return !def ? config.settings.launcher.allowPrerelease : DEFAULT_CONFIG.settings.launcher.allowPrerelease
-}
-
-/**
- * Change the status of Whether or not the launcher should download prerelease versions.
- * 
- * @param {boolean} launchDetached Whether or not the launcher should download prerelease versions.
- */
-exports.setAllowPrerelease = function(allowPrerelease){
-    config.settings.launcher.allowPrerelease = allowPrerelease
-}

@@ -17,6 +17,85 @@ let ktzSelectedServerId = null
 let ktzServerSelectShownThisSession = false
 let ktzServerSelectPreviousView = VIEWS.landing
 
+function ktzServerSelectLanguage(){
+    try {
+        const fs = require('fs-extra')
+        const path = require('path')
+        const configPath = path.join(ConfigManager.getLauncherDirectory(), 'config.json')
+        if(fs.existsSync(configPath)){
+            const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
+            return config?.settings?.launcher?.language || 'ko_KR'
+        }
+    } catch(_err) {}
+    return 'ko_KR'
+}
+
+function ktzServerSelectText(key){
+    const lang = ktzServerSelectLanguage()
+    const text = {
+        ko_KR: {
+            back: '← 뒤로가기',
+            backTitle: '뒤로가기',
+            subtitle: '서버를 선택하세요',
+            previewName: '서버 선택',
+            previewDesc: '접속할 서버를 선택하면 상세 정보가 표시됩니다.',
+            confirm: '선택하기',
+            privateAddress: '서버 주소 비공개'
+        },
+        ja_JP: {
+            back: '← 戻る',
+            backTitle: '戻る',
+            subtitle: 'サーバーを選択してください',
+            previewName: 'サーバー選択',
+            previewDesc: '接続するサーバーを選択すると詳細情報が表示されます。',
+            confirm: '選択する',
+            privateAddress: 'サーバーアドレス非公開'
+        },
+        en_US: {
+            back: '← Back',
+            backTitle: 'Back',
+            subtitle: 'Select a server',
+            previewName: 'Server Select',
+            previewDesc: 'Select a server to view details.',
+            confirm: 'Select',
+            privateAddress: 'Server address hidden'
+        }
+    }
+    return (text[lang] || text.ko_KR)[key]
+}
+
+function ktzServerI18n(rawServer){
+    const lang = ktzServerSelectLanguage()
+    const presets = {
+        ko_KR: {
+            kato_empire_official: { name: '카토제국 공식서버', desc: '카토제국 공식 운영 서버' },
+            kato_empire_test: { name: '카토제국 테스트 서버', desc: '기능 점검 및 테스트 서버' },
+            city_ability: { name: '도시능력자', desc: '도시 능력자 서버' }
+        },
+        ja_JP: {
+            kato_empire_official: { name: 'カト帝国 公式サーバー', desc: 'カト帝国公式運営サーバー' },
+            kato_empire_test: { name: 'カト帝国 テストサーバー', desc: '機能確認・テスト用サーバー' },
+            city_ability: { name: '都市能力者', desc: '都市能力者サーバー' }
+        },
+        en_US: {
+            kato_empire_official: { name: 'Kato Empire Official', desc: 'Kato Empire official server' },
+            kato_empire_test: { name: 'Kato Empire Test', desc: 'Feature check and test server' },
+            city_ability: { name: 'City Ability', desc: 'City Ability server' }
+        }
+    }
+    return presets[lang]?.[rawServer.id] || presets.ko_KR[rawServer.id] || null
+}
+
+function ktzApplyServerSelectLanguage(){
+    ktzServerSelectBack.innerHTML = ktzServerSelectText('back')
+    ktzServerSelectBack.title = ktzServerSelectText('backTitle')
+    const subtitle = document.getElementById('ktzServerSelectSubtitle')
+    if(subtitle != null){
+        subtitle.innerHTML = ktzServerSelectText('subtitle')
+    }
+    ktzServerSelectConfirm.innerHTML = ktzServerSelectText('confirm')
+}
+
 function getKtzServerMeta(rawServer){
     return rawServer.ktz || {}
 }
@@ -32,18 +111,26 @@ function getKtzServerSelectBackground(rawServer){
 }
 
 function getKtzServerTitle(rawServer){
+    const localized = ktzServerI18n(rawServer)
+    if(localized?.name != null){
+        return localized.name
+    }
     const meta = getKtzServerMeta(rawServer)
     return meta.shortName || rawServer.name || rawServer.id
 }
 
 function getKtzServerDescription(rawServer){
+    const localized = ktzServerI18n(rawServer)
+    if(localized?.desc != null){
+        return localized.desc
+    }
     const meta = getKtzServerMeta(rawServer)
     return meta.subtitle || rawServer.description || 'No server description.'
 }
 
 function getKtzServerDisplayAddress(rawServer){
     const meta = getKtzServerMeta(rawServer)
-    return meta.displayAddress || '서버 주소 비공개'
+    return meta.displayAddress || ktzServerSelectText('privateAddress')
 }
 
 function ktzSelectServerCard(serverId){
@@ -67,6 +154,7 @@ function ktzUpdatePreview(rawServer){
 }
 
 async function ktzPopulateServerSelect(){
+    ktzApplyServerSelectLanguage()
     const distro = await DistroAPI.getDistribution()
     const selectedServerId = ConfigManager.getSelectedServer()
     let htmlString = ''
@@ -99,6 +187,9 @@ async function ktzPopulateServerSelect(){
     if(initialServer != null){
         ktzSelectServerCard(initialServer.rawServer.id)
         ktzUpdatePreview(initialServer.rawServer)
+    } else {
+        ktzServerPreviewName.innerHTML = ktzServerSelectText('previewName')
+        ktzServerPreviewDesc.innerHTML = ktzServerSelectText('previewDesc')
     }
 }
 

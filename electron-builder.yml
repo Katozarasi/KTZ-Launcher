@@ -1,8 +1,8 @@
-appId: 'mrslauncher'
-productName: 'MRS Launcher'
-artifactName: 'MRS-Launcher-setup-${version}.${ext}'
+appId: 'ktzlauncher'
+productName: 'KTZ Launcher'
+artifactName: 'KTZ-Launcher-setup-${version}.${ext}'
 
-copyright: 'Copyright © 2018-2026 Daniel Scalzi, Copyright © 2024 peunsu'
+copyright: 'Copyright © 2018-2026 Daniel Scalzi, Copyright © 2024 peunsu, Katozarasi'
 
 asar: true
 compression: 'maximum'
@@ -33,16 +33,16 @@ mac:
       arch:
         - 'x64'
         - 'arm64'
-  artifactName: 'MRS-Launcher-setup-${version}-${arch}.${ext}'
+  artifactName: 'KTZ-Launcher-setup-${version}-${arch}.${ext}'
   category: 'public.app-category.games'
 
 # Linux Configuration
 linux: 
   target: 'AppImage'
-  maintainer: 'Daniel Scalzi, peunsu'
-  vendor: 'Daniel Scalzi, peunsu'
-  synopsis: 'Modded Minecraft Launcher'
-  description: 'Custom launcher which allows users to join modded servers. All mods, configurations, and updates are handled automatically.'
+  maintainer: 'Daniel Scalzi, peunsu, Katozarasi'
+  vendor: 'Katozarasi'
+  synopsis: 'KTZ Minecraft Server Launcher'
+  description: 'Custom launcher for KTZ Minecraft servers. Server files, configurations, and updates are handled automatically.'
   category: 'Game'
 
 

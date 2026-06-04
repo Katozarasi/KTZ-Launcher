@@ -2,6 +2,7 @@ const fs = require('fs-extra')
 const path = require('path')
 const toml = require('toml')
 const merge = require('lodash.merge')
+const ConfigManager = require('./configmanager')
 
 let lang
 
@@ -32,11 +33,33 @@ exports.queryEJS = function(id, placeHolders){
     return exports.query(`ejs.${id}`, placeHolders)
 }
 
+function getConfiguredLanguage(){
+    try {
+        const configPath = path.join(ConfigManager.getLauncherDirectory(), 'config.json')
+        if(fs.existsSync(configPath)){
+            const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
+            return config?.settings?.launcher?.language || 'ko_KR'
+        }
+    } catch(_err) {
+        // Fallback below.
+    }
+    return 'ko_KR'
+}
+
 exports.setupLanguage = function(){
-    // Load Language Files
+    lang = {}
+
+    // Base fallback.
     exports.loadLanguage('en_US')
-    // Uncomment this when translations are ready
-    exports.loadLanguage('ko_KR')
+
+    const selectedLanguage = getConfiguredLanguage()
+    if(selectedLanguage !== 'en_US'){
+        try {
+            exports.loadLanguage(selectedLanguage)
+        } catch(_err) {
+            exports.loadLanguage('ko_KR')
+        }
+    }
 
     // Load Custom Language File for Launcher Customizer
     exports.loadLanguage('_custom')

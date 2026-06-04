@@ -1,0 +1,89 @@
+{
+  "version": "1.0.0",
+  "discord": {
+    "clientId": "000000000000000000",
+    "smallImageText": "KTZ Launcher",
+    "smallImageKey": "ktz"
+  },
+  "rss": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/ktz_news.xml",
+  "servers": [
+    {
+      "id": "kato_empire_official",
+      "name": "카토제국 공식서버",
+      "description": "카토제국 공식 서버입니다.",
+      "icon": "assets/images/servers/kato_empire_official_thumb.png",
+      "version": "1.0.0",
+      "address": "official.ktz.example.com:25565",
+      "minecraftVersion": "1.21.4",
+      "mainServer": true,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": ">=21",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 4096,
+          "minimum": 2048
+        }
+      },
+      "modules": [],
+      "ktz": {
+        "shortName": "카토제국 공식서버",
+        "subtitle": "카토제국 공식 운영 서버",
+        "thumbnail": "assets/images/servers/kato_empire_official_thumb.png",
+        "background": "assets/images/servers/kato_empire_official_bg.png"
+      }
+    },
+    {
+      "id": "kato_empire_test",
+      "name": "카토제국 테스트 서버",
+      "description": "카토제국 테스트 서버입니다.",
+      "icon": "assets/images/servers/kato_empire_test_thumb.png",
+      "version": "1.0.0",
+      "address": "test.ktz.example.com:25565",
+      "minecraftVersion": "1.21.4",
+      "mainServer": false,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": ">=21",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 4096,
+          "minimum": 2048
+        }
+      },
+      "modules": [],
+      "ktz": {
+        "shortName": "카토제국 테스트 서버",
+        "subtitle": "기능 점검 및 테스트 서버",
+        "thumbnail": "assets/images/servers/kato_empire_test_thumb.png",
+        "background": "assets/images/servers/kato_empire_test_bg.png"
+      }
+    },
+    {
+      "id": "city_ability",
+      "name": "도시능력자",
+      "description": "도시능력자 서버입니다.",
+      "icon": "assets/images/servers/city_ability_thumb.png",
+      "version": "1.0.0",
+      "address": "city.ktz.example.com:25565",
+      "minecraftVersion": "1.21.4",
+      "mainServer": false,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": ">=21",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 4096,
+          "minimum": 2048
+        }
+      },
+      "modules": [],
+      "ktz": {
+        "shortName": "도시능력자",
+        "subtitle": "도시 능력자 서버",
+        "thumbnail": "assets/images/servers/city_ability_thumb.png",
+        "background": "assets/images/servers/city_ability_bg.png"
+      }
+    }
+  ]
+}

@@ -1,8 +1,9 @@
 /**
  * Script for serverSelect.ejs
- * Adds a full-screen server selection step without changing the launch flow.
+ * Adds a full-screen server selection step while keeping the existing launch flow intact.
  */
 
+const KTZ_SERVER_SELECT_VIEW = '#serverSelectContainer'
 const ktzServerList = document.getElementById('ktzServerList')
 const ktzServerPreviewImage = document.getElementById('ktzServerPreviewImage')
 const ktzServerPreviewName = document.getElementById('ktzServerPreviewName')
@@ -12,6 +13,7 @@ const ktzServerPreviewAddress = document.getElementById('ktzServerPreviewAddress
 const ktzServerSelectConfirm = document.getElementById('ktzServerSelectConfirm')
 
 let ktzSelectedServerId = null
+let ktzServerSelectShownThisSession = false
 
 function getKtzServerMeta(rawServer){
     return rawServer.ktz || {}
@@ -34,7 +36,7 @@ function getKtzServerTitle(rawServer){
 
 function getKtzServerDescription(rawServer){
     const meta = getKtzServerMeta(rawServer)
-    return meta.subtitle || rawServer.description || '서버 설명이 없습니다.'
+    return meta.subtitle || rawServer.description || 'No server description.'
 }
 
 function ktzSelectServerCard(serverId){
@@ -94,8 +96,9 @@ async function ktzPopulateServerSelect(){
 }
 
 async function ktzShowServerSelect(fromView = getCurrentView()){
+    ktzServerSelectShownThisSession = true
     await ktzPopulateServerSelect()
-    switchView(fromView, VIEWS.serverSelect)
+    switchView(fromView, KTZ_SERVER_SELECT_VIEW)
 }
 
 ktzServerSelectConfirm.onclick = async () => {
@@ -107,5 +110,13 @@ ktzServerSelectConfirm.onclick = async () => {
         refreshServerStatus(true)
     }
 
-    switchView(VIEWS.serverSelect, VIEWS.landing)
+    switchView(KTZ_SERVER_SELECT_VIEW, VIEWS.landing)
 }
+
+setInterval(() => {
+    if(!ktzServerSelectShownThisSession && getCurrentView() === VIEWS.landing && Object.keys(ConfigManager.getAuthAccounts()).length > 0){
+        ktzShowServerSelect(VIEWS.landing).catch(err => {
+            console.error('Unable to show KTZ server selection view.', err)
+        })
+    }
+}, 400)

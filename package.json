@@ -17,7 +17,9 @@
     "dist:win": "npm run dist -- -w",
     "dist:mac": "npm run dist -- -m",
     "dist:linux": "npm run dist -- -l",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "generate:mods": "node tools/generate-server-mods.js",
+    "generate:city": "node tools/generate-server-mods.js city_ability"
   },
   "engines": {
     "node": "22.x.x"

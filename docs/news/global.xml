@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>KTZ 전체 뉴스</title>
+    <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+    <description>KTZ 런처 전체 공지사항</description>
+    <item>
+      <title>KTZ 런처 전체 공지 테스트</title>
+      <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+      <description>전체 서버에 공통으로 표시되는 공지입니다.</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

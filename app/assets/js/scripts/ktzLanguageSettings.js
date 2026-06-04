@@ -1,17 +1,50 @@
 // KTZ language selector injected into the Launcher settings tab.
 // Changing language saves config and reloads the launcher window.
 
-function ktzLanguageLabel(language){
-    switch(language){
-        case 'ja_JP': return '日本語'
-        case 'en_US': return 'English'
-        case 'ko_KR':
-        default: return '한국어'
+const ktzLangFs = require('fs-extra')
+const ktzLangPath = require('path')
+
+function ktzGetConfigPath(){
+    return ktzLangPath.join(ConfigManager.getLauncherDirectory(), 'config.json')
+}
+
+function ktzReadConfig(){
+    try {
+        const configPath = ktzGetConfigPath()
+        if(ktzLangFs.existsSync(configPath)){
+            return JSON.parse(ktzLangFs.readFileSync(configPath, 'UTF-8'))
+        }
+    } catch(_err) {}
+    return null
+}
+
+function ktzWriteConfig(config){
+    const configPath = ktzGetConfigPath()
+    ktzLangFs.writeFileSync(configPath, JSON.stringify(config, null, 4), 'UTF-8')
+}
+
+function ktzGetLanguage(){
+    const config = ktzReadConfig()
+    return config?.settings?.launcher?.language || 'ko_KR'
+}
+
+function ktzSetLanguage(language){
+    const config = ktzReadConfig()
+    if(config == null){
+        return
     }
+    if(config.settings == null){
+        config.settings = {}
+    }
+    if(config.settings.launcher == null){
+        config.settings.launcher = {}
+    }
+    config.settings.launcher.language = language
+    ktzWriteConfig(config)
 }
 
 function ktzLanguageText(key){
-    const lang = ConfigManager.getLanguage ? ConfigManager.getLanguage() : 'ko_KR'
+    const lang = ktzGetLanguage()
     const text = {
         ko_KR: {
             title: '언어',
@@ -44,7 +77,7 @@ function ktzInjectLanguageSelector(){
         return
     }
 
-    const currentLanguage = ConfigManager.getLanguage ? ConfigManager.getLanguage() : 'ko_KR'
+    const currentLanguage = ktzGetLanguage()
     const wrapper = document.createElement('div')
     wrapper.id = 'ktzLanguageContainer'
     wrapper.className = 'settingsFieldContainer'
@@ -75,8 +108,7 @@ function ktzInjectLanguageSelector(){
         if(newLanguage === currentLanguage){
             return
         }
-        ConfigManager.setLanguage(newLanguage)
-        ConfigManager.save()
+        ktzSetLanguage(newLanguage)
         remote.getCurrentWindow().reload()
     }
 }

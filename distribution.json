@@ -71,7 +71,7 @@
       "name": "도시능력자",
       "description": "도시능력자 서버입니다.",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "address": "1.224.237.11",
       "minecraftVersion": "1.20.4",
       "mainServer": false,
@@ -84,7 +84,28 @@
           "minimum": 2048
         }
       },
-      "modules": [],
+      "modules": [
+        {
+          "id": "ktz.cityability:appleskin-forge-mc1.20.2:2.5.1",
+          "name": "AppleSkin",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 52572,
+            "MD5": "90854e3ea4a63362e718c8ea045a4a43",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/city_ability/appleskin-forge-mc1.20.2-2.5.1.jar"
+          }
+        },
+        {
+          "id": "ktz.cityability:skinlayers3d-forge:1.11.1-mc1.20.4",
+          "name": "3D Skin Layers",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 2163703,
+            "MD5": "13b06a634c722b2ea02a228b4cfd6c26",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/city_ability/skinlayers3d-forge-1.11.1-mc1.20.4.jar"
+          }
+        }
+      ],
       "ktz": {
         "shortName": "도시능력자",
         "subtitle": "도시 능력자 서버",

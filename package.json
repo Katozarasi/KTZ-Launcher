@@ -19,7 +19,9 @@
     "dist:linux": "npm run dist -- -l",
     "lint": "eslint .",
     "generate:mods": "node tools/generate-server-mods.js",
-    "generate:city": "node tools/generate-server-mods.js city_ability"
+    "generate:city": "node tools/generate-server-mods.js city_ability",
+    "generate:servers": "node tools/apply-server-config.js",
+    "generate:server": "node tools/apply-server-config.js"
   },
   "engines": {
     "node": "22.x.x"

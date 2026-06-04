@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>KTZ Launcher News</title>
+    <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+    <description>KTZ Launcher news feed.</description>
+    <item>
+      <title>KTZ Launcher 준비 중</title>
+      <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+      <description>KTZ 런처 서버 목록 구성을 준비 중입니다.</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

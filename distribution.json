@@ -5,7 +5,10 @@
     "smallImageText": "KTZ Launcher",
     "smallImageKey": "ktz"
   },
-  "rss": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/ktz_news.xml",
+  "rss": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/global.xml",
+  "ktz": {
+    "globalNews": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/global.xml"
+  },
   "servers": [
     {
       "id": "kato_empire_official",
@@ -31,7 +34,8 @@
         "subtitle": "카토제국 공식 운영 서버",
         "thumbnail": "assets/images/servers/kato_empire_official_thumb.png",
         "serverSelectBackground": "assets/images/servers/kato_empire_official_select_bg.png",
-        "landingBackground": "assets/images/servers/kato_empire_official_landing_bg.png"
+        "landingBackground": "assets/images/servers/kato_empire_official_landing_bg.png",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_official.xml"
       }
     },
     {
@@ -58,7 +62,8 @@
         "subtitle": "기능 점검 및 테스트 서버",
         "thumbnail": "assets/images/servers/kato_empire_test_thumb.png",
         "serverSelectBackground": "assets/images/servers/kato_empire_test_select_bg.png",
-        "landingBackground": "assets/images/servers/kato_empire_test_landing_bg.png"
+        "landingBackground": "assets/images/servers/kato_empire_test_landing_bg.png",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_test.xml"
       }
     },
     {
@@ -85,7 +90,8 @@
         "subtitle": "도시 능력자 서버",
         "thumbnail": "assets/images/servers/city_ability_thumb.png",
         "serverSelectBackground": "assets/images/servers/city_ability_select_bg.png",
-        "landingBackground": "assets/images/servers/city_ability_landing_bg.png"
+        "landingBackground": "assets/images/servers/city_ability_landing_bg.png",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/city_ability.xml"
       }
     }
   ]

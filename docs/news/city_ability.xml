@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>City Ability News</title>
+    <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+    <description>City Ability server news.</description>
+    <item>
+      <title>City Ability news test</title>
+      <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+      <description>This is a test notice for the City Ability server.</description>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

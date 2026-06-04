@@ -1,6 +1,63 @@
 // KTZ patch: open the full-screen KTZ server select view from the existing landing server label.
 // This keeps the original launch flow intact and only changes the server-change entry point.
 
+function ktzLandingLanguage(){
+    try {
+        const fs = require('fs-extra')
+        const path = require('path')
+        const configPath = path.join(ConfigManager.getLauncherDirectory(), 'config.json')
+        if(fs.existsSync(configPath)){
+            const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
+            return config?.settings?.launcher?.language || 'ko_KR'
+        }
+    } catch(_err) {}
+    return 'ko_KR'
+}
+
+function ktzLandingText(key){
+    const lang = ktzLandingLanguage()
+    const text = {
+        ko_KR: {
+            serverSelect: '서버 선택하기',
+            serverSelectTitle: '서버 선택 화면 열기',
+            globalNews: '전체공지'
+        },
+        ja_JP: {
+            serverSelect: 'サーバー選択',
+            serverSelectTitle: 'サーバー選択画面を開く',
+            globalNews: '全体お知らせ'
+        },
+        en_US: {
+            serverSelect: 'Select Server',
+            serverSelectTitle: 'Open server selection screen',
+            globalNews: 'Global'
+        }
+    }
+    return (text[lang] || text.ko_KR)[key]
+}
+
+function ktzLocalizedServerName(rawServer){
+    const lang = ktzLandingLanguage()
+    const names = {
+        ko_KR: {
+            kato_empire_official: '카토제국 공식서버',
+            kato_empire_test: '카토제국 테스트 서버',
+            city_ability: '도시능력자'
+        },
+        ja_JP: {
+            kato_empire_official: 'カト帝国 公式サーバー',
+            kato_empire_test: 'カト帝国 テストサーバー',
+            city_ability: '都市能力者'
+        },
+        en_US: {
+            kato_empire_official: 'Kato Empire Official',
+            kato_empire_test: 'Kato Empire Test',
+            city_ability: 'City Ability'
+        }
+    }
+    return names[lang]?.[rawServer.id] || names.ko_KR[rawServer.id] || rawServer.ktz?.shortName || rawServer.name || rawServer.id
+}
+
 async function ktzApplyLandingBackground(){
     try {
         const distro = await DistroAPI.getDistribution()
@@ -29,8 +86,8 @@ function ktzBindLandingServerSelectButton(){
         return
     }
 
-    button.innerHTML = '서버 선택하기'
-    button.title = '서버 선택 화면 열기'
+    button.innerHTML = ktzLandingText('serverSelect')
+    button.title = ktzLandingText('serverSelectTitle')
     button.onclick = async e => {
         e.target.blur()
         await ktzShowServerSelect(VIEWS.landing)
@@ -115,9 +172,9 @@ loadNews = async function(){
     const selectedServer = distroData.getServerById(ConfigManager.getSelectedServer()) || distroData.getMainServer()
     const globalNews = distroData.rawDistribution.ktz?.globalNews || distroData.rawDistribution.rss
     const serverNews = selectedServer?.rawServer?.ktz?.news
-    const serverName = selectedServer?.rawServer?.ktz?.shortName || selectedServer?.rawServer?.name
+    const serverName = selectedServer?.rawServer != null ? ktzLocalizedServerName(selectedServer.rawServer) : null
 
-    const globalArticles = await ktzFetchNewsFeed(globalNews, '전체공지')
+    const globalArticles = await ktzFetchNewsFeed(globalNews, ktzLandingText('globalNews'))
     const serverArticles = await ktzFetchNewsFeed(serverNews, serverName)
     const articles = [...globalArticles, ...serverArticles]
 

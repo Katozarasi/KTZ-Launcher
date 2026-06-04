@@ -73,12 +73,12 @@
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "version": "1.0.0",
       "address": "1.224.237.11",
-      "minecraftVersion": "1.21.4",
+      "minecraftVersion": "1.20.4",
       "mainServer": false,
       "autoconnect": true,
       "javaOptions": {
-        "supported": ">=21",
-        "suggestedMajor": 21,
+        "supported": ">=17",
+        "suggestedMajor": 17,
         "ram": {
           "recommended": 4096,
           "minimum": 2048

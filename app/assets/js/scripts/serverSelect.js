@@ -26,9 +26,9 @@ function getKtzServerThumbnail(rawServer){
     return meta.thumbnail || rawServer.icon || 'assets/images/servers/default_thumb.png'
 }
 
-function getKtzServerBackground(rawServer){
+function getKtzServerSelectBackground(rawServer){
     const meta = getKtzServerMeta(rawServer)
-    return meta.background || rawServer.icon || 'assets/images/servers/default_bg.png'
+    return meta.serverSelectBackground || meta.background || rawServer.icon || 'assets/images/servers/default_bg.png'
 }
 
 function getKtzServerTitle(rawServer){
@@ -54,7 +54,7 @@ function ktzSelectServerCard(serverId){
 }
 
 function ktzUpdatePreview(rawServer){
-    ktzServerPreviewImage.style.backgroundImage = `url('${getKtzServerBackground(rawServer)}')`
+    ktzServerPreviewImage.style.backgroundImage = `url('${getKtzServerSelectBackground(rawServer)}')`
     ktzServerPreviewName.innerHTML = getKtzServerTitle(rawServer)
     ktzServerPreviewDesc.innerHTML = getKtzServerDescription(rawServer)
     ktzServerPreviewVersion.innerHTML = rawServer.minecraftVersion || '-'

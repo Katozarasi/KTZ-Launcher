@@ -1,5 +1,5 @@
 // KTZ support tools injected into Launcher settings.
-// Adds quick buttons for diagnostics, data folder, and log folder.
+// Adds quick buttons for diagnostics, data folder, log folder, repair, and cache reset.
 
 function ktzSupportLanguage(){
     try {
@@ -23,7 +23,12 @@ function ktzSupportText(key){
             copy: '오류 정보 복사',
             openData: '데이터 폴더 열기',
             openLogs: '로그 폴더 열기',
-            copied: '오류 정보가 클립보드에 복사되었습니다.'
+            repair: '파일 복구',
+            resetCache: '캐시 초기화',
+            copied: '오류 정보가 클립보드에 복사되었습니다.',
+            repairDone: '선택한 서버의 파일 복구 표시를 완료했습니다. 다음 PLAY 시 필요한 파일을 다시 검사/다운로드합니다.',
+            resetDone: '캐시 초기화를 완료했습니다. 런처를 다시 실행해 주세요.',
+            confirmReset: '런처 캐시를 초기화할까요? 로그인 정보는 유지하고 뉴스/임시 캐시만 정리합니다.'
         },
         ja_JP: {
             title: 'サポートツール',
@@ -31,7 +36,12 @@ function ktzSupportText(key){
             copy: 'エラー情報をコピー',
             openData: 'データフォルダーを開く',
             openLogs: 'ログフォルダーを開く',
-            copied: 'エラー情報をクリップボードにコピーしました。'
+            repair: 'ファイル修復',
+            resetCache: 'キャッシュ初期化',
+            copied: 'エラー情報をクリップボードにコピーしました。',
+            repairDone: '選択中サーバーのファイル修復マークを完了しました。次回PLAY時に必要なファイルを再検査/再ダウンロードします。',
+            resetDone: 'キャッシュ初期化が完了しました。ランチャーを再起動してください。',
+            confirmReset: 'ランチャーキャッシュを初期化しますか？ログイン情報は保持し、ニュース/一時キャッシュのみ整理します。'
         },
         en_US: {
             title: 'Support Tools',
@@ -39,7 +49,12 @@ function ktzSupportText(key){
             copy: 'Copy Error Info',
             openData: 'Open Data Folder',
             openLogs: 'Open Logs Folder',
-            copied: 'Error information copied to clipboard.'
+            repair: 'Repair Files',
+            resetCache: 'Reset Cache',
+            copied: 'Error information copied to clipboard.',
+            repairDone: 'Selected server marked for file repair. Required files will be checked/downloaded again on next PLAY.',
+            resetDone: 'Cache reset complete. Please restart the launcher.',
+            confirmReset: 'Reset launcher cache? Login data will be preserved; only news/temp cache will be cleared.'
         }
     }
     return (text[lang] || text.ko_KR)[key]
@@ -79,6 +94,53 @@ function ktzGetSupportInfo(){
     ].join('\n')
 }
 
+async function ktzRepairSelectedServer(){
+    const fs = require('fs-extra')
+    const path = require('path')
+    const selectedServer = ConfigManager.getSelectedServer()
+    if(!selectedServer){
+        return
+    }
+    const instanceDir = path.join(ConfigManager.getInstanceDirectory(), selectedServer)
+    const repairMarker = path.join(instanceDir, '.ktz_force_repair')
+    fs.ensureDirSync(instanceDir)
+    fs.writeFileSync(repairMarker, String(Date.now()), 'UTF-8')
+    alert(ktzSupportText('repairDone'))
+}
+
+async function ktzResetLauncherCache(){
+    if(!confirm(ktzSupportText('confirmReset'))){
+        return
+    }
+    const fs = require('fs-extra')
+    const path = require('path')
+    const launcherDir = ConfigManager.getLauncherDirectory()
+    const cacheTargets = [
+        path.join(launcherDir, 'Cache'),
+        path.join(launcherDir, 'Code Cache'),
+        path.join(launcherDir, 'GPUCache'),
+        path.join(launcherDir, 'logs')
+    ]
+
+    for(const target of cacheTargets){
+        try {
+            fs.removeSync(target)
+        } catch(_err) {}
+    }
+
+    try {
+        const config = JSON.parse(fs.readFileSync(path.join(launcherDir, 'config.json'), 'UTF-8'))
+        config.newsCache = {
+            date: null,
+            content: null,
+            dismissed: false
+        }
+        fs.writeFileSync(path.join(launcherDir, 'config.json'), JSON.stringify(config, null, 4), 'UTF-8')
+    } catch(_err) {}
+
+    alert(ktzSupportText('resetDone'))
+}
+
 function ktzInjectSupportTools(){
     const launcherTab = document.getElementById('settingsTabLauncher')
     if(launcherTab == null || document.getElementById('ktzSupportToolsContainer') != null){
@@ -97,6 +159,8 @@ function ktzInjectSupportTools(){
             ${ktzSupportButton(ktzSupportText('copy'), 'ktzCopySupportInfo')}
             ${ktzSupportButton(ktzSupportText('openData'), 'ktzOpenDataFolder')}
             ${ktzSupportButton(ktzSupportText('openLogs'), 'ktzOpenLogsFolder')}
+            ${ktzSupportButton(ktzSupportText('repair'), 'ktzRepairFiles')}
+            ${ktzSupportButton(ktzSupportText('resetCache'), 'ktzResetCache')}
         </div>`
 
     launcherTab.appendChild(wrapper)
@@ -118,6 +182,9 @@ function ktzInjectSupportTools(){
         fs.ensureDirSync(logsDir)
         shell.openPath(logsDir)
     }
+
+    document.getElementById('ktzRepairFiles').onclick = ktzRepairSelectedServer
+    document.getElementById('ktzResetCache').onclick = ktzResetLauncherCache
 }
 
 setInterval(ktzInjectSupportTools, 700)

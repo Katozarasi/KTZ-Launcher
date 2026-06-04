@@ -1,6 +1,12 @@
 // KTZ patch: open the full-screen KTZ server select view from the existing landing server label.
 // This keeps the original launch flow intact and only changes the server-change entry point.
 
+let ktzMaintenanceState = {
+    active: false,
+    title: '',
+    message: ''
+}
+
 function ktzLandingLanguage(){
     try {
         const fs = require('fs-extra')
@@ -87,6 +93,27 @@ async function ktzGetSelectedDistroServer(){
     return distro.getServerById(ConfigManager.getSelectedServer()) || distro.getMainServer()
 }
 
+async function ktzRefreshMaintenanceState(){
+    try {
+        const server = await ktzGetSelectedDistroServer()
+        if(server != null && ktzIsServerInMaintenance(server.rawServer)){
+            ktzMaintenanceState = {
+                active: true,
+                title: ktzLandingText('maintenanceTitle'),
+                message: ktzMaintenanceMessage(server.rawServer)
+            }
+        } else {
+            ktzMaintenanceState = {
+                active: false,
+                title: '',
+                message: ''
+            }
+        }
+    } catch(err) {
+        console.error('Unable to refresh KTZ maintenance state.', err)
+    }
+}
+
 async function ktzApplyLandingBackground(){
     try {
         const server = await ktzGetSelectedDistroServer()
@@ -129,22 +156,15 @@ function ktzBindMaintenanceLaunchGuard(){
     }
 
     launchButton.setAttribute('ktz-maintenance-guard', '')
-    launchButton.addEventListener('click', async e => {
-        try {
-            const server = await ktzGetSelectedDistroServer()
-            if(server != null && ktzIsServerInMaintenance(server.rawServer)){
-                e.preventDefault()
-                e.stopImmediatePropagation()
-                const title = ktzLandingText('maintenanceTitle')
-                const message = ktzMaintenanceMessage(server.rawServer)
-                if(typeof showLaunchFailure === 'function'){
-                    showLaunchFailure(title, message)
-                } else {
-                    alert(`${title}\n${message}`)
-                }
+    launchButton.addEventListener('click', e => {
+        if(ktzMaintenanceState.active){
+            e.preventDefault()
+            e.stopImmediatePropagation()
+            if(typeof showLaunchFailure === 'function'){
+                showLaunchFailure(ktzMaintenanceState.title, ktzMaintenanceState.message)
+            } else {
+                alert(`${ktzMaintenanceState.title}\n${ktzMaintenanceState.message}`)
             }
-        } catch(err) {
-            console.error('Unable to check KTZ server maintenance state.', err)
         }
     }, true)
 }
@@ -238,6 +258,7 @@ setTimeout(() => {
     ktzBindLandingServerSelectButton()
     ktzBindMaintenanceLaunchGuard()
     ktzPatchManagedModCleanup()
+    ktzRefreshMaintenanceState()
     ktzApplyLandingBackground()
 }, 0)
 
@@ -247,6 +268,7 @@ setInterval(() => {
     ktzBindLandingServerSelectButton()
     ktzBindMaintenanceLaunchGuard()
     if(getCurrentView() === VIEWS.landing){
+        ktzRefreshMaintenanceState()
         ktzApplyLandingBackground()
     }
 }, 1000)
@@ -268,7 +290,7 @@ async function ktzFetchNewsFeed(newsFeed, label){
                     const el = $(items[i])
                     const rawDate = el.find('pubDate').text()
                     const parsedDate = new Date(rawDate)
-                    const date = parsedDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', minute: 'numeric'})
+                    const date = parsedDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})
 
                     let comments = el.find('slash\\:comments').text() || '0'
                     comments = comments + ' Comment' + (comments === '1' ? '' : 's')

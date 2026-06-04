@@ -1,0 +1,260 @@
+[ejs.landing]
+updateAvailableTooltip = "アップデートがあります"
+usernamePlaceholder = "ユーザー名"
+usernameEditButton = "編集"
+settingsTooltip = "設定"
+serverStatus = "サーバー"
+serverStatusPlaceholder = "オフライン"
+mojangStatus = "MOJANG 状態"
+mojangStatusTooltipTitle = "サービス"
+mojangStatusNETitle = "Non&nbsp;Essential"
+newsButton = "NEWS"
+launchButton = "PLAY"
+launchButtonPlaceholder = "&#8226; サーバー未選択"
+launchDetails = "しばらくお待ちください.."
+newsNavigationStatus = "{currentPage} / {totalPages}"
+newsErrorLoadSpan = "ニュースを確認中.."
+newsErrorFailedSpan = "ニュースの読み込みに失敗しました"
+newsErrorRetryButton = "再試行"
+newsErrorNoneSpan = "ニュースはありません"
+
+[ejs.login]
+loginCancelText = "キャンセル"
+loginSubheader = "Minecraft ログイン"
+loginEmailError = "* 無効な値"
+loginEmailPlaceholder = "メールアドレスまたはユーザー名"
+loginPasswordError = "* 必須項目"
+loginPasswordPlaceholder = "パスワード"
+loginForgotPasswordLink = "https://minecraft.net/password/forgot/"
+loginForgotPasswordText = "パスワードをお忘れですか？"
+loginRememberMeText = "ログイン情報を保存"
+loginButtonText = "ログイン"
+loginNeedAccountLink = "https://minecraft.net/store/minecraft-java-edition/"
+loginNeedAccountText = "アカウントをお持ちでないですか？"
+loginPasswordDisclaimer1 = "パスワードは Mojang に直接送信され、保存されません。"
+loginPasswordDisclaimer2 = "{appName} は Mojang AB とは関係ありません。"
+
+[ejs.loginOptions]
+loginOptionsTitle = "ログイン方法"
+loginWithMicrosoft = "Microsoft アカウントでログイン"
+loginWithMojang = "Mojang アカウントでログイン"
+cancelButton = "キャンセル"
+
+[ejs.overlay]
+serverSelectHeader = "サーバー選択"
+serverSelectConfirm = "選択"
+serverSelectCancel = "キャンセル"
+accountSelectHeader = "アカウント選択"
+accountSelectConfirm = "選択"
+accountSelectCancel = "キャンセル"
+
+[ejs.settings]
+navHeaderText = "設定"
+navAccount = "アカウント"
+navMinecraft = "Minecraft"
+navMods = "Mod"
+navJava = "Java"
+navLauncher = "ランチャー"
+navAbout = "情報"
+navUpdates = "アップデート"
+navDone = "完了"
+tabAccountHeaderText = "アカウント設定"
+tabAccountHeaderDesc = "新しいアカウントの追加や既存アカウントの管理を行います。"
+microsoftAccount = "Microsoft"
+addMicrosoftAccount = "+ Microsoft アカウントを追加"
+mojangAccount = "Mojang"
+addMojangAccount = "+ Mojang アカウントを追加"
+minecraftTabHeaderText = "Minecraft 設定"
+minecraftTabHeaderDesc = "ゲーム起動に関する設定です。"
+gameResolutionTitle = "ゲーム解像度"
+launchFullscreenTitle = "フルスクリーンで起動します。"
+autoConnectTitle = "ゲーム起動後、自動でサーバーに接続します。"
+launchDetachedTitle = "ランチャーとゲームプロセスを分離して実行します。"
+launchDetachedDesc = "このオプションを有効にすると、ランチャーを閉じてもゲームは実行され続けます。"
+tabModsHeaderText = "Mod 設定"
+tabModsHeaderDesc = "Mod を有効または無効にします。"
+switchServerButton = "変更"
+requiredMods = "必須 Mod"
+optionalMods = "任意 Mod"
+dropinMods = "ユーザー追加 Mod"
+addMods = "Mod 追加"
+dropinRefreshNote = "（F5で更新）"
+shaderpacks = "シェーダーパック"
+shaderpackDesc = "シェーダーを有効または無効にします。シェーダーを快適に動作させるには高いPC性能が必要です。ここでシェーダーパックを追加できます。"
+selectShaderpack = "シェーダーパックを選択"
+tabJavaHeaderText = "Java 設定"
+tabJavaHeaderDesc = "Java 設定を管理します（上級者向け）。"
+memoryTitle = "メモリ"
+maxRAM = "最大 RAM"
+minRAM = "最小 RAM"
+memoryDesc = "推奨される最小 RAM は 4GB です。最小と最大 RAM を同じ値にすると、ゲームのラグを減らせる場合があります。"
+memoryTotalTitle = "合計"
+memoryAvailableTitle = "利用可能"
+javaExecutableTitle = "Java 実行ファイル"
+javaExecSelDialogTitle = "Java 実行ファイルを選択"
+javaExecSelButtonText = "ファイル選択"
+javaExecDesc = "ゲーム起動前に Java 実行ファイルの有効性を確認します。"
+javaPathDesc = "Java 実行ファイルのパスは必ず <strong>{pathSuffix}</strong> で終わる必要があります。"
+jvmOptsTitle = "JVM 引数設定"
+jvmOptsDesc = "起動時に JVM に渡す追加引数を設定します。<em>-Xms</em> と <em>-Xmx</em> は含めないでください。"
+launcherTabHeaderText = "ランチャー設定"
+launcherTabHeaderDesc = "ランチャーに関する設定です。"
+allowPrereleaseTitle = "プレリリースアップデートを許可します。"
+allowPrereleaseDesc = "プレリリースには安定性が保証されていない機能が含まれる場合があります。<br>現在実行中のランチャーがプレリリース版の場合、この設定は常に有効です。"
+dataDirectoryTitle = "データディレクトリ"
+selectDataDirectory = "データディレクトリを選択"
+chooseFolder = "フォルダー選択"
+dataDirectoryDesc = "すべてのゲームファイルとローカル Java インストールはデータディレクトリに保存されます。<br>スクリーンショットとワールドデータはサーバー設定で指定されたインスタンスフォルダーに保存されます。"
+aboutTabHeaderText = "情報"
+aboutTabHeaderDesc = "ランチャー情報とリリースノートを確認します。"
+aboutTitle = "{appName}"
+stableRelease = "Stable Release"
+versionText = "Version "
+sourceGithub = "GitHub"
+sourceOriginalGithub = "Original GitHub"
+support = "Support"
+devToolsConsole = "DevTools Console"
+releaseNotes = "リリースノート"
+changelog = "変更ログ"
+noReleaseNotes = "リリースノートなし"
+viewReleaseNotes = "GitHubでリリースノートを見る"
+launcherUpdatesHeaderText = "ランチャーアップデート"
+launcherUpdatesHeaderDesc = "ランチャーアップデートを確認してインストールします。"
+checkForUpdates = "アップデートを確認"
+whatsNew = "新機能"
+updateReleaseNotes = "アップデートリリースノート"
+
+[ejs.waiting]
+waitingText = "Microsoft の応答を待っています.."
+
+[ejs.welcome]
+continueButton = "続ける"
+
+[js.discord]
+waiting = "クライアント待機中.."
+state = "Server: {shortId}"
+
+[js.index]
+microsoftLoginTitle = "Microsoft ログイン"
+microsoftLogoutTitle = "Microsoft ログアウト"
+
+[js.login]
+login = "ログイン"
+loggingIn = "ログイン中"
+success = "成功"
+tryAgain = "再試行"
+
+[js.login.error]
+invalidValue = "* 無効な値"
+requiredValue = "* 必須項目"
+
+[js.login.error.unknown]
+title = "不明なログインエラー"
+desc = "ログイン中に不明なエラーが発生しました。コンソールで詳細を確認してください。"
+
+[js.landing.launch]
+pleaseWait = "しばらくお待ちください.."
+failureTitle = "起動中にエラーが発生しました"
+failureText = "コンソール（CTRL + Shift + i）で詳細を確認してください。"
+okay = "確認"
+
+[js.landing.selectedAccount]
+noAccountSelected = "アカウント未選択"
+
+[js.landing.selectedServer]
+noSelection = "サーバー未選択"
+loading = "読み込み中.."
+
+[js.landing.serverStatus]
+server = "サーバー"
+offline = "オフライン"
+players = "プレイヤー"
+
+[js.landing.systemScan]
+checking = "システム情報を確認中.."
+noCompatibleJava = "互換性のある Java が<br>インストールされていません"
+installJavaMessage = "Minecraft の起動には 64-bit Java {major} が必要です。Java をインストールしますか？"
+installJava = "Java をインストール"
+installJavaManually = "手動インストール"
+javaDownloadPrepare = "Java ダウンロード準備中.."
+javaDownloadFailureTitle = "Java ダウンロード中にエラーが発生しました"
+javaDownloadFailureText = "コンソール（CTRL + Shift + i）で詳細を確認してください。"
+javaRequired = "起動には<br>Java が必要です"
+javaRequiredMessage = "起動には有効な 64-bit Java {major} をインストールする必要があります。"
+javaRequiredDismiss = "確認"
+javaRequiredCancel = "戻る"
+
+[js.landing.downloadJava]
+findJdkFailure = "OpenJDK が見つかりません。"
+javaDownloadCorruptedError = "ダウンロードした JDK が破損しています。"
+extractingJava = "Java を展開中.."
+javaInstalled = "Java のインストールが完了しました！"
+
+[js.landing.dlAsync]
+loadingServerInfo = "サーバー情報を読み込み中.."
+fatalError = "致命的なエラーが発生しました"
+unableToLoadDistributionIndex = "配布インデックスを読み込めません。コンソール（CTRL + Shift + i）で詳細を確認してください。"
+pleaseWait = "しばらくお待ちください.."
+errorDuringLaunchTitle = "起動中にエラーが発生しました"
+seeConsoleForDetails = "コンソール（CTRL + Shift + i）で詳細を確認してください。"
+validatingFileIntegrity = "ファイル整合性を確認中.."
+errorDuringFileVerificationTitle = "ファイル検査中にエラーが発生しました"
+downloadingFiles = "ファイルをダウンロード中.."
+errorDuringFileDownloadTitle = "ファイルダウンロード中にエラーが発生しました"
+preparingToLaunch = "起動準備中.."
+launchingGame = "ゲーム起動中.."
+launchWrapperNotDownloaded = "ゲーム起動に必要なメインファイルをダウンロードできません。"
+doneEnjoyServer = "完了しました。楽しんでください！"
+checkConsoleForDetails = "コンソール（CTRL + Shift + i）で詳細を確認してください。"
+
+[js.landing.news]
+checking = "ニュース確認中"
+
+[js.landing.discord]
+loading = "ゲーム読み込み中.."
+joining = "サーバー接続中.."
+joined = "KTZ"
+
+[js.overlay]
+dismiss = "閉じる"
+
+[js.settings.fileSelectors]
+executables = "実行ファイル"
+allFiles = "すべてのファイル"
+
+[js.settings.mstfLogin]
+errorTitle = "エラー発生"
+errorMessage = "Microsoft ログインに失敗しました。もう一度お試しください。"
+okButton = "確認"
+
+[js.settings.mstfLogout]
+errorTitle = "エラー発生"
+errorMessage = "Microsoft ログアウトに失敗しました。もう一度お試しください。"
+okButton = "確認"
+
+[js.settings.authAccountSelect]
+selectButton = "アカウント選択"
+selectedButton = "選択中のアカウント &#10004;"
+
+[js.settings.authAccountLogout]
+lastAccountWarningTitle = "警告<br>最後のアカウントをログアウトします。"
+lastAccountWarningMessage = "ランチャーを使用するには少なくとも1つのアカウントでログインしている必要があります。<br><br>本当にログアウトしますか？"
+confirmButton = "確認"
+cancelButton = "キャンセル"
+
+[js.settings.authAccountPopulate]
+username = "ユーザー名"
+uuid = "UUID"
+selectAccount = "アカウント選択"
+selectedAccount = "選択中のアカウント ✓"
+logout = "ログアウト"
+
+[js.settings.dropinMods]
+removeButton = "削除"
+deleteFailedTitle = "ユーザー追加 Mod の削除に失敗しました<br>{fullName}"
+deleteFailedMessage = "削除対象のファイルが使用中でないか確認して、もう一度お試しください。"
+failedToggleTitle = "ユーザー追加 Mod を<br>有効/無効にできません。"
+okButton = "確認"
+
+[js.settings.serverListing]
+mainServer = "メインサーバー"

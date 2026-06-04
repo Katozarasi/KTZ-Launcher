@@ -1,0 +1,106 @@
+{
+  "servers": {
+    "kato_empire_official": {
+      "name": "카토제국 공식서버",
+      "description": "카토제국 공식 서버입니다.",
+      "minecraftVersion": "1.21.4",
+      "javaOptions": {
+        "supported": ">=21",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 4096,
+          "minimum": 2048
+        }
+      },
+      "ktz": {
+        "i18n": {
+          "ko_KR": {
+            "name": "카토제국 공식서버",
+            "subtitle": "카토제국 공식 운영 서버"
+          },
+          "ja_JP": {
+            "name": "カト帝国 公式サーバー",
+            "subtitle": "カト帝国公式運営サーバー"
+          },
+          "en_US": {
+            "name": "Kato Empire Official",
+            "subtitle": "Kato Empire official server"
+          }
+        },
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_official.xml",
+        "maintenance": false
+      }
+    },
+    "kato_empire_test": {
+      "name": "카토제국 테스트 서버",
+      "description": "카토제국 테스트 서버입니다.",
+      "minecraftVersion": "1.21.4",
+      "javaOptions": {
+        "supported": ">=21",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 4096,
+          "minimum": 2048
+        }
+      },
+      "ktz": {
+        "i18n": {
+          "ko_KR": {
+            "name": "카토제국 테스트 서버",
+            "subtitle": "기능 점검 및 테스트 서버"
+          },
+          "ja_JP": {
+            "name": "カト帝国 テストサーバー",
+            "subtitle": "機能確認・テスト用サーバー"
+          },
+          "en_US": {
+            "name": "Kato Empire Test",
+            "subtitle": "Feature check and test server"
+          }
+        },
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_thumb.png",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_bg.png",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_bg.png",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_test.xml",
+        "maintenance": false
+      }
+    },
+    "city_ability": {
+      "name": "도시능력자",
+      "description": "도시능력자 서버입니다.",
+      "minecraftVersion": "1.20.4",
+      "javaOptions": {
+        "supported": ">=17",
+        "suggestedMajor": 17,
+        "ram": {
+          "recommended": 4096,
+          "minimum": 2048
+        }
+      },
+      "ktz": {
+        "i18n": {
+          "ko_KR": {
+            "name": "도시능력자",
+            "subtitle": "도시 능력자 서버"
+          },
+          "ja_JP": {
+            "name": "都市能力者",
+            "subtitle": "都市能力者サーバー"
+          },
+          "en_US": {
+            "name": "City Ability",
+            "subtitle": "City Ability server"
+          }
+        },
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/city_ability.xml",
+        "maintenance": false
+      }
+    }
+  }
+}

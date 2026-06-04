@@ -26,7 +26,7 @@ function ktzSupportText(key){
             repair: '파일 복구',
             resetCache: '캐시 초기화',
             copied: '오류 정보가 클립보드에 복사되었습니다.',
-            repairDone: '선택한 서버의 파일 복구 표시를 완료했습니다. 다음 PLAY 시 필요한 파일을 다시 검사/다운로드합니다.',
+            repairDone: '선택한 서버의 관리 모드 파일을 정리했습니다. 다음 PLAY 시 필요한 파일을 다시 검사/다운로드합니다.',
             resetDone: '캐시 초기화를 완료했습니다. 런처를 다시 실행해 주세요.',
             confirmReset: '런처 캐시를 초기화할까요? 로그인 정보는 유지하고 뉴스/임시 캐시만 정리합니다.'
         },
@@ -39,7 +39,7 @@ function ktzSupportText(key){
             repair: 'ファイル修復',
             resetCache: 'キャッシュ初期化',
             copied: 'エラー情報をクリップボードにコピーしました。',
-            repairDone: '選択中サーバーのファイル修復マークを完了しました。次回PLAY時に必要なファイルを再検査/再ダウンロードします。',
+            repairDone: '選択中サーバーの管理Modファイルを整理しました。次回PLAY時に必要なファイルを再検査/再ダウンロードします。',
             resetDone: 'キャッシュ初期化が完了しました。ランチャーを再起動してください。',
             confirmReset: 'ランチャーキャッシュを初期化しますか？ログイン情報は保持し、ニュース/一時キャッシュのみ整理します。'
         },
@@ -52,7 +52,7 @@ function ktzSupportText(key){
             repair: 'Repair Files',
             resetCache: 'Reset Cache',
             copied: 'Error information copied to clipboard.',
-            repairDone: 'Selected server marked for file repair. Required files will be checked/downloaded again on next PLAY.',
+            repairDone: 'Managed mod files for the selected server were cleared. Required files will be checked/downloaded again on next PLAY.',
             resetDone: 'Cache reset complete. Please restart the launcher.',
             confirmReset: 'Reset launcher cache? Login data will be preserved; only news/temp cache will be cleared.'
         }
@@ -101,10 +101,22 @@ async function ktzRepairSelectedServer(){
     if(!selectedServer){
         return
     }
+
     const instanceDir = path.join(ConfigManager.getInstanceDirectory(), selectedServer)
-    const repairMarker = path.join(instanceDir, '.ktz_force_repair')
-    fs.ensureDirSync(instanceDir)
-    fs.writeFileSync(repairMarker, String(Date.now()), 'UTF-8')
+    const ktzModstoreDir = path.join(ConfigManager.getCommonDirectory(), 'modstore', 'ktz')
+    const ktzFabricDir = path.join(ConfigManager.getCommonDirectory(), 'mods', 'fabric', 'ktz')
+    const generatedLists = [
+        path.join(instanceDir, 'forgeMods.list'),
+        path.join(instanceDir, 'forgeModList.json'),
+        path.join(instanceDir, 'liteloaderModList.json')
+    ]
+
+    fs.removeSync(ktzModstoreDir)
+    fs.removeSync(ktzFabricDir)
+    for(const file of generatedLists){
+        fs.removeSync(file)
+    }
+
     alert(ktzSupportText('repairDone'))
 }
 

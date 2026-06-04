@@ -20,17 +20,23 @@ function ktzLandingText(key){
         ko_KR: {
             serverSelect: '서버 선택하기',
             serverSelectTitle: '서버 선택 화면 열기',
-            globalNews: '전체공지'
+            globalNews: '전체공지',
+            maintenanceTitle: '서버 점검 중',
+            maintenanceMessage: '현재 선택한 서버는 점검 중입니다. 공지사항을 확인해 주세요.'
         },
         ja_JP: {
             serverSelect: 'サーバー選択',
             serverSelectTitle: 'サーバー選択画面を開く',
-            globalNews: '全体お知らせ'
+            globalNews: '全体お知らせ',
+            maintenanceTitle: 'サーバーメンテナンス中',
+            maintenanceMessage: '現在選択中のサーバーはメンテナンス中です。お知らせをご確認ください。'
         },
         en_US: {
             serverSelect: 'Select Server',
             serverSelectTitle: 'Open server selection screen',
-            globalNews: 'Global'
+            globalNews: 'Global',
+            maintenanceTitle: 'Server Under Maintenance',
+            maintenanceMessage: 'The selected server is currently under maintenance. Please check the news.'
         }
     }
     return (text[lang] || text.ko_KR)[key]
@@ -58,10 +64,32 @@ function ktzLocalizedServerName(rawServer){
     return names[lang]?.[rawServer.id] || names.ko_KR[rawServer.id] || rawServer.ktz?.shortName || rawServer.name || rawServer.id
 }
 
+function ktzIsServerInMaintenance(rawServer){
+    const maintenance = rawServer?.ktz?.maintenance
+    return maintenance === true || maintenance?.enabled === true
+}
+
+function ktzMaintenanceMessage(rawServer){
+    const lang = ktzLandingLanguage()
+    const meta = rawServer?.ktz || {}
+    const maintenance = meta.maintenance
+
+    return meta.i18n?.[lang]?.maintenanceMessage
+        || meta.maintenanceMessages?.[lang]
+        || maintenance?.i18n?.[lang]
+        || maintenance?.message
+        || meta.maintenanceMessage
+        || ktzLandingText('maintenanceMessage')
+}
+
+async function ktzGetSelectedDistroServer(){
+    const distro = await DistroAPI.getDistribution()
+    return distro.getServerById(ConfigManager.getSelectedServer()) || distro.getMainServer()
+}
+
 async function ktzApplyLandingBackground(){
     try {
-        const distro = await DistroAPI.getDistribution()
-        const server = distro.getServerById(ConfigManager.getSelectedServer()) || distro.getMainServer()
+        const server = await ktzGetSelectedDistroServer()
 
         if(server == null){
             return
@@ -94,8 +122,122 @@ function ktzBindLandingServerSelectButton(){
     }
 }
 
+function ktzBindMaintenanceLaunchGuard(){
+    const launchButton = document.getElementById('launch_button')
+    if(launchButton == null || launchButton.hasAttribute('ktz-maintenance-guard')){
+        return
+    }
+
+    launchButton.setAttribute('ktz-maintenance-guard', '')
+    launchButton.addEventListener('click', async e => {
+        try {
+            const server = await ktzGetSelectedDistroServer()
+            if(server != null && ktzIsServerInMaintenance(server.rawServer)){
+                e.preventDefault()
+                e.stopImmediatePropagation()
+                const title = ktzLandingText('maintenanceTitle')
+                const message = ktzMaintenanceMessage(server.rawServer)
+                if(typeof showLaunchFailure === 'function'){
+                    showLaunchFailure(title, message)
+                } else {
+                    alert(`${title}\n${message}`)
+                }
+            }
+        } catch(err) {
+            console.error('Unable to check KTZ server maintenance state.', err)
+        }
+    }, true)
+}
+
+function ktzPatchManagedModCleanup(){
+    try {
+        const fs = require('fs-extra')
+        const path = require('path')
+        const KtzProcessBuilder = require('./assets/js/processbuilder')
+        const { Type } = require('helios-distribution-types')
+
+        if(KtzProcessBuilder.prototype.ktzManagedModCleanupPatched){
+            return
+        }
+
+        KtzProcessBuilder.prototype.ktzManagedModCleanupPatched = true
+        const originalBuild = KtzProcessBuilder.prototype.build
+
+        function collectKtzManagedModPaths(modules, keepSet){
+            for(const module of modules || []){
+                const raw = module.rawModule || {}
+                const type = raw.type
+                if((type === Type.ForgeMod || type === Type.FabricMod || type === Type.LiteMod) && String(raw.id || '').startsWith('ktz.')){
+                    try {
+                        keepSet.add(path.resolve(module.getPath()).toLowerCase())
+                    } catch(_err) {}
+                }
+                if(module.subModules?.length > 0){
+                    collectKtzManagedModPaths(module.subModules, keepSet)
+                }
+            }
+        }
+
+        function removeEmptyDirs(dir, root){
+            if(!fs.existsSync(dir) || path.resolve(dir) === path.resolve(root)){
+                return
+            }
+            try {
+                const entries = fs.readdirSync(dir)
+                if(entries.length === 0){
+                    fs.rmdirSync(dir)
+                    removeEmptyDirs(path.dirname(dir), root)
+                }
+            } catch(_err) {}
+        }
+
+        function cleanupRoot(root, keepSet){
+            if(!fs.existsSync(root)){
+                return
+            }
+            const files = []
+            function walk(dir){
+                for(const entry of fs.readdirSync(dir)){
+                    const full = path.join(dir, entry)
+                    const stat = fs.statSync(full)
+                    if(stat.isDirectory()){
+                        walk(full)
+                    } else {
+                        files.push(full)
+                    }
+                }
+            }
+            walk(root)
+            for(const file of files){
+                const normalized = path.resolve(file).toLowerCase()
+                if(!keepSet.has(normalized)){
+                    fs.removeSync(file)
+                    console.log('[KTZ Mod Sync] Removed stale managed mod:', file)
+                    removeEmptyDirs(path.dirname(file), root)
+                }
+            }
+        }
+
+        KtzProcessBuilder.prototype.ktzCleanupManagedMods = function(){
+            const keepSet = new Set()
+            collectKtzManagedModPaths(this.server.modules, keepSet)
+            cleanupRoot(path.join(this.commonDir, 'modstore', 'ktz'), keepSet)
+            cleanupRoot(path.join(this.commonDir, 'mods', 'fabric', 'ktz'), keepSet)
+        }
+
+        KtzProcessBuilder.prototype.build = function(...args){
+            this.ktzCleanupManagedMods()
+            return originalBuild.apply(this, args)
+        }
+    } catch(err) {
+        console.error('Unable to patch KTZ managed mod cleanup.', err)
+    }
+}
+
 setTimeout(() => {
     ktzBindLandingServerSelectButton()
+    ktzBindMaintenanceLaunchGuard()
+    ktzPatchManagedModCleanup()
     ktzApplyLandingBackground()
 }, 0)
 
@@ -103,6 +245,7 @@ setTimeout(() => {
 // Keep the KTZ label stable and keep the landing background synced.
 setInterval(() => {
     ktzBindLandingServerSelectButton()
+    ktzBindMaintenanceLaunchGuard()
     if(getCurrentView() === VIEWS.landing){
         ktzApplyLandingBackground()
     }
@@ -125,7 +268,7 @@ async function ktzFetchNewsFeed(newsFeed, label){
                     const el = $(items[i])
                     const rawDate = el.find('pubDate').text()
                     const parsedDate = new Date(rawDate)
-                    const date = parsedDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})
+                    const date = parsedDate.toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric', minute: 'numeric'})
 
                     let comments = el.find('slash\\:comments').text() || '0'
                     comments = comments + ' Comment' + (comments === '1' ? '' : 's')

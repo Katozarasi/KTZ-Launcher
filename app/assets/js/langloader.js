@@ -2,7 +2,6 @@ const fs = require('fs-extra')
 const path = require('path')
 const toml = require('toml')
 const merge = require('lodash.merge')
-const ConfigManager = require('./configmanager')
 
 let lang
 
@@ -33,9 +32,23 @@ exports.queryEJS = function(id, placeHolders){
     return exports.query(`ejs.${id}`, placeHolders)
 }
 
+function getLauncherConfigPath(){
+    try {
+        const { app } = require('electron')
+        if(app != null){
+            return path.join(app.getPath('userData'), 'config.json')
+        }
+    } catch(_err) {
+        // Fallback below.
+    }
+
+    const sysRoot = process.env.APPDATA || (process.platform === 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
+    return path.join(sysRoot, 'KTZ Launcher', 'config.json')
+}
+
 function getConfiguredLanguage(){
     try {
-        const configPath = path.join(ConfigManager.getLauncherDirectory(), 'config.json')
+        const configPath = getLauncherConfigPath()
         if(fs.existsSync(configPath)){
             const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
             return config?.settings?.launcher?.language || 'ko_KR'

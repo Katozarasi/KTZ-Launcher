@@ -1,5 +1,5 @@
 // KTZ language selector injected into the Launcher settings tab.
-// Changing language saves config and reloads the launcher window.
+// Changing language saves config and relaunches the launcher app.
 
 const ktzLangFs = require('fs-extra')
 const ktzLangPath = require('path')
@@ -43,26 +43,35 @@ function ktzSetLanguage(language){
     ktzWriteConfig(config)
 }
 
+function ktzRestartLauncher(){
+    if(remote?.app?.relaunch != null){
+        remote.app.relaunch()
+        remote.app.exit(0)
+    } else {
+        remote.getCurrentWindow().reload()
+    }
+}
+
 function ktzLanguageText(key){
     const lang = ktzGetLanguage()
     const text = {
         ko_KR: {
             title: '언어',
-            desc: '런처 표시 언어를 선택합니다. 변경 즉시 런처가 새로고침됩니다.',
+            desc: '런처 표시 언어를 선택합니다. 변경 즉시 런처가 다시 시작됩니다.',
             optionKo: '한국어',
             optionJa: '日本語',
             optionEn: 'English'
         },
         ja_JP: {
             title: '言語',
-            desc: 'ランチャーの表示言語を選択します。変更後すぐにランチャーを再読み込みします。',
+            desc: 'ランチャーの表示言語を選択します。変更後すぐにランチャーを再起動します。',
             optionKo: '한국어',
             optionJa: '日本語',
             optionEn: 'English'
         },
         en_US: {
             title: 'Language',
-            desc: 'Select the launcher display language. The launcher will reload immediately after changing it.',
+            desc: 'Select the launcher display language. The launcher will restart immediately after changing it.',
             optionKo: '한국어',
             optionJa: '日本語',
             optionEn: 'English'
@@ -109,7 +118,7 @@ function ktzInjectLanguageSelector(){
             return
         }
         ktzSetLanguage(newLanguage)
-        remote.getCurrentWindow().reload()
+        ktzRestartLauncher()
     }
 }
 

@@ -1,3 +1,4 @@
+const child_process = require('child_process')
 const fs = require('fs-extra')
 const path = require('path')
 const { LoggerUtil } = require('helios-core')
@@ -14,25 +15,22 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         super(distroServer, vanillaManifest, modManifest, authUser, launcherVersion)
 
         this.usingNeoForgeLoader = true
-
         this.neoForgeCommonDir = this.commonDir
         this.neoForgeLibPath = this.libPath
 
-        const officialMinecraftDir = process.env.APPDATA != null
-            ? path.join(process.env.APPDATA, '.minecraft')
-            : null
-
+        const officialMinecraftDir = this._officialMinecraftDir()
         if(officialMinecraftDir != null) {
-            const id = this._neoForgeId()
-            const officialVersionJar = path.join(officialMinecraftDir, 'versions', id, id + '.jar')
-            const officialVersionJson = path.join(officialMinecraftDir, 'versions', id, id + '.json')
+            if(!this._officialRuntimeExists(officialMinecraftDir)) {
+                logger.info('Official NeoForge runtime not found. Installing NeoForge runtime automatically.')
+                this._installOfficialNeoForgeRuntime(officialMinecraftDir)
+            }
 
-            if(fs.existsSync(officialVersionJar) && fs.existsSync(officialVersionJson)) {
+            if(this._officialRuntimeExists(officialMinecraftDir)) {
                 this.neoForgeCommonDir = officialMinecraftDir
                 this.neoForgeLibPath = path.join(officialMinecraftDir, 'libraries')
                 logger.info('Using official Minecraft directory for NeoForge runtime:', officialMinecraftDir)
             } else {
-                logger.info('Official NeoForge runtime not found. Using launcher common directory.')
+                logger.warn('Official NeoForge runtime is still missing. Falling back to launcher common directory.')
             }
         }
     }
@@ -40,6 +38,87 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     build() {
         logger.info('Using dedicated NeoForge process builder.')
         return super.build()
+    }
+
+    _officialMinecraftDir() {
+        return process.env.APPDATA != null ? path.join(process.env.APPDATA, '.minecraft') : null
+    }
+
+    _officialRuntimeExists(minecraftDir) {
+        const id = this._neoForgeId()
+        const version = this._neoForgeVersion()
+        return fs.existsSync(path.join(minecraftDir, 'versions', id, id + '.jar')) &&
+            fs.existsSync(path.join(minecraftDir, 'versions', id, id + '.json')) &&
+            fs.existsSync(path.join(minecraftDir, 'libraries', 'net', 'minecraft', 'client', '1.21.4-20241203.161809', 'client-1.21.4-20241203.161809-srg.jar')) &&
+            fs.existsSync(path.join(minecraftDir, 'libraries', 'net', 'neoforged', 'neoforge', version, 'neoforge-' + version + '-universal.jar'))
+    }
+
+    _installerUrl() {
+        const version = this._neoForgeVersion()
+        return 'https://maven.neoforged.net/releases/net/neoforged/neoforge/' + version + '/neoforge-' + version + '-installer.jar'
+    }
+
+    _installerPath() {
+        const version = this._neoForgeVersion()
+        return path.join(this.commonDir, 'installers', 'neoforge', version, 'neoforge-' + version + '-installer.jar')
+    }
+
+    _downloadInstallerIfNeeded() {
+        const installerPath = this._installerPath()
+        if(fs.existsSync(installerPath) && fs.statSync(installerPath).size > 1024 * 1024) {
+            return installerPath
+        }
+
+        fs.ensureDirSync(path.dirname(installerPath))
+        logger.info('Downloading NeoForge installer:', this._installerUrl())
+
+        const psCommand = "$ProgressPreference='SilentlyContinue'; Invoke-WebRequest -UseBasicParsing -Uri '" + this._installerUrl() + "' -OutFile '" + installerPath.replace(/'/g, "''") + "'"
+        const result = child_process.spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', psCommand], {
+            encoding: 'utf8',
+            windowsHide: true
+        })
+
+        if(result.status !== 0 || !fs.existsSync(installerPath)) {
+            logger.error('Failed to download NeoForge installer.', result.stderr || result.stdout)
+            throw new Error('Failed to download NeoForge installer.')
+        }
+
+        return installerPath
+    }
+
+    _installOfficialNeoForgeRuntime(minecraftDir) {
+        try {
+            fs.ensureDirSync(minecraftDir)
+            const installerPath = this._downloadInstallerIfNeeded()
+            const javaExec = ConfigManager.getJavaExecutable(this.server.rawServer.id) || 'java'
+
+            logger.info('Running NeoForge installer:', installerPath)
+            let result = child_process.spawnSync(javaExec, ['-jar', installerPath, '--installClient'], {
+                cwd: minecraftDir,
+                encoding: 'utf8',
+                windowsHide: true
+            })
+
+            if(result.status !== 0) {
+                logger.warn('NeoForge installer failed with --installClient. Retrying with --install-client.', result.stderr || result.stdout)
+                result = child_process.spawnSync(javaExec, ['-jar', installerPath, '--install-client'], {
+                    cwd: minecraftDir,
+                    encoding: 'utf8',
+                    windowsHide: true
+                })
+            }
+
+            if(result.status !== 0) {
+                logger.error('NeoForge installer failed.', result.stderr || result.stdout)
+                return false
+            }
+
+            logger.info('NeoForge runtime installation complete.')
+            return true
+        } catch(err) {
+            logger.error('Unable to install NeoForge runtime automatically.', err)
+            return false
+        }
     }
 
     _neoForgeVersion() {

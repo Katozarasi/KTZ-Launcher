@@ -76,20 +76,21 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     }
 
     _findClientSrgJar(minecraftDir) {
-        const clientRoot = path.join(minecraftDir, 'libraries', 'net', 'minecraft', 'client')
-        if(!fs.existsSync(clientRoot)) {
+        const librariesRoot = path.join(minecraftDir, 'libraries')
+        if(!fs.existsSync(librariesRoot)) {
             return null
         }
 
-        for(const versionDir of fs.readdirSync(clientRoot)) {
-            const dir = path.join(clientRoot, versionDir)
-            if(!fs.statSync(dir).isDirectory()) {
-                continue
-            }
-
-            for(const file of fs.readdirSync(dir)) {
-                if(file.endsWith('-srg.jar') && file.includes(this.vanillaManifest.id)) {
-                    return path.join(dir, file)
+        const stack = [librariesRoot]
+        while(stack.length > 0) {
+            const current = stack.pop()
+            for(const entry of fs.readdirSync(current)) {
+                const full = path.join(current, entry)
+                const stat = fs.statSync(full)
+                if(stat.isDirectory()) {
+                    stack.push(full)
+                } else if(entry.endsWith('-srg.jar') && entry.includes(this.vanillaManifest.id)) {
+                    return full
                 }
             }
         }
@@ -115,6 +116,33 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         }
 
         return null
+    }
+
+    _ensureLauncherProfiles(minecraftDir) {
+        const profilesPath = path.join(minecraftDir, 'launcher_profiles.json')
+        if(fs.existsSync(profilesPath)) {
+            return
+        }
+
+        const now = new Date().toISOString()
+        const profiles = {
+            profiles: {},
+            selectedProfile: null,
+            clientToken: 'ktz-launcher',
+            authenticationDatabase: {},
+            launcherVersion: {
+                name: 'KTZ Launcher',
+                format: 21
+            },
+            settings: {},
+            analyticsToken: '',
+            analyticsFailcount: 0,
+            created: now
+        }
+
+        fs.ensureDirSync(minecraftDir)
+        fs.writeFileSync(profilesPath, JSON.stringify(profiles, null, 2), 'utf8')
+        logger.info('Created minimal launcher_profiles.json for NeoForge installer:', profilesPath)
     }
 
     _installerUrl() {
@@ -158,8 +186,15 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             windowsHide: true
         })
 
+        if(result.stdout) {
+            logger.info('NeoForge installer stdout:', result.stdout)
+        }
+        if(result.stderr) {
+            logger.warn('NeoForge installer stderr:', result.stderr)
+        }
+
         if(result.status !== 0) {
-            logger.warn('NeoForge installer attempt failed.', result.stderr || result.stdout)
+            logger.warn('NeoForge installer attempt failed with exit code ' + result.status + '.')
             return false
         }
 
@@ -175,6 +210,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     _installOfficialNeoForgeRuntime(minecraftDir) {
         try {
             fs.ensureDirSync(minecraftDir)
+            this._ensureLauncherProfiles(minecraftDir)
             const installerPath = this._downloadInstallerIfNeeded()
             const javaExec = ConfigManager.getJavaExecutable(this.server.rawServer.id) || 'java'
 

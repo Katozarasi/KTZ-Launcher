@@ -1,6 +1,6 @@
 // KTZ NeoForge runtime patch.
 // NeoForge mods are copied into the instance mods folder.
-// Do not put the Minecraft client jar on the Java module path; it is not a valid Java module.
+// Minecraft client jar must stay on classpath only; generated NeoForge version jar is also required on classpath.
 
 function ktzPatchNeoForgeRuntime(){
     try {
@@ -26,15 +26,24 @@ function ktzPatchNeoForgeRuntime(){
             return path.join(builder.commonDir, 'versions', version, version + '.jar')
         }
 
+        function neoForgeVersionJar(builder){
+            const id = builder.modManifest?.id || 'neoforge-21.4.157'
+            return path.join(builder.gameDir, '.ktz-neoforge', id + '.jar')
+        }
+
+        function addClasspathEntry(cpArgs, filePath, label){
+            if(fs.existsSync(filePath) && !cpArgs.includes(filePath)){
+                cpArgs.push(filePath)
+                console.log('[KTZ NeoForge] Added ' + label + ' to classpath:', filePath)
+            }
+        }
+
         ProcessBuilder.prototype.classpathArg = function(mods, tempNativePath){
             const cpArgs = originalClasspathArg.call(this, mods, tempNativePath)
 
             if(isNeoForgeBuild(this)){
-                const vanillaClient = vanillaClientJar(this)
-                if(!cpArgs.includes(vanillaClient)){
-                    cpArgs.unshift(vanillaClient)
-                    console.log('[KTZ NeoForge] Added vanilla client jar to classpath:', vanillaClient)
-                }
+                addClasspathEntry(cpArgs, vanillaClientJar(this), 'vanilla client jar')
+                addClasspathEntry(cpArgs, neoForgeVersionJar(this), 'generated NeoForge version jar')
             }
 
             return cpArgs

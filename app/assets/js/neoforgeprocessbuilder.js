@@ -12,7 +12,29 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
 
     constructor(distroServer, vanillaManifest, modManifest, authUser, launcherVersion) {
         super(distroServer, vanillaManifest, modManifest, authUser, launcherVersion)
+
         this.usingNeoForgeLoader = true
+
+        this.neoForgeCommonDir = this.commonDir
+        this.neoForgeLibPath = this.libPath
+
+        const officialMinecraftDir = process.env.APPDATA != null
+            ? path.join(process.env.APPDATA, '.minecraft')
+            : null
+
+        if(officialMinecraftDir != null) {
+            const id = this._neoForgeId()
+            const officialVersionJar = path.join(officialMinecraftDir, 'versions', id, id + '.jar')
+            const officialVersionJson = path.join(officialMinecraftDir, 'versions', id, id + '.json')
+
+            if(fs.existsSync(officialVersionJar) && fs.existsSync(officialVersionJson)) {
+                this.neoForgeCommonDir = officialMinecraftDir
+                this.neoForgeLibPath = path.join(officialMinecraftDir, 'libraries')
+                logger.info('Using official Minecraft directory for NeoForge runtime:', officialMinecraftDir)
+            } else {
+                logger.info('Official NeoForge runtime not found. Using launcher common directory.')
+            }
+        }
     }
 
     build() {
@@ -29,21 +51,18 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return 'neoforge-' + this._neoForgeVersion()
     }
 
-    _vanillaClientJar() {
-        const version = this.vanillaManifest.id
-        return path.join(this.commonDir, 'versions', version, version + '.jar')
-    }
-
-    _neoForgeClientJar() {
-        const version = this._neoForgeVersion()
-        return path.join(this.libPath, 'net', 'neoforged', 'neoforge', version, 'neoforge-' + version + '-client.jar')
-    }
-
     _neoForgeVersionJar() {
         const id = this._neoForgeId()
         const version = this._neoForgeVersion()
+
+        const officialJar = path.join(this.neoForgeCommonDir, 'versions', id, id + '.jar')
+        if(fs.existsSync(officialJar)) {
+            return officialJar
+        }
+
         const sourceJar = path.join(this.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
         const sourceJson = path.join(this.commonDir, 'versions', id, id + '.json')
+
         const targetDir = path.join(this.gameDir, 'versions', id)
         const targetJar = path.join(targetDir, id + '.jar')
         const targetJson = path.join(targetDir, id + '.json')
@@ -77,12 +96,34 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         if(!artifact?.path) {
             return null
         }
+
+        const preferred = path.join(this.neoForgeLibPath, artifact.path)
+        if(fs.existsSync(preferred)) {
+            return preferred
+        }
+
+        return path.join(this.libPath, artifact.path)
+    }
+
+    _vanillaLibraryPath(lib) {
+        const artifact = lib.downloads?.artifact
+        if(!artifact?.path) {
+            return null
+        }
+
+        const preferred = path.join(this.neoForgeLibPath, artifact.path)
+        if(fs.existsSync(preferred)) {
+            return preferred
+        }
+
         return path.join(this.libPath, artifact.path)
     }
 
     _excludedVanillaLibrary(lib) {
         const name = lib.name || ''
 
+        // NeoForge module path already contains ASM 9.8.
+        // Vanilla 1.21.4 can bring ASM 9.6, which causes module duplication.
         if(name.startsWith('org.ow2.asm:')) {
             return true
         }
@@ -98,17 +139,21 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             if(filePath == null || !fs.existsSync(filePath) || seen.has(filePath)) {
                 return
             }
+
             seen.add(filePath)
             libs.push(filePath)
+
             if(label != null) {
                 logger.info('Added ' + label + ' to NeoForge classpath:', filePath)
             }
         }
 
+        // 1. NeoForge / FML libraries first.
         for(const lib of this.modManifest.libraries || []) {
             add(this._libraryPathFromManifest(lib))
         }
 
+        // 2. Mojang libraries next.
         for(const lib of this.vanillaManifest.libraries || []) {
             if(this._excludedVanillaLibrary(lib)) {
                 logger.info('Skipping vanilla library already supplied by NeoForge module path:', lib.name)
@@ -116,20 +161,22 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             }
 
             if(lib.downloads?.artifact?.path != null && !lib.name.includes('natives-')) {
-                add(path.join(this.libPath, lib.downloads.artifact.path))
+                add(this._vanillaLibraryPath(lib))
             }
         }
 
-        add(this._vanillaClientJar(), 'vanilla client jar fallback')
-        add(this._neoForgeClientJar(), 'NeoForge client support jar')
+        // 3. Official NeoForge version jar last.
+        // Do NOT add neoforge-*-client.jar here. It causes duplicate "neoforge" module.
         add(this._neoForgeVersionJar(), 'generated NeoForge version jar')
 
         this._processClassPathList(libs)
+
         logger.info('NeoForge classpath entries:', libs.length)
         return libs
     }
 
     classpathArg(_mods, tempNativePath) {
+        // Extract natives using the base resolver.
         this._resolveMojangLibraries(tempNativePath)
         return this._orderedNeoForgeLibraries()
     }
@@ -161,9 +208,14 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
 
         for(const mdl of mdls) {
             const type = mdl.rawModule.type
+
             if(type === Type.ForgeMod || type === Type.FabricMod || type === Type.LiteMod || type === Type.LiteLoader) {
                 const optional = !mdl.getRequired().value
-                const enabled = ProcessBuilder.isModEnabled(modCfg[mdl.getVersionlessMavenIdentifier()], mdl.getRequired())
+                const enabled = ProcessBuilder.isModEnabled(
+                    modCfg[mdl.getVersionlessMavenIdentifier()],
+                    mdl.getRequired()
+                )
+
                 if(!optional || enabled) {
                     if(mdl.subModules.length > 0) {
                         const subCfg = modCfg[mdl.getVersionlessMavenIdentifier()]?.mods || {}
@@ -171,6 +223,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
                         fMods = fMods.concat(resolved.fMods)
                         lMods = lMods.concat(resolved.lMods)
                     }
+
                     if(type === Type.ForgeMod || type === Type.FabricMod) {
                         fMods.push(mdl)
                     } else {

@@ -34,6 +34,11 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return path.join(this.commonDir, 'versions', version, version + '.jar')
     }
 
+    _neoForgeClientJar() {
+        const version = this._neoForgeVersion()
+        return path.join(this.libPath, 'net', 'neoforged', 'neoforge', version, 'neoforge-' + version + '-client.jar')
+    }
+
     _neoForgeVersionJar() {
         const id = this._neoForgeId()
         const version = this._neoForgeVersion()
@@ -116,6 +121,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         }
 
         add(this._vanillaClientJar(), 'vanilla client jar fallback')
+        add(this._neoForgeClientJar(), 'NeoForge client support jar')
         add(this._neoForgeVersionJar(), 'generated NeoForge version jar')
 
         this._processClassPathList(libs)

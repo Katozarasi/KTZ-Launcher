@@ -1,6 +1,6 @@
 // KTZ NeoForge runtime patch.
 // NeoForge is safest when extra mods are placed in the instance mods folder.
-// This avoids passing a Forge-style --fml.modLists list that can hide built-in minecraft/neoforge mods.
+// This avoids passing a Forge-style --fml.modLists list and makes the vanilla client jar visible to the module layer.
 
 function ktzPatchNeoForgeRuntime(){
     try {
@@ -16,17 +16,31 @@ function ktzPatchNeoForgeRuntime(){
 
         const originalClasspathArg = ProcessBuilder.prototype.classpathArg
         const originalConstructModList = ProcessBuilder.prototype.constructModList
+        const originalConstructJVMArguments113 = ProcessBuilder.prototype._constructJVMArguments113
 
         function isNeoForgeBuild(builder){
             return builder.server?.rawServer?.ktz?.loader === 'neoforge' || String(builder.modManifest?.id || '').startsWith('neoforge-')
+        }
+
+        function vanillaClientJar(builder){
+            const version = builder.vanillaManifest.id
+            return path.join(builder.commonDir, 'versions', version, version + '.jar')
+        }
+
+        function addToSeparatedPath(value, filePath){
+            const sep = ProcessBuilder.getClasspathSeparator()
+            const parts = String(value || '').split(sep).filter(Boolean)
+            if(!parts.includes(filePath)){
+                parts.unshift(filePath)
+            }
+            return parts.join(sep)
         }
 
         ProcessBuilder.prototype.classpathArg = function(mods, tempNativePath){
             const cpArgs = originalClasspathArg.call(this, mods, tempNativePath)
 
             if(isNeoForgeBuild(this)){
-                const version = this.vanillaManifest.id
-                const vanillaClient = path.join(this.commonDir, 'versions', version, version + '.jar')
+                const vanillaClient = vanillaClientJar(this)
                 if(!cpArgs.includes(vanillaClient)){
                     cpArgs.unshift(vanillaClient)
                     console.log('[KTZ NeoForge] Added vanilla client jar to classpath:', vanillaClient)
@@ -34,6 +48,25 @@ function ktzPatchNeoForgeRuntime(){
             }
 
             return cpArgs
+        }
+
+        ProcessBuilder.prototype._constructJVMArguments113 = function(mods, tempNativePath){
+            const args = originalConstructJVMArguments113.call(this, mods, tempNativePath)
+
+            if(isNeoForgeBuild(this)){
+                const vanillaClient = vanillaClientJar(this)
+                const modulePathIndex = args.indexOf('-p')
+                if(modulePathIndex > -1 && args[modulePathIndex + 1] != null){
+                    args[modulePathIndex + 1] = addToSeparatedPath(args[modulePathIndex + 1], vanillaClient)
+                    console.log('[KTZ NeoForge] Added vanilla client jar to module path:', vanillaClient)
+                } else {
+                    args.unshift(addToSeparatedPath('', vanillaClient))
+                    args.unshift('-p')
+                    console.log('[KTZ NeoForge] Created module path with vanilla client jar:', vanillaClient)
+                }
+            }
+
+            return args
         }
 
         ProcessBuilder.prototype.constructModList = function(mods){

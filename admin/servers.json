@@ -36,7 +36,7 @@
     },
     "kato_empire_test": {
       "name": "카토제국 테스트 서버",
-      "description": "카토제국 테스트 서버입니다.",
+      "description": "NeoForge 1.21.4 테스트 서버입니다.",
       "minecraftVersion": "1.21.4",
       "javaOptions": {
         "supported": ">=21",
@@ -47,18 +47,21 @@
         }
       },
       "ktz": {
+        "loader": "neoforge",
+        "loaderName": "NeoForge",
+        "loaderVersion": "21.4.157",
         "i18n": {
           "ko_KR": {
             "name": "카토제국 테스트 서버",
-            "subtitle": "기능 점검 및 테스트 서버"
+            "subtitle": "NeoForge 1.21.4 / 21.4.157 테스트 서버"
           },
           "ja_JP": {
             "name": "カト帝国 テストサーバー",
-            "subtitle": "機能確認・テスト用サーバー"
+            "subtitle": "NeoForge 1.21.4 / 21.4.157 テストサーバー"
           },
           "en_US": {
             "name": "Kato Empire Test",
-            "subtitle": "Feature check and test server"
+            "subtitle": "NeoForge 1.21.4 / 21.4.157 test server"
           }
         },
         "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_thumb.png",

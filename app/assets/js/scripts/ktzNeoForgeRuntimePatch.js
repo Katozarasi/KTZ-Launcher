@@ -16,16 +16,22 @@ function ktzPatchNeoForgeRuntime(){
 
         const originalClasspathArg = ProcessBuilder.prototype.classpathArg
         const originalConstructModList = ProcessBuilder.prototype.constructModList
+        const originalConstructJVMArguments113 = ProcessBuilder.prototype._constructJVMArguments113
 
         function isNeoForgeBuild(builder){
             return builder.server?.rawServer?.ktz?.loader === 'neoforge' || String(builder.modManifest?.id || '').startsWith('neoforge-')
         }
 
-        function neoForgeVersionJar(builder){
+        function neoForgeId(builder){
             const rawVersion = builder.server?.rawServer?.ktz?.loaderVersion || '21.4.157'
             const version = String(rawVersion).replace('neoforge-', '')
-            const fileName = 'neoforge-' + version + '.jar'
-            return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, fileName)
+            return 'neoforge-' + version
+        }
+
+        function neoForgeVersionJar(builder){
+            const id = neoForgeId(builder)
+            const version = id.replace('neoforge-', '')
+            return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
         }
 
         function ensureClasspathEntry(cpArgs, filePath, label){
@@ -51,6 +57,20 @@ function ktzPatchNeoForgeRuntime(){
             }
 
             return cpArgs
+        }
+
+        ProcessBuilder.prototype._constructJVMArguments113 = function(mods, tempNativePath){
+            const args = originalConstructJVMArguments113.call(this, mods, tempNativePath)
+
+            if(isNeoForgeBuild(this)){
+                const idx = args.indexOf('--version')
+                if(idx > -1 && args[idx + 1] != null){
+                    args[idx + 1] = neoForgeId(this)
+                    console.log('[KTZ NeoForge] Set --version to:', args[idx + 1])
+                }
+            }
+
+            return args
         }
 
         ProcessBuilder.prototype.constructModList = function(mods){

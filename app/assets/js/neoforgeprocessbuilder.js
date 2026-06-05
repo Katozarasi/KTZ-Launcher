@@ -114,10 +114,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             const jar = path.join(minecraftDir, 'versions', id, id + '.jar')
             const json = path.join(minecraftDir, 'versions', id, id + '.json')
 
-            // NeoForge's installer may generate only the version json while placing the real
-            // transformed Minecraft client under libraries/net/minecraft/client. In that case
-            // the runtime is still valid; the generated version jar can come from the launcher's
-            // managed library fallback.
             if(fs.existsSync(json)) {
                 return {
                     id,
@@ -446,6 +442,21 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             .replaceAll(this.commonDir, this.neoForgeCommonDir)
     }
 
+    _remapNeoForgeJvmArgument(value, previousArg) {
+        if(typeof value !== 'string') {
+            return value
+        }
+
+        // The classpath is already built path-by-path by _orderedNeoForgeLibraries().
+        // Do not remap it wholesale because some vanilla/LWJGL libraries may only exist
+        // in .mrslauncher/common while NeoForge-specific libraries exist in .minecraft.
+        if(previousArg === '-cp' || previousArg === '-classpath') {
+            return value
+        }
+
+        return this._remapNeoForgeRuntimePath(value)
+    }
+
     _constructJVMArguments113(mods, tempNativePath) {
         const args = super._constructJVMArguments113(mods, tempNativePath)
         const id = this._neoForgeId()
@@ -461,7 +472,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         }
 
         for(let i = 0; i < args.length; i++) {
-            args[i] = this._remapNeoForgeRuntimePath(args[i])
+            args[i] = this._remapNeoForgeJvmArgument(args[i], args[i - 1])
         }
 
         logger.info('NeoForge --version:', id)

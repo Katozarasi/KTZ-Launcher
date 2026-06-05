@@ -122,8 +122,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     _excludedVanillaLibrary(lib) {
         const name = lib.name || ''
 
-        // NeoForge module path already contains ASM 9.8.
-        // Vanilla 1.21.4 can bring ASM 9.6, which causes module duplication.
         if(name.startsWith('org.ow2.asm:')) {
             return true
         }
@@ -148,12 +146,10 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             }
         }
 
-        // 1. NeoForge / FML libraries first.
         for(const lib of this.modManifest.libraries || []) {
             add(this._libraryPathFromManifest(lib))
         }
 
-        // 2. Mojang libraries next.
         for(const lib of this.vanillaManifest.libraries || []) {
             if(this._excludedVanillaLibrary(lib)) {
                 logger.info('Skipping vanilla library already supplied by NeoForge module path:', lib.name)
@@ -165,8 +161,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             }
         }
 
-        // 3. Official NeoForge version jar last.
-        // Do NOT add neoforge-*-client.jar here. It causes duplicate "neoforge" module.
         add(this._neoForgeVersionJar(), 'generated NeoForge version jar')
 
         this._processClassPathList(libs)
@@ -176,7 +170,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     }
 
     classpathArg(_mods, tempNativePath) {
-        // Extract natives using the base resolver.
         this._resolveMojangLibraries(tempNativePath)
         return this._orderedNeoForgeLibraries()
     }
@@ -236,6 +229,16 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return { fMods, lMods }
     }
 
+    _remapNeoForgeRuntimePath(value) {
+        if(typeof value !== 'string') {
+            return value
+        }
+
+        return value
+            .replaceAll(this.libPath, this.neoForgeLibPath)
+            .replaceAll(this.commonDir, this.neoForgeCommonDir)
+    }
+
     _constructJVMArguments113(mods, tempNativePath) {
         const args = super._constructJVMArguments113(mods, tempNativePath)
         const id = this._neoForgeId()
@@ -250,7 +253,12 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             args[launcherNameIndex] = '-Dminecraft.launcher.brand=KTZ-Launcher'
         }
 
+        for(let i = 0; i < args.length; i++) {
+            args[i] = this._remapNeoForgeRuntimePath(args[i])
+        }
+
         logger.info('NeoForge --version:', id)
+        logger.info('NeoForge library directory:', this.neoForgeLibPath)
         return args
     }
 }

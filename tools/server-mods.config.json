@@ -15,11 +15,10 @@
         "File"
       ]
     },
-    "_neoforge_example": {
-      "enabled": false,
-      "modsDir": "files/mods/my_neoforge_server",
+    "kato_empire_test": {
+      "modsDir": "files/mods/kato_empire_test",
       "modType": "ForgeMod",
-      "idPrefix": "ktz.myneoforge",
+      "idPrefix": "ktz.katoempiretest",
       "loader": "neoforge",
       "preserveModuleTypes": [
         "ForgeHosted",

@@ -447,10 +447,11 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             return value
         }
 
-        // The classpath is already built path-by-path by _orderedNeoForgeLibraries().
-        // Do not remap it wholesale because some vanilla/LWJGL libraries may only exist
-        // in .mrslauncher/common while NeoForge-specific libraries exist in .minecraft.
         if(previousArg === '-cp' || previousArg === '-classpath') {
+            return value
+        }
+
+        if(previousArg === '--assetsDir') {
             return value
         }
 

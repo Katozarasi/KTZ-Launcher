@@ -17,18 +17,24 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         this.usingNeoForgeLoader = true
         this.neoForgeCommonDir = this.commonDir
         this.neoForgeLibPath = this.libPath
+        this.neoForgeRuntimeId = this._defaultNeoForgeId()
 
         const officialMinecraftDir = this._officialMinecraftDir()
         if(officialMinecraftDir != null) {
-            if(!this._officialRuntimeExists(officialMinecraftDir)) {
+            let runtime = this._findOfficialRuntime(officialMinecraftDir)
+
+            if(runtime == null) {
                 logger.info('Official NeoForge runtime not found. Installing NeoForge runtime automatically.')
                 this._installOfficialNeoForgeRuntime(officialMinecraftDir)
+                runtime = this._findOfficialRuntime(officialMinecraftDir)
             }
 
-            if(this._officialRuntimeExists(officialMinecraftDir)) {
+            if(runtime != null) {
+                this.neoForgeRuntimeId = runtime.id
                 this.neoForgeCommonDir = officialMinecraftDir
                 this.neoForgeLibPath = path.join(officialMinecraftDir, 'libraries')
                 logger.info('Using official Minecraft directory for NeoForge runtime:', officialMinecraftDir)
+                logger.info('Using NeoForge runtime id:', this.neoForgeRuntimeId)
             } else {
                 logger.warn('Official NeoForge runtime is still missing. Falling back to launcher common directory.')
             }
@@ -44,13 +50,71 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return process.env.APPDATA != null ? path.join(process.env.APPDATA, '.minecraft') : null
     }
 
-    _officialRuntimeExists(minecraftDir) {
-        const id = this._neoForgeId()
+    _defaultNeoForgeId() {
+        return 'neoforge-' + this._neoForgeVersion()
+    }
+
+    _runtimeIdCandidates(minecraftDir) {
         const version = this._neoForgeVersion()
-        return fs.existsSync(path.join(minecraftDir, 'versions', id, id + '.jar')) &&
-            fs.existsSync(path.join(minecraftDir, 'versions', id, id + '.json')) &&
-            fs.existsSync(path.join(minecraftDir, 'libraries', 'net', 'minecraft', 'client', '1.21.4-20241203.161809', 'client-1.21.4-20241203.161809-srg.jar')) &&
-            fs.existsSync(path.join(minecraftDir, 'libraries', 'net', 'neoforged', 'neoforge', version, 'neoforge-' + version + '-universal.jar'))
+        const candidates = [
+            this._defaultNeoForgeId(),
+            this.vanillaManifest.id + '-neoforge-' + version,
+            'neoforge-' + this.vanillaManifest.id + '-' + version
+        ]
+
+        const versionsDir = path.join(minecraftDir, 'versions')
+        if(fs.existsSync(versionsDir)) {
+            for(const entry of fs.readdirSync(versionsDir)) {
+                const lower = entry.toLowerCase()
+                if(lower.includes('neoforge') && lower.includes(version.toLowerCase())) {
+                    candidates.push(entry)
+                }
+            }
+        }
+
+        return [...new Set(candidates)]
+    }
+
+    _findClientSrgJar(minecraftDir) {
+        const clientRoot = path.join(minecraftDir, 'libraries', 'net', 'minecraft', 'client')
+        if(!fs.existsSync(clientRoot)) {
+            return null
+        }
+
+        for(const versionDir of fs.readdirSync(clientRoot)) {
+            const dir = path.join(clientRoot, versionDir)
+            if(!fs.statSync(dir).isDirectory()) {
+                continue
+            }
+
+            for(const file of fs.readdirSync(dir)) {
+                if(file.endsWith('-srg.jar') && file.includes(this.vanillaManifest.id)) {
+                    return path.join(dir, file)
+                }
+            }
+        }
+
+        return null
+    }
+
+    _findOfficialRuntime(minecraftDir) {
+        const version = this._neoForgeVersion()
+        const universalJar = path.join(minecraftDir, 'libraries', 'net', 'neoforged', 'neoforge', version, 'neoforge-' + version + '-universal.jar')
+        const clientSrgJar = this._findClientSrgJar(minecraftDir)
+
+        if(!fs.existsSync(universalJar) || clientSrgJar == null) {
+            return null
+        }
+
+        for(const id of this._runtimeIdCandidates(minecraftDir)) {
+            const jar = path.join(minecraftDir, 'versions', id, id + '.jar')
+            const json = path.join(minecraftDir, 'versions', id, id + '.json')
+            if(fs.existsSync(jar) && fs.existsSync(json)) {
+                return { id, jar, json, universalJar, clientSrgJar }
+            }
+        }
+
+        return null
     }
 
     _installerUrl() {
@@ -86,35 +150,49 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return installerPath
     }
 
+    _runInstallerAttempt(javaExec, installerPath, minecraftDir, args) {
+        logger.info('Running NeoForge installer:', args.join(' '))
+        const result = child_process.spawnSync(javaExec, ['-jar', installerPath].concat(args), {
+            cwd: minecraftDir,
+            encoding: 'utf8',
+            windowsHide: true
+        })
+
+        if(result.status !== 0) {
+            logger.warn('NeoForge installer attempt failed.', result.stderr || result.stdout)
+            return false
+        }
+
+        if(this._findOfficialRuntime(minecraftDir) != null) {
+            logger.info('NeoForge runtime installation verified.')
+            return true
+        }
+
+        logger.warn('NeoForge installer exited successfully, but runtime verification failed for this argument set.')
+        return false
+    }
+
     _installOfficialNeoForgeRuntime(minecraftDir) {
         try {
             fs.ensureDirSync(minecraftDir)
             const installerPath = this._downloadInstallerIfNeeded()
             const javaExec = ConfigManager.getJavaExecutable(this.server.rawServer.id) || 'java'
 
-            logger.info('Running NeoForge installer:', installerPath)
-            let result = child_process.spawnSync(javaExec, ['-jar', installerPath, '--installClient'], {
-                cwd: minecraftDir,
-                encoding: 'utf8',
-                windowsHide: true
-            })
+            const attempts = [
+                ['--install-client'],
+                ['--installClient'],
+                ['--install-client', minecraftDir],
+                ['--installClient', minecraftDir]
+            ]
 
-            if(result.status !== 0) {
-                logger.warn('NeoForge installer failed with --installClient. Retrying with --install-client.', result.stderr || result.stdout)
-                result = child_process.spawnSync(javaExec, ['-jar', installerPath, '--install-client'], {
-                    cwd: minecraftDir,
-                    encoding: 'utf8',
-                    windowsHide: true
-                })
+            for(const args of attempts) {
+                if(this._runInstallerAttempt(javaExec, installerPath, minecraftDir, args)) {
+                    return true
+                }
             }
 
-            if(result.status !== 0) {
-                logger.error('NeoForge installer failed.', result.stderr || result.stdout)
-                return false
-            }
-
-            logger.info('NeoForge runtime installation complete.')
-            return true
+            logger.error('All NeoForge installer attempts failed verification.')
+            return false
         } catch(err) {
             logger.error('Unable to install NeoForge runtime automatically.', err)
             return false
@@ -127,7 +205,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     }
 
     _neoForgeId() {
-        return 'neoforge-' + this._neoForgeVersion()
+        return this.neoForgeRuntimeId || this._defaultNeoForgeId()
     }
 
     _neoForgeVersionJar() {
@@ -139,12 +217,12 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             return officialJar
         }
 
-        const sourceJar = path.join(this.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
-        const sourceJson = path.join(this.commonDir, 'versions', id, id + '.json')
+        const sourceJar = path.join(this.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, this._defaultNeoForgeId() + '.jar')
+        const sourceJson = path.join(this.commonDir, 'versions', this._defaultNeoForgeId(), this._defaultNeoForgeId() + '.json')
 
-        const targetDir = path.join(this.gameDir, 'versions', id)
-        const targetJar = path.join(targetDir, id + '.jar')
-        const targetJson = path.join(targetDir, id + '.json')
+        const targetDir = path.join(this.gameDir, 'versions', this._defaultNeoForgeId())
+        const targetJar = path.join(targetDir, this._defaultNeoForgeId() + '.jar')
+        const targetJson = path.join(targetDir, this._defaultNeoForgeId() + '.json')
 
         fs.ensureDirSync(targetDir)
 

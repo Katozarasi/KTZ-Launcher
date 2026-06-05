@@ -35,6 +35,9 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
                 this.neoForgeLibPath = path.join(officialMinecraftDir, 'libraries')
                 logger.info('Using official Minecraft directory for NeoForge runtime:', officialMinecraftDir)
                 logger.info('Using NeoForge runtime id:', this.neoForgeRuntimeId)
+                if(runtime.jar == null) {
+                    logger.info('NeoForge generated version jar missing; using launcher-provided generated jar fallback.')
+                }
             } else {
                 logger.warn('Official NeoForge runtime is still missing. Falling back to launcher common directory.')
             }
@@ -110,8 +113,19 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         for(const id of this._runtimeIdCandidates(minecraftDir)) {
             const jar = path.join(minecraftDir, 'versions', id, id + '.jar')
             const json = path.join(minecraftDir, 'versions', id, id + '.json')
-            if(fs.existsSync(jar) && fs.existsSync(json)) {
-                return { id, jar, json, universalJar, clientSrgJar }
+
+            // NeoForge's installer may generate only the version json while placing the real
+            // transformed Minecraft client under libraries/net/minecraft/client. In that case
+            // the runtime is still valid; the generated version jar can come from the launcher's
+            // managed library fallback.
+            if(fs.existsSync(json)) {
+                return {
+                    id,
+                    jar: fs.existsSync(jar) ? jar : null,
+                    json,
+                    universalJar,
+                    clientSrgJar
+                }
             }
         }
 

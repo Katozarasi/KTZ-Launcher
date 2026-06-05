@@ -5,6 +5,22 @@
       "modsDir": "files/mods/city_ability",
       "modType": "ForgeMod",
       "idPrefix": "ktz.cityability",
+      "loader": "forge",
+      "preserveModuleTypes": [
+        "ForgeHosted",
+        "Fabric",
+        "LiteLoader",
+        "Library",
+        "VersionManifest",
+        "File"
+      ]
+    },
+    "_neoforge_example": {
+      "enabled": false,
+      "modsDir": "files/mods/my_neoforge_server",
+      "modType": "ForgeMod",
+      "idPrefix": "ktz.myneoforge",
+      "loader": "neoforge",
       "preserveModuleTypes": [
         "ForgeHosted",
         "Fabric",

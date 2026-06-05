@@ -35,13 +35,28 @@
         "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
         "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
         "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
-        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_official.xml"
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_official.xml",
+        "i18n": {
+          "ko_KR": {
+            "name": "카토제국 공식서버",
+            "subtitle": "카토제국 공식 운영 서버"
+          },
+          "ja_JP": {
+            "name": "カト帝国 公式サーバー",
+            "subtitle": "カト帝国公式運営サーバー"
+          },
+          "en_US": {
+            "name": "Kato Empire Official",
+            "subtitle": "Kato Empire official server"
+          }
+        },
+        "maintenance": false
       }
     },
     {
       "id": "kato_empire_test",
       "name": "카토제국 테스트 서버",
-      "description": "카토제국 테스트 서버입니다.",
+      "description": "NeoForge 1.21.4 테스트 서버입니다.",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_thumb.png",
       "version": "1.0.0",
       "address": "1.224.237.11",
@@ -56,14 +71,683 @@
           "minimum": 2048
         }
       },
-      "modules": [],
+      "modules": [
+        {
+          "id": "net.neoforged:neoforge:21.4.157",
+          "name": "NeoForge 1.21.4-21.4.157",
+          "type": "ForgeHosted",
+          "artifact": {
+            "size": 1,
+            "MD5": "c4ca4238a0b923820dcc509a6f75849b",
+            "path": "net/neoforged/neoforge/21.4.157/neoforge-21.4.157.jar",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/placeholder/neoforge-placeholder.jar"
+          },
+          "subModules": [
+            {
+              "id": "neoforge-21.4.157",
+              "name": "NeoForge neoforge-21.4.157 (version.json)",
+              "type": "VersionManifest",
+              "artifact": {
+                "size": 21777,
+                "MD5": "23301db4349702a604e16dde0a2e0ea9",
+                "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/versions/neoforge-21.4.157/neoforge-21.4.157.json"
+              }
+            },
+            {
+              "id": "net.neoforged.fancymodloader:earlydisplay:6.0.18",
+              "name": "net.neoforged.fancymodloader:earlydisplay:6.0.18",
+              "type": "Library",
+              "artifact": {
+                "size": 273409,
+                "MD5": "e2c3cd92aebd2a8fa388f5a990a8a573",
+                "path": "net/neoforged/fancymodloader/earlydisplay/6.0.18/earlydisplay-6.0.18.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/6.0.18/earlydisplay-6.0.18.jar"
+              }
+            },
+            {
+              "id": "net.neoforged.fancymodloader:loader:6.0.18",
+              "name": "net.neoforged.fancymodloader:loader:6.0.18",
+              "type": "Library",
+              "artifact": {
+                "size": 514106,
+                "MD5": "46b7008d1cb6e2a03edc43855e71dd7d",
+                "path": "net/neoforged/fancymodloader/loader/6.0.18/loader-6.0.18.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/6.0.18/loader-6.0.18.jar"
+              }
+            },
+            {
+              "id": "net.neoforged.accesstransformers:at-modlauncher:11.0.2",
+              "name": "net.neoforged.accesstransformers:at-modlauncher:11.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 2314,
+                "MD5": "e21375b2ebd624c1bb66c272c2e99f85",
+                "path": "net/neoforged/accesstransformers/at-modlauncher/11.0.2/at-modlauncher-11.0.2.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/at-modlauncher/11.0.2/at-modlauncher-11.0.2.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:accesstransformers:11.0.2",
+              "name": "net.neoforged:accesstransformers:11.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 20292,
+                "MD5": "922dcbacd9dcc03115e38ace7f518970",
+                "path": "net/neoforged/accesstransformers/11.0.2/accesstransformers-11.0.2.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/11.0.2/accesstransformers-11.0.2.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:bus:8.0.5",
+              "name": "net.neoforged:bus:8.0.5",
+              "type": "Library",
+              "artifact": {
+                "size": 30340,
+                "MD5": "95eee080d9de7cb764adcb8fa2ecf3fb",
+                "path": "net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:coremods:7.0.3",
+              "name": "net.neoforged:coremods:7.0.3",
+              "type": "Library",
+              "artifact": {
+                "size": 22659,
+                "MD5": "4527abf6b7116dae1c2178f7beab0ba2",
+                "path": "net/neoforged/coremods/7.0.3/coremods-7.0.3.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+              }
+            },
+            {
+              "id": "cpw.mods:modlauncher:11.0.4",
+              "name": "cpw.mods:modlauncher:11.0.4",
+              "type": "Library",
+              "artifact": {
+                "size": 116200,
+                "MD5": "235e85107389e9ca26cdae396978bca6",
+                "path": "cpw/mods/modlauncher/11.0.4/modlauncher-11.0.4.jar",
+                "url": "https://maven.neoforged.net/releases/cpw/mods/modlauncher/11.0.4/modlauncher-11.0.4.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:mergetool:2.0.0:api",
+              "name": "net.neoforged:mergetool:2.0.0:api",
+              "type": "Library",
+              "artifact": {
+                "size": 2550,
+                "MD5": "818b398f65b8dc5af802b721fd1d0b56",
+                "path": "net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+              }
+            },
+            {
+              "id": "com.electronwill.night-config:toml:3.8.1",
+              "name": "com.electronwill.night-config:toml:3.8.1",
+              "type": "Library",
+              "artifact": {
+                "size": 39516,
+                "MD5": "976f7996b0527b7cdc122867680a8c0e",
+                "path": "com/electronwill/night-config/toml/3.8.1/toml-3.8.1.jar",
+                "url": "https://maven.neoforged.net/releases/com/electronwill/night-config/toml/3.8.1/toml-3.8.1.jar"
+              }
+            },
+            {
+              "id": "com.electronwill.night-config:core:3.8.1",
+              "name": "com.electronwill.night-config:core:3.8.1",
+              "type": "Library",
+              "artifact": {
+                "size": 375385,
+                "MD5": "8ce28453978186febbeebb521d4d1049",
+                "path": "com/electronwill/night-config/core/3.8.1/core-3.8.1.jar",
+                "url": "https://maven.neoforged.net/releases/com/electronwill/night-config/core/3.8.1/core-3.8.1.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:JarJarSelector:0.4.1",
+              "name": "net.neoforged:JarJarSelector:0.4.1",
+              "type": "Library",
+              "artifact": {
+                "size": 17168,
+                "MD5": "20d1fe8972655189f69845554ee1a4d1",
+                "path": "net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:JarJarMetadata:0.4.1",
+              "name": "net.neoforged:JarJarMetadata:0.4.1",
+              "type": "Library",
+              "artifact": {
+                "size": 15648,
+                "MD5": "c2f30969dd8b1dc8e3f78c731bd2c5c8",
+                "path": "net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.maven:maven-artifact:3.9.9",
+              "name": "org.apache.maven:maven-artifact:3.9.9",
+              "type": "Library",
+              "artifact": {
+                "size": 58819,
+                "MD5": "fcb27c2b8225edec3f2356973fa39e98",
+                "path": "org/apache/maven/maven-artifact/3.9.9/maven-artifact-3.9.9.jar",
+                "url": "https://maven.neoforged.net/releases/org/apache/maven/maven-artifact/3.9.9/maven-artifact-3.9.9.jar"
+              }
+            },
+            {
+              "id": "net.jodah:typetools:0.6.3",
+              "name": "net.jodah:typetools:0.6.3",
+              "type": "Library",
+              "artifact": {
+                "size": 18281,
+                "MD5": "d4a375bf382f726cf1a650ccb38a736c",
+                "path": "net/jodah/typetools/0.6.3/typetools-0.6.3.jar",
+                "url": "https://maven.neoforged.net/releases/net/jodah/typetools/0.6.3/typetools-0.6.3.jar"
+              }
+            },
+            {
+              "id": "net.minecrell:terminalconsoleappender:1.3.0",
+              "name": "net.minecrell:terminalconsoleappender:1.3.0",
+              "type": "Library",
+              "artifact": {
+                "size": 16949,
+                "MD5": "179d3abaf9736dbd8fbd4fa98e1c6ea1",
+                "path": "net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar",
+                "url": "https://maven.neoforged.net/releases/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar"
+              }
+            },
+            {
+              "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+              "name": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+              "type": "Library",
+              "artifact": {
+                "size": 1494751,
+                "MD5": "4808c070bf19415a5cb4a0cb5e569b12",
+                "path": "net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                "url": "https://maven.neoforged.net/releases/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
+              }
+            },
+            {
+              "id": "org.openjdk.nashorn:nashorn-core:15.4",
+              "name": "org.openjdk.nashorn:nashorn-core:15.4",
+              "type": "Library",
+              "artifact": {
+                "size": 2167292,
+                "MD5": "a9b3360e6a486cf62c1952c7816b7d97",
+                "path": "org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar",
+                "url": "https://maven.neoforged.net/releases/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
+              }
+            },
+            {
+              "id": "cpw.mods:bootstraplauncher:2.0.2",
+              "name": "cpw.mods:bootstraplauncher:2.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 11116,
+                "MD5": "169bd8c006e69d83267466e311d4049d",
+                "path": "cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar",
+                "url": "https://maven.neoforged.net/releases/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar"
+              }
+            },
+            {
+              "id": "cpw.mods:securejarhandler:3.0.8",
+              "name": "cpw.mods:securejarhandler:3.0.8",
+              "type": "Library",
+              "artifact": {
+                "size": 103765,
+                "MD5": "eb0d5290a2681c2dbeb8088b82e0fbf9",
+                "path": "cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar",
+                "url": "https://maven.neoforged.net/releases/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar"
+              }
+            },
+            {
+              "id": "org.ow2.asm:asm-commons:9.8",
+              "name": "org.ow2.asm:asm-commons:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 73498,
+                "MD5": "c8c3d9ccf240144e74d94ff658b024c9",
+                "path": "org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+              }
+            },
+            {
+              "id": "org.ow2.asm:asm-util:9.8",
+              "name": "org.ow2.asm:asm-util:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 94559,
+                "MD5": "62498ef324bdab15f407d703f7d78d19",
+                "path": "org/ow2/asm/asm-util/9.8/asm-util-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+              }
+            },
+            {
+              "id": "org.ow2.asm:asm-analysis:9.8",
+              "name": "org.ow2.asm:asm-analysis:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 35151,
+                "MD5": "3d63508405f5610fc2ea673ff5471553",
+                "path": "org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+              }
+            },
+            {
+              "id": "org.ow2.asm:asm-tree:9.8",
+              "name": "org.ow2.asm:asm-tree:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 51934,
+                "MD5": "4ab1aaec43c77a2d9b56e6d6d496f705",
+                "path": "org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+              }
+            },
+            {
+              "id": "org.ow2.asm:asm:9.8",
+              "name": "org.ow2.asm:asm:9.8",
+              "type": "Library",
+              "artifact": {
+                "size": 126113,
+                "MD5": "f5adf3bfc54fb3d2cd8e3a1f275084bc",
+                "path": "org/ow2/asm/asm/9.8/asm-9.8.jar",
+                "url": "https://maven.neoforged.net/releases/org/ow2/asm/asm/9.8/asm-9.8.jar"
+              }
+            },
+            {
+              "id": "net.neoforged:JarJarFileSystems:0.4.1",
+              "name": "net.neoforged:JarJarFileSystems:0.4.1",
+              "type": "Library",
+              "artifact": {
+                "size": 31807,
+                "MD5": "8d75021e5aeb04652b4b9ae3df500b9e",
+                "path": "net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+              }
+            },
+            {
+              "id": "net.sf.jopt-simple:jopt-simple:5.0.4",
+              "name": "net.sf.jopt-simple:jopt-simple:5.0.4",
+              "type": "Library",
+              "artifact": {
+                "size": 78146,
+                "MD5": "eb0d9dffe9b0eddead68fe678be76c49",
+                "path": "net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+                "url": "https://libraries.minecraft.net/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+              }
+            },
+            {
+              "id": "net.neoforged.accesstransformers:at-parser:11.0.2",
+              "name": "net.neoforged.accesstransformers:at-parser:11.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 19331,
+                "MD5": "700238db71cb897292eb5e11e76ca769",
+                "path": "net/neoforged/accesstransformers/at-parser/11.0.2/at-parser-11.0.2.jar",
+                "url": "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/at-parser/11.0.2/at-parser-11.0.2.jar"
+              }
+            },
+            {
+              "id": "org.slf4j:slf4j-api:2.0.16",
+              "name": "org.slf4j:slf4j-api:2.0.16",
+              "type": "Library",
+              "artifact": {
+                "size": 69435,
+                "MD5": "c8de8f5d740584cb24b5652cfba8b3c4",
+                "path": "org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar",
+                "url": "https://libraries.minecraft.net/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar"
+              }
+            },
+            {
+              "id": "com.mojang:logging:1.5.10",
+              "name": "com.mojang:logging:1.5.10",
+              "type": "Library",
+              "artifact": {
+                "size": 19800,
+                "MD5": "0b7da24cea4e840b91c13ed08657a6d3",
+                "path": "com/mojang/logging/1.5.10/logging-1.5.10.jar",
+                "url": "https://libraries.minecraft.net/com/mojang/logging/1.5.10/logging-1.5.10.jar"
+              }
+            },
+            {
+              "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.24.1",
+              "name": "org.apache.logging.log4j:log4j-slf4j2-impl:2.24.1",
+              "type": "Library",
+              "artifact": {
+                "size": 30133,
+                "MD5": "033362ddeac79ba54fdc33cc2004d445",
+                "path": "org/apache/logging/log4j/log4j-slf4j2-impl/2.24.1/log4j-slf4j2-impl-2.24.1.jar",
+                "url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-slf4j2-impl/2.24.1/log4j-slf4j2-impl-2.24.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.logging.log4j:log4j-core:2.24.1",
+              "name": "org.apache.logging.log4j:log4j-core:2.24.1",
+              "type": "Library",
+              "artifact": {
+                "size": 1910958,
+                "MD5": "fd982d71f36250bc31528fc7e3d0807d",
+                "path": "org/apache/logging/log4j/log4j-core/2.24.1/log4j-core-2.24.1.jar",
+                "url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-core/2.24.1/log4j-core-2.24.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.logging.log4j:log4j-api:2.24.1",
+              "name": "org.apache.logging.log4j:log4j-api:2.24.1",
+              "type": "Library",
+              "artifact": {
+                "size": 348428,
+                "MD5": "4dac8bc9a21f3503cd1a856503b6fea0",
+                "path": "org/apache/logging/log4j/log4j-api/2.24.1/log4j-api-2.24.1.jar",
+                "url": "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-api/2.24.1/log4j-api-2.24.1.jar"
+              }
+            },
+            {
+              "id": "org.jline:jline-reader:3.20.0",
+              "name": "org.jline:jline-reader:3.20.0",
+              "type": "Library",
+              "artifact": {
+                "size": 171052,
+                "MD5": "9ece57ca56a1688d1d09fe2c48e7a292",
+                "path": "org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar",
+                "url": "https://maven.neoforged.net/releases/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar"
+              }
+            },
+            {
+              "id": "org.jline:jline-terminal:3.20.0",
+              "name": "org.jline:jline-terminal:3.20.0",
+              "type": "Library",
+              "artifact": {
+                "size": 228481,
+                "MD5": "e45dace437743e6b5e75c81eb455fd3e",
+                "path": "org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar",
+                "url": "https://maven.neoforged.net/releases/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar"
+              }
+            },
+            {
+              "id": "commons-io:commons-io:2.17.0",
+              "name": "commons-io:commons-io:2.17.0",
+              "type": "Library",
+              "artifact": {
+                "size": 515978,
+                "MD5": "f6232d0e290d58bb93f74f67165bf91f",
+                "path": "commons-io/commons-io/2.17.0/commons-io-2.17.0.jar",
+                "url": "https://libraries.minecraft.net/commons-io/commons-io/2.17.0/commons-io-2.17.0.jar"
+              }
+            },
+            {
+              "id": "net.minecraftforge:srgutils:0.4.15",
+              "name": "net.minecraftforge:srgutils:0.4.15",
+              "type": "Library",
+              "artifact": {
+                "size": 69393,
+                "MD5": "79812fd073afe1c046bc1ea46ad28095",
+                "path": "net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar",
+                "url": "https://maven.neoforged.net/releases/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar"
+              }
+            },
+            {
+              "id": "com.google.guava:guava:33.3.1-jre",
+              "name": "com.google.guava:guava:33.3.1-jre",
+              "type": "Library",
+              "artifact": {
+                "size": 3079289,
+                "MD5": "7b7d80d99af4181db55b00dad50a91bb",
+                "path": "com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar",
+                "url": "https://libraries.minecraft.net/com/google/guava/guava/33.3.1-jre/guava-33.3.1-jre.jar"
+              }
+            },
+            {
+              "id": "com.google.guava:failureaccess:1.0.2",
+              "name": "com.google.guava:failureaccess:1.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 4740,
+                "MD5": "3f75955b49b6758fd6d1e1bd9bf777b3",
+                "path": "com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar",
+                "url": "https://libraries.minecraft.net/com/google/guava/failureaccess/1.0.2/failureaccess-1.0.2.jar"
+              }
+            },
+            {
+              "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+              "name": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+              "type": "Library",
+              "artifact": {
+                "size": 2199,
+                "MD5": "d094c22570d65e132c19cea5d352e381",
+                "path": "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                "url": "https://libraries.minecraft.net/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+              }
+            },
+            {
+              "id": "com.google.code.findbugs:jsr305:3.0.2",
+              "name": "com.google.code.findbugs:jsr305:3.0.2",
+              "type": "Library",
+              "artifact": {
+                "size": 19936,
+                "MD5": "dd83accb899363c32b07d7a1b2e4ce40",
+                "path": "com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+                "url": "https://libraries.minecraft.net/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+              }
+            },
+            {
+              "id": "org.checkerframework:checker-qual:3.43.0",
+              "name": "org.checkerframework:checker-qual:3.43.0",
+              "type": "Library",
+              "artifact": {
+                "size": 231525,
+                "MD5": "4f56e65c8f302ca8b4cb384c9b4a53b6",
+                "path": "org/checkerframework/checker-qual/3.43.0/checker-qual-3.43.0.jar",
+                "url": "https://libraries.minecraft.net/org/checkerframework/checker-qual/3.43.0/checker-qual-3.43.0.jar"
+              }
+            },
+            {
+              "id": "com.google.code.gson:gson:2.11.0",
+              "name": "com.google.code.gson:gson:2.11.0",
+              "type": "Library",
+              "artifact": {
+                "size": 298435,
+                "MD5": "0c69b9199d3a4e6c34dc03619ff7feee",
+                "path": "com/google/code/gson/gson/2.11.0/gson-2.11.0.jar",
+                "url": "https://libraries.minecraft.net/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar"
+              }
+            },
+            {
+              "id": "com.google.errorprone:error_prone_annotations:2.28.0",
+              "name": "com.google.errorprone:error_prone_annotations:2.28.0",
+              "type": "Library",
+              "artifact": {
+                "size": 19370,
+                "MD5": "9e5d2181ddb6acb58fe08e86198c4232",
+                "path": "com/google/errorprone/error_prone_annotations/2.28.0/error_prone_annotations-2.28.0.jar",
+                "url": "https://maven.neoforged.net/releases/com/google/errorprone/error_prone_annotations/2.28.0/error_prone_annotations-2.28.0.jar"
+              }
+            },
+            {
+              "id": "com.google.j2objc:j2objc-annotations:3.0.0",
+              "name": "com.google.j2objc:j2objc-annotations:3.0.0",
+              "type": "Library",
+              "artifact": {
+                "size": 12467,
+                "MD5": "f59529b29202a5baf37f491ea5ec8627",
+                "path": "com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar",
+                "url": "https://libraries.minecraft.net/com/google/j2objc/j2objc-annotations/3.0.0/j2objc-annotations-3.0.0.jar"
+              }
+            },
+            {
+              "id": "org.codehaus.plexus:plexus-utils:3.5.1",
+              "name": "org.codehaus.plexus:plexus-utils:3.5.1",
+              "type": "Library",
+              "artifact": {
+                "size": 269335,
+                "MD5": "cdec471a77f52e687d0df4c43f392a71",
+                "path": "org/codehaus/plexus/plexus-utils/3.5.1/plexus-utils-3.5.1.jar",
+                "url": "https://maven.neoforged.net/releases/org/codehaus/plexus/plexus-utils/3.5.1/plexus-utils-3.5.1.jar"
+              }
+            },
+            {
+              "id": "org.apache.commons:commons-lang3:3.17.0",
+              "name": "org.apache.commons:commons-lang3:3.17.0",
+              "type": "Library",
+              "artifact": {
+                "size": 673587,
+                "MD5": "7730df72b7fdff4a3a32d89a314f826a",
+                "path": "org/apache/commons/commons-lang3/3.17.0/commons-lang3-3.17.0.jar",
+                "url": "https://libraries.minecraft.net/org/apache/commons/commons-lang3/3.17.0/commons-lang3-3.17.0.jar"
+              }
+            },
+            {
+              "id": "com.machinezoo.noexception:noexception:1.7.1",
+              "name": "com.machinezoo.noexception:noexception:1.7.1",
+              "type": "Library",
+              "artifact": {
+                "size": 250861,
+                "MD5": "fcc3e4df4990088c964f687b62f7c448",
+                "path": "com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar",
+                "url": "https://maven.neoforged.net/releases/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
+              }
+            }
+          ]
+        },
+        {
+          "id": "ktz.katoempiretest:appleskin-neoforge-mc1.21.3-3.0.8:1.0.0",
+          "name": "appleskin-neoforge-mc1.21.3-3.0.8",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 79857,
+            "MD5": "8ce6be0951374c56ad4ecaadcddbd217",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/appleskin-neoforge-mc1.21.3-3.0.8.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:chat_heads-0.15.1-neoforge-1.21.4:1.0.0",
+          "name": "chat_heads-0.15.1-neoforge-1.21.4",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 88356,
+            "MD5": "bf41dd40d11a1c8700750f89398d346a",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/chat_heads-0.15.1-neoforge-1.21.4.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:emotecraft-neoforge-for-mc1.21.4-2.5.8:1.0.0",
+          "name": "emotecraft-neoforge-for-MC1.21.4-2.5.8",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 1260413,
+            "MD5": "8e05f18a35d9bc3023d90a2d02eb239d",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/emotecraft-neoforge-for-MC1.21.4-2.5.8.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:ferritecore-7.1.3-neoforge:1.0.0",
+          "name": "ferritecore-7.1.3-neoforge",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 107961,
+            "MD5": "71fe847d5c8f0dc84fa4acc8084344a3",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/ferritecore-7.1.3-neoforge.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:iris-neoforge-1.8.8-mc1.21.4:1.0.0",
+          "name": "iris-neoforge-1.8.8+mc1.21.4",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 2622578,
+            "MD5": "3d56bb785c4c269a5cc4af00ba8272a1",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/iris-neoforge-1.8.8%2Bmc1.21.4.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:journeymap-neoforge-1.21.4-6.0.0-beta.47:1.0.0",
+          "name": "journeymap-neoforge-1.21.4-6.0.0-beta.47",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 3485461,
+            "MD5": "dfaebd985191541f3b2051b388294202",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/journeymap-neoforge-1.21.4-6.0.0-beta.47.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:modernfix-neoforge-5.20.3-mc1.21.4:1.0.0",
+          "name": "modernfix-neoforge-5.20.3+mc1.21.4",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 470519,
+            "MD5": "5c4f410f706f85267914d321a3ddd0dc",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/modernfix-neoforge-5.20.3%2Bmc1.21.4.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:mousetweaks-neoforge-mc1.21.3-2.26.1:1.0.0",
+          "name": "MouseTweaks-neoforge-mc1.21.3-2.26.1",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 73946,
+            "MD5": "b3849b7fc8b2f035dcc1357f23fe959d",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/MouseTweaks-neoforge-mc1.21.3-2.26.1.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:skinlayers3d-neoforge-1.11.1-mc1.21.4:1.0.0",
+          "name": "skinlayers3d-neoforge-1.11.1-mc1.21.4",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 1969447,
+            "MD5": "d893ed4cd0047cd3978350b7eff118ff",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/skinlayers3d-neoforge-1.11.1-mc1.21.4.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:sodium-neoforge-0.6.13-mc1.21.4:1.0.0",
+          "name": "sodium-neoforge-0.6.13+mc1.21.4",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 1161460,
+            "MD5": "97dd733bf0057fe83d9f35b1a0cf010d",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/sodium-neoforge-0.6.13%2Bmc1.21.4.jar"
+          }
+        },
+        {
+          "id": "ktz.katoempiretest:voicechat-neoforge-1.21.4-2.6.18:1.0.0",
+          "name": "voicechat-neoforge-1.21.4-2.6.18",
+          "type": "ForgeMod",
+          "artifact": {
+            "size": 4904588,
+            "MD5": "440954ff180c5c2c34d433cf4b2508e5",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/kato_empire_test/voicechat-neoforge-1.21.4-2.6.18.jar"
+          }
+        }
+      ],
       "ktz": {
         "shortName": "카토제국 테스트 서버",
-        "subtitle": "기능 점검 및 테스트 서버",
+        "subtitle": "NeoForge 1.21.4 / 21.4.157 테스트 서버",
         "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_thumb.png",
         "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_bg.png",
         "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kato_empire_test_bg.png",
-        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_test.xml"
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/kato_empire_test.xml",
+        "i18n": {
+          "ko_KR": {
+            "name": "카토제국 테스트 서버",
+            "subtitle": "NeoForge 1.21.4 / 21.4.157 테스트 서버"
+          },
+          "ja_JP": {
+            "name": "カト帝国 テストサーバー",
+            "subtitle": "NeoForge 1.21.4 / 21.4.157 テストサーバー"
+          },
+          "en_US": {
+            "name": "Kato Empire Test",
+            "subtitle": "NeoForge 1.21.4 / 21.4.157 test server"
+          }
+        },
+        "maintenance": false,
+        "loader": "neoforge",
+        "loaderName": "NeoForge",
+        "loaderVersion": "21.4.157"
       }
     },
     {
@@ -553,7 +1237,22 @@
         "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
         "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
         "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
-        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/city_ability.xml"
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/city_ability.xml",
+        "i18n": {
+          "ko_KR": {
+            "name": "도시능력자",
+            "subtitle": "도시 능력자 서버"
+          },
+          "ja_JP": {
+            "name": "都市能力者",
+            "subtitle": "都市能力者サーバー"
+          },
+          "en_US": {
+            "name": "City Ability",
+            "subtitle": "City Ability server"
+          }
+        },
+        "maintenance": false
       }
     }
   ]

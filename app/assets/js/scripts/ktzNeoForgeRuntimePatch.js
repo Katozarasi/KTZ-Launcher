@@ -27,6 +27,18 @@ function ktzPatchNeoForgeRuntime(){
             return path.join(builder.commonDir, 'versions', version, version + '.jar')
         }
 
+        function moduleSafeVanillaClientJar(builder){
+            const source = vanillaClientJar(builder)
+            const version = builder.vanillaManifest.id
+            const targetDir = path.join(builder.gameDir, '.ktz-neoforge')
+            const target = path.join(targetDir, 'minecraft-' + version + '.jar')
+            fs.ensureDirSync(targetDir)
+            if(!fs.existsSync(target)){
+                fs.copySync(source, target)
+            }
+            return target
+        }
+
         function addToSeparatedPath(value, filePath){
             const sep = ProcessBuilder.getClasspathSeparator()
             const parts = String(value || '').split(sep).filter(Boolean)
@@ -54,15 +66,15 @@ function ktzPatchNeoForgeRuntime(){
             const args = originalConstructJVMArguments113.call(this, mods, tempNativePath)
 
             if(isNeoForgeBuild(this)){
-                const vanillaClient = vanillaClientJar(this)
+                const safeVanillaClient = moduleSafeVanillaClientJar(this)
                 const modulePathIndex = args.indexOf('-p')
                 if(modulePathIndex > -1 && args[modulePathIndex + 1] != null){
-                    args[modulePathIndex + 1] = addToSeparatedPath(args[modulePathIndex + 1], vanillaClient)
-                    console.log('[KTZ NeoForge] Added vanilla client jar to module path:', vanillaClient)
+                    args[modulePathIndex + 1] = addToSeparatedPath(args[modulePathIndex + 1], safeVanillaClient)
+                    console.log('[KTZ NeoForge] Added module-safe vanilla client jar to module path:', safeVanillaClient)
                 } else {
-                    args.unshift(addToSeparatedPath('', vanillaClient))
+                    args.unshift(addToSeparatedPath('', safeVanillaClient))
                     args.unshift('-p')
-                    console.log('[KTZ NeoForge] Created module path with vanilla client jar:', vanillaClient)
+                    console.log('[KTZ NeoForge] Created module path with module-safe vanilla client jar:', safeVanillaClient)
                 }
             }
 

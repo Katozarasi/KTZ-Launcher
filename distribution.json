@@ -609,6 +609,18 @@
                 "path": "com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar",
                 "url": "https://maven.neoforged.net/releases/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
               }
+            },
+            {
+              "id": "net.neoforged:neoforge:21.4.157:universal",
+              "name": "NeoForge 21.4.157 Universal Support",
+              "type": "Library",
+              "classpath": false,
+              "artifact": {
+                "size": 3513954,
+                "MD5": "cf63fa31dff33454624a0ec4c5a62cee",
+                "path": "net/neoforged/neoforge/21.4.157/neoforge-21.4.157-universal.jar",
+                "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/21.4.157/neoforge-21.4.157-universal.jar"
+              }
             }
           ]
         }

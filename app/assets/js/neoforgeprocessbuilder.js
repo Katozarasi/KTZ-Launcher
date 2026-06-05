@@ -55,6 +55,19 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return path.join(this.libPath, artifact.path)
     }
 
+    _excludedVanillaLibrary(lib) {
+        const name = lib.name || ''
+
+        // NeoForge's JVM module path already contains ASM 9.8.
+        // Minecraft 1.21.4's vanilla manifest can still contribute ASM 9.6,
+        // which causes: Module org.objectweb.asm already on module path.
+        if(name.startsWith('org.ow2.asm:')) {
+            return true
+        }
+
+        return false
+    }
+
     _orderedNeoForgeLibraries() {
         const libs = []
         const seen = new Set()
@@ -73,7 +86,13 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         }
 
         // Then Mojang-declared libraries in Mojang manifest order.
+        // Exclude libraries whose Java modules are already supplied by NeoForge's module path.
         for(const lib of this.vanillaManifest.libraries || []) {
+            if(this._excludedVanillaLibrary(lib)) {
+                logger.info('Skipping vanilla library already supplied by NeoForge module path:', lib.name)
+                continue
+            }
+
             if(lib.downloads?.artifact?.path != null && !lib.name.includes('natives-')) {
                 add(path.join(this.libPath, lib.downloads.artifact.path))
             }

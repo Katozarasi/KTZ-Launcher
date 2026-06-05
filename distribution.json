@@ -621,6 +621,18 @@
                 "path": "net/neoforged/neoforge/21.4.157/neoforge-21.4.157-universal.jar",
                 "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/21.4.157/neoforge-21.4.157-universal.jar"
               }
+            },
+            {
+              "id": "net.neoforged:neoforge:21.4.157:client",
+              "name": "NeoForge 21.4.157 Client Support",
+              "type": "Library",
+              "classpath": false,
+              "artifact": {
+                "size": 5891137,
+                "MD5": "70505efad05655c750012855fe3b0c7f",
+                "path": "net/neoforged/neoforge/21.4.157/neoforge-21.4.157-client.jar",
+                "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/21.4.157/neoforge-21.4.157-client.jar"
+              }
             }
           ]
         }

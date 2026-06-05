@@ -1,6 +1,6 @@
 // KTZ NeoForge runtime patch.
 // NeoForge mods are copied into the instance mods folder.
-// Minecraft client jar must stay on classpath only; generated NeoForge version jar is also required on classpath.
+// Official NeoForge launch uses the generated neoforge version jar on the classpath.
 
 function ktzPatchNeoForgeRuntime(){
     try {
@@ -21,11 +21,6 @@ function ktzPatchNeoForgeRuntime(){
             return builder.server?.rawServer?.ktz?.loader === 'neoforge' || String(builder.modManifest?.id || '').startsWith('neoforge-')
         }
 
-        function vanillaClientJar(builder){
-            const version = builder.vanillaManifest.id
-            return path.join(builder.commonDir, 'versions', version, version + '.jar')
-        }
-
         function neoForgeVersionJar(builder){
             const rawVersion = builder.server?.rawServer?.ktz?.loaderVersion || '21.4.157'
             const version = String(rawVersion).replace('neoforge-', '')
@@ -33,21 +28,26 @@ function ktzPatchNeoForgeRuntime(){
             return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, fileName)
         }
 
-        function addClasspathEntry(cpArgs, filePath, label){
-            if(fs.existsSync(filePath) && !cpArgs.includes(filePath)){
-                cpArgs.push(filePath)
-                console.log('[KTZ NeoForge] Added ' + label + ' to classpath:', filePath)
-            } else if(!fs.existsSync(filePath)){
+        function ensureClasspathEntry(cpArgs, filePath, label){
+            if(!fs.existsSync(filePath)){
                 console.warn('[KTZ NeoForge] Missing ' + label + ':', filePath)
+                return
             }
+
+            const existingIndex = cpArgs.indexOf(filePath)
+            if(existingIndex > -1){
+                cpArgs.splice(existingIndex, 1)
+            }
+
+            cpArgs.push(filePath)
+            console.log('[KTZ NeoForge] Ensured ' + label + ' on classpath:', filePath)
         }
 
         ProcessBuilder.prototype.classpathArg = function(mods, tempNativePath){
             const cpArgs = originalClasspathArg.call(this, mods, tempNativePath)
 
             if(isNeoForgeBuild(this)){
-                addClasspathEntry(cpArgs, vanillaClientJar(this), 'vanilla client jar')
-                addClasspathEntry(cpArgs, neoForgeVersionJar(this), 'generated NeoForge version jar')
+                ensureClasspathEntry(cpArgs, neoForgeVersionJar(this), 'generated NeoForge version jar')
             }
 
             return cpArgs

@@ -31,7 +31,19 @@ function ktzPatchNeoForgeRuntime(){
         function neoForgeVersionJar(builder){
             const id = neoForgeId(builder)
             const version = id.replace('neoforge-', '')
-            return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
+            const source = path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
+            const targetDir = path.join(builder.commonDir, 'versions', id)
+            const target = path.join(targetDir, id + '.jar')
+
+            if(fs.existsSync(source)){
+                fs.ensureDirSync(targetDir)
+                if(!fs.existsSync(target) || fs.statSync(target).size !== fs.statSync(source).size){
+                    fs.copySync(source, target)
+                    console.log('[KTZ NeoForge] Copied generated NeoForge version jar to official-style path:', target)
+                }
+            }
+
+            return target
         }
 
         function ensureClasspathEntry(cpArgs, filePath, label){

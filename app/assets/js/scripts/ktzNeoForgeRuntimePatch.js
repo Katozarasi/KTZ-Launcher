@@ -27,15 +27,18 @@ function ktzPatchNeoForgeRuntime(){
         }
 
         function neoForgeVersionJar(builder){
-            const id = builder.modManifest?.id || 'neoforge-21.4.157'
-            const version = id.replace('neoforge-', '')
-            return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
+            const rawVersion = builder.server?.rawServer?.ktz?.loaderVersion || '21.4.157'
+            const version = String(rawVersion).replace('neoforge-', '')
+            const fileName = 'neoforge-' + version + '.jar'
+            return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, fileName)
         }
 
         function addClasspathEntry(cpArgs, filePath, label){
             if(fs.existsSync(filePath) && !cpArgs.includes(filePath)){
                 cpArgs.push(filePath)
                 console.log('[KTZ NeoForge] Added ' + label + ' to classpath:', filePath)
+            } else if(!fs.existsSync(filePath)){
+                console.warn('[KTZ NeoForge] Missing ' + label + ':', filePath)
             }
         }
 

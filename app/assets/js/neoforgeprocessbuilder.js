@@ -29,6 +29,11 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         return 'neoforge-' + this._neoForgeVersion()
     }
 
+    _vanillaClientJar() {
+        const version = this.vanillaManifest.id
+        return path.join(this.commonDir, 'versions', version, version + '.jar')
+    }
+
     _neoForgeVersionJar() {
         const id = this._neoForgeId()
         const version = this._neoForgeVersion()
@@ -84,12 +89,15 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         const libs = []
         const seen = new Set()
 
-        const add = filePath => {
+        const add = (filePath, label = null) => {
             if(filePath == null || !fs.existsSync(filePath) || seen.has(filePath)) {
                 return
             }
             seen.add(filePath)
             libs.push(filePath)
+            if(label != null) {
+                logger.info('Added ' + label + ' to NeoForge classpath:', filePath)
+            }
         }
 
         for(const lib of this.modManifest.libraries || []) {
@@ -107,7 +115,8 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             }
         }
 
-        add(this._neoForgeVersionJar())
+        add(this._vanillaClientJar(), 'vanilla client jar fallback')
+        add(this._neoForgeVersionJar(), 'generated NeoForge version jar')
 
         this._processClassPathList(libs)
         logger.info('NeoForge classpath entries:', libs.length)

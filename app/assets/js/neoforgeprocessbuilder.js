@@ -33,7 +33,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         const id = this._neoForgeId()
         const version = this._neoForgeVersion()
         const source = path.join(this.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
-        const targetDir = path.join(this.commonDir, 'versions', id)
+        const targetDir = path.join(this.gameDir, 'versions', id)
         const target = path.join(targetDir, id + '.jar')
 
         if(fs.existsSync(source)) {

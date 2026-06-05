@@ -1,6 +1,6 @@
 // KTZ NeoForge runtime patch.
 // NeoForge mods are copied into the instance mods folder.
-// Official NeoForge launch uses the generated neoforge version jar on the classpath.
+// Official NeoForge launch puts NeoForge/FML libraries first and the generated NeoForge version jar last.
 
 function ktzPatchNeoForgeRuntime(){
     try {
@@ -46,26 +46,53 @@ function ktzPatchNeoForgeRuntime(){
             return target
         }
 
-        function ensureClasspathEntry(cpArgs, filePath, label){
-            if(!fs.existsSync(filePath)){
-                console.warn('[KTZ NeoForge] Missing ' + label + ':', filePath)
-                return
+        function isNeoForgeCorePath(filePath){
+            const p = String(filePath).replace(/\\/g, '/').toLowerCase()
+            return p.includes('/net/neoforged/') ||
+                p.includes('/cpw/mods/') ||
+                p.includes('/net/minecraftforge/') ||
+                p.includes('/net/fabricmc/sponge-mixin/') ||
+                p.includes('/org/openjdk/nashorn/') ||
+                p.includes('/org/jline/') ||
+                p.includes('/commons-io/commons-io/') ||
+                p.includes('/org/ow2/asm/')
+        }
+
+        function normalizeNeoForgeClasspath(cpArgs, versionJar){
+            const seen = new Set()
+            const cleaned = []
+
+            for(const entry of cpArgs){
+                if(!entry || entry === versionJar){
+                    continue
+                }
+                if(seen.has(entry)){
+                    continue
+                }
+                seen.add(entry)
+                cleaned.push(entry)
             }
 
-            const existingIndex = cpArgs.indexOf(filePath)
-            if(existingIndex > -1){
-                cpArgs.splice(existingIndex, 1)
+            const core = cleaned.filter(isNeoForgeCorePath)
+            const rest = cleaned.filter(p => !isNeoForgeCorePath(p))
+            const ordered = core.concat(rest)
+
+            if(fs.existsSync(versionJar)){
+                ordered.push(versionJar)
+                console.log('[KTZ NeoForge] Ensured generated NeoForge version jar at end of classpath:', versionJar)
+            } else {
+                console.warn('[KTZ NeoForge] Missing generated NeoForge version jar:', versionJar)
             }
 
-            cpArgs.push(filePath)
-            console.log('[KTZ NeoForge] Ensured ' + label + ' on classpath:', filePath)
+            console.log('[KTZ NeoForge] Reordered classpath. core=' + core.length + ', rest=' + rest.length)
+            return ordered
         }
 
         ProcessBuilder.prototype.classpathArg = function(mods, tempNativePath){
             const cpArgs = originalClasspathArg.call(this, mods, tempNativePath)
 
             if(isNeoForgeBuild(this)){
-                ensureClasspathEntry(cpArgs, neoForgeVersionJar(this), 'generated NeoForge version jar')
+                return normalizeNeoForgeClasspath(cpArgs, neoForgeVersionJar(this))
             }
 
             return cpArgs

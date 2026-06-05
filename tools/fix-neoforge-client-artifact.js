@@ -15,7 +15,24 @@ loader.artifact = {
   url: 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/21.4.157/neoforge-21.4.157.jar'
 }
 
-loader.subModules = (loader.subModules || []).filter(m => m.id !== 'net.neoforged:neoforge:21.4.157:client')
+const universalLibrary = {
+  id: 'net.neoforged:neoforge:21.4.157:universal',
+  name: 'NeoForge 21.4.157 Universal Support',
+  type: 'Library',
+  classpath: false,
+  artifact: {
+    size: 3513954,
+    MD5: 'cf63fa31dff33454624a0ec4c5a62cee',
+    path: 'net/neoforged/neoforge/21.4.157/neoforge-21.4.157-universal.jar',
+    url: 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/21.4.157/neoforge-21.4.157-universal.jar'
+  }
+}
+
+loader.subModules = (loader.subModules || []).filter(m => {
+  return m.id !== 'net.neoforged:neoforge:21.4.157:client' &&
+    m.id !== universalLibrary.id
+})
+loader.subModules.push(universalLibrary)
 
 fs.writeFileSync(distroPath, JSON.stringify(distro, null, 2) + '\n', 'utf8')
-console.log('NeoForge generated version jar applied to kato_empire_test')
+console.log('NeoForge generated version jar and universal support library applied to kato_empire_test')

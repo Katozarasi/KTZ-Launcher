@@ -77,10 +77,10 @@
           "name": "NeoForge 1.21.4-21.4.157",
           "type": "ForgeHosted",
           "artifact": {
-            "size": 1,
-            "MD5": "c4ca4238a0b923820dcc509a6f75849b",
-            "path": "net/neoforged/neoforge/21.4.157/neoforge-21.4.157.jar",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/placeholder/neoforge-placeholder.jar"
+            "size": 5891137,
+            "MD5": "70505efad05655c750012855fe3b0c7f",
+            "path": "net/neoforged/neoforge/21.4.157/neoforge-21.4.157-client.jar",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/loaders/neoforge/21.4.157/neoforge-21.4.157-client.jar"
           },
           "subModules": [
             {

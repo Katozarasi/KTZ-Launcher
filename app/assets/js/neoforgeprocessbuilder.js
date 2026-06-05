@@ -32,19 +32,34 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     _neoForgeVersionJar() {
         const id = this._neoForgeId()
         const version = this._neoForgeVersion()
-        const source = path.join(this.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
+        const sourceJar = path.join(this.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
+        const sourceJson = path.join(this.commonDir, 'versions', id, id + '.json')
         const targetDir = path.join(this.gameDir, 'versions', id)
-        const target = path.join(targetDir, id + '.jar')
+        const targetJar = path.join(targetDir, id + '.jar')
+        const targetJson = path.join(targetDir, id + '.json')
 
-        if(fs.existsSync(source)) {
-            fs.ensureDirSync(targetDir)
-            if(!fs.existsSync(target) || fs.statSync(target).size !== fs.statSync(source).size) {
-                fs.copySync(source, target)
-                logger.info('Copied generated NeoForge version jar to official-style path:', target)
+        fs.ensureDirSync(targetDir)
+
+        if(fs.existsSync(sourceJar)) {
+            if(!fs.existsSync(targetJar) || fs.statSync(targetJar).size !== fs.statSync(sourceJar).size) {
+                fs.copySync(sourceJar, targetJar)
+                logger.info('Copied generated NeoForge version jar to instance versions path:', targetJar)
             }
+        } else {
+            logger.warn('NeoForge generated version jar source missing:', sourceJar)
         }
 
-        return fs.existsSync(target) ? target : source
+        if(fs.existsSync(sourceJson)) {
+            if(!fs.existsSync(targetJson) || fs.statSync(targetJson).size !== fs.statSync(sourceJson).size) {
+                fs.copySync(sourceJson, targetJson)
+                logger.info('Copied NeoForge version json to instance versions path:', targetJson)
+            }
+        } else if(this.modManifest != null) {
+            fs.writeFileSync(targetJson, JSON.stringify(this.modManifest, null, 2), 'utf8')
+            logger.info('Wrote NeoForge version json from loaded manifest:', targetJson)
+        }
+
+        return fs.existsSync(targetJar) ? targetJar : sourceJar
     }
 
     _libraryPathFromManifest(lib) {
@@ -58,9 +73,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     _excludedVanillaLibrary(lib) {
         const name = lib.name || ''
 
-        // NeoForge's JVM module path already contains ASM 9.8.
-        // Minecraft 1.21.4's vanilla manifest can still contribute ASM 9.6,
-        // which causes: Module org.objectweb.asm already on module path.
         if(name.startsWith('org.ow2.asm:')) {
             return true
         }
@@ -80,13 +92,10 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             libs.push(filePath)
         }
 
-        // Official NeoForge profiles place NeoForge/FML libraries first.
         for(const lib of this.modManifest.libraries || []) {
             add(this._libraryPathFromManifest(lib))
         }
 
-        // Then Mojang-declared libraries in Mojang manifest order.
-        // Exclude libraries whose Java modules are already supplied by NeoForge's module path.
         for(const lib of this.vanillaManifest.libraries || []) {
             if(this._excludedVanillaLibrary(lib)) {
                 logger.info('Skipping vanilla library already supplied by NeoForge module path:', lib.name)
@@ -98,7 +107,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             }
         }
 
-        // The generated NeoForge version jar must be last, like the official launcher command.
         add(this._neoForgeVersionJar())
 
         this._processClassPathList(libs)
@@ -107,7 +115,6 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     }
 
     classpathArg(_mods, tempNativePath) {
-        // Reuse native extraction from the base builder, but build the classpath in official NeoForge order.
         this._resolveMojangLibraries(tempNativePath)
         return this._orderedNeoForgeLibraries()
     }

@@ -28,7 +28,8 @@ function ktzPatchNeoForgeRuntime(){
 
         function neoForgeVersionJar(builder){
             const id = builder.modManifest?.id || 'neoforge-21.4.157'
-            return path.join(builder.gameDir, '.ktz-neoforge', id + '.jar')
+            const version = id.replace('neoforge-', '')
+            return path.join(builder.commonDir, 'libraries', 'net', 'neoforged', 'neoforge', version, id + '.jar')
         }
 
         function addClasspathEntry(cpArgs, filePath, label){

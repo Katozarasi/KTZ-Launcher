@@ -3,8 +3,12 @@
 
 function ktzPatchNeoForgeRuntime(){
     try {
+        const fs = require('fs-extra')
+        const path = require('path')
+        const child_process = require('child_process')
         const ProcessBuilder = require('./assets/js/processbuilder')
         const NeoForgeProcessBuilder = require('./assets/js/neoforgeprocessbuilder')
+        const ConfigManager = require('./assets/js/configmanager')
 
         if(ProcessBuilder.prototype.ktzNeoForgeRuntimePatched){
             return
@@ -18,9 +22,69 @@ function ktzPatchNeoForgeRuntime(){
             return builder.server?.rawServer?.ktz?.loader === 'neoforge' || String(builder.modManifest?.id || '').startsWith('neoforge-')
         }
 
+        function javaMajor(javaExe){
+            try {
+                const result = child_process.spawnSync(javaExe, ['-version'], {
+                    encoding: 'utf8',
+                    windowsHide: true
+                })
+                const text = String(result.stderr || '') + String(result.stdout || '')
+                const match = text.match(/version\s+"(\d+)/)
+                return match != null ? Number.parseInt(match[1]) : null
+            } catch(_err) {
+                return null
+            }
+        }
+
+        function bundledJava21(){
+            const runtimeRoot = path.join(ConfigManager.getDataDirectory(), 'runtime', 'x64')
+            if(!fs.existsSync(runtimeRoot)){
+                return null
+            }
+
+            const candidates = []
+            for(const entry of fs.readdirSync(runtimeRoot)){
+                const javaExe = path.join(runtimeRoot, entry, 'bin', process.platform === 'win32' ? 'java.exe' : 'java')
+                if(fs.existsSync(javaExe)){
+                    candidates.push(javaExe)
+                }
+            }
+
+            for(const candidate of candidates){
+                if(javaMajor(candidate) === 21){
+                    return candidate
+                }
+            }
+
+            for(const candidate of candidates){
+                if(String(candidate).includes('jdk-21')){
+                    return candidate
+                }
+            }
+
+            return null
+        }
+
         ProcessBuilder.prototype.build = function(){
             if(isNeoForgeBuild(this) && !this.usingNeoForgeLoader){
                 console.log('[KTZ NeoForge] Delegating launch to dedicated NeoForgeProcessBuilder.')
+
+                const forcedJava = bundledJava21()
+                const originalGetJavaExecutable = ConfigManager.getJavaExecutable
+                const serverId = this.server.rawServer.id
+
+                if(forcedJava != null){
+                    console.log('[KTZ NeoForge] Forcing bundled Java 21 for NeoForge launch:', forcedJava)
+                    ConfigManager.getJavaExecutable = function(requestedServerId){
+                        if(requestedServerId === serverId){
+                            return forcedJava
+                        }
+                        return originalGetJavaExecutable(requestedServerId)
+                    }
+                } else {
+                    console.warn('[KTZ NeoForge] Bundled Java 21 was not found. Using configured Java executable.')
+                }
+
                 const pb = new NeoForgeProcessBuilder(
                     this.server,
                     this.vanillaManifest,
@@ -28,7 +92,12 @@ function ktzPatchNeoForgeRuntime(){
                     this.authUser,
                     this.launcherVersion
                 )
-                return pb.build()
+
+                try {
+                    return pb.build()
+                } finally {
+                    ConfigManager.getJavaExecutable = originalGetJavaExecutable
+                }
             }
 
             return originalBuild.call(this)

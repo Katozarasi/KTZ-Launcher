@@ -65,6 +65,66 @@ function ktzPatchNeoForgeRuntime(){
             return null
         }
 
+        function shaderpackSourceDir(serverId){
+            return path.join(__dirname, '..', '..', 'shaderpacks', serverId)
+        }
+
+        function installBundledShaderpacks(serverId){
+            const sourceDir = shaderpackSourceDir(serverId)
+            if(!fs.existsSync(sourceDir)){
+                console.log('[KTZ Shaderpacks] No bundled shaderpacks directory:', sourceDir)
+                return
+            }
+
+            const shaderFiles = fs.readdirSync(sourceDir)
+                .filter(file => file.toLowerCase().endsWith('.zip'))
+                .sort((a, b) => a.localeCompare(b))
+
+            if(shaderFiles.length === 0){
+                console.log('[KTZ Shaderpacks] No bundled shaderpack zip files found:', sourceDir)
+                return
+            }
+
+            const gameDir = path.join(ConfigManager.getInstanceDirectory(), serverId)
+            const targetDir = path.join(gameDir, 'shaderpacks')
+            fs.ensureDirSync(targetDir)
+
+            for(const file of shaderFiles){
+                const source = path.join(sourceDir, file)
+                const target = path.join(targetDir, file)
+                const buffer = fs.readFileSync(source)
+
+                if(!fs.existsSync(target) || fs.statSync(target).size !== buffer.length){
+                    fs.writeFileSync(target, buffer)
+                    console.log('[KTZ Shaderpacks] Installed bundled shaderpack:', target)
+                }
+            }
+
+            const preferred = shaderFiles.includes('KatoriShaderpacks.zip') ? 'KatoriShaderpacks.zip' : shaderFiles[0]
+            const optionsPath = path.join(gameDir, 'optionsshaders.txt')
+            let lines = []
+
+            if(fs.existsSync(optionsPath)){
+                lines = fs.readFileSync(optionsPath, 'utf8').split(/\r?\n/).filter(line => line.trim().length > 0)
+            }
+
+            const setOption = (key, value) => {
+                const prefix = key + '='
+                const idx = lines.findIndex(line => line.startsWith(prefix))
+                if(idx > -1){
+                    lines[idx] = prefix + value
+                } else {
+                    lines.push(prefix + value)
+                }
+            }
+
+            setOption('shaderPack', preferred)
+            setOption('enableShaders', 'true')
+
+            fs.writeFileSync(optionsPath, lines.join('\n') + '\n', 'utf8')
+            console.log('[KTZ Shaderpacks] Selected default shaderpack:', preferred)
+        }
+
         ProcessBuilder.prototype.build = function(){
             if(isNeoForgeBuild(this) && !this.usingNeoForgeLoader){
                 console.log('[KTZ NeoForge] Delegating launch to dedicated NeoForgeProcessBuilder.')
@@ -84,6 +144,8 @@ function ktzPatchNeoForgeRuntime(){
                 } else {
                     console.warn('[KTZ NeoForge] Bundled Java 21 was not found. Using configured Java executable.')
                 }
+
+                installBundledShaderpacks(serverId)
 
                 const pb = new NeoForgeProcessBuilder(
                     this.server,

@@ -102,26 +102,23 @@ function ktzPatchNeoForgeRuntime(){
 
             const preferred = shaderFiles.includes('KatoriShaderpacks.zip') ? 'KatoriShaderpacks.zip' : shaderFiles[0]
             const optionsPath = path.join(gameDir, 'optionsshaders.txt')
-            let lines = []
+            const markerPath = path.join(gameDir, '.ktz-shaderpack-default-applied')
 
-            if(fs.existsSync(optionsPath)){
-                lines = fs.readFileSync(optionsPath, 'utf8').split(/\r?\n/).filter(line => line.trim().length > 0)
+            // Do not force-enable shaders on every launch. Iris rewrites this file while the game runs,
+            // and repeatedly overriding it can cause second-launch issues or prevent users from disabling shaders.
+            // Apply the default only once, then leave the user's setting alone.
+            if(fs.existsSync(markerPath) || fs.existsSync(optionsPath)){
+                console.log('[KTZ Shaderpacks] Bundled shaderpack is available; preserving existing shader options.')
+                return
             }
 
-            const setOption = (key, value) => {
-                const prefix = key + '='
-                const idx = lines.findIndex(line => line.startsWith(prefix))
-                if(idx > -1){
-                    lines[idx] = prefix + value
-                } else {
-                    lines.push(prefix + value)
-                }
-            }
-
-            setOption('shaderPack', preferred)
-            setOption('enableShaders', 'true')
+            const lines = [
+                'shaderPack=' + preferred,
+                'enableShaders=true'
+            ]
 
             fs.writeFileSync(optionsPath, lines.join('\n') + '\n', 'utf8')
+            fs.writeFileSync(markerPath, new Date().toISOString() + '\n', 'utf8')
             console.log('[KTZ Shaderpacks] Selected default shaderpack:', preferred)
         }
 

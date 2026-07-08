@@ -5,3 +5,4 @@
 /logs/
 /dist/
 /.ktz-cache/
+echo # Toketmon local payload - distributed through release assetecho /files/mods/toketmon/*echo !/files/mods/toketmon/.gitkeepecho /files/config/toketmon/*echo !/files/config/toketmon/.gitkeepecho /files/datapack/toketmon/*echo !/files/datapack/toketmon/.gitkeepecho /files/resourcepacks/toketmon/*echo !/files/resourcepacks/toketmon/.gitkeep

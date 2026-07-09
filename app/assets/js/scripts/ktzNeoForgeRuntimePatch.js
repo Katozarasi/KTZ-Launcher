@@ -72,6 +72,29 @@ function ktzPatchNeoForgeRuntime(){
             return null
         }
 
+        function withBundledJava21(serverId, fn){
+            const forcedJava = bundledJava21()
+            const originalGetJavaExecutable = ConfigManager.getJavaExecutable
+
+            if(forcedJava != null){
+                console.log('[KTZ Runtime] Forcing bundled Java 21 for launch:', forcedJava)
+                ConfigManager.getJavaExecutable = function(requestedServerId){
+                    if(requestedServerId === serverId){
+                        return forcedJava
+                    }
+                    return originalGetJavaExecutable(requestedServerId)
+                }
+            } else {
+                console.warn('[KTZ Runtime] Bundled Java 21 was not found. Using configured Java executable.')
+            }
+
+            try {
+                return fn()
+            } finally {
+                ConfigManager.getJavaExecutable = originalGetJavaExecutable
+            }
+        }
+
         function shaderpackSourceDir(serverId){
             return path.join(__dirname, '..', '..', 'shaderpacks', serverId)
         }
@@ -181,11 +204,7 @@ function ktzPatchNeoForgeRuntime(){
             if(names.length === 3){
                 candidates.push(path.join(extractDir, names[0], names[1], names[2]))
             }
-
-            // Preferred release layout: mods/, config/, datapack/, resourcepacks/ at archive root.
             candidates.push(path.join(extractDir, names[names.length - 1]))
-
-            // Older local layout: files/<type>/toketmon.
             candidates.push(path.join(extractDir, 'files', names[names.length - 1], 'toketmon'))
 
             for(const candidate of candidates){
@@ -246,45 +265,32 @@ function ktzPatchNeoForgeRuntime(){
 
             installToketmonPayload(serverId)
 
+            if(serverId === TOKETMON_PACK.serverId){
+                return withBundledJava21(serverId, () => originalBuild.call(this))
+            }
+
             if(isNeoForgeBuild(this) && !this.usingNeoForgeLoader){
                 console.log('[KTZ NeoForge] Delegating launch to dedicated NeoForgeProcessBuilder.')
 
-                const forcedJava = bundledJava21()
-                const originalGetJavaExecutable = ConfigManager.getJavaExecutable
+                return withBundledJava21(serverId, () => {
+                    installBundledShaderpacks(serverId)
 
-                if(forcedJava != null){
-                    console.log('[KTZ NeoForge] Forcing bundled Java 21 for NeoForge launch:', forcedJava)
-                    ConfigManager.getJavaExecutable = function(requestedServerId){
-                        if(requestedServerId === serverId){
-                            return forcedJava
-                        }
-                        return originalGetJavaExecutable(requestedServerId)
-                    }
-                } else {
-                    console.warn('[KTZ NeoForge] Bundled Java 21 was not found. Using configured Java executable.')
-                }
+                    const pb = new NeoForgeProcessBuilder(
+                        this.server,
+                        this.vanillaManifest,
+                        this.modManifest,
+                        this.authUser,
+                        this.launcherVersion
+                    )
 
-                installBundledShaderpacks(serverId)
-
-                const pb = new NeoForgeProcessBuilder(
-                    this.server,
-                    this.vanillaManifest,
-                    this.modManifest,
-                    this.authUser,
-                    this.launcherVersion
-                )
-
-                try {
                     return pb.build()
-                } finally {
-                    ConfigManager.getJavaExecutable = originalGetJavaExecutable
-                }
+                })
             }
 
             return originalBuild.call(this)
         }
     } catch(err) {
-        console.error('Unable to apply KTZ NeoForge runtime patch.', err)
+        console.error('Unable to apply KTZ runtime patch.', err)
     }
 }
 

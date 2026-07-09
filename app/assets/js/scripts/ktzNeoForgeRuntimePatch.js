@@ -1,5 +1,5 @@
 // KTZ NeoForge runtime patch.
-// NeoForge uses a dedicated process builder; this file only delegates from the stock launch path.
+// NeoForge uses a dedicated process builder; this file also installs server-specific runtime payloads.
 
 function ktzPatchNeoForgeRuntime(){
     try {
@@ -17,6 +17,13 @@ function ktzPatchNeoForgeRuntime(){
         ProcessBuilder.prototype.ktzNeoForgeRuntimePatched = true
 
         const originalBuild = ProcessBuilder.prototype.build
+
+        const TOKETMON_PACK = {
+            serverId: 'toketmon',
+            version: 'v1',
+            fileName: 'toketmon-client-pack-v1.zip',
+            url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/toketmon-client-pack-v1/toketmon-client-pack-v1.zip'
+        }
 
         function isNeoForgeBuild(builder){
             return builder.server?.rawServer?.ktz?.loader === 'neoforge' || String(builder.modManifest?.id || '').startsWith('neoforge-')
@@ -104,9 +111,6 @@ function ktzPatchNeoForgeRuntime(){
             const optionsPath = path.join(gameDir, 'optionsshaders.txt')
             const markerPath = path.join(gameDir, '.ktz-shaderpack-default-applied')
 
-            // Do not force-enable shaders on every launch. Iris rewrites this file while the game runs,
-            // and repeatedly overriding it can cause second-launch issues or prevent users from disabling shaders.
-            // Apply the default only once, then leave the user's setting alone.
             if(fs.existsSync(markerPath) || fs.existsSync(optionsPath)){
                 console.log('[KTZ Shaderpacks] Bundled shaderpack is available; preserving existing shader options.')
                 return
@@ -122,13 +126,131 @@ function ktzPatchNeoForgeRuntime(){
             console.log('[KTZ Shaderpacks] Selected default shaderpack:', preferred)
         }
 
+        function quotePowerShell(value){
+            return "'" + String(value).replace(/'/g, "''") + "'"
+        }
+
+        function runPowerShell(command){
+            const result = child_process.spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', command], {
+                encoding: 'utf8',
+                windowsHide: true
+            })
+            if(result.status !== 0){
+                throw new Error((result.stderr || result.stdout || 'PowerShell command failed').trim())
+            }
+            return result
+        }
+
+        function downloadToketmonPayload(zipPath){
+            fs.ensureDirSync(path.dirname(zipPath))
+            if(fs.existsSync(zipPath) && fs.statSync(zipPath).size > 1024 * 1024){
+                console.log('[KTZ Toketmon] Client pack already downloaded:', zipPath)
+                return
+            }
+
+            console.log('[KTZ Toketmon] Downloading client pack:', TOKETMON_PACK.url)
+            const command = "$ProgressPreference='SilentlyContinue'; Invoke-WebRequest -UseBasicParsing -Uri " + quotePowerShell(TOKETMON_PACK.url) + " -OutFile " + quotePowerShell(zipPath)
+            runPowerShell(command)
+        }
+
+        function extractToketmonPayload(zipPath, extractDir){
+            fs.removeSync(extractDir)
+            fs.ensureDirSync(extractDir)
+            console.log('[KTZ Toketmon] Extracting client pack:', extractDir)
+            const command = 'Expand-Archive -LiteralPath ' + quotePowerShell(zipPath) + ' -DestinationPath ' + quotePowerShell(extractDir) + ' -Force'
+            runPowerShell(command)
+        }
+
+        function copyDirectoryContents(sourceDir, targetDir){
+            if(!fs.existsSync(sourceDir)){
+                return false
+            }
+            fs.ensureDirSync(targetDir)
+            fs.copySync(sourceDir, targetDir, { overwrite: true, errorOnExist: false })
+            return true
+        }
+
+        function findPayloadDir(extractDir, names){
+            const candidates = []
+            if(names.length === 1){
+                candidates.push(path.join(extractDir, names[0]))
+            }
+            if(names.length === 2){
+                candidates.push(path.join(extractDir, names[0], names[1]))
+            }
+            if(names.length === 3){
+                candidates.push(path.join(extractDir, names[0], names[1], names[2]))
+            }
+
+            // Preferred release layout: mods/, config/, datapack/, resourcepacks/ at archive root.
+            candidates.push(path.join(extractDir, names[names.length - 1]))
+
+            // Older local layout: files/<type>/toketmon.
+            candidates.push(path.join(extractDir, 'files', names[names.length - 1], 'toketmon'))
+
+            for(const candidate of candidates){
+                if(fs.existsSync(candidate)){
+                    return candidate
+                }
+            }
+
+            return null
+        }
+
+        function installToketmonPayload(serverId){
+            if(serverId !== TOKETMON_PACK.serverId){
+                return
+            }
+
+            const gameDir = path.join(ConfigManager.getInstanceDirectory(), serverId)
+            const packRoot = path.join(ConfigManager.getCommonDirectory(), 'packs', 'toketmon')
+            const zipPath = path.join(packRoot, TOKETMON_PACK.fileName)
+            const extractDir = path.join(packRoot, 'extracted', TOKETMON_PACK.version)
+            const markerPath = path.join(gameDir, '.ktz-toketmon-client-pack-' + TOKETMON_PACK.version)
+
+            if(fs.existsSync(markerPath)){
+                console.log('[KTZ Toketmon] Client pack already installed for this instance.')
+                return
+            }
+
+            fs.ensureDirSync(gameDir)
+            downloadToketmonPayload(zipPath)
+            extractToketmonPayload(zipPath, extractDir)
+
+            const layout = [
+                { source: findPayloadDir(extractDir, ['mods']), target: path.join(gameDir, 'mods'), label: 'mods' },
+                { source: findPayloadDir(extractDir, ['config']), target: path.join(gameDir, 'config'), label: 'config' },
+                { source: findPayloadDir(extractDir, ['datapack']), target: path.join(gameDir, 'datapacks'), label: 'datapack' },
+                { source: findPayloadDir(extractDir, ['datapacks']), target: path.join(gameDir, 'datapacks'), label: 'datapacks' },
+                { source: findPayloadDir(extractDir, ['resourcepacks']), target: path.join(gameDir, 'resourcepacks'), label: 'resourcepacks' }
+            ]
+
+            let installedAny = false
+            for(const item of layout){
+                if(item.source != null && copyDirectoryContents(item.source, item.target)){
+                    installedAny = true
+                    console.log('[KTZ Toketmon] Installed ' + item.label + ' payload:', item.target)
+                }
+            }
+
+            if(!installedAny){
+                throw new Error('Toketmon client pack did not contain expected folders: mods, config, datapack/datapacks, resourcepacks')
+            }
+
+            fs.writeFileSync(markerPath, new Date().toISOString() + '\n', 'utf8')
+            console.log('[KTZ Toketmon] Client pack installation complete.')
+        }
+
         ProcessBuilder.prototype.build = function(){
+            const serverId = this.server.rawServer.id
+
+            installToketmonPayload(serverId)
+
             if(isNeoForgeBuild(this) && !this.usingNeoForgeLoader){
                 console.log('[KTZ NeoForge] Delegating launch to dedicated NeoForgeProcessBuilder.')
 
                 const forcedJava = bundledJava21()
                 const originalGetJavaExecutable = ConfigManager.getJavaExecutable
-                const serverId = this.server.rawServer.id
 
                 if(forcedJava != null){
                     console.log('[KTZ NeoForge] Forcing bundled Java 21 for NeoForge launch:', forcedJava)

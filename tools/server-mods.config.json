@@ -1,11 +1,11 @@
 {
   "rawBaseUrl": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main",
   "servers": {
-    "city_ability": {
-      "modsDir": "files/mods/city_ability",
+    "kato_empire_test": {
+      "modsDir": "files/mods/kato_empire_test",
       "modType": "ForgeMod",
-      "idPrefix": "ktz.cityability",
-      "loader": "forge",
+      "idPrefix": "ktz.katoempiretest",
+      "loader": "neoforge",
       "preserveModuleTypes": [
         "ForgeHosted",
         "Fabric",
@@ -15,11 +15,11 @@
         "File"
       ]
     },
-    "kato_empire_test": {
-      "modsDir": "files/mods/kato_empire_test",
-      "modType": "ForgeMod",
-      "idPrefix": "ktz.katoempiretest",
-      "loader": "neoforge",
+    "toketmon": {
+      "modsDir": "files/mods/toketmon",
+      "modType": "FabricMod",
+      "idPrefix": "ktz.toketmon",
+      "loader": "fabric",
       "preserveModuleTypes": [
         "ForgeHosted",
         "Fabric",

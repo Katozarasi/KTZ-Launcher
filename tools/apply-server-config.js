@@ -32,6 +32,10 @@ function mavenNameToPath(name) {
   return `${group.replace(/\./g, '/')}/${artifact}/${version}/${file}`
 }
 
+function mavenUrl(base, modulePath) {
+  return `${base.replace(/\/$/, '')}/${modulePath}`
+}
+
 function download(url) {
   return new Promise((resolve, reject) => {
     const client = url.startsWith('https:') ? https : http
@@ -51,26 +55,54 @@ function download(url) {
   })
 }
 
-async function md5FromUrl(url, cacheName) {
+async function cachedDownload(url, cacheName) {
   fs.mkdirSync(cacheDir, { recursive: true })
   const cachePath = path.join(cacheDir, cacheName.replace(/[^a-zA-Z0-9._-]/g, '_'))
-  let buffer
   if (fs.existsSync(cachePath)) {
-    buffer = fs.readFileSync(cachePath)
-  } else {
-    buffer = await download(url)
-    fs.writeFileSync(cachePath, buffer)
+    return fs.readFileSync(cachePath)
   }
-  return md5Buffer(buffer)
+  const buffer = await download(url)
+  fs.writeFileSync(cachePath, buffer)
+  return buffer
 }
 
-function versionManifestModule(manifest, serverId) {
-  const manifestPath = `files/loaders/neoforge/versions/${manifest.id}/${manifest.id}.json`
+async function artifactFromUrl(url, cacheName, fallbackSize) {
+  const buffer = await cachedDownload(url, cacheName)
+  return {
+    size: fallbackSize || buffer.length,
+    MD5: md5Buffer(buffer)
+  }
+}
+
+function resolveLibraryArtifact(lib) {
+  const artifact = lib.downloads && lib.downloads.artifact
+  if (artifact && artifact.url) {
+    return {
+      url: artifact.url,
+      path: artifact.path || mavenNameToPath(lib.name),
+      size: artifact.size
+    }
+  }
+
+  if (lib.url && lib.name) {
+    const modulePath = mavenNameToPath(lib.name)
+    return {
+      url: mavenUrl(lib.url, modulePath),
+      path: modulePath,
+      size: null
+    }
+  }
+
+  return null
+}
+
+function localVersionManifestModule(manifest, loader) {
+  const manifestPath = `files/loaders/${loader}/versions/${manifest.id}/${manifest.id}.json`
   const abs = path.join(root, manifestPath)
   const data = fs.readFileSync(abs)
   return {
     id: manifest.id,
-    name: `NeoForge ${manifest.id} (version.json)`,
+    name: `${loader === 'fabric' ? 'Fabric Loader' : 'NeoForge'} ${manifest.id} (version.json)`,
     type: 'VersionManifest',
     artifact: {
       size: data.length,
@@ -81,19 +113,18 @@ function versionManifestModule(manifest, serverId) {
 }
 
 async function libraryModule(lib) {
-  const artifact = lib.downloads && lib.downloads.artifact
-  if (!artifact || !artifact.url) return null
-  const modulePath = artifact.path || mavenNameToPath(lib.name)
-  const md5 = await md5FromUrl(artifact.url, modulePath)
+  const resolved = resolveLibraryArtifact(lib)
+  if (!resolved) return null
+  const stats = await artifactFromUrl(resolved.url, resolved.path, resolved.size)
   return {
     id: lib.name,
     name: lib.name,
     type: 'Library',
     artifact: {
-      size: artifact.size,
-      MD5: md5,
-      path: modulePath,
-      url: artifact.url
+      size: stats.size,
+      MD5: stats.MD5,
+      path: resolved.path,
+      url: resolved.url
     }
   }
 }
@@ -118,16 +149,82 @@ async function buildNeoForgeModule(serverId, cfg) {
       url: `${rawBaseUrl}/files/loaders/neoforge/placeholder/neoforge-placeholder.jar`
     },
     subModules: [
-      versionManifestModule(manifest, serverId),
+      localVersionManifestModule(manifest, 'neoforge'),
       ...libraries
     ]
   }
 }
 
-async function applyOne(server, cfg) {
+async function buildFabricModule(serverId, cfg) {
+  const loaderVersion = cfg.ktz.loaderVersion || '0.18.4'
+  const profileUrl = cfg.ktz.loaderManifestUrl || `https://meta.fabricmc.net/v2/versions/loader/${cfg.minecraftVersion}/${loaderVersion}/profile/json`
+  const cacheName = `fabric-loader-${cfg.minecraftVersion}-${loaderVersion}.json`
+  const manifestBuffer = await cachedDownload(profileUrl, cacheName)
+  const manifest = JSON.parse(manifestBuffer.toString('utf8'))
+
+  const manifestDir = path.join(root, 'files', 'loaders', 'fabric', 'versions', manifest.id)
+  fs.mkdirSync(manifestDir, { recursive: true })
+  fs.writeFileSync(path.join(manifestDir, `${manifest.id}.json`), JSON.stringify(manifest, null, 2) + '\n', 'utf8')
+
+  const libraries = []
+  let loaderArtifact = null
+  for (const lib of manifest.libraries || []) {
+    const module = await libraryModule(lib)
+    if (!module) continue
+    if (lib.name === `net.fabricmc:fabric-loader:${loaderVersion}`) {
+      loaderArtifact = module.artifact
+    } else {
+      libraries.push(module)
+    }
+  }
+
+  if (!loaderArtifact) {
+    throw new Error('Fabric loader artifact was not found in Fabric profile: ' + profileUrl)
+  }
+
+  return {
+    id: `net.fabricmc:fabric-loader:${loaderVersion}`,
+    name: `Fabric Loader ${cfg.minecraftVersion}-${loaderVersion}`,
+    type: 'Fabric',
+    artifact: loaderArtifact,
+    subModules: [
+      localVersionManifestModule(manifest, 'fabric'),
+      ...libraries
+    ]
+  }
+}
+
+function makeServer(id, cfg) {
+  const ko = cfg.ktz && cfg.ktz.i18n && cfg.ktz.i18n.ko_KR
+  return {
+    id,
+    name: cfg.name || (ko && ko.name) || id,
+    description: cfg.description || '',
+    icon: cfg.ktz && cfg.ktz.thumbnail || 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg',
+    version: '1.0.0',
+    address: cfg.address || '1.224.237.11',
+    minecraftVersion: cfg.minecraftVersion,
+    mainServer: !!cfg.mainServer,
+    autoconnect: cfg.autoconnect !== false,
+    javaOptions: cfg.javaOptions,
+    modules: [],
+    ktz: {}
+  }
+}
+
+async function applyOne(distro, id, cfg) {
+  let server = distro.servers.find(s => s.id === id)
+  if (!server) {
+    server = makeServer(id, cfg)
+    distro.servers.push(server)
+  }
+
   if (cfg.name !== undefined) server.name = cfg.name
   if (cfg.description !== undefined) server.description = cfg.description
+  if (cfg.address !== undefined) server.address = cfg.address
   if (cfg.minecraftVersion !== undefined) server.minecraftVersion = cfg.minecraftVersion
+  if (cfg.mainServer !== undefined) server.mainServer = cfg.mainServer
+  if (cfg.autoconnect !== undefined) server.autoconnect = cfg.autoconnect
   if (cfg.javaOptions !== undefined) server.javaOptions = cfg.javaOptions
 
   server.ktz = Object.assign({}, server.ktz || {}, cfg.ktz || {})
@@ -136,12 +233,15 @@ async function applyOne(server, cfg) {
   if (ko && ko.name) server.ktz.shortName = ko.name
   if (ko && ko.subtitle) server.ktz.subtitle = ko.subtitle
 
+  if (server.ktz.thumbnail) server.icon = server.ktz.thumbnail
+
   if (server.ktz.loader === 'neoforge') {
     const generated = await buildNeoForgeModule(server.id, cfg)
-    const preserved = (server.modules || []).filter(m => {
-      if (m.type === 'ForgeHosted') return false
-      return true
-    })
+    const preserved = (server.modules || []).filter(m => m.type !== 'ForgeHosted')
+    server.modules = [generated, ...preserved]
+  } else if (server.ktz.loader === 'fabric') {
+    const generated = await buildFabricModule(server.id, cfg)
+    const preserved = (server.modules || []).filter(m => m.type !== 'Fabric')
     server.modules = [generated, ...preserved]
   }
 }
@@ -152,12 +252,15 @@ async function main() {
   const admin = readJson(adminPath)
   const ids = target ? [target] : Object.keys(admin.servers || {})
 
+  if (!target) {
+    const allowed = new Set(ids)
+    distro.servers = (distro.servers || []).filter(s => allowed.has(s.id))
+  }
+
   for (const id of ids) {
     const cfg = admin.servers[id]
     if (!cfg) throw new Error('Missing admin server config: ' + id)
-    const server = distro.servers.find(s => s.id === id)
-    if (!server) throw new Error('Missing distribution server: ' + id)
-    await applyOne(server, cfg)
+    await applyOne(distro, id, cfg)
     console.log('Applied server config:', id)
   }
 

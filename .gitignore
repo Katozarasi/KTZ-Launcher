@@ -5,4 +5,18 @@
 /logs/
 /dist/
 /.ktz-cache/
-echo # Toketmon local payload - distributed through release assetecho /files/mods/toketmon/*echo !/files/mods/toketmon/.gitkeepecho /files/config/toketmon/*echo !/files/config/toketmon/.gitkeepecho /files/datapack/toketmon/*echo !/files/datapack/toketmon/.gitkeepecho /files/resourcepacks/toketmon/*echo !/files/resourcepacks/toketmon/.gitkeep
+
+# Toketmon local payload - distributed through release asset
+/files/mods/toketmon/**
+!/files/mods/toketmon/.gitkeep
+/files/config/toketmon/**
+!/files/config/toketmon/.gitkeep
+/files/datapack/toketmon/**
+!/files/datapack/toketmon/.gitkeep
+/files/resourcepacks/toketmon/**
+!/files/resourcepacks/toketmon/.gitkeep
+
+# Local temporary files
+/java_cmd.txt
+/{
+/toketmon-client-pack-v*.zip

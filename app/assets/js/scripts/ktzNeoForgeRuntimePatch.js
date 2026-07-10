@@ -233,6 +233,28 @@ function ktzPatchNeoForgeRuntime(){
             }
         }
 
+        function hasPayloadFiles(dir, type){
+            if(!fs.existsSync(dir)){
+                return false
+            }
+
+            switch(type){
+                case 'mods':
+                    return countFiles(dir, file => {
+                        const lower = file.toLowerCase()
+                        return lower.endsWith('.jar') || lower.endsWith('.zip')
+                    }) > 0
+                case 'resourcepacks':
+                    return countFiles(dir, file => file.toLowerCase().endsWith('.zip')) > 0
+                case 'datapacks':
+                    return countFiles(dir, file => file.toLowerCase().endsWith('.zip') || path.basename(file).toLowerCase() === 'pack.mcmeta') > 0
+                case 'config':
+                    return countFiles(dir, file => path.basename(file) !== '.gitkeep') > 0
+                default:
+                    return countFiles(dir) > 0
+            }
+        }
+
         function hasValidToketmonPayload(gameDir){
             const modsDir = path.join(gameDir, 'mods')
             const configDir = path.join(gameDir, 'config')
@@ -242,33 +264,106 @@ function ktzPatchNeoForgeRuntime(){
                 const lower = file.toLowerCase()
                 return lower.endsWith('.jar') || lower.endsWith('.zip')
             })
-            const configCount = countFiles(configDir)
+            const configCount = countFiles(configDir, file => path.basename(file) !== '.gitkeep')
             const resourcepackCount = countFiles(resourcepacksDir, file => file.toLowerCase().endsWith('.zip'))
 
             console.log('[KTZ Toketmon] Payload check: mods=' + modCount + ', config=' + configCount + ', resourcepacks=' + resourcepackCount)
             return modCount > 0 && configCount > 0 && resourcepackCount > 0
         }
 
-        function findPayloadDir(extractDir, names){
-            const candidates = []
-            if(names.length === 1){
-                candidates.push(path.join(extractDir, names[0]))
+        function collectDirectories(rootDir){
+            const dirs = []
+            if(!fs.existsSync(rootDir)){
+                return dirs
             }
-            if(names.length === 2){
-                candidates.push(path.join(extractDir, names[0], names[1]))
-            }
-            if(names.length === 3){
-                candidates.push(path.join(extractDir, names[0], names[1], names[2]))
-            }
-            candidates.push(path.join(extractDir, names[names.length - 1]))
-            candidates.push(path.join(extractDir, 'files', names[names.length - 1], 'toketmon'))
 
-            for(const candidate of candidates){
-                if(fs.existsSync(candidate)){
+            const stack = [rootDir]
+            while(stack.length > 0){
+                const current = stack.pop()
+                dirs.push(current)
+                for(const entry of fs.readdirSync(current)){
+                    const full = path.join(current, entry)
+                    try {
+                        if(fs.statSync(full).isDirectory()){
+                            stack.push(full)
+                        }
+                    } catch(_err) {
+                        // Ignore transient filesystem errors while scanning extracted payloads.
+                    }
+                }
+            }
+            return dirs
+        }
+
+        function scorePayloadDir(dir, type){
+            if(!fs.existsSync(dir)){
+                return 0
+            }
+
+            switch(type){
+                case 'mods':
+                    return countFiles(dir, file => {
+                        const lower = file.toLowerCase()
+                        return lower.endsWith('.jar') || lower.endsWith('.zip')
+                    })
+                case 'resourcepacks':
+                    return countFiles(dir, file => file.toLowerCase().endsWith('.zip'))
+                case 'datapacks':
+                    return countFiles(dir, file => file.toLowerCase().endsWith('.zip') || path.basename(file).toLowerCase() === 'pack.mcmeta')
+                case 'config':
+                    return countFiles(dir, file => path.basename(file) !== '.gitkeep')
+                default:
+                    return countFiles(dir)
+            }
+        }
+
+        function findPayloadDir(extractDir, type){
+            const expectedNames = type === 'datapacks' ? ['datapacks', 'datapack'] : [type]
+            const directCandidates = []
+
+            for(const name of expectedNames){
+                directCandidates.push(path.join(extractDir, name))
+                directCandidates.push(path.join(extractDir, 'build', 'toketmon-pack', name))
+                directCandidates.push(path.join(extractDir, 'toketmon-pack', name))
+                directCandidates.push(path.join(extractDir, 'files', name, 'toketmon'))
+            }
+
+            for(const candidate of directCandidates){
+                if(hasPayloadFiles(candidate, type)){
+                    console.log('[KTZ Toketmon] Selected ' + type + ' payload source:', candidate)
                     return candidate
                 }
             }
 
+            const allDirs = collectDirectories(extractDir)
+            let best = null
+            let bestScore = 0
+
+            for(const dir of allDirs){
+                const base = path.basename(dir).toLowerCase()
+                const parent = path.basename(path.dirname(dir)).toLowerCase()
+                const normalized = dir.toLowerCase().replaceAll('\\', '/')
+                const looksLikePayloadDir = expectedNames.includes(base) ||
+                    (base === 'toketmon' && expectedNames.includes(parent)) ||
+                    expectedNames.some(name => normalized.endsWith('/files/' + name + '/toketmon'))
+
+                if(!looksLikePayloadDir){
+                    continue
+                }
+
+                const score = scorePayloadDir(dir, type)
+                if(score > bestScore){
+                    best = dir
+                    bestScore = score
+                }
+            }
+
+            if(best != null){
+                console.log('[KTZ Toketmon] Selected ' + type + ' payload source:', best, 'files=' + bestScore)
+                return best
+            }
+
+            console.warn('[KTZ Toketmon] Could not find non-empty ' + type + ' payload in extracted client pack:', extractDir)
             return null
         }
 
@@ -302,11 +397,10 @@ function ktzPatchNeoForgeRuntime(){
             }
 
             const layout = [
-                { source: findPayloadDir(extractDir, ['mods']), target: path.join(gameDir, 'mods'), label: 'mods' },
-                { source: findPayloadDir(extractDir, ['config']), target: path.join(gameDir, 'config'), label: 'config' },
-                { source: findPayloadDir(extractDir, ['datapack']), target: path.join(gameDir, 'datapacks'), label: 'datapack' },
-                { source: findPayloadDir(extractDir, ['datapacks']), target: path.join(gameDir, 'datapacks'), label: 'datapacks' },
-                { source: findPayloadDir(extractDir, ['resourcepacks']), target: path.join(gameDir, 'resourcepacks'), label: 'resourcepacks' }
+                { source: findPayloadDir(extractDir, 'mods'), target: path.join(gameDir, 'mods'), label: 'mods' },
+                { source: findPayloadDir(extractDir, 'config'), target: path.join(gameDir, 'config'), label: 'config' },
+                { source: findPayloadDir(extractDir, 'datapacks'), target: path.join(gameDir, 'datapacks'), label: 'datapacks' },
+                { source: findPayloadDir(extractDir, 'resourcepacks'), target: path.join(gameDir, 'resourcepacks'), label: 'resourcepacks' }
             ]
 
             let installedAny = false
@@ -319,7 +413,7 @@ function ktzPatchNeoForgeRuntime(){
             }
 
             if(!installedAny){
-                throw new Error('Toketmon client pack did not contain expected folders: mods, config, datapack/datapacks, resourcepacks')
+                throw new Error('Toketmon client pack did not contain expected folders: mods, config, datapacks, resourcepacks')
             }
 
             if(!hasValidToketmonPayload(gameDir)){

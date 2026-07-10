@@ -164,8 +164,14 @@ function ktzPatchNeoForgeRuntime(){
             return result
         }
 
-        function downloadToketmonPayload(zipPath){
+        function downloadToketmonPayload(zipPath, forceDownload = false){
             fs.ensureDirSync(path.dirname(zipPath))
+
+            if(forceDownload && fs.existsSync(zipPath)){
+                fs.removeSync(zipPath)
+                console.log('[KTZ Toketmon] Removed stale downloaded client pack:', zipPath)
+            }
+
             if(fs.existsSync(zipPath) && fs.statSync(zipPath).size > 1024 * 1024){
                 console.log('[KTZ Toketmon] Client pack already downloaded:', zipPath)
                 return
@@ -191,6 +197,56 @@ function ktzPatchNeoForgeRuntime(){
             fs.ensureDirSync(targetDir)
             fs.copySync(sourceDir, targetDir, { overwrite: true, errorOnExist: false })
             return true
+        }
+
+        function countFiles(dir, predicate = null){
+            if(!fs.existsSync(dir)){
+                return 0
+            }
+
+            let total = 0
+            for(const entry of fs.readdirSync(dir)){
+                const full = path.join(dir, entry)
+                const stat = fs.statSync(full)
+                if(stat.isDirectory()){
+                    total += countFiles(full, predicate)
+                } else if(predicate == null || predicate(full)){
+                    total++
+                }
+            }
+            return total
+        }
+
+        function removeGitkeepFiles(dir){
+            if(!fs.existsSync(dir)){
+                return
+            }
+
+            for(const entry of fs.readdirSync(dir)){
+                const full = path.join(dir, entry)
+                const stat = fs.statSync(full)
+                if(stat.isDirectory()){
+                    removeGitkeepFiles(full)
+                } else if(entry === '.gitkeep'){
+                    fs.removeSync(full)
+                }
+            }
+        }
+
+        function hasValidToketmonPayload(gameDir){
+            const modsDir = path.join(gameDir, 'mods')
+            const configDir = path.join(gameDir, 'config')
+            const resourcepacksDir = path.join(gameDir, 'resourcepacks')
+
+            const modCount = countFiles(modsDir, file => {
+                const lower = file.toLowerCase()
+                return lower.endsWith('.jar') || lower.endsWith('.zip')
+            })
+            const configCount = countFiles(configDir)
+            const resourcepackCount = countFiles(resourcepacksDir, file => file.toLowerCase().endsWith('.zip'))
+
+            console.log('[KTZ Toketmon] Payload check: mods=' + modCount + ', config=' + configCount + ', resourcepacks=' + resourcepackCount)
+            return modCount > 0 && configCount > 0 && resourcepackCount > 0
         }
 
         function findPayloadDir(extractDir, names){
@@ -227,14 +283,23 @@ function ktzPatchNeoForgeRuntime(){
             const extractDir = path.join(packRoot, 'extracted', TOKETMON_PACK.version)
             const markerPath = path.join(gameDir, '.ktz-toketmon-client-pack-' + TOKETMON_PACK.version)
 
-            if(fs.existsSync(markerPath)){
+            if(fs.existsSync(markerPath) && hasValidToketmonPayload(gameDir)){
                 console.log('[KTZ Toketmon] Client pack already installed for this instance.')
                 return
             }
 
+            if(fs.existsSync(markerPath)){
+                console.warn('[KTZ Toketmon] Install marker exists, but payload is incomplete. Reinstalling client pack.')
+                fs.removeSync(markerPath)
+            }
+
             fs.ensureDirSync(gameDir)
-            downloadToketmonPayload(zipPath)
+            downloadToketmonPayload(zipPath, true)
             extractToketmonPayload(zipPath, extractDir)
+
+            for(const managedDir of ['mods', 'config', 'datapacks', 'resourcepacks']){
+                fs.removeSync(path.join(gameDir, managedDir))
+            }
 
             const layout = [
                 { source: findPayloadDir(extractDir, ['mods']), target: path.join(gameDir, 'mods'), label: 'mods' },
@@ -248,12 +313,17 @@ function ktzPatchNeoForgeRuntime(){
             for(const item of layout){
                 if(item.source != null && copyDirectoryContents(item.source, item.target)){
                     installedAny = true
+                    removeGitkeepFiles(item.target)
                     console.log('[KTZ Toketmon] Installed ' + item.label + ' payload:', item.target)
                 }
             }
 
             if(!installedAny){
                 throw new Error('Toketmon client pack did not contain expected folders: mods, config, datapack/datapacks, resourcepacks')
+            }
+
+            if(!hasValidToketmonPayload(gameDir)){
+                throw new Error('Toketmon client pack installation finished, but installed payload is incomplete.')
             }
 
             fs.writeFileSync(markerPath, new Date().toISOString() + '\n', 'utf8')

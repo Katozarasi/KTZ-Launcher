@@ -1,6 +1,6 @@
 {
   "name": "ktzlauncher",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "productName": "KTZ Launcher",
   "description": "KTZ Minecraft Server Launcher",
   "author": "Daniel Scalzi (https://github.com/dscalzi/), peunsu (https://github.com/peunsu), Katozarasi",
@@ -18,6 +18,7 @@
     "dist:mac": "npm run dist -- -m",
     "dist:linux": "npm run dist -- -l",
     "lint": "eslint .",
+    "test:toketmon": "node tools/test-toketmon-live-patch.js",
     "generate:mods": "node tools/generate-server-mods.js",
     "generate:toketmon": "node tools/apply-server-config.js toketmon",
     "generate:servers": "node tools/apply-server-config.js",

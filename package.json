@@ -10,7 +10,7 @@
     "url": "https://github.com/Katozarasi/KTZ-Launcher/issues"
   },
   "private": true,
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder build",

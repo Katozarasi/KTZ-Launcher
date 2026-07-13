@@ -31,11 +31,13 @@ function setStatus(message, percent = null){
         if(typeof globalThis.ktzSetLaunchStatus === 'function'){
             globalThis.ktzSetLaunchStatus(message, percent)
         }
-    } catch(_err) {}
+    } catch(_err) {
+        // The launch status UI is optional while the renderer initializes.
+    }
 }
 
 function quotePowerShell(value){
-    return "'" + String(value).replace(/'/g, "''") + "'"
+    return '\'' + String(value).replace(/'/g, '\'\'') + '\''
 }
 
 function runPowerShell(command){
@@ -76,6 +78,61 @@ function legacyMarkerPath(){
     return path.join(gameDirectory(), '.ktz-toketmon-client-pack-v1')
 }
 
+function normalizeManagedRelativePath(value){
+    const input = String(value || '').trim().replaceAll('\\', '/')
+    if(input.length === 0 || input.startsWith('/') || /^[a-z]:/i.test(input)){
+        throw new Error('Toketmon live patch contains an invalid path: ' + input)
+    }
+
+    const normalized = path.posix.normalize(input)
+    const segments = normalized.split('/').filter(Boolean)
+    if(normalized === '.' || segments.length < 2 || segments.includes('..') || !MANAGED_DIRS.includes(segments[0])){
+        throw new Error('Toketmon live patch path must stay inside a managed folder: ' + input)
+    }
+
+    return segments.join('/')
+}
+
+function normalizeLivePatch(value){
+    if(value == null){
+        return null
+    }
+    if(typeof value !== 'object'){
+        throw new Error('Toketmon live patch is not an object.')
+    }
+
+    const revision = Number(value.revision)
+    if(!Number.isSafeInteger(revision) || revision < 1){
+        throw new Error('Toketmon live patch revision must be a positive integer.')
+    }
+
+    const remove = Array.from(new Set((Array.isArray(value.remove) ? value.remove : []).map(normalizeManagedRelativePath)))
+    const files = (Array.isArray(value.files) ? value.files : []).map(item => {
+        if(item == null || typeof item !== 'object'){
+            throw new Error('Toketmon live patch file entry is not an object.')
+        }
+
+        const normalized = {
+            path: normalizeManagedRelativePath(item.path),
+            url: String(item.url || '').trim(),
+            sha256: String(item.sha256 || '').trim().toLowerCase(),
+            size: Number.isFinite(Number(item.size)) && Number(item.size) > 0 ? Number(item.size) : null
+        }
+        if(!/^https:\/\//i.test(normalized.url)){
+            throw new Error('Toketmon live patch file has an invalid download URL: ' + normalized.path)
+        }
+        if(!/^[a-f0-9]{64}$/.test(normalized.sha256) || normalized.size == null){
+            throw new Error('Toketmon live patch file requires exact size and SHA-256: ' + normalized.path)
+        }
+        return normalized
+    })
+    if(new Set(files.map(item => item.path)).size !== files.length){
+        throw new Error('Toketmon live patch contains duplicate file paths.')
+    }
+
+    return { revision, remove, files }
+}
+
 function normalizeManifest(value){
     if(value == null || typeof value !== 'object'){
         throw new Error('Toketmon pack manifest is not an object.')
@@ -103,6 +160,7 @@ function normalizeManifest(value){
     manifest.size = Number.isFinite(Number(manifest.size)) && Number(manifest.size) > 0
         ? Number(manifest.size)
         : null
+    manifest.livePatch = normalizeLivePatch(value.livePatch)
 
     return manifest
 }
@@ -127,7 +185,7 @@ function loadRemoteManifest(){
     try {
         const separator = MANIFEST_URL.includes('?') ? '&' : '?'
         const cacheBustedUrl = MANIFEST_URL + separator + 't=' + Date.now()
-        const command = "$ProgressPreference='SilentlyContinue'; Invoke-WebRequest -UseBasicParsing -Uri " +
+        const command = '$ProgressPreference=\'SilentlyContinue\'; Invoke-WebRequest -UseBasicParsing -Uri ' +
             quotePowerShell(cacheBustedUrl) + ' -OutFile ' + quotePowerShell(partial)
 
         runPowerShell(command)
@@ -145,7 +203,9 @@ function loadRemoteManifest(){
                 const manifest = normalizeManifest(cachedManifest)
                 console.log('[KTZ Toketmon] Using cached pack manifest:', manifest.version)
                 return manifest
-            } catch(_err) {}
+            } catch(_err) {
+                // Ignore an invalid cache and use the built-in fallback manifest.
+            }
         }
 
         console.warn('[KTZ Toketmon] Using built-in fallback pack manifest:', FALLBACK_MANIFEST.version)
@@ -230,25 +290,27 @@ function readInstalledState(){
     return readJsonIfValid(statePath())
 }
 
-function writeInstalledState(manifest){
+function writeInstalledState(manifest, livePatchRevision = 0){
     const state = {
         schemaVersion: 1,
         packId: SERVER_ID,
         installedVersion: manifest.version,
         fileName: manifest.fileName,
         sha256: manifest.sha256 || null,
+        livePatchRevision,
         installedAt: new Date().toISOString()
     }
     fs.writeFileSync(statePath(), JSON.stringify(state, null, 2) + '\n', 'utf8')
+    return state
 }
 
-function migrateLegacyInstall(manifest){
+function migrateLegacyInstall(){
     if(fs.existsSync(legacyMarkerPath()) && hasValidPayload(gameDirectory())){
-        writeInstalledState(manifest)
-        console.log('[KTZ Toketmon] Migrated legacy pack marker to versioned state:', manifest.version)
-        return true
+        const state = writeInstalledState(FALLBACK_MANIFEST, 0)
+        console.log('[KTZ Toketmon] Migrated legacy pack marker as its real version:', state.installedVersion)
+        return state
     }
-    return false
+    return null
 }
 
 function sha256(file){
@@ -275,6 +337,112 @@ function verifyDownload(file, manifest){
     }
 }
 
+function managedPath(root, relativePath){
+    const resolvedRoot = path.resolve(root)
+    const resolved = path.resolve(root, ...relativePath.split('/'))
+    if(!resolved.startsWith(resolvedRoot + path.sep)){
+        throw new Error('Toketmon live patch path escaped its managed root: ' + relativePath)
+    }
+    return resolved
+}
+
+function prepareLivePatchFiles(patch){
+    const patchRoot = path.join(packRoot(), 'live-patches', String(patch.revision))
+    const stagingRoot = path.join(patchRoot, 'staging')
+    fs.removeSync(stagingRoot)
+    fs.ensureDirSync(stagingRoot)
+
+    for(const item of patch.files){
+        const destination = managedPath(stagingRoot, item.path)
+        const partial = destination + '.part'
+        fs.ensureDirSync(path.dirname(destination))
+
+        console.log('[KTZ Toketmon] Downloading live patch file:', item.path)
+        const command = '$ProgressPreference=' + quotePowerShell('SilentlyContinue') + '; Invoke-WebRequest -UseBasicParsing -Uri ' +
+            quotePowerShell(item.url) + ' -OutFile ' + quotePowerShell(partial)
+        runPowerShell(command)
+        verifyDownload(partial, item)
+        fs.moveSync(partial, destination, { overwrite: true })
+    }
+
+    return { patchRoot, stagingRoot }
+}
+
+function markLivePatchApplied(manifest, patch){
+    const state = readInstalledState()
+    if(state == null || state.installedVersion !== manifest.version){
+        throw new Error('Toketmon live patch cannot update an unknown pack state.')
+    }
+
+    state.livePatchRevision = patch.revision
+    state.lastPatchedAt = new Date().toISOString()
+    fs.writeFileSync(statePath(), JSON.stringify(state, null, 2) + '\n', 'utf8')
+}
+
+function applyLivePatch(manifest){
+    const patch = manifest.livePatch
+    if(patch == null){
+        return false
+    }
+
+    const installed = readInstalledState()
+    const currentRevision = Number(installed?.livePatchRevision || 0)
+    if(currentRevision >= patch.revision){
+        return false
+    }
+
+    setStatus('토켓몬 실시간 패치를 적용하고 있어요...')
+    console.log('[KTZ Toketmon] Applying live patch revision:', patch.revision)
+
+    const { patchRoot, stagingRoot } = prepareLivePatchFiles(patch)
+    const backupRoot = path.join(patchRoot, 'backup')
+    const touched = Array.from(new Set([...patch.remove, ...patch.files.map(item => item.path)]))
+    const backups = []
+    const installedFiles = []
+
+    fs.removeSync(backupRoot)
+    fs.ensureDirSync(backupRoot)
+
+    try {
+        for(const relativePath of touched){
+            const target = managedPath(gameDirectory(), relativePath)
+            if(fs.existsSync(target)){
+                const backup = managedPath(backupRoot, relativePath)
+                fs.ensureDirSync(path.dirname(backup))
+                fs.moveSync(target, backup, { overwrite: true })
+                backups.push({ target, backup })
+                console.log('[KTZ Toketmon] Live patch removed or replaced:', relativePath)
+            }
+        }
+
+        for(const item of patch.files){
+            const source = managedPath(stagingRoot, item.path)
+            const target = managedPath(gameDirectory(), item.path)
+            fs.ensureDirSync(path.dirname(target))
+            fs.moveSync(source, target, { overwrite: true })
+            installedFiles.push(target)
+            console.log('[KTZ Toketmon] Live patch installed:', item.path)
+        }
+
+        markLivePatchApplied(manifest, patch)
+        fs.removeSync(patchRoot)
+        console.log('[KTZ Toketmon] Live patch complete:', patch.revision)
+        return true
+    } catch(err) {
+        console.error('[KTZ Toketmon] Live patch failed. Restoring previous files.', err)
+        for(const target of installedFiles){
+            fs.removeSync(target)
+        }
+        for(const item of backups.reverse()){
+            if(fs.existsSync(item.backup)){
+                fs.ensureDirSync(path.dirname(item.target))
+                fs.moveSync(item.backup, item.target, { overwrite: true })
+            }
+        }
+        throw err
+    }
+}
+
 function downloadPack(manifest){
     const downloadDir = path.join(packRoot(), 'downloads', manifest.version)
     const destination = path.join(downloadDir, manifest.fileName)
@@ -296,7 +464,7 @@ function downloadPack(manifest){
     setStatus('토켓몬 클라이언트팩을 다운로드하고 있어요...')
     console.log('[KTZ Toketmon] Downloading client pack ' + manifest.version + ':', manifest.url)
 
-    const command = "$ProgressPreference='SilentlyContinue'; Invoke-WebRequest -UseBasicParsing -Uri " +
+    const command = '$ProgressPreference=\'SilentlyContinue\'; Invoke-WebRequest -UseBasicParsing -Uri ' +
         quotePowerShell(manifest.url) + ' -OutFile ' + quotePowerShell(partial)
 
     runPowerShell(command)
@@ -351,7 +519,9 @@ function collectDirectories(rootDir){
                 if(fs.statSync(full).isDirectory()){
                     stack.push(full)
                 }
-            } catch(_err) {}
+            } catch(_err) {
+                // Ignore unreadable entries while searching an extracted pack.
+            }
         }
     }
     return dirs
@@ -506,13 +676,15 @@ function prepareSync(serverId){
     const manifest = loadRemoteManifest()
     enforceMinimumLauncherVersion(manifest)
 
-    const installed = readInstalledState()
-    if(installed == null && migrateLegacyInstall(manifest)){
-        return manifest
+    let installed = readInstalledState()
+    const migrated = migrateLegacyInstall()
+    if(migrated != null){
+        installed = migrated
     }
 
     if(installed?.installedVersion === manifest.version && hasValidPayload(gameDirectory())){
         console.log('[KTZ Toketmon] Client pack is up to date:', manifest.version)
+        applyLivePatch(manifest)
         return manifest
     }
 
@@ -525,6 +697,7 @@ function prepareSync(serverId){
     const extractDir = extractPack(zipPath, manifest)
     const stagingRoot = createStagingInstance(extractDir, manifest)
     installStagedPayload(stagingRoot, manifest)
+    applyLivePatch(manifest)
 
     fs.removeSync(path.join(packRoot(), 'staging', manifest.version))
     return manifest
@@ -534,6 +707,7 @@ function reset(){
     fs.removeSync(statePath())
     fs.removeSync(legacyMarkerPath())
     fs.removeSync(path.join(packRoot(), 'staging'))
+    fs.removeSync(path.join(packRoot(), 'live-patches'))
 }
 
 function installedVersion(){

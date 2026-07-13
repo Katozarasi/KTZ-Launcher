@@ -1,5 +1,5 @@
 // KTZ support tools injected into Launcher settings.
-// Adds quick buttons for diagnostics, data folder, log folder, repair, and cache reset.
+// Adds quick buttons for diagnostics, data folders, file repair, and Toketmon pack recovery.
 
 function ktzSupportLanguage(){
     try {
@@ -19,29 +19,37 @@ function ktzSupportText(key){
     const text = {
         ko_KR: {
             title: '지원 도구',
-            desc: '문제 해결에 필요한 정보를 복사하거나 폴더를 엽니다.',
+            desc: '문제 해결에 필요한 정보를 복사하거나 폴더를 열 수 있어요.',
             copy: '오류 정보 복사',
             openData: '데이터 폴더 열기',
             openLogs: '로그 폴더 열기',
             repair: '파일 복구',
+            reinstallPack: '토켓몬 팩 재설치',
             resetCache: '캐시 초기화',
-            copied: '오류 정보가 클립보드에 복사되었습니다.',
-            repairDone: '선택한 서버의 관리 모드 파일을 정리했습니다. 다음 PLAY 시 필요한 파일을 다시 검사/다운로드합니다.',
-            resetDone: '캐시 초기화를 완료했습니다. 런처를 다시 실행해 주세요.',
-            confirmReset: '런처 캐시를 초기화할까요? 로그인 정보는 유지하고 뉴스/임시 캐시만 정리합니다.'
+            copied: '오류 정보가 클립보드에 복사되었어요!',
+            repairDone: '선택한 서버의 관리 파일을 정리했어요. 다음 PLAY에서 필요한 파일을 다시 확인할게요!',
+            packRepairDone: '토켓몬 팩을 다음 PLAY에서 안전하게 다시 설치할게요!',
+            packRepairUnavailable: '토켓몬 서버를 선택한 뒤 다시 눌러 주세요.',
+            resetDone: '캐시 초기화를 완료했어요. 런처를 다시 실행해 주세요!',
+            confirmPackRepair: '토켓몬 클라이언트팩을 다음 PLAY에서 다시 설치할까요?',
+            confirmReset: '런처 캐시를 초기화할까요? 로그인 정보는 유지하고 뉴스와 임시 캐시만 정리해요.'
         },
         ja_JP: {
             title: 'サポートツール',
-            desc: 'トラブルシューティングに必要な情報をコピーしたり、フォルダーを開いたりします。',
+            desc: 'トラブルシューティング情報をコピーしたり、フォルダーを開いたりできます。',
             copy: 'エラー情報をコピー',
             openData: 'データフォルダーを開く',
             openLogs: 'ログフォルダーを開く',
             repair: 'ファイル修復',
+            reinstallPack: 'トケットモンパック再インストール',
             resetCache: 'キャッシュ初期化',
             copied: 'エラー情報をクリップボードにコピーしました。',
-            repairDone: '選択中サーバーの管理Modファイルを整理しました。次回PLAY時に必要なファイルを再検査/再ダウンロードします。',
+            repairDone: '選択中サーバーの管理ファイルを整理しました。次回PLAY時に再確認します。',
+            packRepairDone: '次回PLAY時にトケットモンパックを安全に再インストールします。',
+            packRepairUnavailable: 'トケットモンサーバーを選択してからもう一度お試しください。',
             resetDone: 'キャッシュ初期化が完了しました。ランチャーを再起動してください。',
-            confirmReset: 'ランチャーキャッシュを初期化しますか？ログイン情報は保持し、ニュース/一時キャッシュのみ整理します。'
+            confirmPackRepair: '次回PLAY時にトケットモンクライアントパックを再インストールしますか？',
+            confirmReset: 'ランチャーキャッシュを初期化しますか？ログイン情報は保持します。'
         },
         en_US: {
             title: 'Support Tools',
@@ -50,11 +58,15 @@ function ktzSupportText(key){
             openData: 'Open Data Folder',
             openLogs: 'Open Logs Folder',
             repair: 'Repair Files',
+            reinstallPack: 'Reinstall Toketmon Pack',
             resetCache: 'Reset Cache',
-            copied: 'Error information copied to clipboard.',
-            repairDone: 'Managed mod files for the selected server were cleared. Required files will be checked/downloaded again on next PLAY.',
+            copied: 'Error information was copied to the clipboard!',
+            repairDone: 'Managed files for the selected server were cleared. They will be checked on the next PLAY.',
+            packRepairDone: 'The Toketmon pack will be safely reinstalled on the next PLAY.',
+            packRepairUnavailable: 'Select the Toketmon server and try again.',
             resetDone: 'Cache reset complete. Please restart the launcher.',
-            confirmReset: 'Reset launcher cache? Login data will be preserved; only news/temp cache will be cleared.'
+            confirmPackRepair: 'Reinstall the Toketmon client pack on the next PLAY?',
+            confirmReset: 'Reset launcher cache? Login data will be preserved.'
         }
     }
     return (text[lang] || text.ko_KR)[key]
@@ -62,6 +74,14 @@ function ktzSupportText(key){
 
 function ktzSupportButton(label, id){
     return `<button id="${id}" class="settingsAboutButton" style="margin-right: 8px; margin-top: 8px;">${label}</button>`
+}
+
+function ktzToketmonPackVersion(){
+    try {
+        return require('./assets/js/toketmonpackmanager').installedVersion()
+    } catch(_err) {
+        return null
+    }
 }
 
 function ktzGetSupportInfo(){
@@ -89,6 +109,7 @@ function ktzGetSupportInfo(){
         `Platform: ${process.platform} ${process.arch}`,
         `Selected Server: ${selectedServer || '-'}`,
         `Selected Account: ${selectedAccount || '-'}`,
+        `Toketmon Pack: ${ktzToketmonPackVersion() || '-'}`,
         `Launcher Directory: ${ConfigManager.getLauncherDirectory()}`,
         `Data Directory: ${ConfigManager.getDataDirectory()}`
     ].join('\n')
@@ -117,7 +138,32 @@ async function ktzRepairSelectedServer(){
         fs.removeSync(file)
     }
 
+    if(selectedServer === 'toketmon'){
+        try {
+            require('./assets/js/toketmonpackmanager').reset()
+        } catch(_err) {}
+    }
+
     alert(ktzSupportText('repairDone'))
+}
+
+async function ktzReinstallToketmonPack(){
+    if(ConfigManager.getSelectedServer() !== 'toketmon'){
+        alert(ktzSupportText('packRepairUnavailable'))
+        return
+    }
+
+    if(!confirm(ktzSupportText('confirmPackRepair'))){
+        return
+    }
+
+    try {
+        require('./assets/js/toketmonpackmanager').reset()
+        alert(ktzSupportText('packRepairDone'))
+    } catch(err) {
+        console.error('Unable to reset Toketmon pack state.', err)
+        alert(err.message)
+    }
 }
 
 async function ktzResetLauncherCache(){
@@ -172,6 +218,7 @@ function ktzInjectSupportTools(){
             ${ktzSupportButton(ktzSupportText('openData'), 'ktzOpenDataFolder')}
             ${ktzSupportButton(ktzSupportText('openLogs'), 'ktzOpenLogsFolder')}
             ${ktzSupportButton(ktzSupportText('repair'), 'ktzRepairFiles')}
+            ${ktzSupportButton(ktzSupportText('reinstallPack'), 'ktzReinstallToketmonPack')}
             ${ktzSupportButton(ktzSupportText('resetCache'), 'ktzResetCache')}
         </div>`
 
@@ -196,6 +243,7 @@ function ktzInjectSupportTools(){
     }
 
     document.getElementById('ktzRepairFiles').onclick = ktzRepairSelectedServer
+    document.getElementById('ktzReinstallToketmonPack').onclick = ktzReinstallToketmonPack
     document.getElementById('ktzResetCache').onclick = ktzResetLauncherCache
 }
 

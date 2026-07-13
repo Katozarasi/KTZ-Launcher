@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "packId": "toketmon",
+  "version": "1.0.0",
+  "minecraftVersion": "1.21.1",
+  "loader": {
+    "type": "fabric",
+    "version": "0.18.4"
+  },
+  "fileName": "toketmon-client-pack-v1.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/toketmon-client-pack-v1/toketmon-client-pack-v1.zip",
+  "minimumLauncherVersion": "3.2.0",
+  "sha256": "",
+  "size": null,
+  "changelog": [
+    "토켓몬 Fabric 1.21.1 클라이언트팩 첫 배포"
+  ]
+}

@@ -1,18 +1,20 @@
 {
   "schemaVersion": 1,
   "packId": "toketmon",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "minecraftVersion": "1.21.1",
   "loader": {
     "type": "fabric",
     "version": "0.18.4"
   },
-  "fileName": "toketmon-client-pack-v1.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/toketmon-client-pack-v1/toketmon-client-pack-v1.zip",
+  "fileName": "toketmon-client-pack-2.0.0.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/toketmon-client-pack-2.0.0/toketmon-client-pack-2.0.0.zip",
   "minimumLauncherVersion": "3.2.0",
-  "sha256": "",
-  "size": null,
+  "sha256": "a6fafb7d248ab59f15faf156e18c5534e781eaf7f20786ffbcc467006f48b452",
+  "size": 1257074557,
   "changelog": [
-    "토켓몬 Fabric 1.21.1 클라이언트팩 첫 배포"
+    "토켓몬 클라이언트팩 2.0.0 전체 교체",
+    "모드 147개와 설정 파일 최신화",
+    "데이터팩 및 리소스팩 업데이트"
   ]
 }

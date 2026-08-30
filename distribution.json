@@ -1333,7 +1333,7 @@
         "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_bg.jpg",
         "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_bg.jpg",
         "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/astervale.xml",
-        "maintenance": true,
+        "maintenance": false,
         "shortName": "에스터베일",
         "subtitle": "NeoForge 1.21.4 클라이언트 · Leaf 서버"
       }

@@ -15,11 +15,11 @@
         "File"
       ]
     },
-    "toketmon": {
-      "modsDir": "files/mods/toketmon",
-      "modType": "FabricMod",
-      "idPrefix": "ktz.toketmon",
-      "loader": "fabric",
+    "astervale": {
+      "modsDir": "files/mods/astervale",
+      "modType": "ForgeMod",
+      "idPrefix": "ktz.astervale",
+      "loader": "neoforge",
       "preserveModuleTypes": [
         "ForgeHosted",
         "Fabric",

@@ -6,17 +6,14 @@
 /dist/
 /.ktz-cache/
 
-# Toketmon local payload - distributed through release asset
-/files/mods/toketmon/**
-!/files/mods/toketmon/.gitkeep
-/files/config/toketmon/**
-!/files/config/toketmon/.gitkeep
-/files/datapack/toketmon/**
-!/files/datapack/toketmon/.gitkeep
-/files/resourcepacks/toketmon/**
-!/files/resourcepacks/toketmon/.gitkeep
+# Aster Vale local payload - distributed through a versioned release asset
+/files/mods/astervale/**
+!/files/mods/astervale/.gitkeep
+/files/config/astervale/**
+!/files/config/astervale/.gitkeep
+/files/resourcepacks/astervale/**
+!/files/resourcepacks/astervale/.gitkeep
 
 # Local temporary files
 /java_cmd.txt
-/{
-/toketmon-client-pack-v*.zip
+/astervale-client-pack-*.zip

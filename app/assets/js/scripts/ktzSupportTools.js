@@ -1,5 +1,5 @@
 // KTZ support tools injected into Launcher settings.
-// Adds quick buttons for diagnostics, data folders, file repair, and Toketmon pack recovery.
+// Adds quick buttons for diagnostics, data folders, file repair, and Aster Vale pack recovery.
 
 function ktzSupportLanguage(){
     try {
@@ -10,7 +10,9 @@ function ktzSupportLanguage(){
             const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
             return config?.settings?.launcher?.language || 'ko_KR'
         }
-    } catch(_err) {}
+    } catch(_err) {
+        // Fall back to Korean when the configured locale is unavailable.
+    }
     return 'ko_KR'
 }
 
@@ -24,14 +26,14 @@ function ktzSupportText(key){
             openData: '데이터 폴더 열기',
             openLogs: '로그 폴더 열기',
             repair: '파일 복구',
-            reinstallPack: '토켓몬 팩 재설치',
+            reinstallPack: '에스터베일 팩 재설치',
             resetCache: '캐시 초기화',
             copied: '오류 정보가 클립보드에 복사되었어요!',
             repairDone: '선택한 서버의 관리 파일을 정리했어요. 다음 PLAY에서 필요한 파일을 다시 확인할게요!',
-            packRepairDone: '토켓몬 팩을 다음 PLAY에서 안전하게 다시 설치할게요!',
-            packRepairUnavailable: '토켓몬 서버를 선택한 뒤 다시 눌러 주세요.',
+            packRepairDone: '에스터베일 팩을 다음 PLAY에서 안전하게 다시 설치할게요!',
+            packRepairUnavailable: '에스터베일 서버를 선택한 뒤 다시 눌러 주세요.',
             resetDone: '캐시 초기화를 완료했어요. 런처를 다시 실행해 주세요!',
-            confirmPackRepair: '토켓몬 클라이언트팩을 다음 PLAY에서 다시 설치할까요?',
+            confirmPackRepair: '에스터베일 클라이언트팩을 다음 PLAY에서 다시 설치할까요?',
             confirmReset: '런처 캐시를 초기화할까요? 로그인 정보는 유지하고 뉴스와 임시 캐시만 정리해요.'
         },
         ja_JP: {
@@ -41,14 +43,14 @@ function ktzSupportText(key){
             openData: 'データフォルダーを開く',
             openLogs: 'ログフォルダーを開く',
             repair: 'ファイル修復',
-            reinstallPack: 'トケットモンパック再インストール',
+            reinstallPack: 'アスターヴェイルパック再インストール',
             resetCache: 'キャッシュ初期化',
             copied: 'エラー情報をクリップボードにコピーしました。',
             repairDone: '選択中サーバーの管理ファイルを整理しました。次回PLAY時に再確認します。',
-            packRepairDone: '次回PLAY時にトケットモンパックを安全に再インストールします。',
-            packRepairUnavailable: 'トケットモンサーバーを選択してからもう一度お試しください。',
+            packRepairDone: '次回PLAY時にアスターヴェイルパックを安全に再インストールします。',
+            packRepairUnavailable: 'アスターヴェイルサーバーを選択してからもう一度お試しください。',
             resetDone: 'キャッシュ初期化が完了しました。ランチャーを再起動してください。',
-            confirmPackRepair: '次回PLAY時にトケットモンクライアントパックを再インストールしますか？',
+            confirmPackRepair: '次回PLAY時にアスターヴェイルクライアントパックを再インストールしますか？',
             confirmReset: 'ランチャーキャッシュを初期化しますか？ログイン情報は保持します。'
         },
         en_US: {
@@ -58,14 +60,14 @@ function ktzSupportText(key){
             openData: 'Open Data Folder',
             openLogs: 'Open Logs Folder',
             repair: 'Repair Files',
-            reinstallPack: 'Reinstall Toketmon Pack',
+            reinstallPack: 'Reinstall Aster Vale Pack',
             resetCache: 'Reset Cache',
             copied: 'Error information was copied to the clipboard!',
             repairDone: 'Managed files for the selected server were cleared. They will be checked on the next PLAY.',
-            packRepairDone: 'The Toketmon pack will be safely reinstalled on the next PLAY.',
-            packRepairUnavailable: 'Select the Toketmon server and try again.',
+            packRepairDone: 'The Aster Vale pack will be safely reinstalled on the next PLAY.',
+            packRepairUnavailable: 'Select the Aster Vale server and try again.',
             resetDone: 'Cache reset complete. Please restart the launcher.',
-            confirmPackRepair: 'Reinstall the Toketmon client pack on the next PLAY?',
+            confirmPackRepair: 'Reinstall the Aster Vale client pack on the next PLAY?',
             confirmReset: 'Reset launcher cache? Login data will be preserved.'
         }
     }
@@ -76,9 +78,9 @@ function ktzSupportButton(label, id){
     return `<button id="${id}" class="settingsAboutButton" style="margin-right: 8px; margin-top: 8px;">${label}</button>`
 }
 
-function ktzToketmonPackVersion(){
+function ktzAsterValePackVersion(){
     try {
-        return require('./assets/js/toketmonpackmanager').installedVersion()
+        return require('./assets/js/astervalepackmanager').installedVersion()
     } catch(_err) {
         return null
     }
@@ -92,12 +94,16 @@ function ktzGetSupportInfo(){
 
     try {
         selectedServer = ConfigManager.getSelectedServer()
-    } catch(_err) {}
+    } catch(_err) {
+        // Diagnostics can still be copied without a selected server.
+    }
 
     try {
         const account = ConfigManager.getSelectedAccount()
         selectedAccount = account?.displayName || account?.username || null
-    } catch(_err) {}
+    } catch(_err) {
+        // Diagnostics can still be copied without a selected account.
+    }
 
     return [
         'KTZ Launcher Support Info',
@@ -109,7 +115,7 @@ function ktzGetSupportInfo(){
         `Platform: ${process.platform} ${process.arch}`,
         `Selected Server: ${selectedServer || '-'}`,
         `Selected Account: ${selectedAccount || '-'}`,
-        `Toketmon Pack: ${ktzToketmonPackVersion() || '-'}`,
+        `Aster Vale Pack: ${ktzAsterValePackVersion() || '-'}`,
         `Launcher Directory: ${ConfigManager.getLauncherDirectory()}`,
         `Data Directory: ${ConfigManager.getDataDirectory()}`
     ].join('\n')
@@ -138,17 +144,19 @@ async function ktzRepairSelectedServer(){
         fs.removeSync(file)
     }
 
-    if(selectedServer === 'toketmon'){
+    if(selectedServer === 'astervale'){
         try {
-            require('./assets/js/toketmonpackmanager').reset()
-        } catch(_err) {}
+            require('./assets/js/astervalepackmanager').reset()
+        } catch(_err) {
+            // Continue the regular repair if the pack state is already absent.
+        }
     }
 
     alert(ktzSupportText('repairDone'))
 }
 
-async function ktzReinstallToketmonPack(){
-    if(ConfigManager.getSelectedServer() !== 'toketmon'){
+async function ktzReinstallAsterValePack(){
+    if(ConfigManager.getSelectedServer() !== 'astervale'){
         alert(ktzSupportText('packRepairUnavailable'))
         return
     }
@@ -158,10 +166,10 @@ async function ktzReinstallToketmonPack(){
     }
 
     try {
-        require('./assets/js/toketmonpackmanager').reset()
+        require('./assets/js/astervalepackmanager').reset()
         alert(ktzSupportText('packRepairDone'))
     } catch(err) {
-        console.error('Unable to reset Toketmon pack state.', err)
+        console.error('Unable to reset Aster Vale pack state.', err)
         alert(err.message)
     }
 }
@@ -183,7 +191,9 @@ async function ktzResetLauncherCache(){
     for(const target of cacheTargets){
         try {
             fs.removeSync(target)
-        } catch(_err) {}
+        } catch(_err) {
+            // Continue resetting the remaining cache entries.
+        }
     }
 
     try {
@@ -194,15 +204,20 @@ async function ktzResetLauncherCache(){
             dismissed: false
         }
         fs.writeFileSync(path.join(launcherDir, 'config.json'), JSON.stringify(config, null, 4), 'UTF-8')
-    } catch(_err) {}
+    } catch(_err) {
+        // Cache cleanup is still useful if the config file cannot be rewritten.
+    }
 
     alert(ktzSupportText('resetDone'))
 }
 
 function ktzInjectSupportTools(){
     const launcherTab = document.getElementById('settingsTabLauncher')
-    if(launcherTab == null || document.getElementById('ktzSupportToolsContainer') != null){
-        return
+    if(document.getElementById('ktzSupportToolsContainer') != null){
+        return true
+    }
+    if(launcherTab == null){
+        return false
     }
 
     const wrapper = document.createElement('div')
@@ -218,7 +233,7 @@ function ktzInjectSupportTools(){
             ${ktzSupportButton(ktzSupportText('openData'), 'ktzOpenDataFolder')}
             ${ktzSupportButton(ktzSupportText('openLogs'), 'ktzOpenLogsFolder')}
             ${ktzSupportButton(ktzSupportText('repair'), 'ktzRepairFiles')}
-            ${ktzSupportButton(ktzSupportText('reinstallPack'), 'ktzReinstallToketmonPack')}
+            ${ktzSupportButton(ktzSupportText('reinstallPack'), 'ktzReinstallAsterValePack')}
             ${ktzSupportButton(ktzSupportText('resetCache'), 'ktzResetCache')}
         </div>`
 
@@ -243,8 +258,23 @@ function ktzInjectSupportTools(){
     }
 
     document.getElementById('ktzRepairFiles').onclick = ktzRepairSelectedServer
-    document.getElementById('ktzReinstallToketmonPack').onclick = ktzReinstallToketmonPack
+    document.getElementById('ktzReinstallAsterValePack').onclick = ktzReinstallAsterValePack
     document.getElementById('ktzResetCache').onclick = ktzResetLauncherCache
+    return true
 }
 
-setInterval(ktzInjectSupportTools, 700)
+function ktzInstallSupportTools(){
+    if(ktzInjectSupportTools()){
+        return
+    }
+
+    const observer = new MutationObserver(() => {
+        if(ktzInjectSupportTools()){
+            observer.disconnect()
+        }
+    })
+    observer.observe(document.documentElement, { childList: true, subtree: true })
+    setTimeout(() => observer.disconnect(), 15000)
+}
+
+setTimeout(ktzInstallSupportTools, 0)

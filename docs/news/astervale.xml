@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>에스터베일 소식</title>
+    <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+    <description>에스터베일 서버 공지 및 업데이트</description>
+    <language>ko-kr</language>
+    <item>
+      <title>에스터베일 클라이언트 준비</title>
+      <link>https://github.com/Katozarasi/KTZ-Launcher</link>
+      <description>NeoForge 1.21.4 클라이언트와 Leaf 서버를 위한 에스터베일 전용 환경을 준비했어요.</description>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 +0900</pubDate>
+    </item>
+  </channel>
+</rss>

@@ -77,11 +77,11 @@
         "maintenance": false
       }
     },
-    "toketmon": {
-      "name": "토켓몬 서버",
-      "description": "Fabric 1.21.1 기반 토켓몬 서버입니다.",
+    "astervale": {
+      "name": "에스터베일",
+      "description": "생활·경제·모험이 이어지는 NeoForge 1.21.4 클라이언트와 Leaf 서버입니다.",
       "address": "1.224.237.11",
-      "minecraftVersion": "1.21.1",
+      "minecraftVersion": "1.21.4",
       "mainServer": false,
       "autoconnect": true,
       "javaOptions": {
@@ -89,34 +89,33 @@
         "suggestedMajor": 21,
         "ram": {
           "recommended": 4096,
-          "minimum": 2048
+          "minimum": 3072
         }
       },
       "ktz": {
-        "loader": "fabric",
-        "loaderName": "Fabric",
-        "loaderVersion": "0.18.4",
-        "payloadVersion": "v1",
-        "payloadUrl": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/toketmon-client-pack-v1/toketmon-client-pack-v1.zip",
+        "loader": "neoforge",
+        "loaderName": "NeoForge",
+        "loaderVersion": "21.4.157",
+        "packManifest": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json",
         "i18n": {
           "ko_KR": {
-            "name": "토켓몬 서버",
-            "subtitle": "Fabric 1.21.1 토켓몬 서버"
+            "name": "에스터베일",
+            "subtitle": "NeoForge 1.21.4 클라이언트 · Leaf 서버"
           },
           "ja_JP": {
-            "name": "トケットモンサーバー",
-            "subtitle": "Fabric 1.21.1 トケットモンサーバー"
+            "name": "アスターヴェイル",
+            "subtitle": "NeoForge 1.21.4 クライアント · Leaf サーバー"
           },
           "en_US": {
-            "name": "Toketmon Server",
-            "subtitle": "Fabric 1.21.1 Toketmon server"
+            "name": "Aster Vale",
+            "subtitle": "NeoForge 1.21.4 client · Leaf server"
           }
         },
-        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/toketmon_thumb.png",
-        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/toketmon_bg.png",
-        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/toketmon_bg.png",
-        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/toketmon.xml",
-        "maintenance": false
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_thumb.png",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_bg.jpg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_bg.jpg",
+        "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/astervale.xml",
+        "maintenance": true
       }
     }
   }

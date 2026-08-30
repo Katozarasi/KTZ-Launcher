@@ -30,11 +30,11 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Test Toketmon live patch
-        run: npm run test:toketmon
+      - name: Test Aster Vale live patch
+        run: npm run test:astervale
 
       - name: Lint changed runtime files
-        run: npx eslint app/assets/js/toketmonpackmanager.js tools/test-toketmon-live-patch.js
+        run: npx eslint app/assets/js/astervalepackmanager.js tools/test-astervale-live-patch.js tools/build-astervale-pack.js
 
       - name: Build Windows installer
         if: github.event_name == 'pull_request'

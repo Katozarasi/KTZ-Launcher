@@ -168,6 +168,12 @@ function updateSelectedServer(serv){
         animateSettingsTabRefresh()
     }
     setLaunchEnabled(serv != null)
+    setTimeout(() => {
+        if(typeof ktzBindLandingServerSelectButton === 'function') ktzBindLandingServerSelectButton()
+        if(typeof ktzBindMaintenanceLaunchGuard === 'function') ktzBindMaintenanceLaunchGuard()
+        if(typeof ktzRefreshMaintenanceState === 'function') ktzRefreshMaintenanceState()
+        if(typeof ktzApplyLandingBackground === 'function') ktzApplyLandingBackground()
+    }, 0)
 }
 // Real text is set in uibinder.js on distributionIndexDone.
 server_selection_button.innerHTML = '&#8226; ' + Lang.queryJS('landing.selectedServer.loading')
@@ -552,6 +558,23 @@ async function dlAsync(login = true) {
     const versionData = await mojangIndexProcessor.getVersionJson()
 
     if(login) {
+        if(serv.rawServer.ktz?.packManifest != null){
+            try {
+                setLaunchDetails('에스터베일 클라이언트팩 업데이트를 확인하고 있어요...')
+                await require('./assets/js/astervalepackmanager').prepare(serv.rawServer.id)
+            } catch(err) {
+                loggerLaunchSuite.error('Error while preparing the managed server pack.', err)
+                showLaunchFailure(
+                    Lang.queryJS('landing.dlAsync.errorDuringLaunchTitle'),
+                    err.message || Lang.queryJS('landing.dlAsync.checkConsoleForDetails')
+                )
+                if(typeof window.ktzUnlockLaunch === 'function'){
+                    window.ktzUnlockLaunch()
+                }
+                return
+            }
+        }
+
         const authUser = ConfigManager.getSelectedAccount()
         loggerLaunchSuite.info(`Sending selected account (${authUser.displayName}) to ProcessBuilder.`)
         let pb = new ProcessBuilder(serv, versionData, modLoaderData, authUser, remote.app.getVersion())

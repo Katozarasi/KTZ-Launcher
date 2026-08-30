@@ -15,8 +15,8 @@ app/assets/images/servers/
 ```text
 app/assets/images/servers/katori_thumb.png
 app/assets/images/servers/katori_bg.png
-app/assets/images/servers/city_ability_thumb.png
-app/assets/images/servers/city_ability_bg.png
+app/assets/images/servers/astervale_thumb.png
+app/assets/images/servers/astervale_bg.jpg
 app/assets/images/servers/minigame_thumb.png
 app/assets/images/servers/minigame_bg.png
 ```
@@ -78,10 +78,10 @@ app/assets/images/servers/minigame_bg.png
       }
     },
     {
-      "id": "city_ability",
-      "name": "도시능력자",
-      "description": "도시능력자 서버",
-      "icon": "assets/images/servers/city_ability_thumb.png",
+      "id": "astervale",
+      "name": "에스터베일",
+      "description": "에스터베일 서버",
+      "icon": "assets/images/servers/astervale_thumb.png",
       "version": "1.0.0",
       "address": "city.example.com:25565",
       "minecraftVersion": "1.21.4",
@@ -89,10 +89,10 @@ app/assets/images/servers/minigame_bg.png
       "autoconnect": true,
       "modules": [],
       "ktz": {
-        "shortName": "도시능력자",
+        "shortName": "에스터베일",
         "subtitle": "능력자 전투 서버",
-        "thumbnail": "assets/images/servers/city_ability_thumb.png",
-        "background": "assets/images/servers/city_ability_bg.png"
+        "thumbnail": "assets/images/servers/astervale_thumb.png",
+        "background": "assets/images/servers/astervale_bg.jpg"
       }
     },
     {

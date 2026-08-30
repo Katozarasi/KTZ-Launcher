@@ -16,7 +16,9 @@ function ktzLandingLanguage(){
             const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
             return config?.settings?.launcher?.language || 'ko_KR'
         }
-    } catch(_err) {}
+    } catch(_err) {
+        // Fall back to Korean when the configured locale is unavailable.
+    }
     return 'ko_KR'
 }
 
@@ -50,24 +52,11 @@ function ktzLandingText(key){
 
 function ktzLocalizedServerName(rawServer){
     const lang = ktzLandingLanguage()
-    const names = {
-        ko_KR: {
-            kato_empire_official: '카토제국 공식서버',
-            kato_empire_test: '카토제국 테스트 서버',
-            city_ability: '도시능력자'
-        },
-        ja_JP: {
-            kato_empire_official: 'カト帝国 公式サーバー',
-            kato_empire_test: 'カト帝国 テストサーバー',
-            city_ability: '都市能力者'
-        },
-        en_US: {
-            kato_empire_official: 'Kato Empire Official',
-            kato_empire_test: 'Kato Empire Test',
-            city_ability: 'City Ability'
-        }
-    }
-    return names[lang]?.[rawServer.id] || names.ko_KR[rawServer.id] || rawServer.ktz?.shortName || rawServer.name || rawServer.id
+    return rawServer.ktz?.i18n?.[lang]?.name
+        || rawServer.ktz?.i18n?.ko_KR?.name
+        || rawServer.ktz?.shortName
+        || rawServer.name
+        || rawServer.id
 }
 
 function ktzIsServerInMaintenance(rawServer){
@@ -190,7 +179,9 @@ function ktzPatchManagedModCleanup(){
                 if((type === Type.ForgeMod || type === Type.FabricMod || type === Type.LiteMod) && String(raw.id || '').startsWith('ktz.')){
                     try {
                         keepSet.add(path.resolve(module.getPath()).toLowerCase())
-                    } catch(_err) {}
+                    } catch(_err) {
+                        // Ignore modules without a resolvable managed path.
+                    }
                 }
                 if(module.subModules?.length > 0){
                     collectKtzManagedModPaths(module.subModules, keepSet)
@@ -208,7 +199,9 @@ function ktzPatchManagedModCleanup(){
                     fs.rmdirSync(dir)
                     removeEmptyDirs(path.dirname(dir), root)
                 }
-            } catch(_err) {}
+            } catch(_err) {
+                // Ignore stale generated-file metadata from older launcher versions.
+            }
         }
 
         function cleanupRoot(root, keepSet){
@@ -261,17 +254,6 @@ setTimeout(() => {
     ktzRefreshMaintenanceState()
     ktzApplyLandingBackground()
 }, 0)
-
-// The original launcher updates this button text whenever the selected server changes.
-// Keep the KTZ label stable and keep the landing background synced.
-setInterval(() => {
-    ktzBindLandingServerSelectButton()
-    ktzBindMaintenanceLaunchGuard()
-    if(getCurrentView() === VIEWS.landing){
-        ktzRefreshMaintenanceState()
-        ktzApplyLandingBackground()
-    }
-}, 1000)
 
 async function ktzFetchNewsFeed(newsFeed, label){
     if(!newsFeed){

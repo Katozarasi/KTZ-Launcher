@@ -174,7 +174,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         fs.ensureDirSync(path.dirname(installerPath))
         logger.info('Downloading NeoForge installer:', this._installerUrl())
 
-        const psCommand = "$ProgressPreference='SilentlyContinue'; Invoke-WebRequest -UseBasicParsing -Uri '" + this._installerUrl() + "' -OutFile '" + installerPath.replace(/'/g, "''") + "'"
+        const psCommand = '$ProgressPreference=\'SilentlyContinue\'; Invoke-WebRequest -UseBasicParsing -Uri \'' + this._installerUrl() + '\' -OutFile \'' + installerPath.replace(/'/g, '\'\'') + '\''
         const result = child_process.spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', psCommand], {
             encoding: 'utf8',
             windowsHide: true
@@ -467,7 +467,7 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             args[versionIndex + 1] = id
         }
 
-        const launcherNameIndex = args.indexOf('-Dminecraft.launcher.brand=MRS-Launcher')
+        const launcherNameIndex = args.findIndex(arg => typeof arg === 'string' && arg.startsWith('-Dminecraft.launcher.brand='))
         if(launcherNameIndex > -1) {
             args[launcherNameIndex] = '-Dminecraft.launcher.brand=KTZ-Launcher'
         }

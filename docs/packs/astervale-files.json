@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "packId": "astervale",
+  "version": "1.0.0",
+  "minecraftVersion": "1.21.4",
+  "loader": "neoforge-21.4.157",
+  "generatedAt": "2026-08-30T05:44:10.099Z",
+  "sourceProfile": "NeoForge 1.21.4",
+  "files": [
+    {
+      "path": "config/dreamdisplays/client-display-settings.json",
+      "size": 6679,
+      "sha256": "5b5a517ae8ee2768f88e3d4ab044cc9efc77f39095be89660b006ac206b446ce"
+    },
+    {
+      "path": "config/emotecraft.json",
+      "size": 1588,
+      "sha256": "8abc8593cc08415f5e279ef8206e9d060f5de974152a46245d45220a0e800f4d"
+    },
+    {
+      "path": "config/katoquest-hud.properties",
+      "size": 149,
+      "sha256": "c8f7f556ae2bdd5173d247b7b7b022f4b91bed6d7dd7a8717203317dae9af7ee"
+    },
+    {
+      "path": "config/MouseTweaks.cfg",
+      "size": 135,
+      "sha256": "4069ce1a439d8c37453c1b1e9f2037e0942674c7e48723a39b37eab245792ad4"
+    },
+    {
+      "path": "config/skinlayers.json",
+      "size": 497,
+      "sha256": "45162f45aa2db525a0edc483959f35b6d958ba2e54066a4f87e7f3c3f0f99166"
+    },
+    {
+      "path": "config/sodium-mixins.properties",
+      "size": 258,
+      "sha256": "b627c4456e6fa0bc4b5f85e2f1cd949faedae3cb9afdaf2a5f52e6f3b6ae1f01"
+    },
+    {
+      "path": "config/sodium-options.json",
+      "size": 685,
+      "sha256": "00c7dd465e12693baeb0f9844848eb087f627d98827df51111b080af462d7d73"
+    },
+    {
+      "path": "config/transition.json",
+      "size": 97,
+      "sha256": "60420a41571a4658b91babfa2b47d6fefb7c1766eeea969f51ff98ab34c2431c"
+    },
+    {
+      "path": "config/trender.json",
+      "size": 47,
+      "sha256": "0a282f3623f7f9443a1d10b5768865f69e58b74e000dcfb4f40399626b7a6124"
+    },
+    {
+      "path": "mods/주식 클라이언트.jar",
+      "size": 101320,
+      "sha256": "7bde4e2420a1cb9ab0dee2855d2f36ae0d27a4c1d1829b690c52e0330adf88f9"
+    },
+    {
+      "path": "mods/카토 가챠 클라이언트.jar",
+      "size": 258794888,
+      "sha256": "6d3385a311348850df59ed09395c764a793817181957198d8045281b5867ef6e"
+    },
+    {
+      "path": "mods/카토 금고 클라이언트.jar",
+      "size": 3233131,
+      "sha256": "075a6c3bfcb5c5795ecb7b388bb7ad072747473d5e6d5df64fba21af88632837"
+    },
+    {
+      "path": "mods/카토 낚시 클라이언트.jar",
+      "size": 3364723,
+      "sha256": "8a865cdad02f3ef27d1ecdec433d180f16f576a9ab3121d06835deffd78da325"
+    },
+    {
+      "path": "mods/카토 대장장이 클라이언트.jar",
+      "size": 5549038,
+      "sha256": "30b5bf1a06cd00d07fbb8d3942dbbc2441bf9795324299bd70afdd9bb01ccbba"
+    },
+    {
+      "path": "mods/카토 대화 클라이언트.jar",
+      "size": 1396387,
+      "sha256": "772f52f5b8643699e5cfc5634ee08dcb6594985aed44e633f7b7e20f8f852d2a"
+    },
+    {
+      "path": "mods/카토 도감 클라이언트-NeoForge-1.21.4-0.1.0.jar",
+      "size": 4673964,
+      "sha256": "7a2c5b26e95a8f51537dc31ada6562717e94f2135529b14559715366f749d078"
+    },
+    {
+      "path": "mods/카토 도어락 클라이언트.jar",
+      "size": 3244474,
+      "sha256": "d87b858c80fb8326760fd01fdb25a4577a30b59a21582f4a7d448816b62e5091"
+    },
+    {
+      "path": "mods/카토 상점 클라이언트-1.21.4-0.4.22.jar",
+      "size": 2314473,
+      "sha256": "e15e0602980e4a1ca8ca775e743aa26ef5452f12341b8239c14f5b5649ceffe6"
+    },
+    {
+      "path": "mods/카토 생활 클라이언트.jar",
+      "size": 3171352,
+      "sha256": "29ab4884554512e770f1e82c9288045799320b53cde39c44ea0560b0d5a106c8"
+    },
+    {
+      "path": "mods/카토 세금 클라이언트-1.21.4-0.1.3.jar",
+      "size": 7468841,
+      "sha256": "7de989efd8a8d481555dde0f537403777b4bd68445fdcc246abb19035924a05c"
+    },
+    {
+      "path": "mods/카토 실시간 통역 클라이언트.jar",
+      "size": 21424,
+      "sha256": "a93c80ed356f0a29f680e36801a1719b1d534f3e3fd2a00d5ea2262a43c1e5d1"
+    },
+    {
+      "path": "mods/카토 업적 클라이언트.jar",
+      "size": 7008939,
+      "sha256": "90aee0a5fd353c7210a82f07199ea20bd3a2df057c96859ad67606aab796614b"
+    },
+    {
+      "path": "mods/카토 주민등록증 클라이언트 모드.jar",
+      "size": 4661352,
+      "sha256": "a2bcba37d500114d307f0525c1c89dc598bf9ec059b889450009fe1c2a25c7a3"
+    },
+    {
+      "path": "mods/카토 직업 제작대 클라이언트.jar",
+      "size": 64716,
+      "sha256": "64cd6b5ae6fccc1a9d3bca7260b8e06f5044d7d82c521554db755a0392703a6b"
+    },
+    {
+      "path": "mods/카토 퀘스트 클라이언트.jar",
+      "size": 94682,
+      "sha256": "d1a72c6a105ed2261cd952160807e1e54083040467c27ca10b3c9690df440d6f"
+    },
+    {
+      "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.19.jar",
+      "size": 11815273,
+      "sha256": "25f1da68a8b8f1f0c4be88ba82811b2578de31349aa4e800e6e80ad62f1673d9"
+    },
+    {
+      "path": "mods/dreamdisplays-neoforge-1.21.4-1.9.4.jar",
+      "size": 26057098,
+      "sha256": "6a5c7c837d831d9e1d72502cbb12ba265ebea5309f64ca6d8f730c65ecc973d9"
+    },
+    {
+      "path": "mods/emotecraft-neoforge-for-MC1.21.4-2.5.8.jar",
+      "size": 1260413,
+      "sha256": "04d6567e70ca8e390e1e54dca3fbb623fada69cb47f3f6af9b5e61bbc9972aa4"
+    },
+    {
+      "path": "mods/Iceberg-1.21.4-neoforge-1.2.13.jar",
+      "size": 185058,
+      "sha256": "78387c10d6e4f9fb4275c002b2aca42697ae5908e72bb9276a10589c0dd61221"
+    },
+    {
+      "path": "mods/iris-neoforge-1.8.8+mc1.21.4.jar",
+      "size": 2622578,
+      "sha256": "589ad5a844ca6ab5746ed5f0bb7d997df98e88bc2212d81be801400a132b622d"
+    },
+    {
+      "path": "mods/journeymap-neoforge-1.21.4-6.0.0-beta.47.jar",
+      "size": 3485461,
+      "sha256": "ef353b81426b6f0094fcccc9035ff4cb0e0e19ac8be6f38244e893645177dbf3"
+    },
+    {
+      "path": "mods/koreanpatch-neoforge-1.9.6+mc1.21.3.jar",
+      "size": 373020,
+      "sha256": "3116ce7b301319d628d2e22a710535df125a914dc95d776c1e788e7d70991085"
+    },
+    {
+      "path": "mods/LegendaryTooltips-1.21.4-neoforge-1.5.1.jar",
+      "size": 61377,
+      "sha256": "36373dfee9a08b567b184d5a98e947a97be71ec821f4f592bb82b46db7571b2d"
+    },
+    {
+      "path": "mods/modernfix-neoforge-5.20.3+mc1.21.4.jar",
+      "size": 470519,
+      "sha256": "8370af4dd2b52e5f366dea08aac1c3ef91178bf7210953ee55cbd3e579dccaad"
+    },
+    {
+      "path": "mods/MouseTweaks-neoforge-mc1.21.3-2.26.1.jar",
+      "size": 73946,
+      "sha256": "d8bce5a93d783869af0cc214126a6e38d9ca77ef3d45d99047b64865977263e8"
+    },
+    {
+      "path": "mods/Prism-1.21.4-neoforge-1.0.10.jar",
+      "size": 61997,
+      "sha256": "667516350f80a40229bcb6ae47b2addde365b5fbbac6cfc13a5c0cbf36821131"
+    },
+    {
+      "path": "mods/skinlayers3d-neoforge-1.11.2-mc1.21.4.jar",
+      "size": 1974310,
+      "sha256": "92f60586472d14c1c08e3471a9625e5ea9290192045ae75475ee1aea135e1116"
+    },
+    {
+      "path": "mods/sodium-neoforge-0.6.13+mc1.21.4.jar",
+      "size": 1161460,
+      "sha256": "78a1615506430f7d91793777dc9439188f5a56316111c3100c896eee8910d556"
+    },
+    {
+      "path": "mods/voicechat-neoforge-1.21.4-2.6.22.jar",
+      "size": 4920154,
+      "sha256": "66c4e7692266c9c1aed370f6688137f6232f6e6588188a9be520542ea029e7f2"
+    },
+    {
+      "path": "mods/WallImages-NeoForge-1.21.4-0.1.0-rc.7.jar",
+      "size": 256476,
+      "sha256": "cc3986a797e2c2f6a80dba1cfb30286fc02ba8decde634ee122731bdcb648477"
+    },
+    {
+      "path": "resourcepacks/AddCook-pack.zip",
+      "size": 689318,
+      "sha256": "8ed038b5e22d316ad4db1a947036ea143cf729f6f7586f758577467cfb977b44"
+    },
+    {
+      "path": "resourcepacks/Better-Leaves-9.5.zip",
+      "size": 1923769,
+      "sha256": "5480640cb2f7674da4f2897ebc48b29a436706614160f4d4d8ad0ead5150fea6"
+    },
+    {
+      "path": "resourcepacks/BorderLess Glass v1.zip",
+      "size": 122951,
+      "sha256": "346ea381ece234685ff9b26b3442f7a367fbd9eca09511fc40dbfcbc0d660ba1"
+    }
+  ]
+}

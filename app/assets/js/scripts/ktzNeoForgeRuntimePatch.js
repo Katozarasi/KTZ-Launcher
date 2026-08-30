@@ -9,7 +9,6 @@ function ktzPatchNeoForgeRuntime(){
         const ProcessBuilder = require('./assets/js/processbuilder')
         const NeoForgeProcessBuilder = require('./assets/js/neoforgeprocessbuilder')
         const ConfigManager = require('./assets/js/configmanager')
-        const ToketmonPackManager = require('./assets/js/toketmonpackmanager')
 
         if(ProcessBuilder.prototype.ktzNeoForgeRuntimePatched){
             return
@@ -151,11 +150,6 @@ function ktzPatchNeoForgeRuntime(){
 
         ProcessBuilder.prototype.build = function(){
             const serverId = this.server.rawServer.id
-
-            if(serverId === 'toketmon'){
-                ToketmonPackManager.prepareSync(serverId)
-                return withBundledJava21(serverId, () => originalBuild.call(this))
-            }
 
             if(isNeoForgeBuild(this) && !this.usingNeoForgeLoader){
                 console.log('[KTZ NeoForge] Delegating launch to dedicated NeoForgeProcessBuilder.')

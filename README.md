@@ -1,14 +1,12 @@
-<p align="center"><img src="./app/assets/images/Icon.png" width="150px" height="150px" alt="mystic red space"></p>
+<p align="center"><img src="./app/assets/images/Icon.png" width="150px" height="150px" alt="KTZ Launcher"></p>
 
-<h1 align="center">MRS Launcher</h1>
+<h1 align="center">KTZ Launcher</h1>
 
 <h3 align="center"><a href="https://github.com/dscalzi/HeliosLauncher">Forked from Helios Launcher</a></h3>
 
-<p align="center"><a href="https://github.com/peunsu/MRSLauncher/actions"><img src="https://img.shields.io/github/actions/workflow/status/peunsu/MRSLauncher/build.yml?branch=master&style=for-the-badge" alt="gh actions"></a> <a href="https://github.com/peunsu/MRSLauncher/releases"><img src="https://img.shields.io/github/downloads/peunsu/MRSLauncher/total.svg?style=for-the-badge" alt="downloads"></a>
+<p align="center"><a href="https://github.com/Katozarasi/KTZ-Launcher/actions"><img src="https://img.shields.io/github/actions/workflow/status/Katozarasi/KTZ-Launcher/build.yml?branch=main&style=for-the-badge" alt="gh actions"></a> <a href="https://github.com/Katozarasi/KTZ-Launcher/releases"><img src="https://img.shields.io/github/downloads/Katozarasi/KTZ-Launcher/total.svg?style=for-the-badge" alt="downloads"></a></p>
 
-[<p align="center"><img src="https://img.shields.io/endpoint?url=https://minecraft-server-status-badge.vercel.app/api/server/mc1.mysticred.space?port=25565&logo=curseforge&label=MRS%20Server&color=28231d&style=for-the-badge" alt="homepage">](https://mysticred.space) [<img src="https://img.shields.io/discord/330997213255827457?style=for-the-badge&logo=discord&logoColor=ffffff&label=Discord&labelColor=6173f4&color=28231d" alt="discord">](https://discord.gg/Z8j6ahF4MJ)
-
-<p align="center">Java, Forge, 모드 설치 걱정 없이 서버에 접속하세요. MRS 런처 하나로 준비 끝!</p>
+<p align="center">Java, 모드 로더, 클라이언트팩 설치 걱정 없이 KTZ 서버를 선택하고 접속하세요!</p>
 
 ![Screenshot 1](https://i.imgur.com/44esaa9.png)
 ![Screenshot 2](https://i.imgur.com/NxUAzlL.png)
@@ -27,7 +25,7 @@
   * 런처를 실행하기 위해 Java를 설치할 필요가 없어요.
 * 📰 런처에 내장된 뉴스 피드
 * ⚙️ Java 설정이 가능한 직관적인 설정 화면
-* MRS 서버에 쉽게 접속할 수 있어요.
+* KTZ 서버를 선택해 쉽게 접속할 수 있어요.
   * 모드팩이 여러 개 설치되어 있어도 쉽게 전환할 수 있어요.
   * 서버에 접속한 플레이어 수를 확인할 수 있어요.
 * 런처는 자동으로 업데이트돼요.
@@ -41,26 +39,26 @@
 
 ## 다운로드
 
-[GitHub Releases](https://github.com/peunsu/MRSLauncher/releases)에서 다운로드할 수 있어요.
+[GitHub Releases](https://github.com/Katozarasi/KTZ-Launcher/releases)에서 다운로드할 수 있어요.
 
 #### 최신 릴리즈 버전
 
-[![](https://img.shields.io/github/v/release/peunsu/MRSLauncher?style=flat-square)](https://github.com/peunsu/MRSLauncher/releases/latest)
+[![](https://img.shields.io/github/v/release/Katozarasi/KTZ-Launcher?style=flat-square)](https://github.com/Katozarasi/KTZ-Launcher/releases/latest)
 
 #### 최신 프리릴리즈 버전
 
-[![](https://img.shields.io/github/v/release/peunsu/MRSLauncher?include_prereleases&style=flat-square&label=pre-release)](https://github.com/peunsu/MRSLauncher/releases)
+[![](https://img.shields.io/github/v/release/Katozarasi/KTZ-Launcher?include_prereleases&style=flat-square&label=pre-release)](https://github.com/Katozarasi/KTZ-Launcher/releases)
 
 **지원하는 플랫폼**
 
-[Releases](https://github.com/peunsu/MRSLauncher/releases) 탭에서 시스템 OS에 맞는 설치 파일을 선택해서 다운로드하세요.
+[Releases](https://github.com/Katozarasi/KTZ-Launcher/releases) 탭에서 시스템 OS에 맞는 설치 파일을 선택해서 다운로드하세요.
 
 | 플랫폼 | 파일 |
 | -------- | ---- |
-| Windows x64 | `MRS-Launcher-setup-VERSION.exe` |
-| macOS x64[^1] | `MRS-Launcher-setup-VERSION-x64.dmg` |
-| macOS arm64[^1] | `MRS-Launcher-setup-VERSION-arm64.dmg` |
-| Linux x64 | `MRS-Launcher-setup-VERSION.AppImage` |
+| Windows x64 | `KTZ-Launcher-setup-VERSION.exe` |
+| macOS x64[^1] | `KTZ-Launcher-setup-VERSION-x64.dmg` |
+| macOS arm64[^1] | `KTZ-Launcher-setup-VERSION-arm64.dmg` |
+| Linux x64 | `KTZ-Launcher-setup-VERSION.AppImage` |
 [^1]: macOS 설치 파일은 서명되지 않아서 보안 경고가 뜰 수 있으며 정상 작동을 보장하지 않아요.
 
 ## 콘솔
@@ -95,8 +93,8 @@ ctrl + shift + i
 **레포지토리 클론 및 의존 패키지 설치**
 
 ```console
-> git clone https://github.com/peunsu/MRSLauncher.git
-> cd MRSLauncher
+> git clone https://github.com/Katozarasi/KTZ-Launcher.git
+> cd KTZ-Launcher
 > npm install
 ```
 
@@ -195,22 +193,11 @@ Microsoft 인증 설정 방법은 [여기](https://github.com/dscalzi/HeliosLaun
 * [Nebula (Distribution.json 생성)][nebula]
 * [v2 Rewrite Branch (비활성화)][v2branch]
 
-아래 디스코드에서 개발자들과 소통할 수 있어요.
-
-[![discord](https://discordapp.com/api/guilds/211524927831015424/embed.png?style=banner3)][discord]
-
----
-
-## Mystic Red Space
-
-[![discord](https://discordapp.com/api/guilds/330997213255827457/embed.png?style=banner3)][discord]
-
 [nodejs]: https://nodejs.org/en/ 'Node.js'
 [vscode]: https://code.visualstudio.com/ 'Visual Studio Code'
 [mainprocess]: https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes 'Main Process'
 [rendererprocess]: https://electronjs.org/docs/tutorial/application-architecture#main-and-renderer-processes 'Renderer Process'
 [chromedebugger]: https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome 'Debugger for Chrome'
-[discord]: https://discord.gg/zNWUXdt 'Discord'
-[wiki]: https://github.com/peunsu/MRSLauncher/wiki 'wiki'
+[wiki]: https://github.com/Katozarasi/KTZ-Launcher 'KTZ Launcher'
 [nebula]: https://github.com/dscalzi/Nebula 'dscalzi/Nebula'
 [v2branch]: https://github.com/dscalzi/HeliosLauncher/tree/ts-refactor 'v2 branch'

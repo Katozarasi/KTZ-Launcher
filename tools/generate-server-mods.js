@@ -108,7 +108,7 @@ function main() {
 
     if (!serverId) {
         console.error('Usage: node tools/generate-server-mods.js <serverId>')
-        console.error('Example: node tools/generate-server-mods.js city_ability')
+        console.error('Example: node tools/generate-server-mods.js astervale')
         process.exit(1)
     }
 

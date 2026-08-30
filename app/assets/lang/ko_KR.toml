@@ -181,7 +181,7 @@ javaDownloadPrepare = "Java 다운로드 준비 중.."
 javaDownloadFailureTitle = "Java 다운로드 중 오류 발생"
 javaDownloadFailureText = "콘솔 (CTRL + Shift + i) 에서 자세한 내용을 확인하세요."
 javaRequired = "실행을 위해<br>Java가 필요합니다"
-javaRequiredMessage = "실행을 위해 유효한 64비트 Java {major} 를 설치해야 합니다.<br><br><a href=\"https://github.com/peunsu/MRSLauncher/wiki/Java-%EA%B4%80%EB%A6%AC#java-%EC%88%98%EB%8F%99-%EC%84%A4%EC%B9%98\">Java Management Guide</a>를 참조하여 Java 수동 설치 방법을 확인하세요."
+javaRequiredMessage = "실행을 위해 유효한 64비트 Java {major} 를 설치해야 합니다.<br><br><a href=\"https://github.com/Katozarasi/KTZ-Launcher\">KTZ Launcher 안내</a>를 참조해 주세요."
 javaRequiredDismiss = "확인"
 javaRequiredCancel = "돌아가기"
 
@@ -204,7 +204,7 @@ downloadingFiles = "파일 다운로드 중.."
 errorDuringFileDownloadTitle = "파일 다운로드 중 오류 발생"
 preparingToLaunch = "실행 준비 중.."
 launchingGame = "게임 실행 중.."
-launchWrapperNotDownloaded = "게임 실행을 위한 메인 파일(LaunchWrapper)을 다운로드할 수 없습니다.<br><br>문제 해결을 위해 임시로 안티바이러스 프로그램을 비활성화한 뒤 게임을 다시 실행해 보세요.<br><br>만약 이 문제가 계속된다면, <a href=\"https://github.com/peunsu/MRSLauncher/issues\">GitHub 이슈 페이지</a>에 사용 중인 안티바이러스 프로그램과 함께 문제를 제보해 주세요."
+launchWrapperNotDownloaded = "게임 실행을 위한 메인 파일(LaunchWrapper)을 다운로드할 수 없습니다.<br><br>문제 해결을 위해 임시로 안티바이러스 프로그램을 비활성화한 뒤 게임을 다시 실행해 보세요.<br><br>만약 이 문제가 계속된다면, <a href=\"https://github.com/Katozarasi/KTZ-Launcher/issues\">GitHub 이슈 페이지</a>에 사용 중인 안티바이러스 프로그램과 함께 문제를 제보해 주세요."
 doneEnjoyServer = "완료. 즐거운 시간 되세요!"
 checkConsoleForDetails = "콘솔 (CTRL + Shift + i) 에서 자세한 내용을 확인하세요."
 
@@ -214,7 +214,7 @@ checking = "뉴스 확인 중"
 [js.landing.discord]
 loading = "게임 로딩 중.."
 joining = "서버 접속 중.."
-joined = "Mystic Red Space"
+joined = "KTZ Launcher"
 
 [js.overlay]
 dismiss = "닫기"

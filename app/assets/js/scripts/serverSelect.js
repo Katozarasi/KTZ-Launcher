@@ -26,7 +26,9 @@ function ktzServerSelectLanguage(){
             const config = JSON.parse(fs.readFileSync(configPath, 'UTF-8'))
             return config?.settings?.launcher?.language || 'ko_KR'
         }
-    } catch(_err) {}
+    } catch(_err) {
+        // Fall back to Korean when the configured locale is unavailable.
+    }
     return 'ko_KR'
 }
 
@@ -66,24 +68,14 @@ function ktzServerSelectText(key){
 
 function ktzServerI18n(rawServer){
     const lang = ktzServerSelectLanguage()
-    const presets = {
-        ko_KR: {
-            kato_empire_official: { name: '카토제국 공식서버', desc: '카토제국 공식 운영 서버' },
-            kato_empire_test: { name: '카토제국 테스트 서버', desc: '기능 점검 및 테스트 서버' },
-            city_ability: { name: '도시능력자', desc: '도시 능력자 서버' }
-        },
-        ja_JP: {
-            kato_empire_official: { name: 'カト帝国 公式サーバー', desc: 'カト帝国公式運営サーバー' },
-            kato_empire_test: { name: 'カト帝国 テストサーバー', desc: '機能確認・テスト用サーバー' },
-            city_ability: { name: '都市能力者', desc: '都市能力者サーバー' }
-        },
-        en_US: {
-            kato_empire_official: { name: 'Kato Empire Official', desc: 'Kato Empire official server' },
-            kato_empire_test: { name: 'Kato Empire Test', desc: 'Feature check and test server' },
-            city_ability: { name: 'City Ability', desc: 'City Ability server' }
-        }
+    const localized = rawServer.ktz?.i18n?.[lang] || rawServer.ktz?.i18n?.ko_KR
+    if(localized == null){
+        return null
     }
-    return presets[lang]?.[rawServer.id] || presets.ko_KR[rawServer.id] || null
+    return {
+        name: localized.name,
+        desc: localized.subtitle
+    }
 }
 
 function ktzApplyServerSelectLanguage(){
@@ -217,7 +209,11 @@ ktzServerSelectBack.onclick = () => {
     switchView(KTZ_SERVER_SELECT_VIEW, targetView || VIEWS.landing)
 }
 
-setInterval(() => {
+const ktzServerSelectStartupTimer = setInterval(() => {
+    if(ktzServerSelectShownThisSession){
+        clearInterval(ktzServerSelectStartupTimer)
+        return
+    }
     if(!ktzServerSelectShownThisSession && getCurrentView() === VIEWS.landing && Object.keys(ConfigManager.getAuthAccounts()).length > 0){
         ktzShowServerSelect(VIEWS.landing).catch(err => {
             console.error('Unable to show KTZ server selection view.', err)

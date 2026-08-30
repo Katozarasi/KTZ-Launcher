@@ -1,29 +1,39 @@
 const child_process = require('child_process')
+const crypto = require('crypto')
 const fs = require('fs-extra')
+const got = require('got')
 const path = require('path')
 const semver = require('semver')
+const { pipeline } = require('stream')
+const { promisify } = require('util')
 
 const ConfigManager = require('./configmanager')
 
-const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/toketmon.json'
-const SERVER_ID = 'toketmon'
-const MANAGED_DIRS = ['mods', 'config', 'datapacks', 'resourcepacks']
+const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json'
+const SERVER_ID = 'astervale'
+const MANAGED_DIRS = ['mods', 'config', 'resourcepacks']
+const pipelineAsync = promisify(pipeline)
 
 const FALLBACK_MANIFEST = {
     schemaVersion: 1,
     packId: SERVER_ID,
     version: '1.0.0',
-    minecraftVersion: '1.21.1',
+    minecraftVersion: '1.21.4',
     loader: {
-        type: 'fabric',
-        version: '0.18.4'
+        type: 'neoforge',
+        version: '21.4.157'
     },
-    fileName: 'toketmon-client-pack-v1.zip',
-    url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/toketmon-client-pack-v1/toketmon-client-pack-v1.zip',
-    minimumLauncherVersion: '3.2.0',
-    sha256: '',
-    size: null,
-    changelog: []
+    fileName: 'astervale-client-pack-1.0.0.zip',
+    url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.0/astervale-client-pack-1.0.0.zip',
+    minimumLauncherVersion: '3.3.0',
+    sha256: '1f82cf3eca84065ff766f9eefca6996814652bae9f4171b24c5c4b23a609c4b8',
+    size: 351010544,
+    resourcePacks: [
+        { file: 'AddCook-pack.zip', incompatible: true },
+        { file: 'BorderLess Glass v1.zip', incompatible: false },
+        { file: 'Better-Leaves-9.5.zip', incompatible: false }
+    ],
+    changelog: ['에스터베일 NeoForge 1.21.4 클라이언트팩 첫 배포']
 }
 
 function setStatus(message, percent = null){
@@ -41,21 +51,50 @@ function quotePowerShell(value){
 }
 
 function runPowerShell(command){
-    const result = child_process.spawnSync(
-        'powershell.exe',
-        ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', command],
-        {
-            encoding: 'utf8',
-            windowsHide: true,
-            maxBuffer: 32 * 1024 * 1024
-        }
-    )
+    return new Promise((resolve, reject) => {
+        const child = child_process.spawn(
+            'powershell.exe',
+            ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', command],
+            {
+                windowsHide: true,
+                stdio: ['ignore', 'pipe', 'pipe']
+            }
+        )
+        let stdout = ''
+        let stderr = ''
+        child.stdout.setEncoding('utf8')
+        child.stderr.setEncoding('utf8')
+        child.stdout.on('data', data => { stdout += data })
+        child.stderr.on('data', data => { stderr += data })
+        child.once('error', reject)
+        child.once('close', code => {
+            if(code === 0){
+                resolve(stdout)
+            } else {
+                reject(new Error((stderr || stdout || 'PowerShell command failed').trim()))
+            }
+        })
+    })
+}
 
-    if(result.status !== 0){
-        throw new Error((result.stderr || result.stdout || 'PowerShell command failed').trim())
+function formatBytes(bytes){
+    if(!Number.isFinite(bytes) || bytes <= 0){
+        return '0 MB'
     }
+    return (bytes / (1024 * 1024)).toFixed(bytes >= 100 * 1024 * 1024 ? 0 : 1) + ' MB'
+}
 
-    return result.stdout || ''
+async function downloadUrl(url, destination, label){
+    const stream = got.stream(url, {
+        retry: { limit: 2 },
+        timeout: { request: 30 * 60 * 1000 }
+    })
+    stream.on('downloadProgress', progress => {
+        const percent = Number.isFinite(progress.percent) ? Math.round(progress.percent * 80) : null
+        const total = progress.total != null ? ` / ${formatBytes(progress.total)}` : ''
+        setStatus(`${label} ${formatBytes(progress.transferred)}${total}`, percent)
+    })
+    await pipelineAsync(stream, fs.createWriteStream(destination))
 }
 
 function packRoot(){
@@ -74,20 +113,16 @@ function statePath(){
     return path.join(gameDirectory(), '.ktz-pack-state.json')
 }
 
-function legacyMarkerPath(){
-    return path.join(gameDirectory(), '.ktz-toketmon-client-pack-v1')
-}
-
 function normalizeManagedRelativePath(value){
     const input = String(value || '').trim().replaceAll('\\', '/')
     if(input.length === 0 || input.startsWith('/') || /^[a-z]:/i.test(input)){
-        throw new Error('Toketmon live patch contains an invalid path: ' + input)
+        throw new Error('Aster Vale live patch contains an invalid path: ' + input)
     }
 
     const normalized = path.posix.normalize(input)
     const segments = normalized.split('/').filter(Boolean)
     if(normalized === '.' || segments.length < 2 || segments.includes('..') || !MANAGED_DIRS.includes(segments[0])){
-        throw new Error('Toketmon live patch path must stay inside a managed folder: ' + input)
+        throw new Error('Aster Vale live patch path must stay inside a managed folder: ' + input)
     }
 
     return segments.join('/')
@@ -98,18 +133,18 @@ function normalizeLivePatch(value){
         return null
     }
     if(typeof value !== 'object'){
-        throw new Error('Toketmon live patch is not an object.')
+        throw new Error('Aster Vale live patch is not an object.')
     }
 
     const revision = Number(value.revision)
     if(!Number.isSafeInteger(revision) || revision < 1){
-        throw new Error('Toketmon live patch revision must be a positive integer.')
+        throw new Error('Aster Vale live patch revision must be a positive integer.')
     }
 
     const remove = Array.from(new Set((Array.isArray(value.remove) ? value.remove : []).map(normalizeManagedRelativePath)))
     const files = (Array.isArray(value.files) ? value.files : []).map(item => {
         if(item == null || typeof item !== 'object'){
-            throw new Error('Toketmon live patch file entry is not an object.')
+            throw new Error('Aster Vale live patch file entry is not an object.')
         }
 
         const normalized = {
@@ -119,15 +154,15 @@ function normalizeLivePatch(value){
             size: Number.isFinite(Number(item.size)) && Number(item.size) > 0 ? Number(item.size) : null
         }
         if(!/^https:\/\//i.test(normalized.url)){
-            throw new Error('Toketmon live patch file has an invalid download URL: ' + normalized.path)
+            throw new Error('Aster Vale live patch file has an invalid download URL: ' + normalized.path)
         }
         if(!/^[a-f0-9]{64}$/.test(normalized.sha256) || normalized.size == null){
-            throw new Error('Toketmon live patch file requires exact size and SHA-256: ' + normalized.path)
+            throw new Error('Aster Vale live patch file requires exact size and SHA-256: ' + normalized.path)
         }
         return normalized
     })
     if(new Set(files.map(item => item.path)).size !== files.length){
-        throw new Error('Toketmon live patch contains duplicate file paths.')
+        throw new Error('Aster Vale live patch contains duplicate file paths.')
     }
 
     return { revision, remove, files }
@@ -135,23 +170,23 @@ function normalizeLivePatch(value){
 
 function normalizeManifest(value){
     if(value == null || typeof value !== 'object'){
-        throw new Error('Toketmon pack manifest is not an object.')
+        throw new Error('Aster Vale pack manifest is not an object.')
     }
 
     const manifest = Object.assign({}, FALLBACK_MANIFEST, value)
     manifest.loader = Object.assign({}, FALLBACK_MANIFEST.loader, value.loader || {})
 
     if(manifest.packId !== SERVER_ID){
-        throw new Error('Unexpected Toketmon pack id: ' + manifest.packId)
+        throw new Error('Unexpected Aster Vale pack id: ' + manifest.packId)
     }
     if(typeof manifest.version !== 'string' || manifest.version.trim().length === 0){
-        throw new Error('Toketmon pack manifest is missing version.')
+        throw new Error('Aster Vale pack manifest is missing version.')
     }
     if(typeof manifest.fileName !== 'string' || manifest.fileName.trim().length === 0){
-        throw new Error('Toketmon pack manifest is missing fileName.')
+        throw new Error('Aster Vale pack manifest is missing fileName.')
     }
     if(typeof manifest.url !== 'string' || !/^https:\/\//i.test(manifest.url)){
-        throw new Error('Toketmon pack manifest has an invalid download URL.')
+        throw new Error('Aster Vale pack manifest has an invalid download URL.')
     }
 
     manifest.version = manifest.version.trim()
@@ -160,6 +195,13 @@ function normalizeManifest(value){
     manifest.size = Number.isFinite(Number(manifest.size)) && Number(manifest.size) > 0
         ? Number(manifest.size)
         : null
+    manifest.resourcePacks = (Array.isArray(value.resourcePacks) ? value.resourcePacks : [])
+        .map(item => typeof item === 'string' ? { file: item, incompatible: false } : item)
+        .map(item => ({
+            file: String(item?.file || '').trim(),
+            incompatible: item?.incompatible === true
+        }))
+        .filter(item => item.file.length > 0 && path.basename(item.file) === item.file)
     manifest.livePatch = normalizeLivePatch(value.livePatch)
 
     return manifest
@@ -176,7 +218,7 @@ function readJsonIfValid(file){
     }
 }
 
-function loadRemoteManifest(){
+async function loadRemoteManifest(){
     const root = packRoot()
     const cached = manifestCachePath()
     const partial = cached + '.part'
@@ -185,30 +227,31 @@ function loadRemoteManifest(){
     try {
         const separator = MANIFEST_URL.includes('?') ? '&' : '?'
         const cacheBustedUrl = MANIFEST_URL + separator + 't=' + Date.now()
-        const command = '$ProgressPreference=\'SilentlyContinue\'; Invoke-WebRequest -UseBasicParsing -Uri ' +
-            quotePowerShell(cacheBustedUrl) + ' -OutFile ' + quotePowerShell(partial)
-
-        runPowerShell(command)
+        const body = await got(cacheBustedUrl, {
+            retry: { limit: 2 },
+            timeout: { request: 15000 }
+        }).text()
+        fs.writeFileSync(partial, body, 'utf8')
         const manifest = normalizeManifest(JSON.parse(fs.readFileSync(partial, 'utf8')))
         fs.moveSync(partial, cached, { overwrite: true })
-        console.log('[KTZ Toketmon] Loaded remote pack manifest:', manifest.version)
+        console.log('[KTZ AsterVale] Loaded remote pack manifest:', manifest.version)
         return manifest
     } catch(err) {
         fs.removeSync(partial)
-        console.warn('[KTZ Toketmon] Unable to refresh remote pack manifest. Trying cache.', err.message)
+        console.warn('[KTZ AsterVale] Unable to refresh remote pack manifest. Trying cache.', err.message)
 
         const cachedManifest = readJsonIfValid(cached)
         if(cachedManifest != null){
             try {
                 const manifest = normalizeManifest(cachedManifest)
-                console.log('[KTZ Toketmon] Using cached pack manifest:', manifest.version)
+                console.log('[KTZ AsterVale] Using cached pack manifest:', manifest.version)
                 return manifest
             } catch(_err) {
                 // Ignore an invalid cache and use the built-in fallback manifest.
             }
         }
 
-        console.warn('[KTZ Toketmon] Using built-in fallback pack manifest:', FALLBACK_MANIFEST.version)
+        console.warn('[KTZ AsterVale] Using built-in fallback pack manifest:', FALLBACK_MANIFEST.version)
         return normalizeManifest(FALLBACK_MANIFEST)
     }
 }
@@ -230,7 +273,7 @@ function enforceMinimumLauncherVersion(manifest){
     const current = launcherVersion()
     if(semver.valid(current) && semver.lt(current, minimum)){
         throw new Error(
-            '토켓몬 클라이언트팩 ' + manifest.version + '에는 KTZ Launcher ' + minimum + ' 이상이 필요해요. ' +
+            '에스터베일 클라이언트팩 ' + manifest.version + '에는 KTZ Launcher ' + minimum + ' 이상이 필요해요. ' +
             '현재 런처 버전은 ' + current + '이에요.'
         )
     }
@@ -267,10 +310,6 @@ function payloadCounts(root){
             return lower.endsWith('.jar') || lower.endsWith('.zip')
         }),
         config: countFiles(path.join(root, 'config'), file => path.basename(file) !== '.gitkeep'),
-        datapacks: countFiles(path.join(root, 'datapacks'), file => {
-            const lower = file.toLowerCase()
-            return lower.endsWith('.zip') || path.basename(lower) === 'pack.mcmeta'
-        }),
         resourcepacks: countFiles(path.join(root, 'resourcepacks'), file => file.toLowerCase().endsWith('.zip'))
     }
 }
@@ -278,12 +317,11 @@ function payloadCounts(root){
 function hasValidPayload(root){
     const counts = payloadCounts(root)
     console.log(
-        '[KTZ Toketmon] Payload check: mods=' + counts.mods +
+        '[KTZ AsterVale] Payload check: mods=' + counts.mods +
         ', config=' + counts.config +
-        ', datapacks=' + counts.datapacks +
         ', resourcepacks=' + counts.resourcepacks
     )
-    return counts.mods > 0 && counts.config > 0 && counts.datapacks > 0 && counts.resourcepacks > 0
+    return counts.mods > 0 && counts.config > 0 && counts.resourcepacks > 0
 }
 
 function readInstalledState(){
@@ -304,35 +342,31 @@ function writeInstalledState(manifest, livePatchRevision = 0){
     return state
 }
 
-function migrateLegacyInstall(){
-    if(fs.existsSync(legacyMarkerPath()) && hasValidPayload(gameDirectory())){
-        const state = writeInstalledState(FALLBACK_MANIFEST, 0)
-        console.log('[KTZ Toketmon] Migrated legacy pack marker as its real version:', state.installedVersion)
-        return state
-    }
-    return null
-}
-
 function sha256(file){
-    const command = '(Get-FileHash -Algorithm SHA256 -LiteralPath ' + quotePowerShell(file) + ').Hash.ToLowerInvariant()'
-    return runPowerShell(command).trim().toLowerCase()
+    return new Promise((resolve, reject) => {
+        const hash = crypto.createHash('sha256')
+        const stream = fs.createReadStream(file)
+        stream.on('data', chunk => hash.update(chunk))
+        stream.once('error', reject)
+        stream.once('end', () => resolve(hash.digest('hex')))
+    })
 }
 
-function verifyDownload(file, manifest){
+async function verifyDownload(file, manifest){
     if(!fs.existsSync(file)){
-        throw new Error('Toketmon client pack download is missing: ' + file)
+        throw new Error('Aster Vale client pack download is missing: ' + file)
     }
 
     const size = fs.statSync(file).size
     if(manifest.size != null && size !== manifest.size){
-        throw new Error('Toketmon client pack size mismatch. Expected ' + manifest.size + ' bytes, received ' + size + ' bytes.')
+        throw new Error('Aster Vale client pack size mismatch. Expected ' + manifest.size + ' bytes, received ' + size + ' bytes.')
     }
 
     if(manifest.sha256.length > 0){
-        setStatus('토켓몬 클라이언트팩을 검사하고 있어요...')
-        const actual = sha256(file)
+        setStatus('에스터베일 클라이언트팩을 검사하고 있어요...')
+        const actual = await sha256(file)
         if(actual !== manifest.sha256){
-            throw new Error('Toketmon client pack SHA-256 mismatch.')
+            throw new Error('Aster Vale client pack SHA-256 mismatch.')
         }
     }
 }
@@ -341,12 +375,12 @@ function managedPath(root, relativePath){
     const resolvedRoot = path.resolve(root)
     const resolved = path.resolve(root, ...relativePath.split('/'))
     if(!resolved.startsWith(resolvedRoot + path.sep)){
-        throw new Error('Toketmon live patch path escaped its managed root: ' + relativePath)
+        throw new Error('Aster Vale live patch path escaped its managed root: ' + relativePath)
     }
     return resolved
 }
 
-function prepareLivePatchFiles(patch){
+async function prepareLivePatchFiles(patch){
     const patchRoot = path.join(packRoot(), 'live-patches', String(patch.revision))
     const stagingRoot = path.join(patchRoot, 'staging')
     fs.removeSync(stagingRoot)
@@ -357,11 +391,9 @@ function prepareLivePatchFiles(patch){
         const partial = destination + '.part'
         fs.ensureDirSync(path.dirname(destination))
 
-        console.log('[KTZ Toketmon] Downloading live patch file:', item.path)
-        const command = '$ProgressPreference=' + quotePowerShell('SilentlyContinue') + '; Invoke-WebRequest -UseBasicParsing -Uri ' +
-            quotePowerShell(item.url) + ' -OutFile ' + quotePowerShell(partial)
-        runPowerShell(command)
-        verifyDownload(partial, item)
+        console.log('[KTZ AsterVale] Downloading live patch file:', item.path)
+        await downloadUrl(item.url, partial, '에스터베일 패치 다운로드 중...')
+        await verifyDownload(partial, item)
         fs.moveSync(partial, destination, { overwrite: true })
     }
 
@@ -371,7 +403,7 @@ function prepareLivePatchFiles(patch){
 function markLivePatchApplied(manifest, patch){
     const state = readInstalledState()
     if(state == null || state.installedVersion !== manifest.version){
-        throw new Error('Toketmon live patch cannot update an unknown pack state.')
+        throw new Error('Aster Vale live patch cannot update an unknown pack state.')
     }
 
     state.livePatchRevision = patch.revision
@@ -379,7 +411,7 @@ function markLivePatchApplied(manifest, patch){
     fs.writeFileSync(statePath(), JSON.stringify(state, null, 2) + '\n', 'utf8')
 }
 
-function applyLivePatch(manifest){
+async function applyLivePatch(manifest){
     const patch = manifest.livePatch
     if(patch == null){
         return false
@@ -391,10 +423,10 @@ function applyLivePatch(manifest){
         return false
     }
 
-    setStatus('토켓몬 실시간 패치를 적용하고 있어요...')
-    console.log('[KTZ Toketmon] Applying live patch revision:', patch.revision)
+    setStatus('에스터베일 실시간 패치를 적용하고 있어요...')
+    console.log('[KTZ AsterVale] Applying live patch revision:', patch.revision)
 
-    const { patchRoot, stagingRoot } = prepareLivePatchFiles(patch)
+    const { patchRoot, stagingRoot } = await prepareLivePatchFiles(patch)
     const backupRoot = path.join(patchRoot, 'backup')
     const touched = Array.from(new Set([...patch.remove, ...patch.files.map(item => item.path)]))
     const backups = []
@@ -411,7 +443,7 @@ function applyLivePatch(manifest){
                 fs.ensureDirSync(path.dirname(backup))
                 fs.moveSync(target, backup, { overwrite: true })
                 backups.push({ target, backup })
-                console.log('[KTZ Toketmon] Live patch removed or replaced:', relativePath)
+                console.log('[KTZ AsterVale] Live patch removed or replaced:', relativePath)
             }
         }
 
@@ -421,15 +453,15 @@ function applyLivePatch(manifest){
             fs.ensureDirSync(path.dirname(target))
             fs.moveSync(source, target, { overwrite: true })
             installedFiles.push(target)
-            console.log('[KTZ Toketmon] Live patch installed:', item.path)
+            console.log('[KTZ AsterVale] Live patch installed:', item.path)
         }
 
         markLivePatchApplied(manifest, patch)
         fs.removeSync(patchRoot)
-        console.log('[KTZ Toketmon] Live patch complete:', patch.revision)
+        console.log('[KTZ AsterVale] Live patch complete:', patch.revision)
         return true
     } catch(err) {
-        console.error('[KTZ Toketmon] Live patch failed. Restoring previous files.', err)
+        console.error('[KTZ AsterVale] Live patch failed. Restoring previous files.', err)
         for(const target of installedFiles){
             fs.removeSync(target)
         }
@@ -443,7 +475,7 @@ function applyLivePatch(manifest){
     }
 }
 
-function downloadPack(manifest){
+async function downloadPack(manifest){
     const downloadDir = path.join(packRoot(), 'downloads', manifest.version)
     const destination = path.join(downloadDir, manifest.fileName)
     const partial = destination + '.part'
@@ -451,39 +483,36 @@ function downloadPack(manifest){
 
     if(fs.existsSync(destination)){
         try {
-            verifyDownload(destination, manifest)
-            console.log('[KTZ Toketmon] Reusing cached client pack:', destination)
+            await verifyDownload(destination, manifest)
+            console.log('[KTZ AsterVale] Reusing cached client pack:', destination)
             return destination
         } catch(err) {
-            console.warn('[KTZ Toketmon] Cached client pack is invalid. Downloading again.', err.message)
+            console.warn('[KTZ AsterVale] Cached client pack is invalid. Downloading again.', err.message)
             fs.removeSync(destination)
         }
     }
 
     fs.removeSync(partial)
-    setStatus('토켓몬 클라이언트팩을 다운로드하고 있어요...')
-    console.log('[KTZ Toketmon] Downloading client pack ' + manifest.version + ':', manifest.url)
+    setStatus('에스터베일 클라이언트팩을 다운로드하고 있어요...')
+    console.log('[KTZ AsterVale] Downloading client pack ' + manifest.version + ':', manifest.url)
 
-    const command = '$ProgressPreference=\'SilentlyContinue\'; Invoke-WebRequest -UseBasicParsing -Uri ' +
-        quotePowerShell(manifest.url) + ' -OutFile ' + quotePowerShell(partial)
-
-    runPowerShell(command)
+    await downloadUrl(manifest.url, partial, '에스터베일 클라이언트팩 다운로드 중...')
     fs.moveSync(partial, destination, { overwrite: true })
-    verifyDownload(destination, manifest)
+    await verifyDownload(destination, manifest)
     return destination
 }
 
-function extractPack(zipPath, manifest){
+async function extractPack(zipPath, manifest){
     const extractDir = path.join(packRoot(), 'staging', manifest.version, 'extracted')
     fs.removeSync(extractDir)
     fs.ensureDirSync(extractDir)
 
-    setStatus('토켓몬 클라이언트팩의 압축을 풀고 있어요...')
-    console.log('[KTZ Toketmon] Extracting client pack:', extractDir)
+    setStatus('에스터베일 클라이언트팩의 압축을 풀고 있어요...', 82)
+    console.log('[KTZ AsterVale] Extracting client pack:', extractDir)
 
     const command = 'Expand-Archive -LiteralPath ' + quotePowerShell(zipPath) +
         ' -DestinationPath ' + quotePowerShell(extractDir) + ' -Force'
-    runPowerShell(command)
+    await runPowerShell(command)
     return extractDir
 }
 
@@ -555,14 +584,14 @@ function findPayloadDir(extractDir, type){
 
     for(const name of expectedNames){
         directCandidates.push(path.join(extractDir, name))
-        directCandidates.push(path.join(extractDir, 'build', 'toketmon-pack', name))
-        directCandidates.push(path.join(extractDir, 'toketmon-pack', name))
+        directCandidates.push(path.join(extractDir, 'build', 'astervale-pack', name))
+        directCandidates.push(path.join(extractDir, 'astervale-pack', name))
         directCandidates.push(path.join(extractDir, 'files', name, SERVER_ID))
     }
 
     for(const candidate of directCandidates){
         if(scorePayloadDir(candidate, type) > 0){
-            console.log('[KTZ Toketmon] Selected ' + type + ' payload source:', candidate)
+            console.log('[KTZ AsterVale] Selected ' + type + ' payload source:', candidate)
             return candidate
         }
     }
@@ -589,29 +618,29 @@ function findPayloadDir(extractDir, type){
     }
 
     if(best != null){
-        console.log('[KTZ Toketmon] Selected ' + type + ' payload source:', best, 'files=' + bestScore)
+        console.log('[KTZ AsterVale] Selected ' + type + ' payload source:', best, 'files=' + bestScore)
         return best
     }
 
-    throw new Error('Toketmon client pack does not contain a non-empty ' + type + ' folder.')
+    throw new Error('Aster Vale client pack does not contain a non-empty ' + type + ' folder.')
 }
 
-function createStagingInstance(extractDir, manifest){
+async function createStagingInstance(extractDir, manifest){
     const stagingRoot = path.join(packRoot(), 'staging', manifest.version, 'instance')
     fs.removeSync(stagingRoot)
     fs.ensureDirSync(stagingRoot)
 
-    setStatus('토켓몬 모드와 설정을 준비하고 있어요...')
+    setStatus('에스터베일 모드와 설정을 준비하고 있어요...', 90)
 
     for(const type of MANAGED_DIRS){
         const source = findPayloadDir(extractDir, type)
         const target = path.join(stagingRoot, type)
-        fs.copySync(source, target, { overwrite: true, errorOnExist: false })
+        await fs.copy(source, target, { overwrite: true, errorOnExist: false })
         removeGitkeepFiles(target)
     }
 
     if(!hasValidPayload(stagingRoot)){
-        throw new Error('Toketmon client pack staging payload is incomplete.')
+        throw new Error('Aster Vale client pack staging payload is incomplete.')
     }
 
     return stagingRoot
@@ -625,7 +654,7 @@ function installStagedPayload(stagingRoot, manifest){
 
     fs.ensureDirSync(gameDir)
     fs.ensureDirSync(backupRoot)
-    setStatus('토켓몬 클라이언트팩을 적용하고 있어요...')
+    setStatus('에스터베일 클라이언트팩을 적용하고 있어요...', 96)
 
     try {
         for(const name of MANAGED_DIRS){
@@ -645,15 +674,15 @@ function installStagedPayload(stagingRoot, manifest){
         }
 
         if(!hasValidPayload(gameDir)){
-            throw new Error('Toketmon client pack installation validation failed.')
+            throw new Error('Aster Vale client pack installation validation failed.')
         }
 
+        enableManagedResourcePacks(manifest)
         writeInstalledState(manifest)
-        fs.removeSync(legacyMarkerPath())
         fs.removeSync(backupRoot)
-        console.log('[KTZ Toketmon] Client pack installation complete:', manifest.version)
+        console.log('[KTZ AsterVale] Client pack installation complete:', manifest.version)
     } catch(err) {
-        console.error('[KTZ Toketmon] Installation failed. Restoring previous client pack.', err)
+        console.error('[KTZ AsterVale] Installation failed. Restoring previous client pack.', err)
 
         for(const target of movedFromStaging){
             fs.removeSync(target)
@@ -667,37 +696,76 @@ function installStagedPayload(stagingRoot, manifest){
     }
 }
 
-function prepareSync(serverId){
+function enableManagedResourcePacks(manifest){
+    if(manifest.resourcePacks.length === 0){
+        return
+    }
+
+    const optionsFile = path.join(gameDirectory(), 'options.txt')
+    const existing = fs.existsSync(optionsFile) ? fs.readFileSync(optionsFile, 'utf8') : ''
+    let lines = existing.length > 0 ? existing.replaceAll('\r\n', '\n').split('\n') : []
+
+    function appendValues(key, values){
+        const prefix = key + ':'
+        const index = lines.findIndex(line => line.startsWith(prefix))
+        let current = []
+        if(index >= 0){
+            try {
+                current = JSON.parse(lines[index].slice(prefix.length))
+            } catch(_err) {
+                current = []
+            }
+        }
+        const merged = Array.from(new Set([...current, ...values]))
+        const line = prefix + JSON.stringify(merged)
+        if(index >= 0){
+            lines[index] = line
+        } else {
+            lines.push(line)
+        }
+    }
+
+    const enabled = manifest.resourcePacks.map(item => `file/${item.file}`)
+    const incompatible = manifest.resourcePacks
+        .filter(item => item.incompatible)
+        .map(item => `file/${item.file}`)
+    appendValues('resourcePacks', enabled)
+    if(incompatible.length > 0){
+        appendValues('incompatibleResourcePacks', incompatible)
+    }
+
+    lines = lines.filter((line, index) => line.length > 0 || index < lines.length - 1)
+    fs.writeFileSync(optionsFile, lines.join('\n') + '\n', 'utf8')
+    console.log('[KTZ AsterVale] Enabled managed resource packs:', enabled.join(', '))
+}
+
+async function prepare(serverId){
     if(serverId !== SERVER_ID){
         return null
     }
 
-    setStatus('토켓몬 클라이언트팩 업데이트를 확인하고 있어요...')
-    const manifest = loadRemoteManifest()
+    setStatus('에스터베일 클라이언트팩 업데이트를 확인하고 있어요...')
+    const manifest = await loadRemoteManifest()
     enforceMinimumLauncherVersion(manifest)
 
-    let installed = readInstalledState()
-    const migrated = migrateLegacyInstall()
-    if(migrated != null){
-        installed = migrated
-    }
+    const installed = readInstalledState()
 
     if(installed?.installedVersion === manifest.version && hasValidPayload(gameDirectory())){
-        console.log('[KTZ Toketmon] Client pack is up to date:', manifest.version)
-        applyLivePatch(manifest)
+        console.log('[KTZ AsterVale] Client pack is up to date:', manifest.version)
+        await applyLivePatch(manifest)
         return manifest
     }
 
     console.log(
-        '[KTZ Toketmon] Client pack update required. Installed=' +
+        '[KTZ AsterVale] Client pack update required. Installed=' +
         (installed?.installedVersion || 'none') + ', Remote=' + manifest.version
     )
 
-    const zipPath = downloadPack(manifest)
-    const extractDir = extractPack(zipPath, manifest)
-    const stagingRoot = createStagingInstance(extractDir, manifest)
+    const zipPath = await downloadPack(manifest)
+    const extractDir = await extractPack(zipPath, manifest)
+    const stagingRoot = await createStagingInstance(extractDir, manifest)
     installStagedPayload(stagingRoot, manifest)
-    applyLivePatch(manifest)
+    await applyLivePatch(manifest)
 
     fs.removeSync(path.join(packRoot(), 'staging', manifest.version))
     return manifest
@@ -705,7 +773,6 @@ function prepareSync(serverId){
 
 function reset(){
     fs.removeSync(statePath())
-    fs.removeSync(legacyMarkerPath())
     fs.removeSync(path.join(packRoot(), 'staging'))
     fs.removeSync(path.join(packRoot(), 'live-patches'))
 }
@@ -716,8 +783,9 @@ function installedVersion(){
 
 module.exports = {
     MANIFEST_URL,
-    prepareSync,
+    prepare,
     reset,
     installedVersion,
     hasValidPayload
 }
+

@@ -11,29 +11,29 @@ const ConfigManager = require('./configmanager')
 
 const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json'
 const SERVER_ID = 'astervale'
-const MANAGED_DIRS = ['mods', 'config', 'resourcepacks']
+const MANAGED_DIRS = ['mods', 'config', 'resourcepacks', 'emotes']
 const pipelineAsync = promisify(pipeline)
 
 const FALLBACK_MANIFEST = {
     schemaVersion: 1,
     packId: SERVER_ID,
-    version: '1.0.0',
+    version: '1.0.1',
     minecraftVersion: '1.21.4',
     loader: {
         type: 'neoforge',
         version: '21.4.157'
     },
-    fileName: 'astervale-client-pack-1.0.0.zip',
-    url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.0/astervale-client-pack-1.0.0.zip',
-    minimumLauncherVersion: '3.3.0',
-    sha256: '1f82cf3eca84065ff766f9eefca6996814652bae9f4171b24c5c4b23a609c4b8',
-    size: 351010544,
+    fileName: 'astervale-client-pack-1.0.1.zip',
+    url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.1/astervale-client-pack-1.0.1.zip',
+    minimumLauncherVersion: '3.3.1',
+    sha256: '81b666f06cd150663761f3bd8ca44c25771ceb226fd9c09dd23eb1c0a88a8156',
+    size: 356833640,
     resourcePacks: [
         { file: 'AddCook-pack.zip', incompatible: true },
         { file: 'BorderLess Glass v1.zip', incompatible: false },
         { file: 'Better-Leaves-9.5.zip', incompatible: false }
     ],
-    changelog: ['에스터베일 NeoForge 1.21.4 클라이언트팩 첫 배포']
+    changelog: ['Emotecraft 사용자 이모트 32개 자동 설치', '에스터베일 클라이언트 최적화 모드 갱신']
 }
 
 function setStatus(message, percent = null){
@@ -310,7 +310,8 @@ function payloadCounts(root){
             return lower.endsWith('.jar') || lower.endsWith('.zip')
         }),
         config: countFiles(path.join(root, 'config'), file => path.basename(file) !== '.gitkeep'),
-        resourcepacks: countFiles(path.join(root, 'resourcepacks'), file => file.toLowerCase().endsWith('.zip'))
+        resourcepacks: countFiles(path.join(root, 'resourcepacks'), file => file.toLowerCase().endsWith('.zip')),
+        emotes: countFiles(path.join(root, 'emotes'), file => file.toLowerCase().endsWith('.emotecraft'))
     }
 }
 
@@ -319,9 +320,10 @@ function hasValidPayload(root){
     console.log(
         '[KTZ AsterVale] Payload check: mods=' + counts.mods +
         ', config=' + counts.config +
-        ', resourcepacks=' + counts.resourcepacks
+        ', resourcepacks=' + counts.resourcepacks +
+        ', emotes=' + counts.emotes
     )
-    return counts.mods > 0 && counts.config > 0 && counts.resourcepacks > 0
+    return counts.mods > 0 && counts.config > 0 && counts.resourcepacks > 0 && counts.emotes > 0
 }
 
 function readInstalledState(){
@@ -573,6 +575,8 @@ function scorePayloadDir(dir, type){
             })
         case 'resourcepacks':
             return countFiles(root, file => file.toLowerCase().endsWith('.zip'))
+        case 'emotes':
+            return countFiles(root, file => file.toLowerCase().endsWith('.emotecraft'))
         default:
             return 0
     }

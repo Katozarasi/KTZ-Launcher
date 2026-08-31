@@ -2,13 +2,14 @@
 
 에스터베일의 기준 클라이언트는 로컬 Modrinth 프로필 `NeoForge 1.21.4`입니다.
 런처용 팩은 이 프로필과 이전 배포 목록을 비교해서 생성하며, 전체 팩이 설치될 때
-관리 대상인 `mods`, `config`, `resourcepacks` 폴더를 정확히 교체합니다.
+관리 대상인 `mods`, `config`, `resourcepacks`, `emotes` 폴더를 정확히 교체합니다.
 
 ## 관리 범위
 
 - `mods` 최상위의 모든 JAR
 - 게임 플레이와 성능에 필요한 선별된 설정 파일
 - `resourcepacks` 최상위의 모든 ZIP
+- `emotes` 안의 모든 Emotecraft `.emotecraft` 파일
 
 다음 항목은 사용자별 데이터 또는 용량이 큰 캐시이므로 배포하지 않습니다.
 

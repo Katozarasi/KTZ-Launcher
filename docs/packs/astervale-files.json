@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minecraftVersion": "1.21.4",
   "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-08-30T05:44:10.099Z",
+  "generatedAt": "2026-08-30T06:57:38.886Z",
   "sourceProfile": "NeoForge 1.21.4",
   "files": [
     {
       "path": "config/dreamdisplays/client-display-settings.json",
-      "size": 6679,
-      "sha256": "5b5a517ae8ee2768f88e3d4ab044cc9efc77f39095be89660b006ac206b446ce"
+      "size": 6677,
+      "sha256": "89dea3b57fdb98aacfe244d51b617836720dc43ef7de2699a6b1d8fc19c4dcaf"
     },
     {
       "path": "config/emotecraft.json",
@@ -53,6 +53,166 @@
       "sha256": "0a282f3623f7f9443a1d10b5768865f69e58b74e000dcfb4f40399626b7a6124"
     },
     {
+      "path": "emotes/들어눕기.emotecraft",
+      "size": 43865,
+      "sha256": "3290f8f3fd04eea3cd7a4919dee29cea70c57f74deb52e2d7e3f468e4716926b"
+    },
+    {
+      "path": "emotes/遇刺.emotecraft",
+      "size": 348679,
+      "sha256": "b5ba28ab455fda7b481078947f0f4bf3d974d482a85f06d241cfe11e87a06ec3"
+    },
+    {
+      "path": "emotes/Brakedance.emotecraft",
+      "size": 74488,
+      "sha256": "615376dd0c7ca164f103d54e0dfb93a63ffb72b06b46e11a5f16925ca944b002"
+    },
+    {
+      "path": "emotes/CaramellDansen.emotecraft",
+      "size": 58953,
+      "sha256": "841a6a4af7b697137375105a56c189571cf398cdf769054d6b6ea91c6f65b1f6"
+    },
+    {
+      "path": "emotes/Clap.emotecraft",
+      "size": 50602,
+      "sha256": "9148dc873b91cfb0d6322905dff78a9055d37a87da7fec2fdab5f853d2bc4325"
+    },
+    {
+      "path": "emotes/Distraction Dance v1.0.emotecraft",
+      "size": 492295,
+      "sha256": "f6c047e90a5510308dd852469152a8551cc5e34880b664574761d1db4153513a"
+    },
+    {
+      "path": "emotes/Fallen.emotecraft",
+      "size": 59067,
+      "sha256": "b543a578d826acce571893f1acd148602805cad33acdebccbb2ba09f7c887a3a"
+    },
+    {
+      "path": "emotes/Goat Simulator Party (dance).emotecraft",
+      "size": 38885,
+      "sha256": "51c4c59cc68d8676470d29c2314d6cfbdce3b466f16c99262b722efaba0bdbfe"
+    },
+    {
+      "path": "emotes/Half cross sit.emotecraft",
+      "size": 52018,
+      "sha256": "af0321d29e73bee021a8a420e3fc87375e9ce85da70eea592cf3b18b17173624"
+    },
+    {
+      "path": "emotes/Handstand push-ups.emotecraft",
+      "size": 86262,
+      "sha256": "354b856c4b2d487c6988182d16f17b6fdc44861a9ff480a550adbdfd22e046f1"
+    },
+    {
+      "path": "emotes/Jake (stretching 4).emotecraft",
+      "size": 22843,
+      "sha256": "7e6e06770089006c608c74c372a5bdaa44f6a78bfcc66743fd2a03f7b1923f53"
+    },
+    {
+      "path": "emotes/Lethal Company.emotecraft",
+      "size": 53831,
+      "sha256": "43a6c942c331794a39016fe5a5d6623c51ef934c2ed2da2497d1286940c7451a"
+    },
+    {
+      "path": "emotes/Pulo Do CR7.emotecraft",
+      "size": 449846,
+      "sha256": "d27ff5d6f0ad7d139f760d81cdcfa97f8427ba9cab7ff65c6c8246985846527f"
+    },
+    {
+      "path": "emotes/Rat Dance 1.2.emotecraft",
+      "size": 75993,
+      "sha256": "b9bc62c35fe8865949fbae41ecd66fc93507c3328378fb2f241d9a4baffe3b92"
+    },
+    {
+      "path": "emotes/silly dance!.emotecraft",
+      "size": 12196,
+      "sha256": "78ca73cb45d79d7fdab3c7882ab5888fce50806a9e64ab2a44e91c58f242a2d6"
+    },
+    {
+      "path": "emotes/Sit.emotecraft",
+      "size": 59219,
+      "sha256": "4956bfda67f5e19f960f488b8cb82515aae6c9472bb2dbb640a40f33353145b0"
+    },
+    {
+      "path": "emotes/Sitting with knees to the chest.emotecraft",
+      "size": 109012,
+      "sha256": "dbe78476363d704de4e19a58dc16835e8c03e3c05ad89483720381c759eb910d"
+    },
+    {
+      "path": "emotes/smoking.emotecraft",
+      "size": 26155,
+      "sha256": "4fea572f444a6fe031f371991867ba6c642a49fb7a32fb095409802f7d35404c"
+    },
+    {
+      "path": "emotes/Yamcha.emotecraft",
+      "size": 140366,
+      "sha256": "62f9bcb7fa5e989bb67a79e1efa604ba80d81b21f2e4642496e5c59d66dccd76"
+    },
+    {
+      "path": "emotes/Бег Наруто (Передвижение) (Мульти вселенная) (Наруто).emotecraft",
+      "size": 68184,
+      "sha256": "3d1d630b5f52d1abe9dee37302dac9dc1cb8f11163734fee75da09cb210dff0c"
+    },
+    {
+      "path": "emotes/Жим лёжа со штангой (КСЭПСП) (Спорт).emotecraft",
+      "size": 45984,
+      "sha256": "b417b6ddb8aa3aef75faf65eda4e6363347ccb689a645515171c0360b8a90c5c"
+    },
+    {
+      "path": "emotes/Защищаться от солнца.emotecraft",
+      "size": 77483,
+      "sha256": "34019ea99e37716bbbe5419bb5dc1f0f86d53ac7362a85620626af44b0a29729"
+    },
+    {
+      "path": "emotes/Извиниться на коленях.emotecraft",
+      "size": 57949,
+      "sha256": "32ff9d45562921c75775366e57ad3c1bdf5ab6f736ee1a9f4bec273e552993e5"
+    },
+    {
+      "path": "emotes/Лежать боком (Левая сторона).emotecraft",
+      "size": 48969,
+      "sha256": "ba6169b94af75099c08dde561404423a24b7f04cc06216a8d7d1a575496c083b"
+    },
+    {
+      "path": "emotes/Лежать на животе.emotecraft",
+      "size": 59740,
+      "sha256": "ecf70b797bb74d95ce416f5774e3795211c3e1e3fdf0c8cdd3fe1a264d679e7e"
+    },
+    {
+      "path": "emotes/Молиться.emotecraft",
+      "size": 65836,
+      "sha256": "0e75ece02d4b9000d681ff04ddeac5394ac91de4020a462fa7c29e5d6c69d321"
+    },
+    {
+      "path": "emotes/Поза Аски (Мульти вселенная) (Evangelion).emotecraft",
+      "size": 81922,
+      "sha256": "a614ab73eb5f2d7e6f3cbb8f008b8868ebbcb2d24071750f5a63764dd937b2fa"
+    },
+    {
+      "path": "emotes/Пыточный разгон (Танец) (Мульти вселенная) (JoJo).emotecraft",
+      "size": 89099,
+      "sha256": "77596fba3958668da003cb4c9a50a6bcfbca977ace85c48f10813a9b1225b4c2"
+    },
+    {
+      "path": "emotes/Разрушитель ада (Танец) (Мульти вселенная) (Helltaker).emotecraft",
+      "size": 83259,
+      "sha256": "e79bea1ce61d130527a1957d6caeb91f5690caac37e1f28d4b4dc3823c55bc79"
+    },
+    {
+      "path": "emotes/Расслабленно сидеть.emotecraft",
+      "size": 102635,
+      "sha256": "69ba36d161605650f108f9216b56c9a3a94762f6f75df15fe8d544aca8397fc6"
+    },
+    {
+      "path": "emotes/Сидеть на троне.emotecraft",
+      "size": 86100,
+      "sha256": "e5c31902642a7eb899ce0bbc78a18cc4887fa9aca1e458f0e45c9eaa3df04e84"
+    },
+    {
+      "path": "emotes/Уважительное приветствие.emotecraft",
+      "size": 58691,
+      "sha256": "c370171a207aff41ac4fde0a5b62aeca59467e1c0815d2d815ef9016c6ba7664"
+    },
+    {
       "path": "mods/주식 클라이언트.jar",
       "size": 101320,
       "sha256": "7bde4e2420a1cb9ab0dee2855d2f36ae0d27a4c1d1829b690c52e0330adf88f9"
@@ -74,8 +234,8 @@
     },
     {
       "path": "mods/카토 대장장이 클라이언트.jar",
-      "size": 5549038,
-      "sha256": "30b5bf1a06cd00d07fbb8d3942dbbc2441bf9795324299bd70afdd9bb01ccbba"
+      "size": 5549037,
+      "sha256": "4b42faab0cf49dd864a8fa9d5ec1dbc8b477b6d382598c45305d03122795a181"
     },
     {
       "path": "mods/카토 대화 클라이언트.jar",
@@ -84,8 +244,8 @@
     },
     {
       "path": "mods/카토 도감 클라이언트-NeoForge-1.21.4-0.1.0.jar",
-      "size": 4673964,
-      "sha256": "7a2c5b26e95a8f51537dc31ada6562717e94f2135529b14559715366f749d078"
+      "size": 4673988,
+      "sha256": "57ed1051ba6d70039a012109cb3a15503536543622f34fbbe4588ac0d027e9a3"
     },
     {
       "path": "mods/카토 도어락 클라이언트.jar",
@@ -124,8 +284,8 @@
     },
     {
       "path": "mods/카토 직업 제작대 클라이언트.jar",
-      "size": 64716,
-      "sha256": "64cd6b5ae6fccc1a9d3bca7260b8e06f5044d7d82c521554db755a0392703a6b"
+      "size": 65312,
+      "sha256": "51b6782464186bb2e2b1a74b954dfc17f5eaaa202d2804d96e398fc3ab7bbfb2"
     },
     {
       "path": "mods/카토 퀘스트 클라이언트.jar",
@@ -133,9 +293,9 @@
       "sha256": "d1a72c6a105ed2261cd952160807e1e54083040467c27ca10b3c9690df440d6f"
     },
     {
-      "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.19.jar",
-      "size": 11815273,
-      "sha256": "25f1da68a8b8f1f0c4be88ba82811b2578de31349aa4e800e6e80ad62f1673d9"
+      "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.23.jar",
+      "size": 11824678,
+      "sha256": "02f141a52e8274db756f37990411f6d06ed0919362d3095a3161112cc8a6cf52"
     },
     {
       "path": "mods/dreamdisplays-neoforge-1.21.4-1.9.4.jar",
@@ -143,14 +303,34 @@
       "sha256": "6a5c7c837d831d9e1d72502cbb12ba265ebea5309f64ca6d8f730c65ecc973d9"
     },
     {
+      "path": "mods/dynamic-fps-3.11.8+minecraft-1.21.2-neoforge.jar",
+      "size": 225129,
+      "sha256": "b647ec45f508d644c3e5808a79b5410b85f6790c205c5cfd6ba414c64aee978a"
+    },
+    {
       "path": "mods/emotecraft-neoforge-for-MC1.21.4-2.5.8.jar",
       "size": 1260413,
       "sha256": "04d6567e70ca8e390e1e54dca3fbb623fada69cb47f3f6af9b5e61bbc9972aa4"
     },
     {
+      "path": "mods/entityculling-neoforge-1.10.5-mc1.21.4.jar",
+      "size": 1587752,
+      "sha256": "579120dba8413ffa9401fda82242aee0a76443d78da49155525356e95ccd64c5"
+    },
+    {
+      "path": "mods/ferritecore-7.1.3-neoforge.jar",
+      "size": 107961,
+      "sha256": "6d9e76c230ff75d6dbe3cf063d8d42d4f13cace321d4a0728997d9854df2bf17"
+    },
+    {
       "path": "mods/Iceberg-1.21.4-neoforge-1.2.13.jar",
       "size": 185058,
       "sha256": "78387c10d6e4f9fb4275c002b2aca42697ae5908e72bb9276a10589c0dd61221"
+    },
+    {
+      "path": "mods/ImmediatelyFast-NeoForge-1.8.7+1.21.4.jar",
+      "size": 338194,
+      "sha256": "ad847b07c74b411eaf291b0d89b0ed2bb81630915f913ada5ada83c9fd7b7734"
     },
     {
       "path": "mods/iris-neoforge-1.8.8+mc1.21.4.jar",
@@ -171,6 +351,11 @@
       "path": "mods/LegendaryTooltips-1.21.4-neoforge-1.5.1.jar",
       "size": 61377,
       "sha256": "36373dfee9a08b567b184d5a98e947a97be71ec821f4f592bb82b46db7571b2d"
+    },
+    {
+      "path": "mods/lithium-neoforge-0.15.3+mc1.21.4.jar",
+      "size": 774741,
+      "sha256": "df0636106dc7205c49722ea708d252c840f87b28bd4efa2de3e2b9e824190e8d"
     },
     {
       "path": "mods/modernfix-neoforge-5.20.3+mc1.21.4.jar",

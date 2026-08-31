@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.0.0.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.0/astervale-client-pack-1.0.0.zip",
-  "minimumLauncherVersion": "3.3.0",
-  "sha256": "1f82cf3eca84065ff766f9eefca6996814652bae9f4171b24c5c4b23a609c4b8",
-  "size": 351010544,
+  "fileName": "astervale-client-pack-1.0.1.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.1/astervale-client-pack-1.0.1.zip",
+  "minimumLauncherVersion": "3.3.1",
+  "sha256": "81b666f06cd150663761f3bd8ca44c25771ceb226fd9c09dd23eb1c0a88a8156",
+  "size": 356833640,
   "resourcePacks": [
     {
       "file": "AddCook-pack.zip",
@@ -28,6 +28,7 @@
   ],
   "livePatch": null,
   "changelog": [
+    "Emotecraft 사용자 이모트 자동 설치·업데이트 지원",
     "에스터베일 NeoForge 1.21.4 클라이언트팩 첫 배포",
     "KTZ 전용 UI·생활·경제·퀘스트 클라이언트 모드 구성",
     "Sodium 기반 렌더링 최적화와 필수 리소스팩 적용"

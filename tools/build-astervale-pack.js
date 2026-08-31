@@ -72,6 +72,32 @@ function copyManagedFile(source, packRoot, relativePath, inventory){
     return true
 }
 
+function copyManagedTree(sourceRoot, packRoot, targetRoot, inventory, predicate){
+    if(!fs.existsSync(sourceRoot) || !fs.statSync(sourceRoot).isDirectory()){
+        return []
+    }
+
+    const copied = []
+    const visit = (current, relativeDir = '') => {
+        const entries = fs.readdirSync(current, { withFileTypes: true })
+            .sort((a, b) => a.name.localeCompare(b.name, 'ko'))
+        for(const entry of entries){
+            const relative = relativeDir.length > 0 ? `${relativeDir}/${entry.name}` : entry.name
+            const source = path.join(current, entry.name)
+            if(entry.isDirectory()){
+                visit(source, relative)
+            } else if(entry.isFile() && predicate(source, relative)){
+                const target = `${targetRoot}/${relative}`
+                if(copyManagedFile(source, packRoot, target, inventory)){
+                    copied.push(target)
+                }
+            }
+        }
+    }
+    visit(sourceRoot)
+    return copied
+}
+
 function readJson(file, fallback){
     try {
         return JSON.parse(fs.readFileSync(file, 'utf8'))
@@ -179,11 +205,22 @@ function main(){
         }
     }
 
-    for(const required of ['mods', 'config', 'resourcepacks']){
+    const emoteFiles = copyManagedTree(
+        path.join(profile, 'emotes'),
+        packRoot,
+        'emotes',
+        inventory,
+        file => file.toLowerCase().endsWith('.emotecraft')
+    )
+
+    for(const required of ['mods', 'config', 'resourcepacks', 'emotes']){
         ensureDirectory(path.join(packRoot, required))
     }
     if(inventory.filter(item => item.path.startsWith('mods/')).length === 0){
         throw new Error('The pack did not contain any client mod JAR files.')
+    }
+    if(emoteFiles.length === 0){
+        throw new Error('The pack did not contain any Emotecraft emote files.')
     }
 
     const previous = readJson(inventoryPath, { files: [] })
@@ -215,6 +252,7 @@ function main(){
 
     console.log(`Profile: ${profile}`)
     console.log(`Client mods: ${modFiles.length}`)
+    console.log(`Emotecraft emotes: ${emoteFiles.length}`)
     console.log(`Managed files: ${inventory.length}`)
     printDiff(diff)
     console.log(`ZIP: ${zipPath}`)

@@ -53,7 +53,8 @@ async function main(){
             revision: 1,
             remove: [
                 'resourcepacks/Old Visuals.zip',
-                'mods/old-client-mod.jar'
+                'mods/old-client-mod.jar',
+                'emotes/Old Dance.emotecraft'
             ],
             files: []
         }
@@ -63,6 +64,7 @@ async function main(){
         'mods/example.jar',
         'mods/old-client-mod.jar',
         'config/example.json',
+        'emotes/Old Dance.emotecraft',
         'resourcepacks/Old Visuals.zip',
         'resourcepacks/Keep.zip'
     ]){
@@ -73,9 +75,22 @@ async function main(){
     assert.strictEqual(await api.applyLivePatch(manifest), true)
     assert.strictEqual(fs.existsSync(path.join(gameDir, 'resourcepacks', 'Old Visuals.zip')), false)
     assert.strictEqual(fs.existsSync(path.join(gameDir, 'mods', 'old-client-mod.jar')), false)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'emotes', 'Old Dance.emotecraft')), false)
     assert.strictEqual(fs.existsSync(path.join(gameDir, 'resourcepacks', 'Keep.zip')), true)
     assert.strictEqual(api.readInstalledState().livePatchRevision, 1)
     assert.strictEqual(await api.applyLivePatch(manifest), false)
+
+    const payloadDir = path.join(testRoot, 'payload-validation')
+    for(const file of [
+        'mods/example.jar',
+        'config/example.json',
+        'resourcepacks/example.zip'
+    ]){
+        fs.outputFileSync(path.join(payloadDir, ...file.split('/')), file)
+    }
+    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir), false)
+    fs.outputFileSync(path.join(payloadDir, 'emotes', 'Example.emotecraft'), 'emote')
+    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir), true)
 
     const rollbackManifest = api.normalizeManifest({
         packId: 'astervale',

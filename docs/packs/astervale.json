@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.0.1.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.1/astervale-client-pack-1.0.1.zip",
-  "minimumLauncherVersion": "3.3.1",
-  "sha256": "81b666f06cd150663761f3bd8ca44c25771ceb226fd9c09dd23eb1c0a88a8156",
-  "size": 356833640,
+  "fileName": "astervale-client-pack-1.1.0.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.1.0/astervale-client-pack-1.1.0.zip",
+  "minimumLauncherVersion": "3.3.2",
+  "sha256": "fcedf2535e55f0585e5f9702b28c5a21c047044a93c288e20ca1e5fc49568a91",
+  "size": 366482295,
   "resourcePacks": [
     {
       "file": "AddCook-pack.zip",
@@ -28,9 +28,10 @@
   ],
   "livePatch": null,
   "changelog": [
-    "Emotecraft 사용자 이모트 자동 설치·업데이트 지원",
-    "에스터베일 NeoForge 1.21.4 클라이언트팩 첫 배포",
-    "KTZ 전용 UI·생활·경제·퀘스트 클라이언트 모드 구성",
-    "Sodium 기반 렌더링 최적화와 필수 리소스팩 적용"
+    "카토 별들의 축복·운영자 호출 클라이언트 모드 추가",
+    "카토 상점 0.4.24·세금 0.1.4·UI 0.8.35로 업데이트",
+    "카토 전용 클라이언트 모드 10종 최신 빌드 반영",
+    "Dream Displays 설정과 Modrinth 기준 프로필 동기화",
+    "Emotecraft 사용자 이모트 32개 유지"
   ]
 }

@@ -381,9 +381,15 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         const modsDir = path.join(this.gameDir, 'mods')
         fs.ensureDirSync(modsDir)
 
-        for(const entry of fs.readdirSync(modsDir)) {
-            if(entry.toLowerCase().endsWith('.jar')) {
-                fs.removeSync(path.join(modsDir, entry))
+        const usesManagedClientPack = this.server.rawServer.ktz?.packManifest != null
+
+        if(usesManagedClientPack) {
+            logger.info('Preserving mods installed by the managed client pack:', modsDir)
+        } else {
+            for(const entry of fs.readdirSync(modsDir)) {
+                if(entry.toLowerCase().endsWith('.jar')) {
+                    fs.removeSync(path.join(modsDir, entry))
+                }
             }
         }
 

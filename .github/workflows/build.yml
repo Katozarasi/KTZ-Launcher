@@ -33,8 +33,11 @@ jobs:
       - name: Test Aster Vale live patch
         run: npm run test:astervale
 
+      - name: Test managed NeoForge pack preservation
+        run: npm run test:neoforge-managed-pack
+
       - name: Lint changed runtime files
-        run: npx eslint app/assets/js/astervalepackmanager.js tools/test-astervale-live-patch.js tools/build-astervale-pack.js
+        run: npx eslint app/assets/js/astervalepackmanager.js app/assets/js/neoforgeprocessbuilder.js tools/test-astervale-live-patch.js tools/test-neoforge-managed-pack.js tools/build-astervale-pack.js
 
       - name: Build Windows installer
         if: github.event_name == 'pull_request'

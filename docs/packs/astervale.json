@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.1.1.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.1.1/astervale-client-pack-1.1.1.zip",
+  "fileName": "astervale-client-pack-1.1.2.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.1.2/astervale-client-pack-1.1.2.zip",
   "minimumLauncherVersion": "3.3.2",
-  "sha256": "bd1c9cb389c4a001079db56783d0adc77576839b1607ecf25f4c6180eb07238a",
-  "size": 366509760,
+  "sha256": "e21c2e40b1c290e802ef658caa8b7a6008563e87086234a2880fe35e3cb0e23f",
+  "size": 366513151,
   "resourcePacks": [
     {
       "file": "AddCook-pack.zip",
@@ -28,8 +28,11 @@
   ],
   "livePatch": null,
   "changelog": [
-    "카토 세금 클라이언트 최신 빌드로 교체",
-    "카토 낚시·대화·생활·직업 제작대 클라이언트 모드 업데이트",
+    "건차 시스템 연동용 카토 금고·도어락 클라이언트 모드 업데이트",
+    "별들의 저주 주사위·건차 서버 시스템 및 Nexo 리소스팩 호환",
+    "카토 대장장이 클라이언트 모드 업데이트",
+    "카토 생활·직업 제작대 클라이언트 모드 업데이트",
+    "Dream Displays 클라이언트 설정 최신화",
     "Modrinth 활성 모드 38개 전체 동기화",
     "Emotecraft 사용자 이모트 32개 유지"
   ]

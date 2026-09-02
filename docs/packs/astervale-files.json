@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "minecraftVersion": "1.21.4",
   "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-09-01T09:36:15.545Z",
+  "generatedAt": "2026-09-02T00:18:38.225Z",
   "sourceProfile": "NeoForge 1.21.4",
   "files": [
     {
       "path": "config/dreamdisplays/client-display-settings.json",
-      "size": 6680,
-      "sha256": "80b89c023115fd9b9a4db00b54dd2f52a9b6d27f83656a06d6fb1b9e63032632"
+      "size": 6679,
+      "sha256": "d39e8a01b775635e2f2720530ae4e64eb455216c0fd283166f68e6b8958d3840"
     },
     {
       "path": "config/emotecraft.json",
@@ -224,8 +224,8 @@
     },
     {
       "path": "mods/카토 금고 클라이언트.jar",
-      "size": 3233131,
-      "sha256": "075a6c3bfcb5c5795ecb7b388bb7ad072747473d5e6d5df64fba21af88632837"
+      "size": 3233132,
+      "sha256": "f29c50121c9ef486428b962fafc950dbe1fe52d3e25ff72b1b35220f4d3db070"
     },
     {
       "path": "mods/카토 낚시 클라이언트.jar",
@@ -234,8 +234,8 @@
     },
     {
       "path": "mods/카토 대장장이 클라이언트.jar",
-      "size": 5569066,
-      "sha256": "7f415415ff0bb269d081e326dbf33633cc23c050cde5602c34d0d122ca5b7639"
+      "size": 5573091,
+      "sha256": "1b9f61f9fd9dc91cdbe1a3e02277a030c49dca9e9983d0e5be3a62eb1a4fe6e7"
     },
     {
       "path": "mods/카토 대화 클라이언트.jar",
@@ -249,8 +249,8 @@
     },
     {
       "path": "mods/카토 도어락 클라이언트.jar",
-      "size": 3244474,
-      "sha256": "d87b858c80fb8326760fd01fdb25a4577a30b59a21582f4a7d448816b62e5091"
+      "size": 3244475,
+      "sha256": "fad734e51ebdd40b62985ef983b25e60e50a3948b64ee2c3fe8db3f2f3613191"
     },
     {
       "path": "mods/카토 별들의 축복 클라이언트.jar",
@@ -264,8 +264,8 @@
     },
     {
       "path": "mods/카토 생활 클라이언트.jar",
-      "size": 3493290,
-      "sha256": "0b47fa951cf2645b5fb946dbb8b39d8d3ab7565ccf633ccff33565d7abb5165f"
+      "size": 3492632,
+      "sha256": "20541198ff225e536bf935d80dcb1b98d947e83d47f0a7a1e6e9bf78aa5e965d"
     },
     {
       "path": "mods/카토 세금 클라이언트.jar",
@@ -295,7 +295,7 @@
     {
       "path": "mods/카토 직업 제작대 클라이언트.jar",
       "size": 79935,
-      "sha256": "0218de66f67fa4a7926b096df1ae3c7e6a8c545f5e181d37fd21ab971fe1be3b"
+      "sha256": "7173bf42a4bb4a2fe656ddfeb7d39508c3bbb6678f75b5e581295a70379b46cc"
     },
     {
       "path": "mods/카토 퀘스트 클라이언트.jar",

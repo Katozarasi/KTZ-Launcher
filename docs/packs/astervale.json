@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.1.3.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.1.3/astervale-client-pack-1.1.3.zip",
+  "fileName": "astervale-client-pack-1.1.4.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.1.4/astervale-client-pack-1.1.4.zip",
   "minimumLauncherVersion": "3.3.2",
-  "sha256": "0410913dc6eb6ac933abe6ef3c656716b990f657ea16d3fb3bae872e2f1da58b",
-  "size": 366513193,
+  "sha256": "5c81610fab6c38cef7c0349f8a4aac5c4f62fd4168c2db90357aeb00f4009911",
+  "size": 366525413,
   "resourcePacks": [
     {
       "file": "AddCook-pack.zip",
@@ -28,9 +28,9 @@
   ],
   "livePatch": null,
   "changelog": [
-    "주식 클라이언트 모드 최신 빌드 반영",
-    "카토 생활 클라이언트 모드 업데이트",
-    "카토 세금 클라이언트 모드 업데이트",
+    "카토 가챠·낚시·대장장이 클라이언트 모드 업데이트",
+    "카토 생활·직업 제작대 클라이언트 모드 업데이트",
+    "Dream Displays 클라이언트 설정 최신화",
     "Modrinth 활성 모드 38개 전체 동기화",
     "Emotecraft 사용자 이모트 32개 유지"
   ]

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minecraftVersion": "1.21.4",
   "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-09-03T05:49:19.391Z",
+  "generatedAt": "2026-09-03T08:32:25.544Z",
   "sourceProfile": "NeoForge 1.21.4",
   "files": [
     {
@@ -254,8 +254,8 @@
     },
     {
       "path": "mods/카토 별들의 축복 클라이언트.jar",
-      "size": 2020808,
-      "sha256": "dfe9fbecf9c77e442302bb043edd84971d9a6542e5b31ae0f8888551cbd3f207"
+      "size": 2020807,
+      "sha256": "b6ddadb7d698a64c8db351ab2362d957689ade43bf67f3876a47e980c1a62929"
     },
     {
       "path": "mods/카토 상점 클라이언트-1.21.4-0.4.24.jar",

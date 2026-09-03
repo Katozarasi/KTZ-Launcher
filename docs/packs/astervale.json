@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.2.0.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.2.0/astervale-client-pack-1.2.0.zip",
+  "fileName": "astervale-client-pack-1.2.1.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.2.1/astervale-client-pack-1.2.1.zip",
   "minimumLauncherVersion": "3.3.2",
-  "sha256": "2ccd89e1530be21f7a1e73f9386adfae72ea751aa79c46821e167c35de2919d2",
+  "sha256": "57f95e087fb16eb905986a1ccbe7cc42fcbe82b38aa11d7c87ec7fea18b8bd05",
   "size": 366617707,
   "resourcePacks": [
     {
@@ -28,12 +28,7 @@
   ],
   "livePatch": null,
   "changelog": [
-    "카토 도감 클라이언트 최신 빌드로 교체",
-    "카토 UI 클라이언트 0.8.39로 업데이트",
-    "카토 낚시·대장장이·대화·별들의 축복 클라이언트 모드 업데이트",
-    "카토 생활·세금·업적·주민등록증 클라이언트 모드 업데이트",
-    "카토 직업 제작대·퀘스트 클라이언트 모드 업데이트",
-    "Dream Displays 클라이언트 설정 최신화",
+    "카토 별들의 축복 클라이언트 모드 최신 빌드 반영",
     "Modrinth 활성 모드 38개 전체 동기화",
     "Emotecraft 사용자 이모트 32개 유지"
   ]

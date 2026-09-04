@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.3.0.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.3.0/astervale-client-pack-1.3.0.zip",
+  "fileName": "astervale-client-pack-1.3.1.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.3.1/astervale-client-pack-1.3.1.zip",
   "minimumLauncherVersion": "3.3.3",
-  "sha256": "6d2c4a9c81f24c44be34becf7ed06b93daacc40abf5bf764a26062fb31f35341",
-  "size": 376871978,
+  "sha256": "6a45753d489b2064a97478c3a6d82bebac13e97a8f4dcb3068c7febd69a98878",
+  "size": 376871745,
   "resourcePacks": [
     {
       "file": "AddCook-pack.zip",
@@ -35,14 +35,9 @@
   ],
   "livePatch": null,
   "changelog": [
-    "에스터베일 전용 쉐이더팩과 쉐이더 설정 자동 배포",
-    "접근성 설정의 메뉴 배경 흐림을 항상 꺼짐으로 적용",
-    "카토 상점 클라이언트 0.4.28로 업데이트",
-    "카토 UI 클라이언트 0.8.42로 업데이트",
-    "카토 가챠·금고·대장장이·대화·도감·도어락 클라이언트 최신 빌드 반영",
-    "카토 별들의 축복·생활·세금·실시간 통역·퀘스트 클라이언트 최신 빌드 반영",
-    "Dream Displays 및 Sodium 클라이언트 설정 최신화",
+    "카토 생활 클라이언트 최신 빌드 반영",
+    "Dream Displays 클라이언트 표시 설정 최신화",
     "Modrinth 활성 모드 38개 전체 동기화",
-    "Emotecraft 사용자 이모트 32개 유지"
+    "Emotecraft 사용자 이모트 32개, 리소스팩 및 에스터베일 쉐이더 유지"
   ]
 }

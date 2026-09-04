@@ -11,29 +11,32 @@ const ConfigManager = require('./configmanager')
 
 const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json'
 const SERVER_ID = 'astervale'
-const MANAGED_DIRS = ['mods', 'config', 'resourcepacks', 'emotes']
+const MANAGED_DIRS = ['mods', 'config', 'resourcepacks', 'emotes', 'shaderpacks']
 const pipelineAsync = promisify(pipeline)
 
 const FALLBACK_MANIFEST = {
     schemaVersion: 1,
     packId: SERVER_ID,
-    version: '1.0.1',
+    version: '1.3.0',
     minecraftVersion: '1.21.4',
     loader: {
         type: 'neoforge',
         version: '21.4.157'
     },
-    fileName: 'astervale-client-pack-1.0.1.zip',
-    url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.0.1/astervale-client-pack-1.0.1.zip',
-    minimumLauncherVersion: '3.3.1',
-    sha256: '81b666f06cd150663761f3bd8ca44c25771ceb226fd9c09dd23eb1c0a88a8156',
-    size: 356833640,
+    fileName: 'astervale-client-pack-1.3.0.zip',
+    url: 'https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.3.0/astervale-client-pack-1.3.0.zip',
+    minimumLauncherVersion: '3.3.3',
+    sha256: '6d2c4a9c81f24c44be34becf7ed06b93daacc40abf5bf764a26062fb31f35341',
+    size: 376871978,
     resourcePacks: [
         { file: 'AddCook-pack.zip', incompatible: true },
         { file: 'BorderLess Glass v1.zip', incompatible: false },
         { file: 'Better-Leaves-9.5.zip', incompatible: false }
     ],
-    changelog: ['Emotecraft 사용자 이모트 32개 자동 설치', '에스터베일 클라이언트 최적화 모드 갱신']
+    shaderPacks: [
+        { file: '에스텔서버 쉐이더.zip', optionsFile: '에스텔서버 쉐이더.zip.txt', enabled: true }
+    ],
+    changelog: ['에스터베일 전용 쉐이더팩 자동 설치', '메뉴 배경 흐림 항상 꺼짐', '에스터베일 클라이언트 모드 갱신']
 }
 
 function setStatus(message, percent = null){
@@ -202,6 +205,18 @@ function normalizeManifest(value){
             incompatible: item?.incompatible === true
         }))
         .filter(item => item.file.length > 0 && path.basename(item.file) === item.file)
+    manifest.shaderPacks = (Array.isArray(value.shaderPacks) ? value.shaderPacks : [])
+        .map(item => typeof item === 'string' ? { file: item, optionsFile: `${item}.txt`, enabled: false } : item)
+        .map(item => ({
+            file: String(item?.file || '').trim(),
+            optionsFile: String(item?.optionsFile || '').trim(),
+            enabled: item?.enabled === true
+        }))
+        .filter(item =>
+            item.file.toLowerCase().endsWith('.zip') &&
+            path.basename(item.file) === item.file &&
+            (item.optionsFile.length === 0 || path.basename(item.optionsFile) === item.optionsFile)
+        )
     manifest.livePatch = normalizeLivePatch(value.livePatch)
 
     return manifest
@@ -311,19 +326,23 @@ function payloadCounts(root){
         }),
         config: countFiles(path.join(root, 'config'), file => path.basename(file) !== '.gitkeep'),
         resourcepacks: countFiles(path.join(root, 'resourcepacks'), file => file.toLowerCase().endsWith('.zip')),
-        emotes: countFiles(path.join(root, 'emotes'), file => file.toLowerCase().endsWith('.emotecraft'))
+        emotes: countFiles(path.join(root, 'emotes'), file => file.toLowerCase().endsWith('.emotecraft')),
+        shaderpacks: countFiles(path.join(root, 'shaderpacks'), file => file.toLowerCase().endsWith('.zip'))
     }
 }
 
-function hasValidPayload(root){
+function hasValidPayload(root, manifest = null){
     const counts = payloadCounts(root)
     console.log(
         '[KTZ AsterVale] Payload check: mods=' + counts.mods +
         ', config=' + counts.config +
         ', resourcepacks=' + counts.resourcepacks +
-        ', emotes=' + counts.emotes
+        ', emotes=' + counts.emotes +
+        ', shaderpacks=' + counts.shaderpacks
     )
-    return counts.mods > 0 && counts.config > 0 && counts.resourcepacks > 0 && counts.emotes > 0
+    const requiresShaderpacks = Array.isArray(manifest?.shaderPacks) && manifest.shaderPacks.length > 0
+    return counts.mods > 0 && counts.config > 0 && counts.resourcepacks > 0 && counts.emotes > 0 &&
+        (!requiresShaderpacks || counts.shaderpacks > 0)
 }
 
 function readInstalledState(){
@@ -577,6 +596,8 @@ function scorePayloadDir(dir, type){
             return countFiles(root, file => file.toLowerCase().endsWith('.zip'))
         case 'emotes':
             return countFiles(root, file => file.toLowerCase().endsWith('.emotecraft'))
+        case 'shaderpacks':
+            return countFiles(root, file => file.toLowerCase().endsWith('.zip'))
         default:
             return 0
     }
@@ -643,7 +664,7 @@ async function createStagingInstance(extractDir, manifest){
         removeGitkeepFiles(target)
     }
 
-    if(!hasValidPayload(stagingRoot)){
+    if(!hasValidPayload(stagingRoot, manifest)){
         throw new Error('Aster Vale client pack staging payload is incomplete.')
     }
 
@@ -677,11 +698,12 @@ function installStagedPayload(stagingRoot, manifest){
             movedFromStaging.push(target)
         }
 
-        if(!hasValidPayload(gameDir)){
+        if(!hasValidPayload(gameDir, manifest)){
             throw new Error('Aster Vale client pack installation validation failed.')
         }
 
         enableManagedResourcePacks(manifest)
+        applyManagedClientPreferences(manifest)
         writeInstalledState(manifest)
         fs.removeSync(backupRoot)
         console.log('[KTZ AsterVale] Client pack installation complete:', manifest.version)
@@ -743,6 +765,54 @@ function enableManagedResourcePacks(manifest){
     console.log('[KTZ AsterVale] Enabled managed resource packs:', enabled.join(', '))
 }
 
+function upsertOption(file, separator, key, value){
+    const existing = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : ''
+    let lines = existing.length > 0 ? existing.replaceAll('\r\n', '\n').split('\n') : []
+    const prefix = key + separator
+    const index = lines.findIndex(line => line.startsWith(prefix))
+    const next = prefix + value
+    if(index >= 0){
+        lines[index] = next
+    } else {
+        lines.push(next)
+    }
+    lines = lines.filter((line, lineIndex) => line.length > 0 || lineIndex < lines.length - 1)
+    fs.ensureDirSync(path.dirname(file))
+    fs.writeFileSync(file, lines.join('\n') + '\n', 'utf8')
+}
+
+function javaPropertiesValue(value){
+    return String(value)
+        .replaceAll('\\', '\\\\')
+        .replace(/[^\x20-\x7e]/g, character =>
+            '\\u' + character.charCodeAt(0).toString(16).padStart(4, '0').toUpperCase()
+        )
+}
+
+function applyManagedClientPreferences(manifest){
+    const gameDir = gameDirectory()
+    upsertOption(path.join(gameDir, 'options.txt'), ':', 'menuBackgroundBlurriness', '0')
+    console.log('[KTZ AsterVale] Forced menu background blur off.')
+
+    const selected = manifest.shaderPacks.find(item => item.enabled) || manifest.shaderPacks[0]
+    if(selected == null){
+        return
+    }
+
+    const shaderFile = path.join(gameDir, 'shaderpacks', selected.file)
+    if(!fs.existsSync(shaderFile)){
+        throw new Error('Aster Vale managed shaderpack is missing: ' + selected.file)
+    }
+    if(selected.optionsFile.length > 0 && !fs.existsSync(path.join(gameDir, 'shaderpacks', selected.optionsFile))){
+        throw new Error('Aster Vale managed shaderpack options are missing: ' + selected.optionsFile)
+    }
+
+    const irisOptions = path.join(gameDir, 'config', 'iris.properties')
+    upsertOption(irisOptions, '=', 'enableShaders', 'true')
+    upsertOption(irisOptions, '=', 'shaderPack', javaPropertiesValue(selected.file))
+    console.log('[KTZ AsterVale] Selected managed shaderpack:', selected.file)
+}
+
 async function prepare(serverId){
     if(serverId !== SERVER_ID){
         return null
@@ -754,9 +824,10 @@ async function prepare(serverId){
 
     const installed = readInstalledState()
 
-    if(installed?.installedVersion === manifest.version && hasValidPayload(gameDirectory())){
+    if(installed?.installedVersion === manifest.version && hasValidPayload(gameDirectory(), manifest)){
         console.log('[KTZ AsterVale] Client pack is up to date:', manifest.version)
         await applyLivePatch(manifest)
+        applyManagedClientPreferences(manifest)
         return manifest
     }
 
@@ -770,6 +841,7 @@ async function prepare(serverId){
     const stagingRoot = await createStagingInstance(extractDir, manifest)
     installStagedPayload(stagingRoot, manifest)
     await applyLivePatch(manifest)
+    applyManagedClientPreferences(manifest)
 
     fs.removeSync(path.join(packRoot(), 'staging', manifest.version))
     return manifest

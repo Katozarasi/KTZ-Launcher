@@ -13,6 +13,10 @@ const { DistroAPI } = require('./assets/js/distromanager')
 let rscShouldLoad = false
 let fatalStartupError = false
 
+function getKtzPrimaryServer(data){
+    return data.getServerById('astervale') || data.getMainServer()
+}
+
 // Mapping of each view to their container IDs.
 const VIEWS = {
     landing: '#landingContainer',
@@ -65,7 +69,7 @@ async function showMainUI(data){
     }
 
     await prepareSettings(true)
-    updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
+    updateSelectedServer(getKtzPrimaryServer(data))
     refreshServerStatus()
     setTimeout(() => {
         document.getElementById('frameBar').style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
@@ -133,7 +137,7 @@ function showFatalStartupError(){
  * @param {Object} data The distro index object.
  */
 function onDistroRefresh(data){
-    updateSelectedServer(data.getServerById(ConfigManager.getSelectedServer()))
+    updateSelectedServer(getKtzPrimaryServer(data))
     refreshServerStatus()
     initNews()
     syncModConfigurations(data)
@@ -461,6 +465,6 @@ async function devModeToggle() {
     DistroAPI.toggleDevMode(true)
     const data = await DistroAPI.refreshDistributionOrFallback()
     ensureJavaSettings(data)
-    updateSelectedServer(data.servers[0])
+    updateSelectedServer(getKtzPrimaryServer(data))
     syncModConfigurations(data)
 }

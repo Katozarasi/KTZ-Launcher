@@ -270,7 +270,7 @@ function setAccountListingHandlers(){
 async function populateServerListings(){
     const distro = await DistroAPI.getDistribution()
     const giaSel = ConfigManager.getSelectedServer()
-    const servers = distro.servers
+    const servers = distro.servers.filter(serv => serv.rawServer.id === 'astervale')
     let htmlString = ''
     for(const serv of servers){
         htmlString += `<button class="serverListing" servid="${serv.rawServer.id}" ${serv.rawServer.id === giaSel ? 'selected' : ''}>

@@ -21,6 +21,10 @@ const CONFIG_FILES = [
     'trender.json'
 ]
 
+const SHADER_PACK_FILES = [
+    '에스텔서버 쉐이더.zip'
+]
+
 function argument(name, fallback){
     const index = process.argv.indexOf(`--${name}`)
     return index >= 0 && process.argv[index + 1] != null ? process.argv[index + 1] : fallback
@@ -213,7 +217,17 @@ function main(){
         file => file.toLowerCase().endsWith('.emotecraft')
     )
 
-    for(const required of ['mods', 'config', 'resourcepacks', 'emotes']){
+    const shaderPackDir = path.join(profile, 'shaderpacks')
+    const shaderPackFiles = []
+    for(const file of SHADER_PACK_FILES){
+        if(copyManagedFile(path.join(shaderPackDir, file), packRoot, `shaderpacks/${file}`, inventory)){
+            shaderPackFiles.push(file)
+        }
+        const optionsFile = `${file}.txt`
+        copyManagedFile(path.join(shaderPackDir, optionsFile), packRoot, `shaderpacks/${optionsFile}`, inventory)
+    }
+
+    for(const required of ['mods', 'config', 'resourcepacks', 'emotes', 'shaderpacks']){
         ensureDirectory(path.join(packRoot, required))
     }
     if(inventory.filter(item => item.path.startsWith('mods/')).length === 0){
@@ -221,6 +235,9 @@ function main(){
     }
     if(emoteFiles.length === 0){
         throw new Error('The pack did not contain any Emotecraft emote files.')
+    }
+    if(shaderPackFiles.length === 0){
+        throw new Error('The pack did not contain the Aster Vale shaderpack.')
     }
 
     const previous = readJson(inventoryPath, { files: [] })
@@ -253,6 +270,7 @@ function main(){
     console.log(`Profile: ${profile}`)
     console.log(`Client mods: ${modFiles.length}`)
     console.log(`Emotecraft emotes: ${emoteFiles.length}`)
+    console.log(`Aster Vale shaderpacks: ${shaderPackFiles.length}`)
     console.log(`Managed files: ${inventory.length}`)
     printDiff(diff)
     console.log(`ZIP: ${zipPath}`)

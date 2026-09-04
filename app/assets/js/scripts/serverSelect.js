@@ -12,6 +12,7 @@ const ktzServerPreviewDesc = document.getElementById('ktzServerPreviewDesc')
 const ktzServerPreviewVersion = document.getElementById('ktzServerPreviewVersion')
 const ktzServerPreviewAddress = document.getElementById('ktzServerPreviewAddress')
 const ktzServerSelectConfirm = document.getElementById('ktzServerSelectConfirm')
+const KTZ_SERVER_SELECT_VISIBLE_IDS = new Set(['astervale'])
 
 let ktzSelectedServerId = null
 let ktzServerSelectShownThisSession = false
@@ -151,7 +152,9 @@ async function ktzPopulateServerSelect(){
     const selectedServerId = ConfigManager.getSelectedServer()
     let htmlString = ''
 
-    for(const server of distro.servers){
+    const visibleServers = distro.servers.filter(server => KTZ_SERVER_SELECT_VISIBLE_IDS.has(server.rawServer.id))
+
+    for(const server of visibleServers){
         const raw = server.rawServer
         htmlString += `<button class="ktzServerCard" data-server-id="${raw.id}">
             <div class="ktzServerCardImage" style="background-image: url('${getKtzServerThumbnail(raw)}')"></div>
@@ -175,7 +178,7 @@ async function ktzPopulateServerSelect(){
         }
     }
 
-    const initialServer = distro.getServerById(selectedServerId) || distro.getMainServer()
+    const initialServer = visibleServers.find(server => server.rawServer.id === selectedServerId) || visibleServers[0]
     if(initialServer != null){
         ktzSelectServerCard(initialServer.rawServer.id)
         ktzUpdatePreview(initialServer.rawServer)
@@ -194,7 +197,9 @@ async function ktzShowServerSelect(fromView = getCurrentView()){
 
 ktzServerSelectConfirm.onclick = async () => {
     const distro = await DistroAPI.getDistribution()
-    const selectedServer = distro.getServerById(ktzSelectedServerId) || distro.getMainServer()
+    const selectedServer = KTZ_SERVER_SELECT_VISIBLE_IDS.has(ktzSelectedServerId)
+        ? distro.getServerById(ktzSelectedServerId)
+        : distro.getServerById('astervale')
 
     if(selectedServer != null){
         updateSelectedServer(selectedServer)

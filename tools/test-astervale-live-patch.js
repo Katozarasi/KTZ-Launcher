@@ -34,6 +34,7 @@ const source = fs.readFileSync(sourcePath, 'utf8') + `
 module.exports.__test = {
     normalizeManifest,
     applyLivePatch,
+    applyManagedClientPreferences,
     readInstalledState,
     writeInstalledState
 }
@@ -49,6 +50,9 @@ async function main(){
         version: '1.0.0',
         fileName: 'astervale-client-pack-1.0.0.zip',
         url: 'https://example.com/astervale-client-pack-1.0.0.zip',
+        shaderPacks: [
+            { file: '에스텔서버 쉐이더.zip', optionsFile: '에스텔서버 쉐이더.zip.txt', enabled: true }
+        ],
         livePatch: {
             revision: 1,
             remove: [
@@ -65,6 +69,8 @@ async function main(){
         'mods/old-client-mod.jar',
         'config/example.json',
         'emotes/Old Dance.emotecraft',
+        'shaderpacks/에스텔서버 쉐이더.zip',
+        'shaderpacks/에스텔서버 쉐이더.zip.txt',
         'resourcepacks/Old Visuals.zip',
         'resourcepacks/Keep.zip'
     ]){
@@ -88,9 +94,21 @@ async function main(){
     ]){
         fs.outputFileSync(path.join(payloadDir, ...file.split('/')), file)
     }
-    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir), false)
+    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir, manifest), false)
     fs.outputFileSync(path.join(payloadDir, 'emotes', 'Example.emotecraft'), 'emote')
-    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir), true)
+    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir, manifest), false)
+    fs.outputFileSync(path.join(payloadDir, 'shaderpacks', 'Example.zip'), 'shader')
+    assert.strictEqual(sandbox.module.exports.hasValidPayload(payloadDir, manifest), true)
+
+    fs.outputFileSync(path.join(gameDir, 'options.txt'), 'fov:0.5\nmenuBackgroundBlurriness:7\n')
+    fs.outputFileSync(path.join(gameDir, 'config', 'iris.properties'), '# Iris\nenableShaders=false\nshaderPack=Other.zip\n')
+    api.applyManagedClientPreferences(manifest)
+    const gameOptions = fs.readFileSync(path.join(gameDir, 'options.txt'), 'utf8')
+    const irisOptions = fs.readFileSync(path.join(gameDir, 'config', 'iris.properties'), 'utf8')
+    assert.match(gameOptions, /^menuBackgroundBlurriness:0$/m)
+    assert.match(gameOptions, /^fov:0\.5$/m)
+    assert.match(irisOptions, /^enableShaders=true$/m)
+    assert.match(irisOptions, /^shaderPack=\\uC5D0\\uC2A4\\uD154\\uC11C\\uBC84 \\uC250\\uC774\\uB354\.zip$/m)
 
     const rollbackManifest = api.normalizeManifest({
         packId: 'astervale',

@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "minecraftVersion": "1.21.4",
   "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-09-03T11:46:17.046Z",
+  "generatedAt": "2026-09-04T08:12:49.465Z",
   "sourceProfile": "NeoForge 1.21.4",
   "files": [
     {
       "path": "config/dreamdisplays/client-display-settings.json",
-      "size": 6676,
-      "sha256": "b639acaeb4e3e03071db1cb678b13bc1e6af1bca4f48c46910157e659ce723a9"
+      "size": 6680,
+      "sha256": "0f67f44e1ccf5e18635729567174195ff1df661f97e2983d0dee97e617ddce10"
     },
     {
       "path": "config/emotecraft.json",
@@ -39,8 +39,8 @@
     },
     {
       "path": "config/sodium-options.json",
-      "size": 685,
-      "sha256": "00c7dd465e12693baeb0f9844848eb087f627d98827df51111b080af462d7d73"
+      "size": 686,
+      "sha256": "df78cdffa443cf4e1d3dae89b81bf0c0481888311dfb5a400e0970e6c4b68155"
     },
     {
       "path": "config/transition.json",
@@ -219,13 +219,13 @@
     },
     {
       "path": "mods/카토 가챠 클라이언트.jar",
-      "size": 258887461,
-      "sha256": "f328f0be8a7cb94082078734ce13d708d0e95860ae41a2865ae60eaaec897d1e"
+      "size": 267076586,
+      "sha256": "b1b7d6307e390bb97eff71e1274763fa7abc90b9dca16268dc6c4129224c26a7"
     },
     {
       "path": "mods/카토 금고 클라이언트.jar",
-      "size": 3233132,
-      "sha256": "f29c50121c9ef486428b962fafc950dbe1fe52d3e25ff72b1b35220f4d3db070"
+      "size": 3240258,
+      "sha256": "423270078175d21c1b96104a3c64103f67a029b10168d8fd568f978caede3141"
     },
     {
       "path": "mods/카토 낚시 클라이언트.jar",
@@ -235,47 +235,47 @@
     {
       "path": "mods/카토 대장장이 클라이언트.jar",
       "size": 5573505,
-      "sha256": "fad955f6a9a773bedc06bdb928e6cd255c8686a07b4851c3ec9aced487db4c46"
+      "sha256": "639153cfcf735cc10e6cb9293f857db3d902b9ecd6e7b17705b7aa9a800d7b01"
     },
     {
       "path": "mods/카토 대화 클라이언트.jar",
-      "size": 9401491,
-      "sha256": "060d7fc694c4800fcbde61ba4f2e38c197a1a93e1589a307f80881be15ddf5b1"
+      "size": 10962253,
+      "sha256": "a699cb80beb5352cacee758d18762d369aad1e35df4aa56e93561883957b9d8d"
     },
     {
       "path": "mods/카토 도감 클라이언트.jar",
       "size": 4675659,
-      "sha256": "6b446ff0c087d197fc9dac871101299a393b74c9b69d410b167f771218cb7e65"
+      "sha256": "cf100f619e090d9b3882e74583cf70d0f467bfef98cc558384fead7d51a48d9f"
     },
     {
       "path": "mods/카토 도어락 클라이언트.jar",
-      "size": 3244475,
-      "sha256": "6fdd07f9b1b641bf4269a4dc6c45788c1d722d03d3cfa849ab5bb4c6cbb4c6c5"
+      "size": 3247964,
+      "sha256": "02f1f723ab98578b4dcc476499efb3bb1ea4d46e233ca44a853c417fd79afde3"
     },
     {
       "path": "mods/카토 별들의 축복 클라이언트.jar",
-      "size": 2020760,
-      "sha256": "e89151c6661210c8fb08b1bf02deab0c33a5b85e4964e93653a5f89b2b182d52"
+      "size": 2020761,
+      "sha256": "a963d4bc743b33c1e0fe65238ffc78ce449bb5d5cbcaf64deeb64f7ec81d73e3"
     },
     {
-      "path": "mods/카토 상점 클라이언트-1.21.4-0.4.26.jar",
-      "size": 2361311,
-      "sha256": "7430211612aac125b425664401a3f12c4f0d8fe1e49e481cde95856fd8f2201c"
+      "path": "mods/카토 상점 클라이언트-1.21.4-0.4.28.jar",
+      "size": 2362655,
+      "sha256": "10781e7e7f7e41b0513d648bb0dce19d11d4068730f188eeaebe51e31a86d04b"
     },
     {
       "path": "mods/카토 생활 클라이언트.jar",
-      "size": 3512705,
-      "sha256": "03fd59653a35c8c560163651ff0917efb12040dcc36ad764d588d884d37f58a5"
+      "size": 3512742,
+      "sha256": "8af4d51f4468a47b8f656fa1dd9a58136623d87e88ef779fa801674761189971"
     },
     {
       "path": "mods/카토 세금 클라이언트.jar",
-      "size": 7468840,
-      "sha256": "d499702feffedcb9287d69a0ed5b3b8a1df8070558b8a779dcfc6b53915819e2"
+      "size": 7477371,
+      "sha256": "e4cf233c41a66cf2ee793f6ee3d3c5729197465009ad0d5f3baa8c03ab52d4a9"
     },
     {
       "path": "mods/카토 실시간 통역 클라이언트.jar",
-      "size": 21768,
-      "sha256": "27747312fbd1a66a0298bee4788a14386c2b0c39b594b0f96326aac5b5eedb37"
+      "size": 23811,
+      "sha256": "341364e6a3bb7ff8241241f98cbd3e3f1f625d4b455b0cc93436b9854f8082ff"
     },
     {
       "path": "mods/카토 업적 클라이언트.jar",
@@ -299,13 +299,13 @@
     },
     {
       "path": "mods/카토 퀘스트 클라이언트.jar",
-      "size": 106598,
-      "sha256": "61e746d75dec035d488defeffab6f393c92df86e07e5391c3ce4ba3789950550"
+      "size": 108509,
+      "sha256": "824dd8e374ca72f2d8968a67d5ce0171fe1b76c9ace5d9abbdb6ede20b518491"
     },
     {
-      "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.40.jar",
-      "size": 13482046,
-      "sha256": "bb0914b357695cf11c4799d803425a4f7e1be453d1aa794308eb43ae0b9ac921"
+      "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
+      "size": 13492401,
+      "sha256": "eb6d541bb8579261e436b3fb19c57e47bd6772907f11c44db42444853f4579b0"
     },
     {
       "path": "mods/dreamdisplays-neoforge-1.21.4-1.9.4.jar",
@@ -416,6 +416,16 @@
       "path": "resourcepacks/BorderLess Glass v1.zip",
       "size": 122951,
       "sha256": "346ea381ece234685ff9b26b3442f7a367fbd9eca09511fc40dbfcbc0d660ba1"
+    },
+    {
+      "path": "shaderpacks/에스텔서버 쉐이더.zip",
+      "size": 492947,
+      "sha256": "756d164e1a59712f8aaa1936f3b97294b47be2aa38054ae3c2e34f9a55762fc7"
+    },
+    {
+      "path": "shaderpacks/에스텔서버 쉐이더.zip.txt",
+      "size": 173,
+      "sha256": "47aa61faecfbe11ad09b79689dee26ee434a2d8f40e582321d82ed3b14989ebb"
     }
   ]
 }

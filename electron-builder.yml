@@ -1,11 +1,11 @@
 appId: 'ktzlauncher'
 productName: 'KTZ Launcher'
-artifactName: 'KTZ-Launcher-setup-${version}.${ext}'
+artifactName: 'KTZ-Launcher-portable-${version}.${ext}'
 
 copyright: 'Copyright © 2018-2026 Daniel Scalzi, Copyright © 2024 peunsu, Katozarasi'
 
 asar: true
-compression: 'maximum'
+compression: 'normal'
 
 files:
   - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,eslint.config.mjs}'
@@ -24,9 +24,12 @@ win:
   target: 
     - target: 'nsis'
       arch: 'x64'
+    - target: 'zip'
+      arch: 'x64'
 
 # Windows Installer Configuration
 nsis:
+  artifactName: 'KTZ-Launcher-setup-${version}.${ext}'
   oneClick: false
   perMachine: false
   allowElevation: true

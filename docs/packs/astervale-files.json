@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "minecraftVersion": "1.21.4",
   "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-09-05T04:02:05.265Z",
+  "generatedAt": "2026-09-05T06:48:05.524Z",
   "sourceProfile": "NeoForge 1.21.4",
   "files": [
     {
@@ -265,7 +265,7 @@
     {
       "path": "mods/카토 생활 클라이언트.jar",
       "size": 3512487,
-      "sha256": "652dcf1e648f11eca3cc7af9524b1c6bebc626ce6d0277f05aeb17c58396bc24"
+      "sha256": "877e1406fa15cf9dbb7fbb47a6613f583724cc3f18b7495b2df6c44db05ca752"
     },
     {
       "path": "mods/카토 세금 클라이언트.jar",
@@ -275,7 +275,7 @@
     {
       "path": "mods/카토 실시간 통역 클라이언트.jar",
       "size": 23811,
-      "sha256": "341364e6a3bb7ff8241241f98cbd3e3f1f625d4b455b0cc93436b9854f8082ff"
+      "sha256": "c2ccbe17fc6834290171cc337f06be82fd2ce3aad643e78a57f38a9fff9e930b"
     },
     {
       "path": "mods/카토 업적 클라이언트.jar",

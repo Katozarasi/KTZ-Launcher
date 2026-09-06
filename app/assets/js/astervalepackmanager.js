@@ -10,8 +10,11 @@ const { promisify } = require('util')
 const ConfigManager = require('./configmanager')
 
 const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json'
+const INVENTORY_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale-files.json'
 const SERVER_ID = 'astervale'
-const MANAGED_DIRS = ['mods', 'config', 'resourcepacks', 'emotes', 'shaderpacks']
+const STRICT_MANAGED_DIRS = ['mods']
+const MERGED_MANAGED_DIRS = ['config', 'resourcepacks', 'emotes', 'shaderpacks']
+const MANAGED_DIRS = [...STRICT_MANAGED_DIRS, ...MERGED_MANAGED_DIRS]
 // These settings belong to each player and must survive every full pack update.
 // Keep this list narrow: managed defaults should continue to be replaced normally.
 const USER_PRESERVED_PATHS = Object.freeze([
@@ -118,6 +121,10 @@ function manifestCachePath(){
     return path.join(packRoot(), 'manifest.json')
 }
 
+function inventoryCachePath(version){
+    return path.join(packRoot(), 'inventories', String(version) + '.json')
+}
+
 function statePath(){
     return path.join(gameDirectory(), '.ktz-pack-state.json')
 }
@@ -135,6 +142,16 @@ function normalizeManagedRelativePath(value){
     }
 
     return segments.join('/')
+}
+
+function normalizeManagedFileList(values){
+    if(!Array.isArray(values)){
+        return []
+    }
+    return Array.from(new Set(values.map(value => {
+        const raw = typeof value === 'string' ? value : value?.path
+        return normalizeManagedRelativePath(raw)
+    }).filter(value => !isUserPreservedPath(value)))).sort((a, b) => a.localeCompare(b, 'ko'))
 }
 
 function isUserPreservedPath(relativePath){
@@ -288,6 +305,51 @@ async function loadRemoteManifest(){
     }
 }
 
+function normalizeInventory(value, expectedVersion){
+    if(value == null || typeof value !== 'object' || value.packId !== SERVER_ID){
+        throw new Error('Aster Vale managed file inventory is invalid.')
+    }
+    if(String(value.version || '') !== String(expectedVersion)){
+        throw new Error('Aster Vale managed file inventory version does not match the installed pack.')
+    }
+    const managedFiles = normalizeManagedFileList(value.files)
+    if(managedFiles.length === 0){
+        throw new Error('Aster Vale managed file inventory is empty.')
+    }
+    return managedFiles
+}
+
+async function loadManagedInventory(version){
+    const cached = inventoryCachePath(version)
+    const partial = cached + '.part'
+    fs.ensureDirSync(path.dirname(cached))
+
+    try {
+        const separator = INVENTORY_URL.includes('?') ? '&' : '?'
+        const body = await got(INVENTORY_URL + separator + 't=' + Date.now(), {
+            retry: { limit: 2 },
+            timeout: { request: 15000 }
+        }).text()
+        fs.writeFileSync(partial, body, 'utf8')
+        const inventory = JSON.parse(fs.readFileSync(partial, 'utf8'))
+        const managedFiles = normalizeInventory(inventory, version)
+        fs.moveSync(partial, cached, { overwrite: true })
+        return managedFiles
+    } catch(err) {
+        fs.removeSync(partial)
+        const cachedInventory = readJsonIfValid(cached)
+        if(cachedInventory != null){
+            try {
+                return normalizeInventory(cachedInventory, version)
+            } catch(_err) {
+                // Ignore an invalid cache and preserve all non-mod files conservatively.
+            }
+        }
+        console.warn('[KTZ AsterVale] Managed file inventory unavailable:', err.message)
+        return []
+    }
+}
+
 function launcherVersion(){
     try {
         return require('@electron/remote').app.getVersion()
@@ -335,6 +397,30 @@ function countFiles(dir, predicate = null){
     return total
 }
 
+function collectManagedFiles(root){
+    const files = []
+
+    function visit(current, relativeRoot){
+        if(!fs.existsSync(current)){
+            return
+        }
+        for(const entry of fs.readdirSync(current, { withFileTypes: true })){
+            const full = path.join(current, entry.name)
+            const relative = relativeRoot.length > 0 ? relativeRoot + '/' + entry.name : entry.name
+            if(entry.isDirectory()){
+                visit(full, relative)
+            } else if(entry.isFile() && entry.name !== '.gitkeep'){
+                files.push(relative.replaceAll('\\', '/'))
+            }
+        }
+    }
+
+    for(const name of MANAGED_DIRS){
+        visit(path.join(root, name), name)
+    }
+    return normalizeManagedFileList(files)
+}
+
 function payloadCounts(root){
     return {
         mods: countFiles(path.join(root, 'mods'), file => {
@@ -366,17 +452,37 @@ function readInstalledState(){
     return readJsonIfValid(statePath())
 }
 
-function writeInstalledState(manifest, livePatchRevision = 0){
+function writeInstalledState(manifest, livePatchRevision = 0, managedFiles = [], backupPath = null){
     const state = {
-        schemaVersion: 1,
+        schemaVersion: 2,
         packId: SERVER_ID,
         installedVersion: manifest.version,
         fileName: manifest.fileName,
         sha256: manifest.sha256 || null,
         livePatchRevision,
+        managedFiles: normalizeManagedFileList(managedFiles),
+        backupPath,
         installedAt: new Date().toISOString()
     }
     fs.writeFileSync(statePath(), JSON.stringify(state, null, 2) + '\n', 'utf8')
+    return state
+}
+
+async function ensureInstalledManagedInventory(manifest, state){
+    if(state == null || state.installedVersion !== manifest.version || normalizeManagedFileList(state.managedFiles).length > 0){
+        return state
+    }
+
+    const managedFiles = await loadManagedInventory(manifest.version)
+    if(managedFiles.length === 0){
+        return state
+    }
+
+    state.schemaVersion = 2
+    state.managedFiles = managedFiles
+    state.inventoryRecordedAt = new Date().toISOString()
+    fs.writeFileSync(statePath(), JSON.stringify(state, null, 2) + '\n', 'utf8')
+    console.log('[KTZ AsterVale] Recorded managed file inventory:', managedFiles.length)
     return state
 }
 
@@ -445,6 +551,16 @@ function markLivePatchApplied(manifest, patch){
     }
 
     state.livePatchRevision = patch.revision
+    if(Array.isArray(state.managedFiles)){
+        const managedFiles = new Set(normalizeManagedFileList(state.managedFiles))
+        for(const relativePath of patch.remove){
+            managedFiles.delete(relativePath)
+        }
+        for(const item of patch.files){
+            managedFiles.add(item.path)
+        }
+        state.managedFiles = Array.from(managedFiles).sort((a, b) => a.localeCompare(b, 'ko'))
+    }
     state.lastPatchedAt = new Date().toISOString()
     fs.writeFileSync(statePath(), JSON.stringify(state, null, 2) + '\n', 'utf8')
 }
@@ -688,11 +804,47 @@ async function createStagingInstance(extractDir, manifest){
     return stagingRoot
 }
 
+function removePreviousMergedManagedFiles(gameDir, managedFiles, managedDir){
+    for(const relativePath of normalizeManagedFileList(managedFiles)){
+        const topLevel = relativePath.split('/')[0]
+        if(topLevel !== managedDir || !MERGED_MANAGED_DIRS.includes(topLevel) || isUserPreservedPath(relativePath)){
+            continue
+        }
+        fs.removeSync(managedPath(gameDir, relativePath))
+    }
+}
+
+function retainLatestBackup(backupRoot, previousVersion){
+    const backupParent = path.dirname(backupRoot)
+    if(!fs.existsSync(backupRoot) || fs.readdirSync(backupRoot).length === 0){
+        fs.removeSync(backupRoot)
+        return null
+    }
+
+    fs.writeFileSync(path.join(backupRoot, '.ktz-backup.json'), JSON.stringify({
+        schemaVersion: 1,
+        packId: SERVER_ID,
+        previousVersion: previousVersion || null,
+        createdAt: new Date().toISOString()
+    }, null, 2) + '\n', 'utf8')
+
+    for(const entry of fs.readdirSync(backupParent, { withFileTypes: true })){
+        const candidate = path.join(backupParent, entry.name)
+        if(entry.isDirectory() && path.resolve(candidate) !== path.resolve(backupRoot)){
+            fs.removeSync(candidate)
+        }
+    }
+    return path.basename(backupRoot)
+}
+
 function installStagedPayload(stagingRoot, manifest){
     const gameDir = gameDirectory()
     const backupRoot = path.join(packRoot(), 'backup', Date.now().toString())
     const movedToBackup = []
-    const movedFromStaging = []
+    const installedTargets = []
+    const previousState = readInstalledState()
+    const previousManagedFiles = normalizeManagedFileList(previousState?.managedFiles)
+    const nextManagedFiles = collectManagedFiles(stagingRoot)
 
     fs.ensureDirSync(gameDir)
     fs.ensureDirSync(backupRoot)
@@ -708,11 +860,25 @@ function installStagedPayload(stagingRoot, manifest){
             }
         }
 
-        for(const name of MANAGED_DIRS){
+        for(const name of STRICT_MANAGED_DIRS){
             const source = path.join(stagingRoot, name)
             const target = path.join(gameDir, name)
             fs.moveSync(source, target, { overwrite: true })
-            movedFromStaging.push(target)
+            installedTargets.push(target)
+        }
+
+        for(const name of MERGED_MANAGED_DIRS){
+            const source = path.join(stagingRoot, name)
+            const target = path.join(gameDir, name)
+            const backup = path.join(backupRoot, name)
+            if(fs.existsSync(backup)){
+                fs.copySync(backup, target, { overwrite: true, errorOnExist: false })
+            } else {
+                fs.ensureDirSync(target)
+            }
+            installedTargets.push(target)
+            removePreviousMergedManagedFiles(gameDir, previousManagedFiles, name)
+            fs.copySync(source, target, { overwrite: true, errorOnExist: false })
         }
 
         for(const relativePath of USER_PRESERVED_PATHS){
@@ -732,13 +898,13 @@ function installStagedPayload(stagingRoot, manifest){
 
         enableManagedResourcePacks(manifest)
         applyManagedClientPreferences(manifest)
-        writeInstalledState(manifest)
-        fs.removeSync(backupRoot)
+        const backupId = retainLatestBackup(backupRoot, previousState?.installedVersion)
+        writeInstalledState(manifest, 0, nextManagedFiles, backupId)
         console.log('[KTZ AsterVale] Client pack installation complete:', manifest.version)
     } catch(err) {
         console.error('[KTZ AsterVale] Installation failed. Restoring previous client pack.', err)
 
-        for(const target of movedFromStaging){
+        for(const target of installedTargets.reverse()){
             fs.removeSync(target)
         }
         for(const item of movedToBackup.reverse()){
@@ -746,6 +912,7 @@ function installStagedPayload(stagingRoot, manifest){
                 fs.moveSync(item.backup, item.target, { overwrite: true })
             }
         }
+        fs.removeSync(backupRoot)
         throw err
     }
 }
@@ -853,6 +1020,7 @@ async function prepare(serverId){
     const installed = readInstalledState()
 
     if(installed?.installedVersion === manifest.version && hasValidPayload(gameDirectory(), manifest)){
+        await ensureInstalledManagedInventory(manifest, installed)
         console.log('[KTZ AsterVale] Client pack is up to date:', manifest.version)
         await applyLivePatch(manifest)
         applyManagedClientPreferences(manifest)

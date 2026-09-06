@@ -6,6 +6,17 @@ live patches must never delete or overwrite them:
 - `config/voicechat/**`
 - `config/pastelpocket-client.properties`
 
+Full pack updates use two ownership modes:
+
+- `mods/**` is strict and is replaced with the server-approved mod set.
+- `config/**`, `resourcepacks/**`, `emotes/**`, and `shaderpacks/**` are merged.
+  Only files recorded in the previous KTZ managed-file inventory may be removed;
+  all other player-added files are preserved.
+
+One complete pre-update backup is retained under the Aster Vale pack cache. A
+new successful full update replaces the older retained backup. Failed installs
+restore the pre-update folders immediately.
+
 `config/voicechat/**` includes the selected microphone, volumes, push-to-talk,
 icon visibility, cached player names, and other Simple Voice Chat preferences.
 `config/pastelpocket-client.properties` includes the player's appearance/armor

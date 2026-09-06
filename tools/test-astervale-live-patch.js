@@ -37,6 +37,7 @@ module.exports.__test = {
     applyManagedClientPreferences,
     installStagedPayload,
     isUserPreservedPath,
+    normalizeInventory,
     readInstalledState,
     writeInstalledState
 }
@@ -46,6 +47,12 @@ vm.runInNewContext(source, sandbox, { filename: sourcePath })
 const api = sandbox.module.exports.__test
 
 async function main(){
+    const publishedInventory = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'docs', 'packs', 'astervale-files.json'), 'utf8'))
+    const publishedManagedFiles = api.normalizeInventory(publishedInventory, publishedInventory.version)
+    assert.ok(publishedManagedFiles.length > 30)
+    assert.strictEqual(publishedManagedFiles.some(file => file.startsWith('mods/')), true)
+    assert.strictEqual(publishedManagedFiles.some(file => file.startsWith('config/')), true)
+
     const manifest = api.normalizeManifest({
         schemaVersion: 1,
         packId: 'astervale',
@@ -144,9 +151,13 @@ async function main(){
     for(const file of [
         'mods/old.jar',
         'config/old-managed.json',
+        'config/user-only.json',
         'resourcepacks/old.zip',
+        'resourcepacks/User Pack.zip',
         'emotes/old.emotecraft',
-        'shaderpacks/old.zip'
+        'emotes/User Dance.emotecraft',
+        'shaderpacks/old.zip',
+        'shaderpacks/User Shader.zip'
     ]){
         fs.outputFileSync(path.join(gameDir, ...file.split('/')), 'old')
     }
@@ -172,6 +183,19 @@ async function main(){
         fileName: 'pack.zip',
         url: 'https://example.com/pack.zip'
     })
+    const previousManifest = api.normalizeManifest({
+        packId: 'astervale',
+        version: '1.0.0',
+        fileName: 'old-pack.zip',
+        url: 'https://example.com/old-pack.zip'
+    })
+    api.writeInstalledState(previousManifest, 0, [
+        'mods/old.jar',
+        'config/old-managed.json',
+        'resourcepacks/old.zip',
+        'emotes/old.emotecraft',
+        'shaderpacks/old.zip'
+    ])
     api.installStagedPayload(stagingRoot, preservationManifest)
     assert.strictEqual(
         fs.readFileSync(path.join(gameDir, 'config', 'voicechat', 'voicechat-client.properties'), 'utf8'),
@@ -187,6 +211,20 @@ async function main(){
     )
     assert.strictEqual(fs.existsSync(path.join(gameDir, 'config', 'old-managed.json')), false)
     assert.strictEqual(fs.existsSync(path.join(gameDir, 'config', 'new-managed.json')), true)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'config', 'user-only.json')), true)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'resourcepacks', 'old.zip')), false)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'resourcepacks', 'User Pack.zip')), true)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'emotes', 'old.emotecraft')), false)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'emotes', 'User Dance.emotecraft')), true)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'shaderpacks', 'old.zip')), false)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'shaderpacks', 'User Shader.zip')), true)
+
+    const installedState = api.readInstalledState()
+    assert.ok(installedState.managedFiles.includes('mods/new.jar'))
+    assert.ok(installedState.managedFiles.includes('config/new-managed.json'))
+    assert.strictEqual(installedState.managedFiles.includes('config/user-only.json'), false)
+    assert.ok(installedState.backupPath)
+    assert.strictEqual(fs.existsSync(path.join(commonDir, 'packs', 'astervale', 'backup', installedState.backupPath)), true)
 
     console.log('Aster Vale live patch tests passed.')
 }

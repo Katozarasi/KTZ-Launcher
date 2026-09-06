@@ -35,6 +35,8 @@ module.exports.__test = {
     normalizeManifest,
     applyLivePatch,
     applyManagedClientPreferences,
+    installStagedPayload,
+    isUserPreservedPath,
     readInstalledState,
     writeInstalledState
 }
@@ -128,6 +130,63 @@ async function main(){
         url: 'https://example.com/pack.zip',
         livePatch: { revision: 2, remove: ['resourcepacks/../../outside.zip'] }
     }), /managed folder/)
+
+    assert.throws(() => api.normalizeManifest({
+        packId: 'astervale',
+        version: '1.0.0',
+        fileName: 'pack.zip',
+        url: 'https://example.com/pack.zip',
+        livePatch: { revision: 3, remove: ['config/voicechat/voicechat-client.properties'] }
+    }), /player-owned settings/)
+
+    const stagingRoot = path.join(testRoot, 'preservation-staging')
+    fs.removeSync(gameDir)
+    for(const file of [
+        'mods/old.jar',
+        'config/old-managed.json',
+        'resourcepacks/old.zip',
+        'emotes/old.emotecraft',
+        'shaderpacks/old.zip'
+    ]){
+        fs.outputFileSync(path.join(gameDir, ...file.split('/')), 'old')
+    }
+    fs.outputFileSync(path.join(gameDir, 'config', 'voicechat', 'voicechat-client.properties'), 'microphone_amplification=2.0\nhide_icons=true\n')
+    fs.outputFileSync(path.join(gameDir, 'config', 'voicechat', 'player-volumes.properties'), 'player-id=0.25\n')
+    fs.outputFileSync(path.join(gameDir, 'config', 'pastelpocket-client.properties'), 'hideArmorAppearance=true\n')
+
+    for(const file of [
+        'mods/new.jar',
+        'config/new-managed.json',
+        'config/voicechat/voicechat-client.properties',
+        'config/pastelpocket-client.properties',
+        'resourcepacks/new.zip',
+        'emotes/new.emotecraft',
+        'shaderpacks/new.zip'
+    ]){
+        fs.outputFileSync(path.join(stagingRoot, ...file.split('/')), 'pack-default')
+    }
+
+    const preservationManifest = api.normalizeManifest({
+        packId: 'astervale',
+        version: '1.1.0',
+        fileName: 'pack.zip',
+        url: 'https://example.com/pack.zip'
+    })
+    api.installStagedPayload(stagingRoot, preservationManifest)
+    assert.strictEqual(
+        fs.readFileSync(path.join(gameDir, 'config', 'voicechat', 'voicechat-client.properties'), 'utf8'),
+        'microphone_amplification=2.0\nhide_icons=true\n'
+    )
+    assert.strictEqual(
+        fs.readFileSync(path.join(gameDir, 'config', 'voicechat', 'player-volumes.properties'), 'utf8'),
+        'player-id=0.25\n'
+    )
+    assert.strictEqual(
+        fs.readFileSync(path.join(gameDir, 'config', 'pastelpocket-client.properties'), 'utf8'),
+        'hideArmorAppearance=true\n'
+    )
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'config', 'old-managed.json')), false)
+    assert.strictEqual(fs.existsSync(path.join(gameDir, 'config', 'new-managed.json')), true)
 
     console.log('Aster Vale live patch tests passed.')
 }

@@ -12,6 +12,12 @@ const ConfigManager = require('./configmanager')
 const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json'
 const SERVER_ID = 'astervale'
 const MANAGED_DIRS = ['mods', 'config', 'resourcepacks', 'emotes', 'shaderpacks']
+// These settings belong to each player and must survive every full pack update.
+// Keep this list narrow: managed defaults should continue to be replaced normally.
+const USER_PRESERVED_PATHS = Object.freeze([
+    'config/voicechat',
+    'config/pastelpocket-client.properties'
+])
 const pipelineAsync = promisify(pipeline)
 
 const FALLBACK_MANIFEST = {
@@ -131,6 +137,13 @@ function normalizeManagedRelativePath(value){
     return segments.join('/')
 }
 
+function isUserPreservedPath(relativePath){
+    const normalized = String(relativePath || '').replaceAll('\\', '/').replace(/^\/+|\/+$/g, '')
+    return USER_PRESERVED_PATHS.some(preserved =>
+        normalized === preserved || normalized.startsWith(preserved + '/')
+    )
+}
+
 function normalizeLivePatch(value){
     if(value == null){
         return null
@@ -164,6 +177,10 @@ function normalizeLivePatch(value){
         }
         return normalized
     })
+    const protectedPath = [...remove, ...files.map(item => item.path)].find(isUserPreservedPath)
+    if(protectedPath != null){
+        throw new Error('Aster Vale live patch cannot replace player-owned settings: ' + protectedPath)
+    }
     if(new Set(files.map(item => item.path)).size !== files.length){
         throw new Error('Aster Vale live patch contains duplicate file paths.')
     }
@@ -698,6 +715,17 @@ function installStagedPayload(stagingRoot, manifest){
             movedFromStaging.push(target)
         }
 
+        for(const relativePath of USER_PRESERVED_PATHS){
+            const source = managedPath(backupRoot, relativePath)
+            if(!fs.existsSync(source)){
+                continue
+            }
+            const target = managedPath(gameDir, relativePath)
+            fs.ensureDirSync(path.dirname(target))
+            fs.copySync(source, target, { overwrite: true, errorOnExist: false })
+            console.log('[KTZ AsterVale] Preserved player settings:', relativePath)
+        }
+
         if(!hasValidPayload(gameDir, manifest)){
             throw new Error('Aster Vale client pack installation validation failed.')
         }
@@ -862,6 +890,7 @@ module.exports = {
     prepare,
     reset,
     installedVersion,
-    hasValidPayload
+    hasValidPayload,
+    USER_PRESERVED_PATHS
 }
 

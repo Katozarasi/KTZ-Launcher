@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "minecraftVersion": "1.21.4",
   "loader": {
     "type": "neoforge",
     "version": "21.4.157"
   },
-  "fileName": "astervale-client-pack-1.3.4.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.3.4/astervale-client-pack-1.3.4.zip",
+  "fileName": "astervale-client-pack-1.3.5.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.3.5/astervale-client-pack-1.3.5.zip",
   "minimumLauncherVersion": "3.3.3",
-  "sha256": "ba68c04c4c341535c328bea65570fc74221eb766e5ffd3f5b968d7ffbccb1b7a",
-  "size": 376871943,
+  "sha256": "6ce854319e384dccccadcc18974ab2a8e73200c58fcf14511bcf019b891721f3",
+  "size": 376873586,
   "resourcePacks": [
     {
       "file": "AddCook-pack.zip",
@@ -37,7 +37,7 @@
   "changelog": [
     "카토 낚시 클라이언트 최신 빌드 반영",
     "카토 대장장이 클라이언트 최신 빌드 반영",
-    "카토 실시간 통역 클라이언트 최신 빌드 반영",
+    "카토 생활 클라이언트 최신 빌드 반영",
     "카토 직업 제작대 클라이언트 최신 빌드 반영",
     "Modrinth 활성 모드 38개 전체 동기화",
     "Emotecraft 사용자 이모트 32개, 리소스팩 및 에스터베일 쉐이더 유지"

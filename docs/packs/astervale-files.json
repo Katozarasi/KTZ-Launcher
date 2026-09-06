@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "minecraftVersion": "1.21.4",
   "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-09-05T16:36:54.848Z",
+  "generatedAt": "2026-09-06T03:04:19.306Z",
   "sourceProfile": "NeoForge 1.21.4",
   "files": [
     {
@@ -229,13 +229,13 @@
     },
     {
       "path": "mods/카토 낚시 클라이언트.jar",
-      "size": 3382544,
-      "sha256": "5c485aecddba8387b9c160159e5362cfc0480ee822d4c09e9144b4c6d98e09f3"
+      "size": 3383211,
+      "sha256": "957548b26a230c0b979fcb7485656723a002f11b1abb514fd5ea10bcb36c6019"
     },
     {
       "path": "mods/카토 대장장이 클라이언트.jar",
       "size": 5573681,
-      "sha256": "9e5c033f36982e9993979f6af7d66a90f29e434ccae3d323563bf08a5ad9bb3c"
+      "sha256": "5313e6a157e565a869629b458d079916cec261064a70a13dada974bdc7b908f3"
     },
     {
       "path": "mods/카토 대화 클라이언트.jar",
@@ -264,8 +264,8 @@
     },
     {
       "path": "mods/카토 생활 클라이언트.jar",
-      "size": 3512487,
-      "sha256": "877e1406fa15cf9dbb7fbb47a6613f583724cc3f18b7495b2df6c44db05ca752"
+      "size": 3513593,
+      "sha256": "c42056e2078569705a925d840b15780ee435b0c8eafa92ec0dd512e08a44f6cb"
     },
     {
       "path": "mods/카토 세금 클라이언트.jar",
@@ -295,7 +295,7 @@
     {
       "path": "mods/카토 직업 제작대 클라이언트.jar",
       "size": 85492,
-      "sha256": "25289a0c11d5f211b588756e350f31212c812900eecb8e7799d4db81c66da9a6"
+      "sha256": "081ff66c82a6ab0b34fe0ec820491829fe90df8ee93415cef92ff011eb5fe7ac"
     },
     {
       "path": "mods/카토 퀘스트 클라이언트.jar",

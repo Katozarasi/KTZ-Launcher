@@ -33,8 +33,24 @@
       "enabled": true
     }
   ],
-  "livePatch": null,
+  "livePatch": {
+    "revision": 1,
+    "remove": [
+      "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
+      "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.43.jar"
+    ],
+    "files": [
+      {
+        "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.44.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-katoui-0.8.44/katoui-neoforge-1.21.4-0.8.44.jar",
+        "sha256": "305f6c6180b71b220ffadcc8a49ffd194aa9ecc5acb9af271fa509f73b0bf80d",
+        "size": 13566663
+      }
+    ]
+  },
   "changelog": [
+    "추가 패치 1: KatoUI 0.8.44 — 어린 수룡 갑옷 원본 외형 및 기본 투구 중복 표시 수정",
+    "게임 실행 전 KatoUI만 자동 교체하며 음성 채팅·갑옷 외형 숨김 등 개인 설정은 유지",
     "에스텔 곡괭이·도끼·삽·검·괭이·낚싯대의 핫바 및 인벤토리 내구도 막대 표시 추가",
     "생활 일지의 광부·요리·낚시 추가 효과 카드와 현재 확률 안내 추가",
     "별들의 축복 +20% 및 남은 시간 번역 때문에 자동 일정이 중단되던 오류 수정",

@@ -34,29 +34,75 @@
     }
   ],
   "livePatch": {
-    "revision": 3,
+    "revision": 4,
     "remove": [
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.43.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.44.jar",
-      "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.45.jar"
+      "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.45.jar",
+      "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.46.jar",
+      "mods/카토 상점 클라이언트-1.21.4-0.4.28.jar"
     ],
     "files": [
-      {
-        "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.46.jar",
-        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-katoui-0.8.46/katoui-neoforge-1.21.4-0.8.46.jar",
-        "sha256": "d64651079da00845ef9a26e97234912dc048bac4a98b748428cbeb2454c04a6f",
-        "size": 13570341
-      },
       {
         "path": "mods/카토 별들의 축복 클라이언트.jar",
         "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-katostarblessing-0.1.13/katostarblessing-neoforge-1.21.4-0.1.13.jar",
         "sha256": "f879ddd5a60f8da7e9ec0273c314afb30d3c4ea8b646869dce9d77b3aff57eed",
         "size": 2024439
+      },
+      {
+        "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.47.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/pastelpocket-neoforge-1.21.4-0.8.47.jar",
+        "sha256": "c341ebd5b283119f4e813a02e0b13b0d2e5b403f97b82d50bc3697fb2ec7298c",
+        "size": 13578332
+      },
+      {
+        "path": "mods/카토 대장장이 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katosmithing-neoforge-1.21.4-0.3.28.jar",
+        "sha256": "1631a1c562bc8a2f84ad428e5f93734f4d948588ec8e848415c222e411d3c570",
+        "size": 5575476
+      },
+      {
+        "path": "mods/카토 상점 클라이언트-1.21.4-0.4.30.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/universal_shop-neoforge-1.21.4-0.4.30.jar",
+        "sha256": "088fc08ae892308c4238e8ce680630e0e1a9ff4692dd73f2c09c0585d9af6f8a",
+        "size": 2376163
+      },
+      {
+        "path": "mods/카토 생활 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katolife-neoforge-1.21.4-0.1.57.jar",
+        "sha256": "b02d072c7a38c3145319bda880203356b92404f6015664529e7c8d30dc2ed03b",
+        "size": 3525593
+      },
+      {
+        "path": "mods/카토 세금 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katotax-neoforge-1.21.4-0.1.9.jar",
+        "sha256": "8e819886d680ce41a048eb09e59ddf745b1c7db91f957465180734e7e59adb3a",
+        "size": 7477371
+      },
+      {
+        "path": "mods/카토 직업 제작대 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katocrafting-neoforge-1.21.4-1.2.18.jar",
+        "sha256": "5c5d5b04cacac261df026fc5d324aaceaa8bdf9e4bd9ab0f0509ba71f3488afa",
+        "size": 89912
+      },
+      {
+        "path": "mods/카토 퀘스트 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katoquest-neoforge-1.21.4-1.6.3.jar",
+        "sha256": "eac68e17406473dc0c9042b72c840a2c685a106c29dd76904804c1f52fcf5939",
+        "size": 108509
+      },
+      {
+        "path": "mods/카토 훈연기 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katosmoking-neoforge-1.21.4-0.1.1.jar",
+        "sha256": "45569a38481f9e15a783be87ac7c42c7cea7431cd8f7b5300d4b760242cb4cd2",
+        "size": 77728
       }
     ]
   },
   "changelog": [
+    "추가 패치 4: 퀘스트 1.6.3 안전 업데이트 및 UI·상점·생활·대장장이·세금·제작대·훈연기 최신 클라이언트 반영",
+    "게임 종료 후 다시 실행하면 자동 적용됩니다. 음성 채팅·음량·외형 숨김·개인 옵션은 유지합니다. 영상 재생 실험판은 이번 공개 패치에서 제외합니다.",
     "추가 패치 3: KatoUI 0.8.46 — 분홍 체력바 위 현재/최대 체력 숫자 표시, 최대 체력·소수 체력 반영",
     "펫·치장 관리 화면 빈 칸 정렬 및 미보유 안내 포함, 기존 갑옷 호환 수정과 별들의 축복 업데이트 유지",
     "추가 패치 2: 별들의 축복 0.1.13 — 핫바 위 남은 지속시간 상시 표시, 재접속·부활 복구 및 HUD 처리 최적화",

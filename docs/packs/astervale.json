@@ -34,7 +34,7 @@
     }
   ],
   "livePatch": {
-    "revision": 7,
+    "revision": 8,
     "remove": [
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.43.jar",
@@ -109,10 +109,18 @@
         "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-katoachievement-0.2.3/katoachievement-neoforge-1.21.4-0.2.3.jar",
         "sha256": "58fbb5fc8860a6b55aa538c4582fc61b9b0317eaff966f42bda3fc1b0c0504f5",
         "size": 2538819
+      },
+      {
+        "path": "mods/카토 주민등록증 클라이언트 모드.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-katocitizen-0.1.8/katocitizen-neoforge-1.21.4-0.1.8.jar",
+        "sha256": "26ef60e1a4286c8840d252e137d16845273dad792d32c57092aaec42b2e325cb",
+        "size": 4664997
       }
     ]
   },
   "changelog": [
+    "추가 패치 8: 주민등록증 클라이언트 0.1.8 — 신분 특수기호 빠른 입력과 직접 RGB 색상 입력 지원",
+    "게임을 완전히 종료한 뒤 에스터베일을 다시 실행하면 자동 갱신됩니다. 기존 패치 1~7과 주민 데이터·개인 설정을 유지합니다.",
     "추가 패치 7: 업적 클라이언트 0.2.3 — 신규 음식 업적 문양과 23개 업적 표시 지원, 별도 이미지 파일 추가 없음",
     "게임을 완전히 종료한 뒤 에스터베일을 다시 실행하면 자동 갱신됩니다. 기존 패치 1~6과 개인 설정을 유지합니다.",
     "추가 패치 6: 업적 클라이언트 0.2.2 — 서버의 21개 업적에 맞춘 신규 문양과 한국어·영어·일본어 표시 반영",

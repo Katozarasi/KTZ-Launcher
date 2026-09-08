@@ -34,7 +34,7 @@
     }
   ],
   "livePatch": {
-    "revision": 5,
+    "revision": 6,
     "remove": [
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.43.jar",
@@ -103,10 +103,18 @@
         "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-dreamdisplays-1.9.4-linkkf.1/dreamdisplays-neoforge-1.21.4-1.9.4-linkkf.1.jar",
         "sha256": "74c0f24d9ae02e5c10967585e59a8d20bfa7b21142b9500de10d7046fb185b01",
         "size": 26122499
+      },
+      {
+        "path": "mods/카토 업적 클라이언트.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-katoachievement-0.2.2/katoachievement-neoforge-1.21.4-0.2.2.jar",
+        "sha256": "227db3dae74f30ca77818b013e7cef23008e8a715d87cc1e7a5714aae86d2f62",
+        "size": 2538584
       }
     ]
   },
   "changelog": [
+    "추가 패치 6: 업적 클라이언트 0.2.2 — 서버의 21개 업적에 맞춘 신규 문양과 한국어·영어·일본어 표시 반영",
+    "게임을 완전히 종료한 뒤 런처에서 에스터베일을 다시 실행하면 업적 클라이언트가 자동 갱신됩니다. 기존 패치 1~5, 달성 기록과 개인 설정은 유지합니다.",
     "추가 패치 5: DreamDisplays 1.9.4-linkkf.1 — 치지직 생방송 무음 수정과 Linkkf 회차 영상·음성·한글 자막 연동",
     "게임을 완전히 종료한 뒤 런처에서 에스터베일을 다시 실행하면 적용됩니다. 기존 패치 1~4와 개인 음량·음성 채팅·외형 숨김 설정은 유지합니다.",
     "Linkkf는 확인된 NR/NR-HD 회차 재생 방식의 시험 지원입니다. 모든 영상이나 장시간·다중 사용자 안정성을 보증하지 않으며 720p부터 확인해주세요.",

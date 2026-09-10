@@ -34,7 +34,7 @@
     }
   ],
   "livePatch": {
-    "revision": 9,
+    "revision": 10,
     "remove": [
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.43.jar",
@@ -75,9 +75,9 @@
       },
       {
         "path": "mods/카토 생활 클라이언트.jar",
-        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-opening-safety-20260907/katolife-neoforge-1.21.4-0.1.57.jar",
-        "sha256": "b02d072c7a38c3145319bda880203356b92404f6015664529e7c8d30dc2ed03b",
-        "size": 3525593
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-life-guide-20260910/katolife-neoforge-1.21.4-0.1.58.jar",
+        "sha256": "873058a90c557e5d963e2db1c948f559af334b5372db2401a369781b43294935",
+        "size": 3529798
       },
       {
         "path": "mods/카토 세금 클라이언트.jar",
@@ -130,6 +130,9 @@
     ]
   },
   "changelog": [
+    "추가 패치 10: 생활 클라이언트 0.1.58 — 다섯 생활 직업의 기술서·대백과 확률과 획득 조건 안내를 오늘 서버 설정에 맞췄습니다.",
+    "농사 0.07/0.04%, 벌목 0.03/0.02%, 낚시 0.30/0.15%, 채광 0.10/0.06%, 요리 0.30/0.10% 안내와 해금 레벨·제외 조건·경험치 설명을 반영했습니다.",
+    "Minecraft를 완전히 종료한 뒤 KTZ 3.3.6 이상에서 에스터베일을 다시 실행하면 적용됩니다. 기존 누적 패치와 음성 채팅·외형 숨김·개인 설정은 유지합니다.",
     "추가 패치 9 통합 업데이트: UI 0.8.52·대장장이 0.3.29·대화 1.3.5 및 신규 가호 시스템 반영",
     "HP 200 기준 특수 인챈트 설명, 에스텔 검 강화 기본 공격력 미리보기, 두 이름의 가호·불굴의 맹세 도감, 가디언 초상화를 추가했습니다.",
     "Minecraft를 완전히 종료한 뒤 KTZ 3.3.6 이상에서 에스터베일을 다시 실행하면 자동 갱신됩니다. 기존 패치 1~8과 개인 설정을 유지합니다.",

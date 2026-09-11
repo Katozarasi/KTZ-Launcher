@@ -80,7 +80,7 @@
     "astervale": {
       "name": "에스터베일",
       "description": "생활·경제·모험이 이어지는 NeoForge 1.21.4 클라이언트와 Leaf 서버입니다.",
-      "address": "192.168.0.10",
+      "address": "1.224.237.11",
       "minecraftVersion": "1.21.4",
       "mainServer": false,
       "autoconnect": true,

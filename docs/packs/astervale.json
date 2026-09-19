@@ -34,8 +34,9 @@
     }
   ],
   "livePatch": {
-    "revision": 15,
+    "revision": 16,
     "remove": [
+      "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.54.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.53.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.47.jar",
       "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.42.jar",
@@ -76,10 +77,10 @@
         "size": 2024439
       },
       {
-        "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.54.jar",
-        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-combat-blessings-20260919/pastelpocket-0.8.54.jar",
-        "sha256": "a57cd39b930d2890407a8d023761d0df6f93746fd07955df4f5dd0e3b6d0cba2",
-        "size": 17180292
+        "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.8.55.jar",
+        "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-blessing-readability-20260919/pastelpocket-0.8.55.jar",
+        "sha256": "d849f191851122d9fc0e3f4f0f2856f1470221721639b0c5fb863dd56952d22d",
+        "size": 17181324
       },
       {
         "path": "mods/카토 대장장이 클라이언트.jar",
@@ -150,6 +151,9 @@
     ]
   },
   "changelog": [
+    "추가 패치 16: UI 0.8.55 — 가호 카드 제목·보유 상태·상세 설명의 글자 크기와 대비, 줄바꿈을 개선했습니다.",
+    "기존 가호 목록·아이콘·보유 상태 동기화를 유지합니다. 게임을 완전히 종료한 뒤 KTZ에서 에스터베일을 다시 실행하면 적용됩니다.",
+    "음성 채팅·외형 숨김·쉐이더·이모트·개인 설정은 이번 패치에서 변경하지 않습니다. 서버 기능 변경은 정상 서버 재시작 후 적용됩니다.",
     "추가 패치 15: UI 0.8.54 — 용기사의 가호·황혼의 낙인·낙제의 가호·검능아의 가호 도감, 아이콘과 보유 상태 동기화를 추가했습니다.",
     "새 가호의 실제 효과는 서버 가호 플러그인 0.2.0 활성화 후 적용됩니다. 게임을 완전히 종료한 뒤 KTZ에서 에스터베일을 다시 실행해주세요.",
     "기존 누적 패치와 음성 채팅·외형 숨김·쉐이더·이모트·개인 설정을 유지합니다. 런처 설치파일 재설치는 필요하지 않습니다.",

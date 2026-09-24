@@ -1,0 +1,59 @@
+<nav id="ktzNavigation" aria-label="KTZ Launcher" hidden>
+    <a class="ktzWordmark" href="#" id="ktzBrandHome" aria-label="KTZ home"><span class="ktzBrandTile">K</span><span>KTZ<span class="ktzWordmarkLight"> LAUNCHER</span></span></a>
+    <div class="ktzNavLinks">
+        <button data-ktz-page="home" data-ktz-i18n="home" aria-current="page">홈</button>
+        <button data-ktz-page="library" data-ktz-i18n="library">라이브러리</button>
+        <button data-ktz-page="skins" data-ktz-i18n="skins">스킨</button>
+        <button data-ktz-page="settings" data-ktz-i18n="settings">설정</button>
+        <button data-ktz-page="support" data-ktz-i18n="support">지원</button>
+    </div>
+    <button id="ktzHeaderAccount" class="ktzAccountShortcut" data-ktz-i18n="account">계정 관리</button>
+</nav>
+
+<template id="ktzHomeTemplate">
+    <div id="ktzDashboard">
+        <section id="ktzHomeMain" aria-label="에스터베일">
+            <div id="ktzHomeTop"><div id="ktzAccountSlot"></div><div id="ktzUpdateSlot"></div></div>
+            <div class="ktzHeroCopy">
+                <div id="ktzServerStatusSlot" class="ktzStatusPill"></div>
+                <p class="ktzEyebrow">YOUR NEXT CHAPTER</p>
+                <h1 id="ktzHeroName">에스터베일</h1>
+                <p id="ktzHeroDescription" data-ktz-i18n="heroDescription">별빛이 머무는 곳, 우리의 이야기가 시작돼요.</p>
+                <div class="ktzHeroMeta"><span id="ktzHeroVersion">Minecraft</span><span>JAVA EDITION</span></div>
+                <div id="ktzLaunchSlot"></div>
+                <div class="ktzHeroOptions"><label class="ktzInlineToggle"><input type="checkbox" id="ktzAutoConnect"><span data-ktz-i18n="autoConnect">서버 바로 접속</span></label><span data-ktz-i18n="autoUpdateHint">필요한 파일은 실행 전에 자동으로 확인해요.</span></div>
+            </div>
+        </section>
+        <aside class="ktzHomeSidebar">
+            <div id="ktzCommunityLinks"></div>
+            <section class="ktzNewsPanel" aria-labelledby="ktzNewsHeading">
+                <div class="ktzPanelHeading"><h2 id="ktzNewsHeading" data-ktz-i18n="news">새로운 소식</h2><button id="ktzRefreshNews" class="ktzIconButton" aria-label="공지 새로고침" title="공지 새로고침">↻</button></div>
+                <div id="ktzNewsList" aria-live="polite"><p class="ktzEmpty" data-ktz-i18n="newsLoading">소식을 불러오고 있어요.</p></div>
+                <div class="ktzNewsFooter"><span class="ktzTinyDot"></span><span>KTZ COMMUNITY</span></div>
+            </section>
+            <div class="ktzSmallNote"><span data-ktz-i18n="needHelp">실행에 문제가 있나요?</span><button id="ktzHomeSupport" data-ktz-i18n="support">지원</button></div>
+        </aside>
+    </div>
+</template>
+
+<section id="ktzLibraryContainer" class="ktzPage" style="display: none;">
+    <header class="ktzPageHeading"><div><p class="ktzEyebrow">MAKE YOURSELF AT HOME</p><h1 data-ktz-i18n="library">라이브러리</h1><p data-ktz-i18n="libraryDescription">나의 서버와 설치된 클라이언트를 한곳에서 관리해요.</p></div><button id="ktzLibraryRefresh" class="ktzSecondary" data-ktz-i18n="refresh">새로고침</button></header>
+    <div class="ktzLibraryLayout">
+        <article class="ktzPackCard">
+            <div class="ktzPackCover"><span class="ktzBadge" id="ktzPackInstalled">확인 중</span></div>
+            <div class="ktzPackBody"><img src="assets/images/servers/astervale_thumb.png" alt="" class="ktzPackIcon"><div><p class="ktzEyebrow">OFFICIAL SERVER</p><h2 id="ktzLibraryName">에스터베일</h2></div></div>
+            <p class="ktzPackDescription" data-ktz-i18n="packDescription">모드, 리소스팩, 쉐이더와 이모트까지. 접속에 필요한 환경을 함께 준비해요.</p>
+            <div class="ktzPackFacts"><span id="ktzLibraryGameVersion">Minecraft 1.21.4</span><span id="ktzPackRevision">—</span></div>
+            <div class="ktzPackActions"><button id="ktzLibraryPlay" class="ktzPrimary" data-ktz-i18n="play">플레이</button><button id="ktzLibrarySettings" class="ktzSecondary" data-ktz-i18n="settings">설정</button><button id="ktzLibraryFolder" class="ktzSecondary" data-ktz-i18n="openFolder">폴더 열기</button></div>
+        </article>
+        <aside class="ktzLibraryDetails ktzSurface"><p class="ktzEyebrow">PACK INFORMATION</p><h2 data-ktz-i18n="myEnvironment">내 플레이 환경</h2><dl><div><dt data-ktz-i18n="packVersion">설치된 팩</dt><dd id="ktzInstalledVersion">—</dd></div><div><dt data-ktz-i18n="memory">최대 메모리</dt><dd id="ktzMemoryValue">—</dd></div><div><dt data-ktz-i18n="launcherVersion">런처 버전</dt><dd class="ktzAppVersion">—</dd></div></dl><div class="ktzInfoNote" data-ktz-i18n="libraryHint">플레이를 누르면 배포된 업데이트를 자동으로 확인해요. 개인 음성채팅과 외형 숨김 설정은 유지돼요.</div><button id="ktzLibraryRepair" class="ktzSecondary" data-ktz-i18n="repairPack">팩 검사 / 복구</button></aside>
+    </div>
+</section>
+
+<section id="ktzSupportContainer" class="ktzPage" style="display: none;">
+    <header class="ktzPageHeading"><div><p class="ktzEyebrow">WE'RE HERE TO HELP</p><h1 data-ktz-i18n="supportTitle">도움이 필요하신가요?</h1><p data-ktz-i18n="supportDescription">로그 확인부터 파일 복구까지, 필요한 도구를 모았어요.</p></div><span class="ktzBadge">KTZ SUPPORT</span></header>
+    <div class="ktzSupportLayout"><section class="ktzSurface"><h2 data-ktz-i18n="diagnostics">진단 및 복구</h2><div id="ktzSupportHost"></div></section><aside class="ktzSurface"><p class="ktzEyebrow">QUICK GUIDE</p><h2 data-ktz-i18n="beforeRepair">복구하기 전에</h2><ol class="ktzGuideSteps"><li data-ktz-i18n="helpStep1">Minecraft를 완전히 종료해주세요.</li><li data-ktz-i18n="helpStep2">게임 로그 또는 오류 정보를 확인해주세요.</li><li data-ktz-i18n="helpStep3">파일 문제가 있다면 팩 재설치 후 다시 플레이해주세요.</li></ol><p class="ktzInfoNote" data-ktz-i18n="helpWarning">팩 재설치는 다음 실행 시 진행돼요. 플레이 중에는 복구와 초기화를 사용할 수 없어요.</p><button id="ktzOpenGameLogs" class="ktzSecondary" data-ktz-i18n="gameLogs">Minecraft 로그 폴더 열기</button></aside></div>
+</section>
+
+<dialog id="ktzNewsDialog" class="ktzDialog"><div class="ktzPanelHeading"><p class="ktzEyebrow">KTZ NEWS</p><button id="ktzCloseNews" class="ktzIconButton" aria-label="닫기">×</button></div><p id="ktzDialogDate" class="ktzMuted"></p><h2 id="ktzDialogTitle"></h2><div id="ktzDialogBody"></div><a id="ktzDialogLink" class="ktzSecondary" href="#" data-ktz-i18n="readOriginal">원문 보기 ↗</a></dialog>
+<div id="ktzToast" role="status" hidden></div>

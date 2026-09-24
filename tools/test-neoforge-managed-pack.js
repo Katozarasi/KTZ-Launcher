@@ -5,8 +5,8 @@ const path = require('path')
 const vm = require('vm')
 
 const sourcePath = path.join(__dirname, '..', 'app', 'assets', 'js', 'neoforgeprocessbuilder.js')
-const preferredTempRoot = process.platform === 'win32' && fs.existsSync('E:\\Codex\\Temp')
-    ? 'E:\\Codex\\Temp'
+const preferredTempRoot = process.platform === 'win32' && fs.existsSync('C:\\codex\\Temp')
+    ? 'C:\\codex\\Temp'
     : os.tmpdir()
 const testRoot = fs.mkdtempSync(path.join(preferredTempRoot, 'ktz-neoforge-managed-pack-'))
 

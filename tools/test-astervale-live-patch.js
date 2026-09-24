@@ -7,8 +7,8 @@ const vm = require('vm')
 
 const sourcePath = path.join(__dirname, '..', 'app', 'assets', 'js', 'astervalepackmanager.js')
 const projectRequire = Module.createRequire(sourcePath)
-const preferredTempRoot = process.platform === 'win32' && fs.existsSync('E:\\Codex\\Temp')
-    ? 'E:\\Codex\\Temp'
+const preferredTempRoot = process.platform === 'win32' && fs.existsSync('C:\\codex\\Temp')
+    ? 'C:\\codex\\Temp'
     : os.tmpdir()
 const testRoot = fs.mkdtempSync(path.join(preferredTempRoot, 'ktz-astervale-live-patch-'))
 const commonDir = path.join(testRoot, 'common')

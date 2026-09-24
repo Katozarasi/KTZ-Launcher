@@ -9,6 +9,7 @@ compression: 'normal'
 
 files:
   - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,eslint.config.mjs}'
+  - '!{.codex-remote-attachments,tools,admin,.github}/**'
 
 extraResources:
   - 'libraries'

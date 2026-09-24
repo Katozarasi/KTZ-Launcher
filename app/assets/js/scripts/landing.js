@@ -152,7 +152,8 @@ function updateSelectedAccount(authUser){
             document.getElementById('avatarContainer').style.backgroundImage = `url('https://mc-heads.net/body/${authUser.uuid}/right')`
         }
     }
-    user_text.innerHTML = username
+    user_text.textContent = username
+    document.dispatchEvent(new CustomEvent('ktz:account-changed'))
 }
 updateSelectedAccount(ConfigManager.getSelectedAccount())
 
@@ -173,6 +174,7 @@ function updateSelectedServer(serv){
         if(typeof ktzBindMaintenanceLaunchGuard === 'function') ktzBindMaintenanceLaunchGuard()
         if(typeof ktzRefreshMaintenanceState === 'function') ktzRefreshMaintenanceState()
         if(typeof ktzApplyLandingBackground === 'function') ktzApplyLandingBackground()
+        document.dispatchEvent(new CustomEvent('ktz:server-changed'))
     }, 0)
 }
 // Real text is set in uibinder.js on distributionIndexDone.
@@ -845,6 +847,7 @@ async function initNews(){
     const news = await loadNews()
 
     newsArr = news?.articles || null
+    document.dispatchEvent(new CustomEvent('ktz:news', { detail: { articles: newsArr } }))
 
     if(newsArr == null){
         // News Loading Failed
@@ -933,6 +936,7 @@ async function initNews(){
  * open the news UI.
  */
 document.addEventListener('keydown', (e) => {
+    if(document.body.classList.contains('ktz-redesign')) return
     if(newsActive){
         if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
             document.getElementById(e.key === 'ArrowRight' ? 'newsNavigateRight' : 'newsNavigateLeft').click()
@@ -958,6 +962,11 @@ document.addEventListener('keydown', (e) => {
  * @param {number} index The article index.
  */
 function displayArticle(articleObject, index){
+    // The redesigned reader displays remote RSS as inert text, never privileged HTML.
+    if(document.body.classList.contains('ktz-redesign')){
+        newsContent.setAttribute('article', index-1)
+        return
+    }
     newsArticleTitle.innerHTML = articleObject.title
     newsArticleTitle.href = articleObject.link
     newsArticleAuthor.innerHTML = 'by ' + articleObject.author

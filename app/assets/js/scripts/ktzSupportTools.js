@@ -1,4 +1,4 @@
-// KTZ support tools injected into Launcher settings.
+// KTZ support tools. Prefer the dedicated support page; retain the legacy fallback.
 // Adds quick buttons for diagnostics, data folders, file repair, and Aster Vale pack recovery.
 
 function ktzSupportLanguage(){
@@ -34,6 +34,8 @@ function ktzSupportText(key){
             packRepairUnavailable: '에스터베일 서버를 선택한 뒤 다시 눌러 주세요.',
             resetDone: '캐시 초기화를 완료했어요. 런처를 다시 실행해 주세요!',
             confirmPackRepair: '에스터베일 클라이언트팩을 다음 PLAY에서 다시 설치할까요?',
+            busy: 'Minecraft 준비 또는 실행 중에는 복구와 초기화를 사용할 수 없어요.',
+            confirmRepair: '선택한 서버의 관리 파일을 정리하고 다음 실행에서 복구할까요?',
             confirmReset: '런처 캐시를 초기화할까요? 로그인 정보는 유지하고 뉴스와 임시 캐시만 정리해요.'
         },
         ja_JP: {
@@ -51,6 +53,8 @@ function ktzSupportText(key){
             packRepairUnavailable: 'アスターヴェイルサーバーを選択してからもう一度お試しください。',
             resetDone: 'キャッシュ初期化が完了しました。ランチャーを再起動してください。',
             confirmPackRepair: '次回PLAY時にアスターヴェイルクライアントパックを再インストールしますか？',
+            busy: 'ゲームの準備中や実行中は修復や初期化を使用できません。',
+            confirmRepair: '管理ファイルを整理して次回の起動時に修復しますか？',
             confirmReset: 'ランチャーキャッシュを初期化しますか？ログイン情報は保持します。'
         },
         en_US: {
@@ -68,6 +72,8 @@ function ktzSupportText(key){
             packRepairUnavailable: 'Select the Aster Vale server and try again.',
             resetDone: 'Cache reset complete. Please restart the launcher.',
             confirmPackRepair: 'Reinstall the Aster Vale client pack on the next PLAY?',
+            busy: 'Repair and reset are unavailable while the game is starting or running.',
+            confirmRepair: 'Clear managed files and repair them on the next launch?',
             confirmReset: 'Reset launcher cache? Login data will be preserved.'
         }
     }
@@ -87,8 +93,7 @@ function ktzAsterValePackVersion(){
 }
 
 function ktzGetSupportInfo(){
-    const path = require('path')
-    const pkg = require(path.join(process.cwd(), 'package.json'))
+    const pkg = require('../package.json')
     let selectedServer = null
     let selectedAccount = null
 
@@ -121,7 +126,16 @@ function ktzGetSupportInfo(){
     ].join('\n')
 }
 
+function ktzSupportCanRepair(){
+    if(window.ktzLaunchState && window.ktzLaunchState !== 'idle'){
+        alert(ktzSupportText('busy'))
+        return false
+    }
+    return true
+}
+
 async function ktzRepairSelectedServer(){
+    if(!ktzSupportCanRepair() || !confirm(ktzSupportText('confirmRepair'))) return
     const fs = require('fs-extra')
     const path = require('path')
     const selectedServer = ConfigManager.getSelectedServer()
@@ -156,6 +170,7 @@ async function ktzRepairSelectedServer(){
 }
 
 async function ktzReinstallAsterValePack(){
+    if(!ktzSupportCanRepair()) return
     if(ConfigManager.getSelectedServer() !== 'astervale'){
         alert(ktzSupportText('packRepairUnavailable'))
         return
@@ -175,6 +190,7 @@ async function ktzReinstallAsterValePack(){
 }
 
 async function ktzResetLauncherCache(){
+    if(!ktzSupportCanRepair()) return
     if(!confirm(ktzSupportText('confirmReset'))){
         return
     }
@@ -212,7 +228,7 @@ async function ktzResetLauncherCache(){
 }
 
 function ktzInjectSupportTools(){
-    const launcherTab = document.getElementById('settingsTabLauncher')
+    const launcherTab = document.getElementById('ktzSupportHost') || document.getElementById('settingsTabLauncher')
     if(document.getElementById('ktzSupportToolsContainer') != null){
         return true
     }

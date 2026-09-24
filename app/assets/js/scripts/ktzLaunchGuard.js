@@ -120,6 +120,7 @@ function ktzInstallLaunchGuard(){
             setStatus(text('preparing'), 0)
             setWindowProgress(2)
             window.ktzLaunchState = launchState
+            document.dispatchEvent(new CustomEvent('ktz:launch-state', { detail: { state: launchState } }))
             startLaunchMonitor()
         }
 
@@ -134,6 +135,7 @@ function ktzInstallLaunchGuard(){
             setStatus(text('running'), 100)
             setWindowProgress(-1)
             window.ktzLaunchState = launchState
+            document.dispatchEvent(new CustomEvent('ktz:launch-state', { detail: { state: launchState } }))
         }
 
         function unlockLaunch(){
@@ -150,8 +152,11 @@ function ktzInstallLaunchGuard(){
             if(serverButton != null){
                 serverButton.disabled = false
             }
+            // Also restore the button when the game exits before its first render log.
+            if(typeof toggleLaunchArea === 'function') toggleLaunchArea(false)
             setWindowProgress(-1)
             window.ktzLaunchState = launchState
+            document.dispatchEvent(new CustomEvent('ktz:launch-state', { detail: { state: launchState } }))
         }
 
         function startLaunchMonitor(){

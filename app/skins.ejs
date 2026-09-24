@@ -1,0 +1,22 @@
+<section id="ktzSkinsContainer" class="ktzPage" style="display: none;">
+    <header class="ktzPageHeading"><div><p class="ktzEyebrow">MAKE IT YOURS</p><h1 data-skin-text="title">스킨</h1><p data-skin-text="subtitle">나만의 모습으로 다음 이야기를 시작해요.</p></div><button id="ktzSkinRefresh" class="ktzSecondary" data-skin-text="refresh">새로고침</button></header>
+    <p id="ktzSkinStatus" class="ktzSkinStatus" role="status" aria-live="polite"></p>
+    <div class="ktzSkinSections">
+        <section class="ktzSurface ktzSkinCurrent">
+            <div class="ktzPanelHeading"><h2 data-skin-text="current">현재 스킨</h2><span class="ktzBadge">JAVA EDITION</span></div>
+            <div class="ktzSkinCurrentBody">
+                <div class="ktzSkinStage"><canvas id="ktzSkinCurrentCanvas" width="128" height="256" role="img"></canvas><span id="ktzSkinNoPreview" data-skin-text="noPreview">미리보기를 불러오지 못했어요.</span></div>
+                <div class="ktzSkinIdentity"><p class="ktzEyebrow">MINECRAFT ACCOUNT</p><h3 id="ktzSkinPlayerName">—</h3><p id="ktzSkinCurrentVariant">—</p><p id="ktzSkinCurrentCape" class="ktzMuted">—</p><p class="ktzSkinAccountNotice" data-skin-text="globalHint">변경한 외형은 이 Minecraft 계정 전체에 적용돼요. 다른 런처와 서버에서도 같은 모습으로 보여요.</p><div class="ktzSkinViewToggle"><button id="ktzSkinFront" class="ktzSecondary" aria-pressed="true" data-skin-text="front">앞모습</button><button id="ktzSkinBack" class="ktzSecondary" aria-pressed="false" data-skin-text="back">뒷모습</button></div></div>
+            </div>
+        </section>
+        <section class="ktzSurface">
+            <h2 data-skin-text="change">스킨 바꾸기</h2><p class="ktzMuted" data-skin-text="uploadHint">64×64 PNG 파일을 선택하세요. 먼저 팔 모양을 고른 뒤 미리보기를 확인할 수 있어요. (최대 1MB)</p>
+            <fieldset id="ktzSkinModel" class="ktzSkinModels"><legend class="ktzSrOnly" data-skin-text="model">팔 모양</legend><label><input type="radio" name="ktzSkinVariant" value="classic" checked><span><strong data-skin-text="classic">클래식</strong><small data-skin-text="classicHint">팔 4픽셀 · 스티브 체형</small></span></label><label><input type="radio" name="ktzSkinVariant" value="slim"><span><strong data-skin-text="slim">슬림</strong><small data-skin-text="slimHint">팔 3픽셀 · 알렉스 체형</small></span></label></fieldset>
+            <input id="ktzSkinFile" type="file" accept=".png,image/png" hidden>
+            <div class="ktzSkinActions"><button id="ktzSkinChoose" class="ktzPrimary" data-skin-text="choose">PNG 파일 선택</button><button id="ktzSkinReset" class="ktzSecondary" data-skin-text="reset">기본 스킨으로 복원</button></div>
+            <div id="ktzSkinUploadPreview" class="ktzSkinPending" hidden><canvas id="ktzSkinPendingCanvas" width="128" height="256" role="img"></canvas><div><span class="ktzBadge" data-skin-text="previewOnly">아직 적용되지 않은 미리보기</span><h3 id="ktzSkinFileName"></h3><p data-skin-text="applyHint">선택한 팔 모양과 스킨을 확인한 뒤 적용해주세요.</p><div class="ktzSkinActions"><button id="ktzSkinApply" class="ktzPrimary" data-skin-text="apply">이 스킨 적용</button><button id="ktzSkinDiscard" class="ktzSecondary" data-skin-text="cancel">취소</button></div></div></div>
+        </section>
+        <section class="ktzSurface"><div class="ktzPanelHeading"><h2 data-skin-text="capes">망토</h2><span id="ktzSkinCapeCount" class="ktzMuted"></span></div><p class="ktzMuted" data-skin-text="capeHint">현재 계정이 보유한 Java Edition 망토만 표시돼요.</p><div id="ktzSkinCapes" class="ktzSkinCapes" role="group"></div><p id="ktzSkinNoCapes" class="ktzMuted" data-skin-text="noCapes" hidden>이 계정에는 보유한 망토가 없어요.</p><button id="ktzSkinApplyCape" class="ktzSecondary" data-skin-text="applyCape" disabled>선택한 망토 적용</button></section>
+    </div>
+</section>
+<dialog id="ktzSkinConfirm" class="ktzDialog" aria-labelledby="ktzSkinConfirmTitle"><p class="ktzEyebrow">MINECRAFT ACCOUNT</p><h2 id="ktzSkinConfirmTitle" data-skin-text="confirmTitle">계정 외형을 변경할까요?</h2><p id="ktzSkinConfirmDetail"></p><p class="ktzMuted" data-skin-text="globalHint">변경한 외형은 이 Minecraft 계정 전체에 적용돼요. 다른 런처와 서버에서도 같은 모습으로 보여요.</p><div class="ktzSkinActions"><button id="ktzSkinConfirmApply" class="ktzPrimary" data-skin-text="confirm">변경 적용</button><button id="ktzSkinConfirmCancel" class="ktzSecondary" data-skin-text="cancel">취소</button></div></dialog>

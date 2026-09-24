@@ -24,7 +24,10 @@ const VIEWS = {
     login: '#loginContainer',
     settings: '#settingsContainer',
     welcome: '#welcomeContainer',
-    waiting: '#waitingContainer'
+    waiting: '#waitingContainer',
+    library: '#ktzLibraryContainer',
+    skins: '#ktzSkinsContainer',
+    support: '#ktzSupportContainer'
 }
 
 // The currently shown view container.
@@ -44,6 +47,7 @@ let currentView
  */
 function switchView(current, next, currentFadeTime = 500, nextFadeTime = 500, onCurrentFade = () => {}, onNextFade = () => {}){
     currentView = next
+    document.dispatchEvent(new CustomEvent('ktz:view-changed', { detail: { view: next } }))
     $(`${current}`).fadeOut(currentFadeTime, async () => {
         await onCurrentFade()
         $(`${next}`).fadeIn(nextFadeTime, async () => {
@@ -100,6 +104,7 @@ async function showMainUI(data){
             }
         }
 
+        document.dispatchEvent(new CustomEvent('ktz:view-changed', { detail: { view: currentView } }))
         setTimeout(() => {
             $('#loadingContainer').fadeOut(500, () => {
                 $('#loadSpinnerImage').removeClass('rotating')

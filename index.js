@@ -2,7 +2,7 @@ const remoteMain = require('@electron/remote/main')
 remoteMain.initialize()
 
 // Requirements
-const { app, BrowserWindow, ipcMain, Menu, shell } = require('electron')
+const { app, BrowserWindow, ipcMain, Menu, shell, screen } = require('electron')
 const autoUpdater                       = require('electron-updater').autoUpdater
 const ejse                              = require('ejs-electron')
 const fs                                = require('fs')
@@ -223,10 +223,13 @@ ipcMain.on(MSFT_OPCODE.OPEN_LOGOUT, (ipcEvent, uuid, isLastAccount) => {
 let win
 
 function createWindow() {
-
+    const workArea = screen.getPrimaryDisplay().workAreaSize
     win = new BrowserWindow({
-        width: 980,
-        height: 552,
+        width: Math.min(1280, workArea.width),
+        height: Math.min(800, workArea.height),
+        minWidth: Math.min(980, workArea.width),
+        minHeight: Math.min(640, workArea.height),
+        show: !(isDev && process.env.KTZ_HEADLESS_TEST === '1'),
         icon: getPlatformIcon('Icon'),
         frame: false,
         webPreferences: {
@@ -234,7 +237,7 @@ function createWindow() {
             nodeIntegration: true,
             contextIsolation: false
         },
-        backgroundColor: '#171614'
+        backgroundColor: '#0b0e14'
     })
     remoteMain.enable(win.webContents)
 

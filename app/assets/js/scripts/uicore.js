@@ -173,7 +173,7 @@ document.addEventListener('readystatechange', function () {
             })
         })
 
-    } else if(document.readyState === 'complete'){
+    } else if(document.readyState === 'complete' && !document.body.classList.contains('ktz-redesign')){
 
         //266.01
         //170.8

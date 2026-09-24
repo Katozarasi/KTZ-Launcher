@@ -1,6 +1,6 @@
 {
   "name": "ktzlauncher",
-  "version": "3.3.6",
+  "version": "3.4.0",
   "productName": "KTZ Launcher",
   "description": "KTZ Minecraft Server Launcher",
   "author": "Daniel Scalzi (https://github.com/dscalzi/), peunsu (https://github.com/peunsu), Katozarasi",
@@ -20,6 +20,10 @@
     "lint": "eslint .",
     "test:astervale": "node tools/test-astervale-live-patch.js",
     "test:neoforge-managed-pack": "node tools/test-neoforge-managed-pack.js",
+    "test:ui": "electron tools/test-redesign-ui.cjs",
+    "test:launch-guard": "node tools/test-launch-guard.js",
+    "test:skins": "node tools/test-skin-manager.js",
+    "verify:release": "node tools/verify-release.js dist",
     "pack:astervale": "node tools/build-astervale-pack.js",
     "generate:mods": "node tools/generate-server-mods.js",
     "generate:astervale": "node tools/apply-server-config.js astervale",

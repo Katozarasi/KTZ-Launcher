@@ -1,7 +1,9 @@
 <div id="loginOptionsContainer" style="display: none;">
     <div id="loginOptionsContent">
         <div class="loginOptionsMainContent">
-            <h2><%- lang('loginOptions.loginOptionsTitle') %></h2>
+            <div class="ktzLoginBrand" aria-hidden="true"><span class="ktzBrandTile">K</span></div>
+            <h2>KTZ Launcher</h2>
+            <p class="ktzLoginSubtitle" data-ktz-i18n="loginSubtitle">에스터베일의 다음 이야기를 함께해요.</p>
             <div class="loginOptionActions">
                 <div class="loginOptionButtonContainer">
                     <button id="loginOptionMicrosoft" class="loginOptionButton">
@@ -25,6 +27,7 @@
                     </button>
                 </div>
             </div>
+            <p class="ktzLoginFootnote" data-ktz-i18n="loginFootnote">Minecraft Java Edition 계정이 필요해요.</p>
             <div id="loginOptionCancelContainer" style="display: none;">
                 <button id="loginOptionCancelButton"><%- lang('loginOptions.cancelButton') %></button>
             </div>

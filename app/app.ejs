@@ -6,6 +6,7 @@
     <script src="./assets/js/scripts/uibinder.js"></script>
     <link type="text/css" rel="stylesheet" href="./assets/css/launcher.css">
     <link type="text/css" rel="stylesheet" href="./assets/css/serverSelect.css">
+    <link type="text/css" rel="stylesheet" href="./assets/css/redesign.css">
     <style>
         body {
             transition: background-image 1s ease;
@@ -26,9 +27,11 @@
         }
     </style>
 </head>
-<body bkid="<%=bkid%>">
+<body class="ktz-redesign" bkid="<%=bkid%>">
     <%- include('frame') %>
     <div id="main">
+        <%- include('launcherShell') %>
+        <%- include('skins') %>
         <%- include('welcome') %>
         <%- include('login') %>
         <%- include('waiting') %>
@@ -43,12 +46,17 @@
         <script src="./assets/js/scripts/ktzLanguageSettings.js"></script>
         <script src="./assets/js/scripts/ktzSupportTools.js"></script>
         <script src="./assets/js/scripts/ktzWelcomeGuide.js"></script>
+        <script src="./assets/js/scripts/ktzRedesign.js"></script>
+        <script src="./assets/js/scripts/ktzSkins.js"></script>
     </div>
     <%- include('overlay') %>
     <div id="loadingContainer">
         <div id="loadingContent">
             <div id="loadSpinnerContainer">
                 <img id="loadSpinnerImage" class="rotating" src="assets/images/Icon.png">
+                <span class="ktzBrandTile" aria-hidden="true">K</span>
+                <span class="ktzLoadingName">KTZ LAUNCHER</span>
+                <span class="ktzLoadingBar" role="progressbar" aria-label="Loading"></span>
             </div>
         </div>
     </div>

@@ -36,6 +36,15 @@ jobs:
       - name: Test managed NeoForge pack preservation
         run: npm run test:neoforge-managed-pack
 
+      - name: Test launch guard and skin account service
+        run: |
+          npm run test:launch-guard
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run test:skins
+
+      - name: Lint launcher redesign and skin service
+        run: npx eslint app/assets/js/scripts/ktzRedesign.js app/assets/js/scripts/ktzSkins.js app/assets/js/skinmanager.js app/assets/js/skinstrings.js app/assets/js/skinpreview.js tools/test-launch-guard.js tools/test-skin-manager.js tools/test-redesign-ui.cjs tools/ui-test-preload.cjs tools/skin-test-fixtures.cjs tools/verify-release.js
+
       - name: Lint changed runtime files
         run: npx eslint app/assets/js/astervalepackmanager.js app/assets/js/neoforgeprocessbuilder.js tools/test-astervale-live-patch.js tools/test-neoforge-managed-pack.js tools/build-astervale-pack.js
 
@@ -43,8 +52,33 @@ jobs:
         if: github.event_name == 'pull_request'
         run: npm run dist:win -- --publish never
 
-      - name: Build and publish Windows installer
+      - name: Build Windows assets into a draft release
         if: github.event_name != 'pull_request'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run dist:win -- --publish always
+        run: npm run dist:win -- --publish always --config.publish.releaseType=draft
+
+      - name: Verify installer and automatic update metadata
+        run: npm run verify:release
+
+      - name: Test packaged UI in three languages
+        shell: pwsh
+        run: |
+          $env:KTZ_UI_APP_ROOT = Join-Path $pwd 'dist/win-unpacked/resources/app.asar'
+          $env:KTZ_UI_OUTPUT = 'C:\codex\Builds\ktz-release-ui'
+          foreach ($locale in @('ko_KR', 'en_US', 'ja_JP')) {
+            $env:KTZ_UI_LOCALE = $locale
+            npm run test:ui
+            if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          }
+
+      - name: Publish verified release
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
+        run: |
+          $version = node -p "require('./package.json').version"
+          $notes = "docs/releases/$version.md"
+          if (!(Test-Path -LiteralPath $notes)) { throw "Release notes are missing: $notes" }
+          gh release edit "v$version" --repo '${{ github.repository }}' --draft=false --latest --title "KTZ Launcher $version" --notes-file $notes

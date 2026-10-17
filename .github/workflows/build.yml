@@ -46,7 +46,7 @@ jobs:
         run: npx eslint app/assets/js/scripts/ktzRedesign.js app/assets/js/scripts/ktzSkins.js app/assets/js/skinmanager.js app/assets/js/skinstrings.js app/assets/js/skinpreview.js tools/test-launch-guard.js tools/test-skin-manager.js tools/test-redesign-ui.cjs tools/ui-test-preload.cjs tools/skin-test-fixtures.cjs tools/verify-release.js
 
       - name: Lint changed runtime files
-        run: npx eslint app/assets/js/astervalepackmanager.js app/assets/js/neoforgeprocessbuilder.js tools/test-astervale-live-patch.js tools/test-neoforge-managed-pack.js tools/build-astervale-pack.js
+        run: npx eslint app/assets/js/astervalepackmanager.js app/assets/js/neoforgeprocessbuilder.js app/assets/js/scripts/serverSelect.js tools/test-astervale-live-patch.js tools/test-neoforge-managed-pack.js tools/build-astervale-pack.js tools/import-tokemon-profile.js
 
       - name: Build Windows installer
         if: github.event_name == 'pull_request'

@@ -1376,7 +1376,8 @@
         "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
         "maintenance": false,
         "shortName": "토켓몬",
-        "subtitle": "Cobblemon · Minecraft 1.21.1"
+        "subtitle": "Cobblemon · Minecraft 1.21.1",
+        "serverSelectVisible": true
       },
       "id": "tokemon",
       "version": "2026.10.17",

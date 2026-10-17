@@ -101,7 +101,7 @@ async function main() {
         minecraftVersion: index.dependencies.minecraft, mainServer: false, autoconnect: true,
         javaOptions: { supported: '>=21', suggestedMajor: 21, ram: { recommended: 6144, minimum: 4096 } },
         ktz: {
-            loader: 'fabric', loaderName: 'Fabric', loaderVersion: index.dependencies['fabric-loader'],
+            loader: 'fabric', loaderName: 'Fabric', loaderVersion: index.dependencies['fabric-loader'], serverSelectVisible: true,
             i18n: {
                 ko_KR: { name: '토켓몬', subtitle: 'Cobblemon · Minecraft 1.21.1' },
                 en_US: { name: 'Tokemon', subtitle: 'Cobblemon · Minecraft 1.21.1' },

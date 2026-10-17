@@ -12,7 +12,14 @@ const ktzServerPreviewDesc = document.getElementById('ktzServerPreviewDesc')
 const ktzServerPreviewVersion = document.getElementById('ktzServerPreviewVersion')
 const ktzServerPreviewAddress = document.getElementById('ktzServerPreviewAddress')
 const ktzServerSelectConfirm = document.getElementById('ktzServerSelectConfirm')
-const KTZ_SERVER_SELECT_VISIBLE_IDS = new Set(['astervale'])
+const KTZ_SERVER_SELECT_LEGACY_IDS = new Set(['astervale'])
+
+function ktzIsServerSelectable(server){
+    const raw = server?.rawServer
+    if(raw == null) return false
+    if(raw.ktz?.serverSelectVisible != null) return raw.ktz.serverSelectVisible === true
+    return KTZ_SERVER_SELECT_LEGACY_IDS.has(raw.id)
+}
 
 let ktzSelectedServerId = null
 let ktzServerSelectShownThisSession = false
@@ -152,7 +159,7 @@ async function ktzPopulateServerSelect(){
     const selectedServerId = ConfigManager.getSelectedServer()
     let htmlString = ''
 
-    const visibleServers = distro.servers.filter(server => KTZ_SERVER_SELECT_VISIBLE_IDS.has(server.rawServer.id))
+    const visibleServers = distro.servers.filter(ktzIsServerSelectable)
 
     for(const server of visibleServers){
         const raw = server.rawServer
@@ -197,9 +204,10 @@ async function ktzShowServerSelect(fromView = getCurrentView()){
 
 ktzServerSelectConfirm.onclick = async () => {
     const distro = await DistroAPI.getDistribution()
-    const selectedServer = KTZ_SERVER_SELECT_VISIBLE_IDS.has(ktzSelectedServerId)
-        ? distro.getServerById(ktzSelectedServerId)
-        : distro.getServerById('astervale')
+    const candidate = distro.getServerById(ktzSelectedServerId)
+    const selectedServer = ktzIsServerSelectable(candidate)
+        ? candidate
+        : distro.servers.find(ktzIsServerSelectable)
 
     if(selectedServer != null){
         updateSelectedServer(selectedServer)

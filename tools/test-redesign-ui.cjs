@@ -28,7 +28,7 @@ app.setPath('temp', process.env.TEMP)
 app.disableHardwareAcceleration()
 fs.writeJsonSync(path.join(profile, 'config.json'), {
     settings: { game: { resWidth: 1280, resHeight: 720, fullscreen: false, autoConnect: true, launchDetached: true }, launcher: { allowPrerelease: false, dataDirectory: gameRoot, language: locale } },
-    ktz: { firstRunGuideHidden: true }, selectedServer: 'astervale', selectedAccount: null,
+    ktz: { firstRunGuideHidden: true }, selectedServer: 'tokemon', selectedAccount: null,
     authenticationDatabase: {}, modConfigurations: [], javaConfig: {},
     newsCache: { date: null, content: null, dismissed: false }
 })
@@ -92,6 +92,7 @@ async function test(){
     await waitFor("typeof ktzShell !== 'undefined' && getCurrentView() === VIEWS.loginOptions && getComputedStyle(document.getElementById('loadingContainer')).display === 'none'")
     check('Unauthenticated navigation is hidden', await execute("document.getElementById('ktzNavigation').hidden"))
     check('Microsoft login handler retained', await execute("typeof document.getElementById('loginOptionMicrosoft').onclick === 'function'"))
+    check('Startup preserves the saved Tokemon selection', await execute("ConfigManager.getSelectedServer() === 'tokemon'"))
     await capture('login')
     await execute(`(() => {
         const a = ConfigManager.addMicrosoftAuthAccount('00000000000000000000000000000000', 'TEST-NOT-A-TOKEN', 'KTZ_Traveler', 0, '', '', 0);
@@ -114,6 +115,10 @@ async function test(){
     await capture('server-selection-tokemon')
     await execute("document.getElementById('ktzServerSelectConfirm').onclick()")
     check('Tokemon selection is saved and returns to home', await execute("ConfigManager.getSelectedServer() === 'tokemon' && getCurrentView() === VIEWS.landing"))
+    await execute("(async () => { onDistroRefresh(await DistroAPI.getDistribution()) })()")
+    check('Pre-launch distribution refresh preserves Tokemon', await execute("ConfigManager.getSelectedServer() === 'tokemon'"))
+    await execute('populateServerListings()')
+    check('Settings server picker includes Tokemon and retains its selection', await execute("document.querySelector('.serverListing[servid=tokemon]').hasAttribute('selected') && document.querySelectorAll('.serverListing').length === 2"))
     await capture('tokemon-home')
     await execute('ktzShowServerSelect(VIEWS.landing)')
     check('Reopening the selector retains Tokemon', await execute("document.querySelector('.ktzServerCard[selected]').dataset.serverId === 'tokemon'"))

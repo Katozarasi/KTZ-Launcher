@@ -14,7 +14,9 @@ let rscShouldLoad = false
 let fatalStartupError = false
 
 function getKtzPrimaryServer(data){
-    return data.getServerById('astervale') || data.getMainServer()
+    return data.getServerById(ConfigManager.getSelectedServer())
+        || data.getServerById('astervale')
+        || data.getMainServer()
 }
 
 // Mapping of each view to their container IDs.

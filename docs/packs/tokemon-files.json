@@ -346,14 +346,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-battle-0.2.0-progression.1.jar",
+      "file": "tokemon-battle-0.2.1-gymteams.1.jar",
       "id": "tokemon_battle",
-      "version": "0.2.0-progression.1",
-      "size": 1831738,
-      "md5": "5a3d511d030d780241f4605650911b17",
-      "sha256": "23cc7508e6d610328b95c01291ae7224b0785eea94804f976b0b600b36c0874c",
-      "sha512": "e6beca5795b4a23fdcc58871eae2466f1375e9dcea37b2801af8b32f199544e95a322dedb9bf286b687bc88bcdae7becb6a5a896cf639d2deba406ed7aa84137",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.0-progression.1.jar",
+      "version": "0.2.1-gymteams.1",
+      "size": 1832183,
+      "md5": "542c5d743983e3e09fe4c916cb1d7209",
+      "sha256": "a8ebc45e1f2dfa894df6d3f9ce319c124851e396a8e01c10bf149ec53b74d02c",
+      "sha512": "1f3adcff16ba88c61f7f7a74d35f98eebebb664f020eeac96749b5ea6ea043bd9c595c5aaabb4384dcef6f9c37313a0ccf51bb1aec05f740887675a08ab6db77",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.1-gymteams.1.jar",
       "custom": true
     },
     {
@@ -368,14 +368,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-pokestick-0.1.0.jar",
+      "file": "tokemon-pokestick-0.1.1.jar",
       "id": "tokemon_pokestick",
-      "version": "0.1.0",
-      "size": 117026,
-      "md5": "e87145d0d71b214ffcf19ea8fc573ca1",
-      "sha256": "a5d0a87224aff18d129d6935d734a6ef6bc06ec36c712fb29598fe67522806d4",
-      "sha512": "2e04a53ea207969e051a826b2ee1fd82712e0818df107d6f90e15a4c5957ee3d17cf7a03f574df75d569f3c73160f73d0f1ee8104277328668ee50611d825a9f",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokestick-0.1.0.jar",
+      "version": "0.1.1",
+      "size": 117275,
+      "md5": "efcb37722e140978cab08a0779572fda",
+      "sha256": "56321b3e2763e571aec6a5e3d5c30250de60f9e1d64aff682a49159b8114a3be",
+      "sha512": "28cfde89a05630253a8240a91f2e60fa3455d7a86ee1ff93f0b4955f4426bee43d8be4b0821df946bddd3c3847917f13f689adf1f7afd9e909ca03526a814ae0",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokestick-0.1.1.jar",
       "custom": true
     },
     {

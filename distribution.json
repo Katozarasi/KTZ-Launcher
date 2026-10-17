@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.17",
+      "version": "2026.10.17.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1887,16 +1887,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_battle:23cc7508e6d6",
-          "name": "tokemon_battle 0.2.0-progression.1",
+          "id": "ktz.tokemon:tokemon_battle:a8ebc45e1f2d",
+          "name": "tokemon_battle 0.2.1-gymteams.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1831738,
-            "MD5": "5a3d511d030d780241f4605650911b17",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.0-progression.1.jar"
+            "size": 1832183,
+            "MD5": "542c5d743983e3e09fe4c916cb1d7209",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.1-gymteams.1.jar"
           }
         },
         {
@@ -1913,16 +1913,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_pokestick:a5d0a87224af",
-          "name": "tokemon_pokestick 0.1.0",
+          "id": "ktz.tokemon:tokemon_pokestick:56321b3e2763",
+          "name": "tokemon_pokestick 0.1.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 117026,
-            "MD5": "e87145d0d71b214ffcf19ea8fc573ca1",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokestick-0.1.0.jar"
+            "size": 117275,
+            "MD5": "efcb37722e140978cab08a0779572fda",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokestick-0.1.1.jar"
           }
         },
         {

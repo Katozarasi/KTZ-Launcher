@@ -117,6 +117,45 @@
         "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/astervale.xml",
         "maintenance": false
       }
+    },
+    "tokemon": {
+      "name": "토켓몬",
+      "description": "Cobblemon과 함께하는 토켓몬 서버",
+      "address": "1.224.237.11",
+      "minecraftVersion": "1.21.1",
+      "mainServer": false,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": ">=21",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 6144,
+          "minimum": 4096
+        }
+      },
+      "ktz": {
+        "loader": "fabric",
+        "loaderName": "Fabric",
+        "loaderVersion": "0.18.4",
+        "i18n": {
+          "ko_KR": {
+            "name": "토켓몬",
+            "subtitle": "Cobblemon · Minecraft 1.21.1"
+          },
+          "en_US": {
+            "name": "Tokemon",
+            "subtitle": "Cobblemon · Minecraft 1.21.1"
+          },
+          "ja_JP": {
+            "name": "トケモン",
+            "subtitle": "Cobblemon · Minecraft 1.21.1"
+          }
+        },
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "maintenance": false
+      }
     }
   }
 }

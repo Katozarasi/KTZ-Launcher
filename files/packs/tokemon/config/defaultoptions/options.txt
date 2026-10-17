@@ -1,0 +1,8 @@
+version:3955
+lang:ko_kr
+renderDistance:8
+simulationDistance:6
+maxFps:120
+graphicsMode:1
+particles:1
+resourcePacks:["fabric","file/Tokemon-Korean-1.0.0.zip"]

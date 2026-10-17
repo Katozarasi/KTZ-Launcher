@@ -1,0 +1,23 @@
+Tokemon pack 2026.10.17.3
+
+Fix the connection failure reporting 38 unknown cobblemon_utility item registry
+entries. The operational server already used shop 0.2.0 and Utility+ 1.8.0,
+while the KTZ distribution still launched shop 0.1.0 without Utility+.
+
+Changes:
+- Replace the required tokemon_shop artifact with the verified 0.2.0 JAR.
+- Add required cobblemon_utility 1.8.0 from the author's official NO RECIPES
+  Fabric 1.21.1 download. This preserves the shop's tested recipe policy.
+- Keep the other 38 client mods, loader, resource pack, defaults, server address
+  and other server entries unchanged. The resulting Fabric mod list has 40 items.
+
+KTZ Launcher 3.4.2 refreshes the distribution before PLAY. The generated
+forgeMods.list references the new content-addressed shop and utility artifacts,
+so the cached old shop JAR is no longer loaded. No launcher executable update is
+needed. This update does not start or stop an operational game/server session.
+
+The two artifact SHA-256 values match the tested Tokemon server release:
+shop: d546e96182c654a0ad26a653b85a4926630e219282efc054b8277e15d84fae3d
+utility: 21206130b65288d4a28bc26200b9de7de9ab0fe5ea866249435d577c7582d80f
+
+Actual authenticated player reconnection remains a separate verification step.

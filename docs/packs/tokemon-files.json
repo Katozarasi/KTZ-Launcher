@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 39,
+  "modCount": 40,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -379,15 +379,26 @@
       "custom": true
     },
     {
-      "file": "tokemon-shop-0.1.0.jar",
+      "file": "tokemon-shop-0.2.0.jar",
       "id": "tokemon_shop",
-      "version": "0.1.0",
-      "size": 74990,
-      "md5": "8be4d20c540c4bd958356f0959982562",
-      "sha256": "c33e7d5a380b170da3fcad74d34a59f5700919cef3d11b689658360362d1e3ec",
-      "sha512": "b260a7a0c9b94f1bb9c81336200a017e26802614fc90d57c3bd3a96c7525229f469f0b1f0c5bd48b218b0d770ca1465854c6a182c7d8800930bf5309d39d8641",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.1.0.jar",
+      "version": "0.2.0",
+      "size": 91096,
+      "md5": "2ecf2b5a281db47a43a408eb062c73e1",
+      "sha256": "d546e96182c654a0ad26a653b85a4926630e219282efc054b8277e15d84fae3d",
+      "sha512": "1c90687d84bc4a6d625c38a352abb0e5ad40832d1d8e539cc97c4981e7ce0d57c4a7bf756fecf1b7064e7f3d97fdd6146c3712fb10f220603e7e86f365de496a",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.2.0.jar",
       "custom": true
+    },
+    {
+      "file": "Cobblemon-Utility+-fabric-1.8.0 NO RECIPES.jar",
+      "id": "cobblemon_utility",
+      "version": "1.8.0",
+      "size": 161286,
+      "md5": "51b3f4029236da710dc45e478c85210d",
+      "sha256": "21206130b65288d4a28bc26200b9de7de9ab0fe5ea866249435d577c7582d80f",
+      "sha512": "fbdf9586e91d03943562f0918952f489bbe25977cf6e3daef8f48eb3acf3d24c3f2516d57361894e5ae10584d59075391cbcb4d534d8ef737224083bdd77778b",
+      "url": "https://edge.forgecdn.net/files/8874/748/Cobblemon-Utility%2B-fabric-1.8.0%20NO%20RECIPES.jar",
+      "custom": false
     },
     {
       "file": "tokemon-starterbox-0.2.0.jar",

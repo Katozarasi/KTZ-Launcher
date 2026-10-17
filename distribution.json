@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.17.2",
+      "version": "2026.10.17.3",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1926,16 +1926,29 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_shop:c33e7d5a380b",
-          "name": "tokemon_shop 0.1.0",
+          "id": "ktz.tokemon:tokemon_shop:d546e96182c6",
+          "name": "tokemon_shop 0.2.0",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 74990,
-            "MD5": "8be4d20c540c4bd958356f0959982562",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.1.0.jar"
+            "size": 91096,
+            "MD5": "2ecf2b5a281db47a43a408eb062c73e1",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.2.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:cobblemon_utility:21206130b652",
+          "name": "cobblemon_utility 1.8.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 161286,
+            "MD5": "51b3f4029236da710dc45e478c85210d",
+            "url": "https://edge.forgecdn.net/files/8874/748/Cobblemon-Utility%2B-fabric-1.8.0%20NO%20RECIPES.jar"
           }
         },
         {

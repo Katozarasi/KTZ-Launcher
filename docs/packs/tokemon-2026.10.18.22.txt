@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.18.22
+
+JourneyMap: keep J for the fullscreen map; unassign the other 21 map shortcuts once for existing and new players. Reset defaults follow the same rule. Later player assignments are preserved.
+
+Adventure UI 0.1.1 preserves all 997 translations and the independent FTB key policy. No server update/restart. Close Minecraft, then KTZ Tokemon PLAY to load the update. Other mods, options, Java settings, map settings, waypoints and server address are preserved.
+
+Isolated offline native client verification is not production player reconnect proof. Raid reward deployment remains held.
+
+SHA256 b0084bb47af62daf801105279d3812d87a8b95ff65220def3a5fabb0b2355b5b

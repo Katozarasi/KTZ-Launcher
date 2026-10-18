@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.21",
+      "version": "2026.10.18.22",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2281,16 +2281,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_adventure_ui:162e5e237440",
-          "name": "토켓몬 모험 수첩 한글화 0.1.0",
+          "id": "ktz.tokemon:tokemon_adventure_ui:b0084bb47af6",
+          "name": "토켓몬 모험 수첩 한글화 0.1.1 · 지도 J 전용",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 43144,
-            "MD5": "7c9203197d8848e8915ea2da515b03f1",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/packs/tokemon/mods/tokemon-adventure-ui-0.1.0.jar"
+            "size": 46349,
+            "MD5": "56c331ed3d1f88b7675d91c0bba32bcd",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/packs/tokemon/mods/tokemon-adventure-ui-0.1.1.jar"
           }
         },
         {

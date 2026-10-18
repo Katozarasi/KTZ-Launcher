@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 58,
+  "modCount": 63,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -646,6 +646,61 @@
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/packs/tokemon/mods/tokemon-adventure-ui-0.1.0.jar",
       "custom": true,
       "environment": "client"
+    },
+    {
+      "file": "tokemon-world-music-0.1.0.jar",
+      "id": "tokemon_world_music",
+      "version": "0.1.0",
+      "size": 19608,
+      "md5": "1109933e5b1a31bd4a87c3ce36ad74ac",
+      "sha256": "5d480840a2cad47edd584a73913fb9f8f74edb06f15e6f020d77c34441cff35d",
+      "sha512": "0af80924bf91741b7278eb11daa34d2db9b9d04beafa081e863e0af3905db571e11b2d7888adad43aa5788a5804698078c10c7928ccde1c5db015e4c4846b3b7",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-world-music-assets-1-0.1.0.jar",
+      "id": "tokemon_world_music_assets_1",
+      "version": "0.1.0",
+      "size": 55289397,
+      "md5": "ed5003b686849eec69b26ed26deb2921",
+      "sha256": "4c17ba758c588703986b8c38c4d7c86218d840416fa1f2ca17b6c9e929905a54",
+      "sha512": "2d66ec6d1d3451d5106374a50e9a0210df4930961ae99a6f4e97b21f15869f2f31dcf09661ba806e138e3e1deaa2f3d90b0bf3bd26c348f15bd606ca3d849685",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-1-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-world-music-assets-2-0.1.0.jar",
+      "id": "tokemon_world_music_assets_2",
+      "version": "0.1.0",
+      "size": 54536698,
+      "md5": "542e9f2eb360c0ced2006646fbd3c805",
+      "sha256": "4145bb043e413d8f122f9478cad8eda26a54638d15c5ac1f5cbc0682858a2215",
+      "sha512": "cae1874e425c3279f5ddf813b283f52abfb30c16439cfe4933480689fceae8c08b7a5dd03454e8196ed5b13324097e04ef92a19d9e0c912a0aec9e248ae1e844",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-2-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-world-music-assets-3-0.1.0.jar",
+      "id": "tokemon_world_music_assets_3",
+      "version": "0.1.0",
+      "size": 55360061,
+      "md5": "7c55e4e2fa21bf106910c2ad7fe4f898",
+      "sha256": "e6e895ae8eec526907a38c6d9996d95069f69a62635791462200f5019e912ddd",
+      "sha512": "4d2ae46fb8be1af7f8cef1c5cfdd4d2806a1b7b1ee7f7440cb7ec7d4eb1f5436f87d24b73334d726c2959d9bd0a8e94b3b9db344003c859a10c767028e585bb9",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-3-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-world-music-assets-4-0.1.0.jar",
+      "id": "tokemon_world_music_assets_4",
+      "version": "0.1.0",
+      "size": 6882356,
+      "md5": "83776d6f728fed74ece44bfe467b9cd0",
+      "sha256": "dc4412f243f6b6e67d6573d90125cdeb9cb254efc159f5d89c3b8b93fc807b70",
+      "sha512": "0cabccd05d6f0f73e5941bddbe4792495d4e5b52e94a1d497e10f7dc984427744070ad27a48a7695eb00c91b0d32417c7b9e515266026050a869c5a286cf4392",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-4-0.1.0.jar",
+      "custom": true
     }
   ]
 }

@@ -1,0 +1,6 @@
+Tokemon pack 2026.10.18.20
+
+73 exploration tracks from three selected playlists. Random playback outside battle, another random track at completion, with no immediate repeat.
+A separate Tokemon Default BGM slider defaults to 10 percent in Music & Sounds. Existing custom volume is preserved. Korean now-playing banner appears at the top for 5 seconds.
+Default music stops during battle and resumes after battle music fades. Existing battle playlist and its separate slider are retained.
+Client-only addon; the operating server is not modified or restarted. Close Minecraft when convenient and PLAY Tokemon to download five additional required music modules. No launcher executable reinstall.

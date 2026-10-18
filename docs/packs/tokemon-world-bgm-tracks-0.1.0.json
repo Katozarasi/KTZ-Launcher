@@ -1,0 +1,898 @@
+{
+  "version": 1,
+  "trackCount": 73,
+  "sources": [
+    {
+      "id": "Xnba3bmX9hE",
+      "url": "https://www.youtube.com/watch?v=Xnba3bmX9hE",
+      "title": "🎧주인장 최애 브금으로 꽉꽉 채워넣은 포켓몬스터 브금🎧 | A Pokémon Playlist Packed Full of My All-Time Favorites [2 Hour]",
+      "duration": 7230,
+      "listedChapters": 34
+    },
+    {
+      "id": "aLt22GVGFn4",
+      "url": "https://www.youtube.com/watch?v=aLt22GVGFn4",
+      "title": "걸으면서 듣기 좋은 포켓몬 도로 브금 [1 HOUR PLAYLIST]",
+      "duration": 3932,
+      "listedChapters": 21
+    },
+    {
+      "id": "FguJ1s7kDxk",
+      "url": "https://www.youtube.com/watch?v=FguJ1s7kDxk",
+      "title": "잔잔하게 생각하기 좋은 포켓몬 브금 어레인지 | 1 HOUR PLAYLIST",
+      "duration": 3307,
+      "listedChapters": 18
+    }
+  ],
+  "tracks": [
+    {
+      "id": "w001",
+      "title": "GSC, HGSS · 자연공원",
+      "originalTitle": "National Park (GSC, HGSS) / 자연공원",
+      "source": "Xnba3bmX9hE",
+      "start": 0,
+      "end": 216,
+      "duration": 216,
+      "bytes": 3112570,
+      "sha256": "a9f2cbc9bbdcdc80f98d3ab1289dbf1cd1458bd8d8c771fd72aadeea1e1f56b4"
+    },
+    {
+      "id": "w002",
+      "title": "RSE, ORAS · 미로마을",
+      "originalTitle": "Littleroot Town (RSE, ORAS) / 미로마을",
+      "source": "Xnba3bmX9hE",
+      "start": 216,
+      "end": 304,
+      "duration": 88,
+      "bytes": 1409759,
+      "sha256": "d32e99433faf693905fd3497284efeb5f31bec2dc94cfafbfbf844ecc6c15542"
+    },
+    {
+      "id": "w003",
+      "title": "XY · 헤어살롱 (트리밍숍)",
+      "originalTitle": "Coiffure Clips (XY) / 헤어살롱 (트리밍숍)",
+      "source": "Xnba3bmX9hE",
+      "start": 304,
+      "end": 378,
+      "duration": 74,
+      "bytes": 1102323,
+      "sha256": "b3ab5f3bbb9ecafd3b6e4d9d2f5b1b72cf79386619b5e553a94e41e86aafc116"
+    },
+    {
+      "id": "w004",
+      "title": "GSC, HGSS · 고동마을",
+      "originalTitle": "Azalea Town (GSC, HGSS) / 고동마을",
+      "source": "Xnba3bmX9hE",
+      "start": 378,
+      "end": 504,
+      "duration": 126,
+      "bytes": 1995629,
+      "sha256": "8031c89b4a0a925e0bb56fc5e372fb1e4cb693e5b703cb8548ca54fc5f68dc56"
+    },
+    {
+      "id": "w005",
+      "title": "DPPT · 파도타기",
+      "originalTitle": "DPPT Surf (DPPT) / 파도타기",
+      "source": "Xnba3bmX9hE",
+      "start": 504,
+      "end": 593,
+      "duration": 89,
+      "bytes": 1419144,
+      "sha256": "d098aa2146e312e52246f17d9cb9c268f5b6e37653b9b32d9994110a5caf7980"
+    },
+    {
+      "id": "w006",
+      "title": "DPPT · 떡잎마을",
+      "originalTitle": "Twinleaf Town (DPPT) / 떡잎마을",
+      "source": "Xnba3bmX9hE",
+      "start": 593,
+      "end": 674,
+      "duration": 81,
+      "bytes": 1261888,
+      "sha256": "f3910eac18d7e2c86c3d4e1518fbcf7c696a60eae2f36a61892ca89a1b0ac738"
+    },
+    {
+      "id": "w007",
+      "title": "DPPT · 입지호수 근처",
+      "originalTitle": "Valor Lakefront (DPPT) / 입지호수 근처",
+      "source": "Xnba3bmX9hE",
+      "start": 674,
+      "end": 764,
+      "duration": 90,
+      "bytes": 1421142,
+      "sha256": "d4b318cbb580fe30cdca2924f8193a3a9a9366a61e8e9cd038fb11cf87498014"
+    },
+    {
+      "id": "w008",
+      "title": "XY · 미르시티",
+      "originalTitle": "Lumiose City (XY) / 미르시티",
+      "source": "Xnba3bmX9hE",
+      "start": 764,
+      "end": 871,
+      "duration": 107,
+      "bytes": 1907214,
+      "sha256": "f7a75c2b5499e7196c971711e4a08dec5ad936b47624d8eba2250365817572af"
+    },
+    {
+      "id": "w009",
+      "title": "BW, BW2 · 설화시티",
+      "originalTitle": "Icirrus City (BW, BW2) / 설화시티",
+      "source": "Xnba3bmX9hE",
+      "start": 871,
+      "end": 977,
+      "duration": 106,
+      "bytes": 1643826,
+      "sha256": "00dede2dc8f61006570e4284372323d85f4061854fc652126ecfe1816ede1fbd"
+    },
+    {
+      "id": "w010",
+      "title": "DPPT · 영원시티",
+      "originalTitle": "Eterna City (DPPT) / 영원시티",
+      "source": "Xnba3bmX9hE",
+      "start": 977,
+      "end": 1079,
+      "duration": 102,
+      "bytes": 1535052,
+      "sha256": "7d900293738ed0107838803a8017223c093f0454dd3f5bcae803c13d2ad15633"
+    },
+    {
+      "id": "w011",
+      "title": "PMD: 초불의 문 · 인플로라 숲",
+      "originalTitle": "Inflora Forest (PMD: 초불의 문) / 인플로라 숲",
+      "source": "Xnba3bmX9hE",
+      "start": 1079,
+      "end": 1258,
+      "duration": 179,
+      "bytes": 2690241,
+      "sha256": "b60384f2225402b9170d399d95d778f3067a0d33681b447efd3c02015112e5ae"
+    },
+    {
+      "id": "w012",
+      "title": "DPPT · 입지호수 근처",
+      "originalTitle": "Valor Lakefront (DPPT) / 입지호수 근처",
+      "source": "Xnba3bmX9hE",
+      "start": 1258,
+      "end": 1348,
+      "duration": 90,
+      "bytes": 1423826,
+      "sha256": "29f4d144a25ba079f34976f4fcf21dde7be1c5c64cc3de6505ccad361f923621"
+    },
+    {
+      "id": "w013",
+      "title": "SM, USUM · 환대시티",
+      "originalTitle": "Heahea City (SM, USUM) / 환대시티",
+      "source": "Xnba3bmX9hE",
+      "start": 1348,
+      "end": 1463,
+      "duration": 115,
+      "bytes": 1865107,
+      "sha256": "d002eafb378bff91b19449068adacf7a0a481601208074f32c3783f01cd8f74d"
+    },
+    {
+      "id": "w014",
+      "title": "XY · 비익시티",
+      "originalTitle": "Coumarine City (XY) / 비익시티",
+      "source": "Xnba3bmX9hE",
+      "start": 1463,
+      "end": 1584,
+      "duration": 121,
+      "bytes": 1820261,
+      "sha256": "f7c89cacbd0cb5fcc55d6027f06fd06883e61bd483a956483956b214daf916d6"
+    },
+    {
+      "id": "w015",
+      "title": "XY · 이설시티",
+      "originalTitle": "Snowbelle City (XY) / 이설시티",
+      "source": "Xnba3bmX9hE",
+      "start": 1584,
+      "end": 1707,
+      "duration": 123,
+      "bytes": 2047953,
+      "sha256": "f7b590f31edbd0e9191a25665164e8d22fdd4b4c32ab60789c1c09338d6e1f1e"
+    },
+    {
+      "id": "w016",
+      "title": "PMD: EOT/EOD · 집으로 돌아가자",
+      "originalTitle": "Let's go Home (PMD: EOT/EOD) / 집으로 돌아가자",
+      "source": "Xnba3bmX9hE",
+      "start": 1707,
+      "end": 1814,
+      "duration": 107,
+      "bytes": 1569837,
+      "sha256": "e6f206c044bc23c19bce64f82036f3e006d2acabff6877d067d77ab3e268776d"
+    },
+    {
+      "id": "w017",
+      "title": "PMD: EOT/EOD · 미로의 숲",
+      "originalTitle": "Lost Forest (PMD: EOT/EOD) / 미로의 숲",
+      "source": "Xnba3bmX9hE",
+      "start": 1814,
+      "end": 1942,
+      "duration": 128,
+      "bytes": 1838708,
+      "sha256": "060163386d9f20421d2ccc6a19ff11eb9c95830e3a10deec00fd2beee6e6240a"
+    },
+    {
+      "id": "w018",
+      "title": "RSE, ORAS · 단풍마을",
+      "originalTitle": "Fallarbor Town (RSE, ORAS) / 단풍마을",
+      "source": "Xnba3bmX9hE",
+      "start": 1942,
+      "end": 2028,
+      "duration": 86,
+      "bytes": 1345117,
+      "sha256": "83f4a3d912d50959e6923aa64ca6063b72858a6f1d433f2aa61c45b716d0c020"
+    },
+    {
+      "id": "w019",
+      "title": "GSC, HGSS · 무궁시티",
+      "originalTitle": "Cherrygrove City (GSC, HGSS) / 무궁시티",
+      "source": "Xnba3bmX9hE",
+      "start": 2028,
+      "end": 2135,
+      "duration": 107,
+      "bytes": 1700432,
+      "sha256": "4a12e8d312d2347b0f0b35ef3c5939a5f3e3a6380820c88fee2177f1f299b87b"
+    },
+    {
+      "id": "w020",
+      "title": "포켓몬 콜로세움 · 성스러운 숲",
+      "originalTitle": "Relic Forest (포켓몬 콜로세움) / 성스러운 숲",
+      "source": "Xnba3bmX9hE",
+      "start": 2135,
+      "end": 2250,
+      "duration": 115,
+      "bytes": 1539887,
+      "sha256": "b40f8c456836f9be915b361ce6ff3d6fda476625069c379a1cc5daabed23e2ff"
+    },
+    {
+      "id": "w021",
+      "title": "PMD: EOT/EOD · 시간의 바다를 넘어서",
+      "originalTitle": "Through the Sea of Time (PMD: EOT/EOD) / 시간의 바다를 넘어서",
+      "source": "Xnba3bmX9hE",
+      "start": 2250,
+      "end": 2357,
+      "duration": 107,
+      "bytes": 1604470,
+      "sha256": "4700675127d1e201d3309c3d7e5fab48d207c5ced1f260ee1adf9a11d1c40471"
+    },
+    {
+      "id": "w022",
+      "title": "PMD: EOT/EOD · 영원히 잊지 않아 (계속 잊지 않을게)",
+      "originalTitle": "Don't Ever Forget (PMD: EOT/EOD) / 영원히 잊지 않아 (계속 잊지 않을게)",
+      "source": "Xnba3bmX9hE",
+      "start": 2357,
+      "end": 2509,
+      "duration": 152,
+      "bytes": 2287317,
+      "sha256": "600e719ed7b0a290372cb409c390596f02e984164ec7fdf27672677318e15903"
+    },
+    {
+      "id": "w023",
+      "title": "DPPT · 상호교류광장",
+      "originalTitle": "Amity Square (DPPT) / 상호교류광장",
+      "source": "Xnba3bmX9hE",
+      "start": 2509,
+      "end": 2570,
+      "duration": 61,
+      "bytes": 954065,
+      "sha256": "aa6ae57e2bf5be44d23ce18ae0c50578d3789a27252b82123ea94c381ecb2aec"
+    },
+    {
+      "id": "w024",
+      "title": "BW · 흔들리지 않는 마음 (변함없는 마음)",
+      "originalTitle": "Unwavering Emotions (BW) / 흔들리지 않는 마음 (변함없는 마음)",
+      "source": "Xnba3bmX9hE",
+      "start": 2570,
+      "end": 2624,
+      "duration": 54,
+      "bytes": 799424,
+      "sha256": "3fb892b5a865319e4fe878f904cc4035a145906c3f6576de6b89abd7c892404f"
+    },
+    {
+      "id": "w025",
+      "title": "DPPT · 운하마을",
+      "originalTitle": "Canalave City (DPPT) / 운하마을",
+      "source": "Xnba3bmX9hE",
+      "start": 2624,
+      "end": 2713,
+      "duration": 89,
+      "bytes": 1337230,
+      "sha256": "733043be0224e36729425fb82ad0a34e28d531de8ea13e2fc95e7270d91c9b6b"
+    },
+    {
+      "id": "w026",
+      "title": "DPPT · 영원시티",
+      "originalTitle": "Eterna City (DPPT) / 영원시티",
+      "source": "Xnba3bmX9hE",
+      "start": 2713,
+      "end": 2815,
+      "duration": 102,
+      "bytes": 1501093,
+      "sha256": "00e242e44fe164155f9dea5426339d9102df90db1b9d9a898ef423ef1e9dabc0"
+    },
+    {
+      "id": "w027",
+      "title": "DPPT · 영원의 숲",
+      "originalTitle": "Eterna Forest (DPPT) / 영원의 숲",
+      "source": "Xnba3bmX9hE",
+      "start": 2815,
+      "end": 2896,
+      "duration": 81,
+      "bytes": 1338967,
+      "sha256": "476eb12274b0e04922c7ee149755ed2d5ac81a339a0babd96e7f11cfe26bc24b"
+    },
+    {
+      "id": "w028",
+      "title": "DPPT · 216번 도로",
+      "originalTitle": "Route 216 (DPPT) / 216번 도로",
+      "source": "Xnba3bmX9hE",
+      "start": 2896,
+      "end": 3008,
+      "duration": 112,
+      "bytes": 1719180,
+      "sha256": "3eb2c1dbae3b02fbbfd326db82449903a50fcb9fe950f2c34d931bfe41de9036"
+    },
+    {
+      "id": "w029",
+      "title": "DPPT · 떡잎마을",
+      "originalTitle": "Twinleaf Town (DPPT) / 떡잎마을",
+      "source": "Xnba3bmX9hE",
+      "start": 3008,
+      "end": 3088,
+      "duration": 80,
+      "bytes": 1261031,
+      "sha256": "0774e58e47eb86badf46d2de1e9e1743e1e57e58053a510ae0838372a903a939"
+    },
+    {
+      "id": "w030",
+      "title": "DPPT · 228번 도로",
+      "originalTitle": "Route 228 (DPPT) / 228번 도로",
+      "source": "Xnba3bmX9hE",
+      "start": 3088,
+      "end": 3142,
+      "duration": 54,
+      "bytes": 791115,
+      "sha256": "442a2747b088e7d93f9f779069f24351c5057d32c8fce6baff4567d176267ac4"
+    },
+    {
+      "id": "w031",
+      "title": "DPPT · 신수마을",
+      "originalTitle": "Solaceon Town (DPPT) / 신수마을",
+      "source": "Xnba3bmX9hE",
+      "start": 3142,
+      "end": 3200,
+      "duration": 58,
+      "bytes": 895092,
+      "sha256": "d3b6fb63c7ec628925fdfb0d3d150986814108cea9812b1185f2dcdeb2bb0fc2"
+    },
+    {
+      "id": "w032",
+      "title": "GSC, HGSS · 진청시티",
+      "originalTitle": "Cianwood City (GSC, HGSS) / 진청시티",
+      "source": "Xnba3bmX9hE",
+      "start": 3200,
+      "end": 3356,
+      "duration": 156,
+      "bytes": 2526160,
+      "sha256": "0b5ed90cdf44b9a5bba3fc4c548641f5ca9a770d63871b1dd80f06720e3590d3"
+    },
+    {
+      "id": "w033",
+      "title": "DPPT · 포켓몬 리그",
+      "originalTitle": "Pokemon League (DPPT) / 포켓몬 리그",
+      "source": "Xnba3bmX9hE",
+      "start": 3356,
+      "end": 3440,
+      "duration": 84,
+      "bytes": 1295263,
+      "sha256": "b3f71906be9835b2ef74b4a0640134a74ef22915bc086012b2b6c8f219d2240a"
+    },
+    {
+      "id": "w034",
+      "title": "HGSS · 47번 도로",
+      "originalTitle": "Route 47 (HGSS) / 47번 도로",
+      "source": "Xnba3bmX9hE",
+      "start": 3440,
+      "end": 3587.3265,
+      "duration": 147.32650000000012,
+      "bytes": 2309784,
+      "sha256": "d866e5a87e1332a23f3235f766cbedbb545ff714fd959846e35e6633f1ddca7b"
+    },
+    {
+      "id": "w035",
+      "title": "209번도로",
+      "originalTitle": "209번도로",
+      "source": "aLt22GVGFn4",
+      "start": 0,
+      "end": 229,
+      "duration": 229,
+      "bytes": 3717156,
+      "sha256": "15f2bef67f846b16941d4de593f7f122cc315308598f3715d756fd6f262a9898"
+    },
+    {
+      "id": "w036",
+      "title": "203번도로",
+      "originalTitle": "203번도로",
+      "source": "aLt22GVGFn4",
+      "start": 229,
+      "end": 451,
+      "duration": 222,
+      "bytes": 3551613,
+      "sha256": "f2e93cd2ce5b45ec339551bd5eff1d4b4ca1094421058e9b493f8bca82c5462c"
+    },
+    {
+      "id": "w037",
+      "title": "칼로스 4번도로",
+      "originalTitle": "칼로스 4번도로",
+      "source": "aLt22GVGFn4",
+      "start": 451,
+      "end": 658,
+      "duration": 207,
+      "bytes": 3532360,
+      "sha256": "1b22338a53957fd7b54e56bb2e5686fbf33c0e5b7d48726e17c3279a71c6076a"
+    },
+    {
+      "id": "w038",
+      "title": "관동 1번도로",
+      "originalTitle": "관동 1번도로",
+      "source": "aLt22GVGFn4",
+      "start": 658,
+      "end": 781,
+      "duration": 123,
+      "bytes": 2153811,
+      "sha256": "4845ff77ee8f5d55f52057a24dab9f89d3d089678a6efde4ac95c7a0fdd382c4"
+    },
+    {
+      "id": "w039",
+      "title": "201번도로",
+      "originalTitle": "201번도로",
+      "source": "aLt22GVGFn4",
+      "start": 781,
+      "end": 953,
+      "duration": 172,
+      "bytes": 2655221,
+      "sha256": "b037dcb8a12fb9cc3523badf0acb4e7d05b0a7fd8ce2e1085c68054355b55a9e"
+    },
+    {
+      "id": "w040",
+      "title": "29번도로",
+      "originalTitle": "29번도로",
+      "source": "aLt22GVGFn4",
+      "start": 953,
+      "end": 1118,
+      "duration": 165,
+      "bytes": 2637647,
+      "sha256": "c96da9ad98b745cad225365eebe889a91677c8c1b90e054862c2d9dc5bd7cc02"
+    },
+    {
+      "id": "w041",
+      "title": "하나 6번도로",
+      "originalTitle": "하나 6번도로",
+      "source": "aLt22GVGFn4",
+      "start": 1118,
+      "end": 1267,
+      "duration": 149,
+      "bytes": 2462041,
+      "sha256": "55cb24d97759520192449af8a1ae4e5d987e89c6b0b300ab6a932b53822badc8"
+    },
+    {
+      "id": "w042",
+      "title": "101번도로",
+      "originalTitle": "101번도로",
+      "source": "aLt22GVGFn4",
+      "start": 1267,
+      "end": 1369,
+      "duration": 102,
+      "bytes": 1662970,
+      "sha256": "01320e05964ee786cfa6af3a774cc4d119611240d3051320ebc23e0afe0404db"
+    },
+    {
+      "id": "w043",
+      "title": "하나 4번도로",
+      "originalTitle": "하나 4번도로",
+      "source": "aLt22GVGFn4",
+      "start": 1369,
+      "end": 1548,
+      "duration": 179,
+      "bytes": 3086982,
+      "sha256": "584fb0dceee7463c53f31e2abdc76ebd40cc4106d19b51081b945b5064ccaa89"
+    },
+    {
+      "id": "w044",
+      "title": "30번도로",
+      "originalTitle": "30번도로",
+      "source": "aLt22GVGFn4",
+      "start": 1548,
+      "end": 1645,
+      "duration": 97,
+      "bytes": 1657759,
+      "sha256": "378af9efe06d688435b4a92332ebfb60ebfc65cdfd51b6394337a0cdbd5206f7"
+    },
+    {
+      "id": "w045",
+      "title": "225번도로",
+      "originalTitle": "225번도로",
+      "source": "aLt22GVGFn4",
+      "start": 1645,
+      "end": 1872,
+      "duration": 227,
+      "bytes": 3589530,
+      "sha256": "e9e15f262ccc08133753118fc53a433b996157a7038d9708e3d94cfa7eca3884"
+    },
+    {
+      "id": "w046",
+      "title": "228번도로 (밤)",
+      "originalTitle": "228번도로 (밤)",
+      "source": "aLt22GVGFn4",
+      "start": 1872,
+      "end": 2056,
+      "duration": 184,
+      "bytes": 2926070,
+      "sha256": "3724b9870a39c000e63c90176c5f57b0e4c46b167052163dfe9c9607e1924217"
+    },
+    {
+      "id": "w047",
+      "title": "하나 10번도로",
+      "originalTitle": "하나 10번도로",
+      "source": "aLt22GVGFn4",
+      "start": 2056,
+      "end": 2253,
+      "duration": 197,
+      "bytes": 3409377,
+      "sha256": "e8bef6778a9b6052035afedb02481a55837b88f9223cb26b7952b27e845673cd"
+    },
+    {
+      "id": "w048",
+      "title": "120번도로",
+      "originalTitle": "120번도로",
+      "source": "aLt22GVGFn4",
+      "start": 2253,
+      "end": 2427,
+      "duration": 174,
+      "bytes": 2990703,
+      "sha256": "bbcd87597fb315efc876efe304cbef01e7b4db468ca83528bb860e590836681a"
+    },
+    {
+      "id": "w049",
+      "title": "47번도로",
+      "originalTitle": "47번도로",
+      "source": "aLt22GVGFn4",
+      "start": 2427,
+      "end": 2700,
+      "duration": 273,
+      "bytes": 4383758,
+      "sha256": "8066c6e5827d6b0b7b9e6166099d64e3334768c5d0504cfa0030338017b3ab81"
+    },
+    {
+      "id": "w050",
+      "title": "하나 2번도로 (겨울)",
+      "originalTitle": "하나 2번도로 (겨울)",
+      "source": "aLt22GVGFn4",
+      "start": 2700,
+      "end": 2947,
+      "duration": 247,
+      "bytes": 3823719,
+      "sha256": "41fcdfc96a2dfbdc897c6879e8ec7b8d5edba17750f8abec64af4e7d00a38653"
+    },
+    {
+      "id": "w051",
+      "title": "210번도로",
+      "originalTitle": "210번도로",
+      "source": "aLt22GVGFn4",
+      "start": 2947,
+      "end": 3159,
+      "duration": 212,
+      "bytes": 3488998,
+      "sha256": "aa2ba212d406f0311e29ede421035c37a66060f007baf3e35315c864d4e8995c"
+    },
+    {
+      "id": "w052",
+      "title": "관동 11번도로",
+      "originalTitle": "관동 11번도로",
+      "source": "aLt22GVGFn4",
+      "start": 3159,
+      "end": 3336,
+      "duration": 177,
+      "bytes": 2796773,
+      "sha256": "b0dcacfb904ab65d4c9640817cfa8f5e4bab902072024345e889ff1a1c77e528"
+    },
+    {
+      "id": "w053",
+      "title": "205번도로",
+      "originalTitle": "205번도로",
+      "source": "aLt22GVGFn4",
+      "start": 3336,
+      "end": 3580,
+      "duration": 244,
+      "bytes": 3903103,
+      "sha256": "d4a74189683cdc754ab075cd21b770cc305070ca4a394a13e02fce765b553670"
+    },
+    {
+      "id": "w054",
+      "title": "104번도로",
+      "originalTitle": "104번도로",
+      "source": "aLt22GVGFn4",
+      "start": 3580,
+      "end": 3741,
+      "duration": 161,
+      "bytes": 2644851,
+      "sha256": "6603fa87501b208073ad17e479007ca92b6740d38b5f2ac2e52f729679480cf3"
+    },
+    {
+      "id": "w055",
+      "title": "26번도로",
+      "originalTitle": "26번도로",
+      "source": "aLt22GVGFn4",
+      "start": 3741,
+      "end": 3932,
+      "duration": 191,
+      "bytes": 3012425,
+      "sha256": "3adbc8f9c5edc18c83196fc2a6b3d7b9b74eb530b207849dfd9d4d021811056e"
+    },
+    {
+      "id": "w056",
+      "title": "가륜마을",
+      "originalTitle": "가륜마을",
+      "source": "FguJ1s7kDxk",
+      "start": 0,
+      "end": 205,
+      "duration": 205,
+      "bytes": 3312221,
+      "sha256": "6949b34da0774be634a088ea03c2c473394d228a887f49c052395e27f7b93886"
+    },
+    {
+      "id": "w057",
+      "title": "뮤지컬 홀",
+      "originalTitle": "뮤지컬 홀",
+      "source": "FguJ1s7kDxk",
+      "start": 205,
+      "end": 329,
+      "duration": 124,
+      "bytes": 1994116,
+      "sha256": "722c23ed77ae4c0bb1c971b4172ecd346aee9d55cbf0bca2a196b2cc104e2a87"
+    },
+    {
+      "id": "w058",
+      "title": "칼로스의 테마",
+      "originalTitle": "칼로스의 테마",
+      "source": "FguJ1s7kDxk",
+      "start": 329,
+      "end": 488,
+      "duration": 159,
+      "bytes": 2614847,
+      "sha256": "fd596eae7b348167574ee7a5a898ad0f6a182f3027e4b77132b4639c567ca88e"
+    },
+    {
+      "id": "w059",
+      "title": "잔디마을",
+      "originalTitle": "잔디마을",
+      "source": "FguJ1s7kDxk",
+      "start": 488,
+      "end": 657,
+      "duration": 169,
+      "bytes": 2959225,
+      "sha256": "85a6f7cf6e5e30caeb5e7ed15c68894d44cfda061b84d22efee80e9e4f426ce6"
+    },
+    {
+      "id": "w060",
+      "title": "47번도로",
+      "originalTitle": "47번도로",
+      "source": "FguJ1s7kDxk",
+      "start": 657,
+      "end": 996,
+      "duration": 339,
+      "bytes": 5380796,
+      "sha256": "23533651a341bb8fa224a4f82e9b03cf24b8a12786503b230c2ee46dcb293478"
+    },
+    {
+      "id": "w061",
+      "title": "무궁시티",
+      "originalTitle": "무궁시티",
+      "source": "FguJ1s7kDxk",
+      "start": 996,
+      "end": 1189,
+      "duration": 193,
+      "bytes": 2990901,
+      "sha256": "cb51e1f01054bbf85ed2655eefd1da4ac842e61655f256e0de8124e74a56d749"
+    },
+    {
+      "id": "w062",
+      "title": "상호교류광장",
+      "originalTitle": "상호교류광장",
+      "source": "FguJ1s7kDxk",
+      "start": 1189,
+      "end": 1400,
+      "duration": 211,
+      "bytes": 3414816,
+      "sha256": "09cfdc0e5f2790b1faa44e3218495671989b63a2908fc3d158581e42ecb6e2e7"
+    },
+    {
+      "id": "w063",
+      "title": "파도타기 (HGSS)",
+      "originalTitle": "파도타기 (HGSS)",
+      "source": "FguJ1s7kDxk",
+      "start": 1400,
+      "end": 1617,
+      "duration": 217,
+      "bytes": 3608810,
+      "sha256": "48b2f17d37c2df035b8154ccf86a232fa319353708119668b96da41b7f9a13c6"
+    },
+    {
+      "id": "w064",
+      "title": "배틀 스테이지",
+      "originalTitle": "배틀 스테이지",
+      "source": "FguJ1s7kDxk",
+      "start": 1617,
+      "end": 1835,
+      "duration": 218,
+      "bytes": 3338056,
+      "sha256": "c7ea9d0b8775ca8744dedbaaa6761eec6980d1882bdcfc1426af50f58c04a551"
+    },
+    {
+      "id": "w065",
+      "title": "자전거 (DPPt)",
+      "originalTitle": "자전거 (DPPt)",
+      "source": "FguJ1s7kDxk",
+      "start": 1835,
+      "end": 2049,
+      "duration": 214,
+      "bytes": 3507945,
+      "sha256": "565fdd40cd8494528034049f9c7c661d2fe181a75158e339341ee706e835fd6a"
+    },
+    {
+      "id": "w066",
+      "title": "용나선탑",
+      "originalTitle": "용나선탑",
+      "source": "FguJ1s7kDxk",
+      "start": 2049,
+      "end": 2216,
+      "duration": 167,
+      "bytes": 2757466,
+      "sha256": "1316894bd433f08f9bd7801a41f10497c0f55651cf7283a3c1da6275ab09229e"
+    },
+    {
+      "id": "w067",
+      "title": "무쇠탄갱",
+      "originalTitle": "무쇠탄갱",
+      "source": "FguJ1s7kDxk",
+      "start": 2216,
+      "end": 2394,
+      "duration": 178,
+      "bytes": 2633755,
+      "sha256": "43aa7570f43fe5cd10461606d992df49aaf72cd991d4a2227086eaeda701b42e"
+    },
+    {
+      "id": "w068",
+      "title": "노간주의 테마",
+      "originalTitle": "노간주의 테마",
+      "source": "FguJ1s7kDxk",
+      "start": 2394,
+      "end": 2551,
+      "duration": 157,
+      "bytes": 2390691,
+      "sha256": "74d9ff072070c83a948e9aa8c81a97060f3c076f921b3738ec2820f6dca29291"
+    },
+    {
+      "id": "w069",
+      "title": "영원시티 (밤)",
+      "originalTitle": "영원시티 (밤)",
+      "source": "FguJ1s7kDxk",
+      "start": 2551,
+      "end": 2840,
+      "duration": 289,
+      "bytes": 4886322,
+      "sha256": "8ced1925118c56b6cb85a569040051532dc0cb48d1d16c296956cede496864af"
+    },
+    {
+      "id": "w070",
+      "title": "옛노래",
+      "originalTitle": "옛노래",
+      "source": "FguJ1s7kDxk",
+      "start": 2840,
+      "end": 3031,
+      "duration": 191,
+      "bytes": 2963207,
+      "sha256": "56ceba0d83723ec67b7ee7e76d72df25232e6bf796506f69881d03bbda193e97"
+    },
+    {
+      "id": "w071",
+      "title": "수식에 사로잡힌 자 (N의 테마)",
+      "originalTitle": "수식에 사로잡힌 자 (N의 테마)",
+      "source": "FguJ1s7kDxk",
+      "start": 3031,
+      "end": 3121,
+      "duration": 90,
+      "bytes": 1368767,
+      "sha256": "a797aa343bf07bd4e665c827f33254e5b011fba52b8124a9f6c7f75d97cd6be8"
+    },
+    {
+      "id": "w072",
+      "title": "포켓몬리그 (DPPt)",
+      "originalTitle": "포켓몬리그 (DPPt)",
+      "source": "FguJ1s7kDxk",
+      "start": 3121,
+      "end": 3204,
+      "duration": 83,
+      "bytes": 1077956,
+      "sha256": "01ee1eb9b9fd06601a089e5bc28c7c560023b823cb38eee90bbc6946627bd643"
+    },
+    {
+      "id": "w073",
+      "title": "THE END (RSE)",
+      "originalTitle": "THE END (RSE)",
+      "source": "FguJ1s7kDxk",
+      "start": 3204,
+      "end": 3306.641,
+      "duration": 102.64100000000008,
+      "bytes": 1468909,
+      "sha256": "aa682ca80eea3c3cc3074b8678d2cc409c0b75422eaec3bbc22b1679218bbe46"
+    }
+  ],
+  "firstVideoRepeatVerification": {
+    "video": "Xnba3bmX9hE",
+    "repeatOffsetSeconds": 3587.3265,
+    "correlation": 0.8824500302976952,
+    "referenceStartSeconds": 20,
+    "referenceSeconds": 15,
+    "searchStartSeconds": 3500,
+    "searchEndSeconds": 3900,
+    "independentMatches": [
+      {
+        "referenceSeconds": 20,
+        "offsetSeconds": 3587.3265,
+        "correlation": 0.8824500302976952
+      },
+      {
+        "referenceSeconds": 300,
+        "offsetSeconds": 3587.3265,
+        "correlation": 0.952879542291529
+      },
+      {
+        "referenceSeconds": 1100,
+        "offsetSeconds": 3669.0460000000003,
+        "correlation": 0.9043943275166115
+      },
+      {
+        "referenceSeconds": 2500,
+        "offsetSeconds": 3587.3265,
+        "correlation": 0.935736153102134
+      },
+      {
+        "referenceSeconds": 3300,
+        "offsetSeconds": 3587.3265,
+        "correlation": 0.8748921050479745
+      }
+    ],
+    "verifiedAtConsensusOffset": [
+      {
+        "referenceSeconds": 20,
+        "correlationAtConsensusOffset": 0.8824500302976859
+      },
+      {
+        "referenceSeconds": 300,
+        "correlationAtConsensusOffset": 0.9528795422915695
+      },
+      {
+        "referenceSeconds": 1100,
+        "correlationAtConsensusOffset": 0.8004752139396981
+      },
+      {
+        "referenceSeconds": 2500,
+        "correlationAtConsensusOffset": 0.935736153102213
+      },
+      {
+        "referenceSeconds": 3300,
+        "correlationAtConsensusOffset": 0.8748921050481067
+      }
+    ]
+  },
+  "secondVideoTimeParameter": "520 seconds is treated as a watch position; all 21 listed tracks are included",
+  "audio": {
+    "codec": "Vorbis",
+    "rate": 44100,
+    "channels": 2,
+    "quality": 4,
+    "normalization": "-18 LUFS, -1.5 dBTP"
+  }
+}

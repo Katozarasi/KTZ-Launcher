@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.19",
+      "version": "2026.10.18.20",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2291,6 +2291,71 @@
             "size": 43144,
             "MD5": "7c9203197d8848e8915ea2da515b03f1",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/packs/tokemon/mods/tokemon-adventure-ui-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_world_music:5d480840a2ca",
+          "name": "Tokemon Default BGM 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 19608,
+            "MD5": "1109933e5b1a31bd4a87c3ce36ad74ac",
+            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_world_music_assets_1:4c17ba758c58",
+          "name": "Tokemon Default BGM Tracks 1 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 55289397,
+            "MD5": "ed5003b686849eec69b26ed26deb2921",
+            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-1-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_world_music_assets_2:4145bb043e41",
+          "name": "Tokemon Default BGM Tracks 2 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 54536698,
+            "MD5": "542e9f2eb360c0ced2006646fbd3c805",
+            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-2-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_world_music_assets_3:e6e895ae8eec",
+          "name": "Tokemon Default BGM Tracks 3 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 55360061,
+            "MD5": "7c55e4e2fa21bf106910c2ad7fe4f898",
+            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-3-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_world_music_assets_4:dc4412f243f6",
+          "name": "Tokemon Default BGM Tracks 4 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 6882356,
+            "MD5": "83776d6f728fed74ece44bfe467b9cd0",
+            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-4-0.1.0.jar"
           }
         }
       ]

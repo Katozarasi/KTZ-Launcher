@@ -1,0 +1,14 @@
+Tokemon pack 2026.10.18.9
+
+Shop 0.3.1 adds admin commands to delete one nearby shop NPC: /상점 npc 삭제 [이름]. Only tagged shopkeepers within eight blocks are eligible. Other NPCs are preserved.
+Each NPC opens its assigned category; server-side purchase, sale and bulk sale checks use that category.
+AP/BP shops select the matching currency. Sell-only categories open the selling tab.
+The regular /shop and /상점 commands still open the complete shop.
+Existing prices, balances, personal stock, rewards and factory inventory APIs are preserved.
+
+Close an already-running game, select Tokemon in KTZ, then PLAY. No launcher executable reinstall is needed.
+All other 45 mods, resource packs, Java, options, server endpoints and other launcher servers are unchanged.
+
+tokemon_shop SHA256 61636b8f3c9340ea745efa2ae4d13978d5579f68b1be58832d7d4b1e0cb10c08
+
+Native managed-download and launch-list verification does not imply authenticated human gameplay review.

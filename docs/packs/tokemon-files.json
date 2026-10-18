@@ -379,14 +379,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-shop-0.3.0.jar",
+      "file": "tokemon-shop-0.3.1.jar",
       "id": "tokemon_shop",
-      "version": "0.3.0",
-      "size": 153079,
-      "md5": "5ea714d463a72401fcf122fd5119a0cf",
-      "sha256": "a36b170eb6c6bbcc23b8c236eb7819d3f02429133e274a7eb314536b324c39c8",
-      "sha512": "d3cc1747898f6298fe2bf96bfb18c348567be1f619466aa836b2d662fc625b76f750ed503521a233ada0ad8b25b805fc012ba59114aa3592b65857508c6146b3",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.3.0.jar",
+      "version": "0.3.1",
+      "size": 154567,
+      "md5": "e86327555b68400aa0af41050762e0eb",
+      "sha256": "61636b8f3c9340ea745efa2ae4d13978d5579f68b1be58832d7d4b1e0cb10c08",
+      "sha512": "76228d58d0ce3ab472556650f970981725fd617d016ee1c0d2ece92bf0a01e87fc68fc38e77845893aa75f54d203f914739d0b83619951b71361c2c38c55b462",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.3.1.jar",
       "custom": true
     },
     {

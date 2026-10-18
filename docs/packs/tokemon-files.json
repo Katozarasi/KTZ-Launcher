@@ -445,14 +445,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-factory-gui-0.1.2.jar",
+      "file": "tokemon-factory-gui-0.1.3.jar",
       "id": "tokemon_factory_gui",
-      "version": "0.1.2",
-      "size": 62466,
-      "md5": "9c7ae070cbd897a5e9372d25ce5e3a5c",
-      "sha256": "e3bd92dfc9705980f03ef64c9e20096594cb75b49140132e04f703db09e646cf",
-      "sha512": "7c00b8cd9d0b6e991f14e8c5f9334697f6d792e418aa21b5c2e6ca87f27044cb8070bb49ecde156ecb575da3b91e435cbfb17de153db597c3e814cbd380342e7",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.1.2.jar",
+      "version": "0.1.3",
+      "size": 62944,
+      "md5": "e31c2f8da3d43f2eb8bcc26bf0173d68",
+      "sha256": "4a85967d5420a5ac57605c2f49e85cd44455235c485657b10d33ab26139c6116",
+      "sha512": "acb1763fcf41a0a02cecb0952a33f70d25c508f7cfe15636946da40ff281cea5443c9c5649be18133feb8f33ed32009707682c55459fe69bc65c45da7f7481ab",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.1.3.jar",
       "custom": true
     },
     {

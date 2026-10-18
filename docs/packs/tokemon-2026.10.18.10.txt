@@ -1,0 +1,8 @@
+Tokemon 2026.10.18.10
+Factory GUI 0.1.3: server-provided opponent IV/EV caps, AI search budgets and BP rewards are shown before entry.
+New runs: Standard 30 BP, Normal 45 BP, Challengers 60 BP per win.
+Existing runs retain their saved rewards until they end. AP remains unchanged.
+Inventory tool import and private PC progress are preserved.
+Only the GUI artifact changes; all 45 other mods, settings, resource packs and server endpoints are preserved.
+Close the game and use KTZ Tokemon PLAY to update.
+SHA256 4a85967d5420a5ac57605c2f49e85cd44455235c485657b10d33ab26139c6116

@@ -1,0 +1,25 @@
+Tokemon pack 2026.10.18.4
+
+Factory GUI 0.1.1: fixed basic Meganium / Typhlosion / Feraligatr, IV15 EV0, no held items.
+The server supplies all three automatically. One private trained companion can replace one basic member.
+Closing/reopening or quitting/re-entering never rerolls basic members. Move display order is stable.
+Hatch into the private PC at Lv.1, use BP candy before battle, select a companion, then enter.
+
+KTZ refreshes the index before PLAY. Close an existing game and press PLAY to update.
+All 41 other Fabric mods, Java, RAM, options, resource packs, endpoints and other servers remain unchanged.
+Native download and launch-list checks are distinct from authenticated human gameplay.
+
+
+Held tools are displayed in rental cards and private PC details.
+Private BP training shop buys/equips the existing 8 BP tools at current shop prices.
+Unequipped/replaced tools stay in the private tool bag for free re-equipping.
+Physical items already in the ordinary inventory are not imported.
+
+Operator level 2 or console: /BP 지급 <online-player> <amount> [reason], /BP 회수,
+/AP 지급, /AP 회수, /BP 확인 <online-player>, /AP 확인. Lowercase bp/ap also work.
+Amounts must be positive; over-revocation is rejected; all adjustments use the durable shop audit.
+Egg grades share opponent-defeat counting: normal 7, advanced 15, legendary 30.
+Wild captures do not count. One accompanied egg progresses per factory battle.
+
+
+GUI SHA256 bfafcb5617d5b4a82ccbb9dd0356a74339f2772296a55751f8a179ec674da88e

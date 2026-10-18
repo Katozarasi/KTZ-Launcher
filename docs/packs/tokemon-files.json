@@ -515,14 +515,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-claims-0.2.0.jar",
+      "file": "tokemon-claims-0.3.0.jar",
       "id": "tokemon_claims",
-      "version": "0.2.0",
-      "size": 82846,
-      "md5": "885872f445e4d490925d67f34cf0f0fb",
-      "sha256": "afb31c689b5eea9c57c04c8bc4f9862f5d3d3e454170eec3d88edd8818b4b168",
-      "sha512": "f210a7cd37775c3a3f6c995093b3fca2d9d9e81387efbc49c93137b45257fbca0366316d51ccbdbc3a32d6cd39325f37701b1a7487bec0ee07101e1940e61dbb",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.2.0.jar",
+      "version": "0.3.0",
+      "size": 90484,
+      "md5": "c2ce342570cffe2e9af50333a990546d",
+      "sha256": "afc9f3ffe733b8bcd5ff042a2841d470a7883bc02b830774e3e83d705e676fb4",
+      "sha512": "728db3480cc5c7ad1280a83e13d2ded88835003a2b5c2553364793a1090d14fc2714142296ae2683fbd5635dd9507396a91e565930d6670796c43cd2d7b4d190",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.0.jar",
       "custom": true
     },
     {

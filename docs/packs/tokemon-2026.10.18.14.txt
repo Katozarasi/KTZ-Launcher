@@ -1,0 +1,7 @@
+Tokemon pack 2026.10.18.14
+
+Land purchase UI 0.3.0: right-clicking a chunk deed opens the Shop 0.4.0 style confirmation with coordinates, a 3x3 ownership map, one-deed cost and 30-second expiry. Boundary preview shows the actual world while retaining confirm/cancel buttons. Cancel, Escape, stale positions, changed main hand, forged sessions and repeated confirmations preserve the deed. A completed purchase opens land management. View owned chunks and coordinates, confirm shared build/use/all permissions or revocation, and toggle nearby boundaries for 30 seconds. One free chunk, at most nine chunks, and 100000 WON additional deeds are unchanged. Server-owned sessions, revisions and request IDs prevent stale or repeated edits. Existing world, player progress, shop prices and all other mods are preserved.
+
+Close Minecraft and PLAY Tokemon in KTZ to load the new client. Isolated actual two-client testing uses offline QA identities; authenticated production gameplay is not claimed.
+
+Claims SHA256 afc9f3ffe733b8bcd5ff042a2841d470a7883bc02b830774e3e83d705e676fb4

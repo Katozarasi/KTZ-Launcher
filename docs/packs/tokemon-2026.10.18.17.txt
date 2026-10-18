@@ -1,0 +1,10 @@
+Tokemon 2026.10.18.17
+Factory GUI 0.1.4: all three basic rentals rotate to different species after every resolved battle.
+24 moderate rental templates use IV15, EV0 and no held items. A trained companion stays with the player.
+All new rentals, results and BP/AP are committed together; duplicate results do not draw another party.
+Close/open, disconnect/reconnect, quit/reentry and difficulty changes retain the assigned rentals.
+A resolved loss prepares a new saved party for the next attempt. Voluntary exit without a resolved result does not reroll.
+Difficulty BP remains Standard 30 / Normal 45 / Challengers 60.
+Only the GUI artifact changes; the other 56 mods, options, Java and endpoints are preserved.
+Close the game and use KTZ Tokemon PLAY to update.
+SHA256 b25b05f4468103daec67af8072dd571183516e0f0ae738157044a0f6345b8ed1

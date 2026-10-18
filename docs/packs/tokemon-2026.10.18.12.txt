@@ -1,0 +1,7 @@
+Tokemon pack 2026.10.18.12
+
+Land management 0.2.0: /땅 opens a management screen using the Shop 0.4.0 Korean font and smooth cards. View owned chunks and coordinates, confirm shared build/use/all permissions or revocation, and toggle nearby boundaries for 30 seconds. One free chunk, at most nine chunks, and 100000 WON additional deeds are unchanged. Server-owned sessions, revisions and request IDs prevent stale or repeated edits. Existing world, player progress, shop prices and all other mods are preserved.
+
+Close Minecraft and PLAY Tokemon in KTZ to load the new client. Isolated actual two-client testing uses offline QA identities; authenticated production gameplay is not claimed.
+
+Claims SHA256 afb31c689b5eea9c57c04c8bc4f9862f5d3d3e454170eec3d88edd8818b4b168

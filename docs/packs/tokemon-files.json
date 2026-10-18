@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 46,
+  "modCount": 47,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -512,6 +512,17 @@
       "sha256": "a9282e5364dd6e88c17c3df894888b1f3fa73b761127df54231d2c93ce77cb67",
       "sha512": "6ac2275ebf36e4f47732d82bc9ee74e7554b193f7b5ff37599f16dcffcb87d69fea546a1af569c71cc98b3548f2a74104d8f072f51256cc1f12cae8d4e2578e9",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-korean-guide-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-claims-0.2.0.jar",
+      "id": "tokemon_claims",
+      "version": "0.2.0",
+      "size": 82846,
+      "md5": "885872f445e4d490925d67f34cf0f0fb",
+      "sha256": "afb31c689b5eea9c57c04c8bc4f9862f5d3d3e454170eec3d88edd8818b4b168",
+      "sha512": "f210a7cd37775c3a3f6c995093b3fca2d9d9e81387efbc49c93137b45257fbca0366316d51ccbdbc3a32d6cd39325f37701b1a7487bec0ee07101e1940e61dbb",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.2.0.jar",
       "custom": true
     }
   ]

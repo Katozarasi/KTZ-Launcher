@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.11",
+      "version": "2026.10.18.12",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2135,6 +2135,19 @@
             "size": 18140,
             "MD5": "410acf62f07d7ec0ef5443388418884a",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-korean-guide-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_claims:afb31c689b5e",
+          "name": "tokemon_claims 0.2.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 82846,
+            "MD5": "885872f445e4d490925d67f34cf0f0fb",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.2.0.jar"
           }
         }
       ]

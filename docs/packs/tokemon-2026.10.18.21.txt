@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.18.21
+
+Automatically hide the JourneyMap HUD minimap during Cobblemon battles, including minimized battle screens and spectating. Normal rendering resumes when the battle ends. Existing enabled/disabled settings and the fullscreen map are unchanged.
+
+Client-only addon: no server update or restart is required. Close the running game and PLAY Tokemon in KTZ to load it. Existing mods, settings, server address and launcher executable are preserved.
+
+Battle Minimap 0.1.0 SHA256 21052029d4daef7bfa9ce266a67ae5dfe19427095e0d3a3a6d5477f0f708f747
+
+Isolated native game verification and launcher download/list checks do not claim an authenticated production player session.

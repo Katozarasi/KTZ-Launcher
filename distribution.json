@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.20",
+      "version": "2026.10.18.21",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2356,6 +2356,19 @@
             "size": 6882356,
             "MD5": "83776d6f728fed74ece44bfe467b9cd0",
             "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-4-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_battle_minimap:21052029d4da",
+          "name": "Tokemon Battle Minimap 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 3253,
+            "MD5": "9d4e47b22e12c0aa43bf8df198e64128",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-minimap-0.1.0.jar"
           }
         }
       ]

@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 63,
+  "modCount": 64,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -700,6 +700,17 @@
       "sha256": "dc4412f243f6b6e67d6573d90125cdeb9cb254efc159f5d89c3b8b93fc807b70",
       "sha512": "0cabccd05d6f0f73e5941bddbe4792495d4e5b52e94a1d497e10f7dc984427744070ad27a48a7695eb00c91b0d32417c7b9e515266026050a869c5a286cf4392",
       "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-world-bgm-0.1.0/tokemon-world-music-assets-4-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-minimap-0.1.0.jar",
+      "id": "tokemon_battle_minimap",
+      "version": "0.1.0",
+      "size": 3253,
+      "md5": "9d4e47b22e12c0aa43bf8df198e64128",
+      "sha256": "21052029d4daef7bfa9ce266a67ae5dfe19427095e0d3a3a6d5477f0f708f747",
+      "sha512": "c805d81d697754ff01ec234491de32b5ecf87967774202972149a3ae3e6bbf189cf518843d10c3cbd56bec0323b0d5f1329db889f52834662fd03b29b0ea24ac",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-minimap-0.1.0.jar",
       "custom": true
     }
   ]

@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.18.23
+
+Add illustrated NPC dialogue in the Tokemon shop theme. Nurse Joy is the initial conversation; server-side JSON and PNG can add other NPCs without a client rebuild. Typed text, pages, choices, help and a direct scoped-shop connection are included.
+
+This addon is required on the server to activate conversations. Server installation is staged separately pending restart approval; raid progression remains held. Older servers keep the existing NPC interaction. Close the running game and PLAY Tokemon in KTZ to load it. Existing mods, settings, server address and launcher executable are preserved.
+
+NPC Dialogue 0.1.0 SHA256 c26ffcb77f1d51ccd107e4c31fac2a12b2590c9208c46be87e2e416a8fbf95c2
+
+Isolated native game verification and launcher download/list checks do not claim an authenticated production player session.

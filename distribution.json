@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.4",
+      "version": "2026.10.18.5",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2055,6 +2055,60 @@
             "size": 17487,
             "MD5": "d6dd327cc3488df928703c32fe01ac52",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-prizes-0.1.1.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:koreanpatch:dd04e88e4dbf",
+          "name": "koreanpatch 1.9.6+mc1.21",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 649989,
+            "MD5": "6c479f1ec0d443faf90f713b3cfac4d5",
+            "url": "https://cdn.modrinth.com/data/qyulnpBL/versions/IMX0mIHl/koreanpatch-fabric-1.9.6%2Bmc1.21.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:journeymap:4e820703a90d",
+          "name": "journeymap 1.21.1-6.0.9",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 4351143,
+            "MD5": "e4aa8d4bb8786e2a2ad3f70edaa9eba2",
+            "url": "https://cdn.modrinth.com/data/lfHFW1mp/versions/i7LuKuDl/journeymap-fabric-1.21.1-6.0.9.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:azoth_journeymap_icons:c643ccff5261",
+          "name": "azoth_journeymap_icons 1.8.2",
+          "type": "File",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 2884774,
+            "MD5": "bbce90ea421cdf47e3048a9f689c6e8b",
+            "url": "https://cdn.modrinth.com/data/qYjawZd1/versions/hxaKqFs6/AZOTH_JourneyMap_Icons-1.8.3.zip",
+            "path": "resourcepacks/AZOTH_JourneyMap_Icons-1.8.3.zip"
+          }
+        },
+        {
+          "id": "ktz.tokemon:sodium_translations:e733dd165333",
+          "name": "sodium_translations v8.20.0",
+          "type": "File",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 286613,
+            "MD5": "529dc8bfe6890372f4563cccfacee2e3",
+            "url": "https://cdn.modrinth.com/data/yfDziwn1/versions/zKydr9Li/SodiumTranslations.zip",
+            "path": "resourcepacks/SodiumTranslations-v8.20.0.zip"
           }
         }
       ]

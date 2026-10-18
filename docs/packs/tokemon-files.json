@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 42,
+  "modCount": 44,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -465,6 +465,32 @@
       "sha512": "ebedf5d025a7ca929f28214d3d14dc4a5718722600b58789c8d4a90bbbbcc7979976309438faa2dbc1f31c16c7ad9e9d8c735894ce82e0f03b30b88c94b9ba56",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-prizes-0.1.1.jar",
       "custom": true
+    },
+    {
+      "file": "koreanpatch-fabric-1.9.6+mc1.21.jar",
+      "id": "koreanpatch",
+      "version": "1.9.6+mc1.21",
+      "size": 649989,
+      "md5": "6c479f1ec0d443faf90f713b3cfac4d5",
+      "sha256": "dd04e88e4dbf607ad297eb228f9570af96ff34c8e1f0a06137bfd35fb69f0f12",
+      "sha512": "08f29646150fd7cfc519a119ce833cbfdf1a3ef9cae446e94de6b72c50137b202608ca13958ed3239ea9ee6f18f1be4dab87c74e0f227f0d8391ed8d53f710ee",
+      "url": "https://cdn.modrinth.com/data/qyulnpBL/versions/IMX0mIHl/koreanpatch-fabric-1.9.6%2Bmc1.21.jar",
+      "custom": false,
+      "projectId": "qyulnpBL",
+      "versionId": "IMX0mIHl"
+    },
+    {
+      "file": "journeymap-fabric-1.21.1-6.0.9.jar",
+      "id": "journeymap",
+      "version": "1.21.1-6.0.9",
+      "size": 4351143,
+      "md5": "e4aa8d4bb8786e2a2ad3f70edaa9eba2",
+      "sha256": "4e820703a90d1aad93e0090f9b9f5a57cfc51cf692c7b79d782fbe18e51f313a",
+      "sha512": "b0e110edb13fe16ecac78f6ad6d4fbadb1bedf28f406cea843cd44ff25aeea8504c7325d7776844f7d6f8d7634b8e373fe5cbb0cfd29bcfca592cbf109822138",
+      "url": "https://cdn.modrinth.com/data/lfHFW1mp/versions/i7LuKuDl/journeymap-fabric-1.21.1-6.0.9.jar",
+      "custom": false,
+      "projectId": "lfHFW1mp",
+      "versionId": "i7LuKuDl"
     }
   ]
 }

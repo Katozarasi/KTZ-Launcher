@@ -1,0 +1,73 @@
+{
+  "packVersion": "2026.10.18.5",
+  "minecraft": "1.21.1",
+  "loader": "0.18.4",
+  "additions": [
+    {
+      "file": "koreanpatch-fabric-1.9.6+mc1.21.jar",
+      "id": "koreanpatch",
+      "version": "1.9.6+mc1.21",
+      "size": 649989,
+      "md5": "6c479f1ec0d443faf90f713b3cfac4d5",
+      "sha256": "dd04e88e4dbf607ad297eb228f9570af96ff34c8e1f0a06137bfd35fb69f0f12",
+      "sha512": "08f29646150fd7cfc519a119ce833cbfdf1a3ef9cae446e94de6b72c50137b202608ca13958ed3239ea9ee6f18f1be4dab87c74e0f227f0d8391ed8d53f710ee",
+      "url": "https://cdn.modrinth.com/data/qyulnpBL/versions/IMX0mIHl/koreanpatch-fabric-1.9.6%2Bmc1.21.jar",
+      "custom": false,
+      "projectId": "qyulnpBL",
+      "versionId": "IMX0mIHl",
+      "kind": "mod",
+      "artifactPath": null
+    },
+    {
+      "file": "journeymap-fabric-1.21.1-6.0.9.jar",
+      "id": "journeymap",
+      "version": "1.21.1-6.0.9",
+      "size": 4351143,
+      "md5": "e4aa8d4bb8786e2a2ad3f70edaa9eba2",
+      "sha256": "4e820703a90d1aad93e0090f9b9f5a57cfc51cf692c7b79d782fbe18e51f313a",
+      "sha512": "b0e110edb13fe16ecac78f6ad6d4fbadb1bedf28f406cea843cd44ff25aeea8504c7325d7776844f7d6f8d7634b8e373fe5cbb0cfd29bcfca592cbf109822138",
+      "url": "https://cdn.modrinth.com/data/lfHFW1mp/versions/i7LuKuDl/journeymap-fabric-1.21.1-6.0.9.jar",
+      "custom": false,
+      "projectId": "lfHFW1mp",
+      "versionId": "i7LuKuDl",
+      "kind": "mod",
+      "artifactPath": null
+    },
+    {
+      "file": "AZOTH_JourneyMap_Icons-1.8.3.zip",
+      "id": "azoth_journeymap_icons",
+      "version": "1.8.2",
+      "size": 2884774,
+      "md5": "bbce90ea421cdf47e3048a9f689c6e8b",
+      "sha256": "c643ccff52616e9a978f91e401132910364dd7db71dacb056f75c1ce92657668",
+      "sha512": "117313b14da6a8fc9b6911d32ade04bd6f706bbfda1c5ef2d5fdf0efcb077b171fd8b7af82fb2f276ed95cf8dbb3d218770cbe31e4781af7735ca32141cf0851",
+      "url": "https://cdn.modrinth.com/data/qYjawZd1/versions/hxaKqFs6/AZOTH_JourneyMap_Icons-1.8.3.zip",
+      "custom": false,
+      "projectId": "qYjawZd1",
+      "versionId": "hxaKqFs6",
+      "kind": "resourcepack",
+      "artifactPath": "resourcepacks/AZOTH_JourneyMap_Icons-1.8.3.zip"
+    },
+    {
+      "file": "SodiumTranslations-v8.20.0.zip",
+      "id": "sodium_translations",
+      "version": "v8.20.0",
+      "size": 286613,
+      "md5": "529dc8bfe6890372f4563cccfacee2e3",
+      "sha256": "e733dd165333cf439bd443a31b8733e28d8d883a24055aff5a2f51ea9923638d",
+      "sha512": "affed4f72a476dfa7760d4cec87effd174380103df63b7c3ae3a61a4e72af6c0ec624432259f017b4eaff5855a708766007a1ce538bd440ad8fc89b85366f3ba",
+      "url": "https://cdn.modrinth.com/data/yfDziwn1/versions/zKydr9Li/SodiumTranslations.zip",
+      "custom": false,
+      "projectId": "yfDziwn1",
+      "versionId": "zKydr9Li",
+      "kind": "resourcepack",
+      "artifactPath": "resourcepacks/SodiumTranslations-v8.20.0.zip"
+    }
+  ],
+  "resourcePackActivation": "Installed into resourcepacks; enable AZOTH and Sodium Translations in Options > Resource Packs. Existing options are preserved.",
+  "iconDisplay": "JourneyMap > Options > Minimap Preset / Full Map Preset > Mob Display > Outlined Icons",
+  "upstreamNotes": {
+    "azoth": "Upstream version 1.8.2 uses the filename AZOTH_JourneyMap_Icons-1.8.3.zip. Original bytes preserved. Java ZipFile and ImageIO read all 2883 PNGs; ZIP uses nonstandard CRC/header fields.",
+    "sodium": "Existing Sodium 0.8.13 is preserved; this adds only its translation resource pack."
+  }
+}

@@ -1,0 +1,7 @@
+Tokemon pack 2026.10.18.16
+
+Land UI 0.3.1: compact centered purchase and management dialogs, responsive to window size and GUI scale. Coordinates, the ownership map, boundary preview and purchase confirmation/cancellation remain available. Spawn containers, doors, buttons and levers are public; block changes remain protected for ordinary players. Server operators automatically bypass player-land and spawn build/use protection. Private shared permissions, land ownership, one free deed, nine-chunk limit and 100000 WON extra deeds are retained.
+
+Close Minecraft and PLAY Tokemon in KTZ for the new client. Runtime checks use two rendered local offline QA identities, not Microsoft-authenticated production accounts.
+
+Claims SHA256 15767a12985c95de204673671a65708a65e12f92cdc962fe7c63cf52b8198543

@@ -1,0 +1,14 @@
+Tokemon pack 2026.10.18.2
+
+Update Tokemon Battle to 0.2.2 while preserving pack 2026.10.18.1 factory GUI and shop updates.
+Vanilla Controls now includes Tokemon Battle / Open menu with default Shift + F.
+Players can assign a key, modifier chord, or mouse button; reset and persistent settings are supported.
+Includes central stat-change notifications and seven-stat rank panels from the staged UI release.
+Gym/progression behavior, intro, fonts, and UI sounds remain present.
+Live stat updates require the matching Battle 0.2.2 server. Older clients and servers retain protocol compatibility.
+
+KTZ 3.4.2 refreshes the distribution on PLAY; no launcher executable update is required.
+The currently running game must exit and launch again through KTZ to load the new JAR.
+The other 40 client mods, loaders, resource pack, defaults, address, and other servers are unchanged.
+
+Battle SHA-256: bf20d453372d6b6c161b6f033a4061367a8a8174fa17cd5b22a63cdbe1655817

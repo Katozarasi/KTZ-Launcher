@@ -346,14 +346,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-battle-0.2.1-gymteams.1.jar",
+      "file": "tokemon-battle-0.2.2.jar",
       "id": "tokemon_battle",
-      "version": "0.2.1-gymteams.1",
-      "size": 1832183,
-      "md5": "542c5d743983e3e09fe4c916cb1d7209",
-      "sha256": "a8ebc45e1f2dfa894df6d3f9ce319c124851e396a8e01c10bf149ec53b74d02c",
-      "sha512": "1f3adcff16ba88c61f7f7a74d35f98eebebb664f020eeac96749b5ea6ea043bd9c595c5aaabb4384dcef6f9c37313a0ccf51bb1aec05f740887675a08ab6db77",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.1-gymteams.1.jar",
+      "version": "0.2.2",
+      "size": 1878914,
+      "md5": "d4c2ea1d02ea7df2f06ffb5af2920020",
+      "sha256": "bf20d453372d6b6c161b6f033a4061367a8a8174fa17cd5b22a63cdbe1655817",
+      "sha512": "0b2931563438494db22df7cda8ffeb0df7fbb1eb1f5b7e947066b85fe938579aff9ae365ad3e7a4623a8c5c1a0b06060d5b7d2c114b858c9dc18b749cab361de",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.2.jar",
       "custom": true
     },
     {

@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.1",
+      "version": "2026.10.18.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1887,16 +1887,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_battle:a8ebc45e1f2d",
-          "name": "tokemon_battle 0.2.1-gymteams.1",
+          "id": "ktz.tokemon:tokemon_battle:bf20d453372d",
+          "name": "tokemon_battle 0.2.2",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1832183,
-            "MD5": "542c5d743983e3e09fe4c916cb1d7209",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.1-gymteams.1.jar"
+            "size": 1878914,
+            "MD5": "d4c2ea1d02ea7df2f06ffb5af2920020",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.2.jar"
           }
         },
         {

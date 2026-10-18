@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.7",
+      "version": "2026.10.18.8",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2109,6 +2109,32 @@
             "MD5": "529dc8bfe6890372f4563cccfacee2e3",
             "url": "https://cdn.modrinth.com/data/yfDziwn1/versions/zKydr9Li/SodiumTranslations.zip",
             "path": "resourcepacks/SodiumTranslations-v8.20.0.zip"
+          }
+        },
+        {
+          "id": "ktz.tokemon:cobblenav:ed8bd66e590e",
+          "name": "cobblenav 2.4.2",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1146123,
+            "MD5": "58802f78ff455903f27957351901ff83",
+            "url": "https://cdn.modrinth.com/data/bI8Nt3uA/versions/wq3mHFqw/cobblenav-fabric-2.4.2.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_korean_guide:a9282e5364dd",
+          "name": "tokemon_korean_guide 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 18140,
+            "MD5": "410acf62f07d7ec0ef5443388418884a",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-korean-guide-0.1.0.jar"
           }
         }
       ]

@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 44,
+  "modCount": 46,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -491,6 +491,28 @@
       "custom": false,
       "projectId": "lfHFW1mp",
       "versionId": "i7LuKuDl"
+    },
+    {
+      "file": "cobblenav-fabric-2.4.2.jar",
+      "id": "cobblenav",
+      "version": "2.4.2",
+      "size": 1146123,
+      "md5": "58802f78ff455903f27957351901ff83",
+      "sha256": "ed8bd66e590e4716b8ff327835a646214129ef477c9c526c57df3c04e0b266f9",
+      "sha512": "13429b8fffb07fde6781405d0b8df9b4ed490a2d6b77e61a284753131a22b68b4f236daa56a873f5268d0883f2d2800f82a4f1950357d4d03394ba216424a8bc",
+      "url": "https://cdn.modrinth.com/data/bI8Nt3uA/versions/wq3mHFqw/cobblenav-fabric-2.4.2.jar",
+      "custom": false
+    },
+    {
+      "file": "tokemon-korean-guide-0.1.0.jar",
+      "id": "tokemon_korean_guide",
+      "version": "0.1.0",
+      "size": 18140,
+      "md5": "410acf62f07d7ec0ef5443388418884a",
+      "sha256": "a9282e5364dd6e88c17c3df894888b1f3fa73b761127df54231d2c93ce77cb67",
+      "sha512": "6ac2275ebf36e4f47732d82bc9ee74e7554b193f7b5ff37599f16dcffcb87d69fea546a1af569c71cc98b3548f2a74104d8f072f51256cc1f12cae8d4e2578e9",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-korean-guide-0.1.0.jar",
+      "custom": true
     }
   ]
 }

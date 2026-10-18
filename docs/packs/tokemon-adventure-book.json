@@ -1,0 +1,64 @@
+{
+  "packVersion": "2026.10.18.15",
+  "adventureVersion": "0.1.0",
+  "minecraft": "1.21.1",
+  "additions": [
+    {
+      "file": "ftb-library-fabric-2101.1.36.jar",
+      "id": "ftblibrary",
+      "version": "2101.1.36",
+      "size": 1435284,
+      "md5": "32004bfa14f20de4ac6b8ab1a155b616",
+      "sha256": "0344e19cd35c0bb6aa608343cc352c9733e400b946b52fd49beec2d7fc0406b6",
+      "sha512": "a7b4da3a7a6a0e04625bdbc487cf8dda81c0203ba683641265c2077a67add0ad0491da0abc2976beb9cd277c779a8293f9e5917bb1ffce2af1745c29c61fa773",
+      "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-library-fabric/2101.1.36/ftb-library-fabric-2101.1.36.jar",
+      "custom": false
+    },
+    {
+      "file": "ftb-quests-fabric-2101.1.36.jar",
+      "id": "ftbquests",
+      "version": "2101.1.36",
+      "size": 1607225,
+      "md5": "d9c33c9a5358f63b4e560f676a6b5e4f",
+      "sha256": "68df590b681255e11c52d1850d0dd02d3ad9a3c5d82fdb9e37312111a60ddefb",
+      "sha512": "0c298e60ddb0953751c41861ce60adfa3585a3a51757e246a826e926cd2eb96ef967f066ae2d04036e3706ec93d4397e5521d7133b791590dd9871aa6f0b66eb",
+      "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-quests-fabric/2101.1.36/ftb-quests-fabric-2101.1.36.jar",
+      "custom": false
+    },
+    {
+      "file": "ftb-teams-fabric-2101.1.11.jar",
+      "id": "ftbteams",
+      "version": "2101.1.11",
+      "size": 303801,
+      "md5": "2f7f71997eabca58ff9f937176d3a34f",
+      "sha256": "39e34b438e0232a614a8cf1269fcff2705b85fde8b930a03d558bc66a03c7cf6",
+      "sha512": "04cd51e44c3c102932804876d673cb00201ca6e36fdd224167dd09d777955e62d5d03b061be30310049c6b7a676c0a82ed581082072073ea8e5ca68101233fb7",
+      "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-fabric/2101.1.11/ftb-teams-fabric-2101.1.11.jar",
+      "custom": false
+    }
+  ],
+  "serverAdapter": {
+    "id": "tokemon_adventure",
+    "version": "0.1.0",
+    "environment": "server",
+    "clientRequired": false
+  },
+  "quests": 36,
+  "chapters": 6,
+  "guideQuests": 16,
+  "automaticQuests": 20,
+  "maximumOneTimeReward": {
+    "BP": 74,
+    "AP": 3
+  },
+  "repeatableRewards": false,
+  "commands": [
+    "/모험수첩",
+    "/모험수첩 진행",
+    "/모험수첩 보상"
+  ],
+  "progression": "Uses the server Pokedex OWNED records, actual badges, persisted Factory best streak and post-install evolution events.",
+  "existingWorldAndProgressPreserved": true,
+  "otherClientModulesPreserved": 54,
+  "serverQuestDefinitions": "Synced by FTB Quests from the server; no client world, quest progress or user options file is shipped."
+}

@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.14",
+      "version": "2026.10.18.15",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2239,6 +2239,45 @@
             "size": 9630570,
             "MD5": "bde82a29d00ee8a4a329a19bfaac12a7",
             "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-6-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:ftblibrary:0344e19cd35c",
+          "name": "FTB Library 2101.1.36",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1435284,
+            "MD5": "32004bfa14f20de4ac6b8ab1a155b616",
+            "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-library-fabric/2101.1.36/ftb-library-fabric-2101.1.36.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:ftbquests:68df590b6812",
+          "name": "FTB Quests 2101.1.36",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1607225,
+            "MD5": "d9c33c9a5358f63b4e560f676a6b5e4f",
+            "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-quests-fabric/2101.1.36/ftb-quests-fabric-2101.1.36.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:ftbteams:39e34b438e02",
+          "name": "FTB Teams 2101.1.11",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 303801,
+            "MD5": "2f7f71997eabca58ff9f937176d3a34f",
+            "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-fabric/2101.1.11/ftb-teams-fabric-2101.1.11.jar"
           }
         }
       ]

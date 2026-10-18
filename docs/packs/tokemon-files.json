@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 57,
+  "modCount": 58,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -634,6 +634,18 @@
       "sha512": "04cd51e44c3c102932804876d673cb00201ca6e36fdd224167dd09d777955e62d5d03b061be30310049c6b7a676c0a82ed581082072073ea8e5ca68101233fb7",
       "url": "https://maven.ftb.dev/releases/dev/ftb/mods/ftb-teams-fabric/2101.1.11/ftb-teams-fabric-2101.1.11.jar",
       "custom": false
+    },
+    {
+      "file": "tokemon-adventure-ui-0.1.0.jar",
+      "id": "tokemon_adventure_ui",
+      "version": "0.1.0",
+      "size": 43144,
+      "md5": "7c9203197d8848e8915ea2da515b03f1",
+      "sha256": "162e5e237440d0260faa827376195f878c8d8016126d9571c0a0a03a505f55a5",
+      "sha512": "90f80d524819d58d534d5acabcfec3d39827c07f33eaeaec89f9751e697a9b56457465f7f0deabef1d9c6226f8642d4d5b11027e2b1bb29872d42c6566a27138",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/packs/tokemon/mods/tokemon-adventure-ui-0.1.0.jar",
+      "custom": true,
+      "environment": "client"
     }
   ]
 }

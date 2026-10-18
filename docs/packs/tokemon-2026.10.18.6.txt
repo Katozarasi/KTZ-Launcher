@@ -1,0 +1,16 @@
+Tokemon pack 2026.10.18.6
+
+Factory GUI 0.1.2 + Shop 0.2.3: equip ordinary BP held tools already in the player inventory onto private factory PC Pokemon.
+Select a private Pokemon, click inventory tool equipment, select a tool and confirm.
+One item is moved, no additional BP is charged, and previous equipment stays in the private tool bag.
+Only ordinary copies with standard components are supported; custom-named/modified stacks remain untouched.
+Equipment is locked during factory runs.
+Inventory save verification, durable ledger audit and pending private PC delivery support restart/rejoin recovery.
+
+Close an already-running game, select Tokemon in KTZ, then PLAY. No launcher executable reinstall is needed.
+All other 42 mods, Korean chat/JourneyMap utilities, resource packs, Java, options and server endpoints are unchanged.
+
+tokemon_shop SHA256 bd5eb7bbff0b262b45e9a69b9322367b30e7d47fbc4b43c87a1fffaa23b49b3f
+tokemon_factory_gui SHA256 e3bd92dfc9705980f03ef64c9e20096594cb75b49140132e04f703db09e646cf
+
+Native managed-download and launch-list verification does not imply authenticated human gameplay review.

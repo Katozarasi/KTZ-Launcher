@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 40,
+  "modCount": 41,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -379,14 +379,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-shop-0.2.0.jar",
+      "file": "tokemon-shop-0.2.2.jar",
       "id": "tokemon_shop",
-      "version": "0.2.0",
-      "size": 91096,
-      "md5": "2ecf2b5a281db47a43a408eb062c73e1",
-      "sha256": "d546e96182c654a0ad26a653b85a4926630e219282efc054b8277e15d84fae3d",
-      "sha512": "1c90687d84bc4a6d625c38a352abb0e5ad40832d1d8e539cc97c4981e7ce0d57c4a7bf756fecf1b7064e7f3d97fdd6146c3712fb10f220603e7e86f365de496a",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.2.0.jar",
+      "version": "0.2.2",
+      "size": 91192,
+      "md5": "d3bc42ba2b97eb1c1595b8ea36d2c760",
+      "sha256": "7facdf339d4ebc5f5ea830c65decab61f3000def91e8811d5cb2506eaf44941e",
+      "sha512": "7bcf5e96973e07e196f077eef7c42c201fc24751998cf5d115f22caee76e6341e8a2858a1d10d74a4f30ea846556edf35bf49d70e7ff1e88f2eddda970c0ba77",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.2.2.jar",
       "custom": true
     },
     {
@@ -443,6 +443,17 @@
       "sha512": "1eadaf41f31cfebcb7f3347673eaa0463d9808a7854278be895f6712156ba9bfeda8697840aa67209c37611a54c6d4ea46204835c271bc24c7af433c2d74f725",
       "url": "https://cdn.modrinth.com/data/2V1Y86sc/versions/CBalGwUD/zamega-fabric-1.8.2%2B1.8.2.jar",
       "custom": false
+    },
+    {
+      "file": "tokemon-factory-gui-0.1.0.jar",
+      "id": "tokemon_factory_gui",
+      "version": "0.1.0",
+      "size": 51509,
+      "md5": "804f77e9139ecd4c4675bb7d2765fba7",
+      "sha256": "f934939e102e475fae1079f159f9b70a16acef1e8b3a5738253f43c29c97768d",
+      "sha512": "b4de455cca62c39e0b51776bd5fcc818bc0a7ab2219ed16633ac927d4470b68e576150f46765de5dfa06cd13bab40898ec932561738b12b160374e1148fe8620",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.1.0.jar",
+      "custom": true
     }
   ]
 }

@@ -1,0 +1,22 @@
+Tokemon pack 2026.10.18.1
+
+Add required tokemon_factory_gui 0.1.0 and replace tokemon_shop 0.2.0 with 0.2.2.
+These exact client artifacts match the installed and verified Tokemon server.
+The other 39 Fabric mods, loader, Korean resource pack, default options,
+server address, Java/RAM configuration and other servers are unchanged.
+
+KTZ 3.4.2 refreshes distribution.json before PLAY. Its existing download validator
+fetches the new content-addressed artifacts and ProcessBuilder writes only the
+current module list to --fabric.addMods @forgeMods.list. Cached old shop JARs
+are preserved in the cache but excluded from the new launch list.
+No launcher executable update or manual mod copy is required.
+
+Select Tokemon in KTZ and press PLAY after closing an already-running game.
+Use /배틀팩토리, /팩토리PC or /팩토리알 in game.
+Newly hatched Lv.1 Pokemon must be trained before battling under the current server rules.
+
+tokemon_factory_gui: f934939e102e475fae1079f159f9b70a16acef1e8b3a5738253f43c29c97768d
+tokemon_shop: 7facdf339d4ebc5f5ea830c65decab61f3000def91e8811d5cb2506eaf44941e
+
+Publishing, managed download/launch-list checks and authenticated gameplay are
+reported separately. Automated checks do not imply human gameplay review.

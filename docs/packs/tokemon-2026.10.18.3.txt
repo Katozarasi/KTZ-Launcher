@@ -1,0 +1,15 @@
+Tokemon pack 2026.10.18.3
+
+Add tokemon_prizes 0.1.1: Mega Stone Prize Box in the creative tab named 토켓몬.
+The box uses a transparent 64x64 pixel-art sprite and Minecraft's standard flat
+item/generated model. The previous staged 3D cuboid model is replaced.
+The box awards one of 92 Mega Stones with equal odds and no blank rewards.
+Item ID: tokemon_prizes:mega_stone_box
+Operator command: /메가박스 지급 [player] [1-64]
+
+Existing 41 Fabric mods, loader, Korean pack, default options, server address,
+Java/RAM settings and other launcher servers are preserved.
+KTZ refreshes distribution.json before PLAY and downloads the content-addressed JAR.
+Close the running game and press PLAY again to load the new artifact.
+The server also requires tokemon-prizes-0.1.1.jar and a restart to register the item.
+Publishing, server activation, client download and human gameplay are tracked separately.

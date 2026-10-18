@@ -1,0 +1,7 @@
+Tokemon 2026.10.19.1
+
+Approved portraits and skins for eight gyms and twelve shop NPCs. Native shop category IDs, prices, balances and trainer teams are preserved. Gym conversations delegate to the existing NPC challenge handler. Server-provided portraits keep original assets archived.
+
+Shop 0.4.4 / NPC Dialogue 0.2.0. The selected Valerie skin is awaiting its unavailable source PNG; its approved portrait is included and no substitute skin is installed.
+
+Close Minecraft and press Tokemon PLAY in KTZ to load these updates. Operational installation and native QA are recorded separately; no authenticated production player session is claimed.

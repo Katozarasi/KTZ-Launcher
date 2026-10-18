@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.18.23",
+      "version": "2026.10.19.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1926,16 +1926,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_shop:5cc98e3e6c64",
-          "name": "tokemon_shop 0.4.1",
+          "id": "ktz.tokemon:tokemon_shop:bd62bd784414",
+          "name": "토켓몬 상점 0.4.4",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1751666,
-            "MD5": "597a41fcd2c1415ce126114e8f122e80",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.1.jar"
+            "size": 1768214,
+            "MD5": "ecdb366e46e4ba47c1f609013f5b380b",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.4.jar"
           }
         },
         {
@@ -2372,16 +2372,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_dialogue:c26ffcb77f1d",
-          "name": "토켓몬 NPC 대화 0.1.0",
+          "id": "ktz.tokemon:tokemon_dialogue:571c1c6e8dee",
+          "name": "토켓몬 NPC 대화 0.2.0",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1065538,
-            "MD5": "277a5e2b2e69b776b356e30f1c5613e8",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-dialogue-0.1.0.jar"
+            "size": 1079996,
+            "MD5": "9e31ff49b3b3c395ed9e70e4a173ecd1",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-dialogue-0.2.0.jar"
           }
         }
       ]

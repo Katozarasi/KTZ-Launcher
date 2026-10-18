@@ -379,14 +379,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-shop-0.4.1.jar",
+      "file": "tokemon-shop-0.4.4.jar",
       "id": "tokemon_shop",
-      "version": "0.4.1",
-      "size": 1751666,
-      "md5": "597a41fcd2c1415ce126114e8f122e80",
-      "sha256": "5cc98e3e6c64fc5a25664f4882ad167b7e49df69eb76ef07cbf2cc8c146cb74e",
-      "sha512": "d555cdee3d75208c426d56e312515908eeed55315ccba3f431c93f732fa1ed5df507ddc0df9f22d41c3ef6f5be65450564a7dc0037e9ca432d28f1257e813440",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.1.jar",
+      "version": "0.4.4",
+      "size": 1768214,
+      "md5": "ecdb366e46e4ba47c1f609013f5b380b",
+      "sha256": "bd62bd7844149f4b857ff1f84670b4ca841c8daf1a73b7cda9fa2cf479eaf9fd",
+      "sha512": "691b0daac28a2bea24ee2e7cfdfda7ce472f9135686abdd4db146d309350ab36acd67631f0aa69b43d5025786c9f44ba62d0c618fec28f2019282c21f81fa393",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.4.jar",
       "custom": true
     },
     {
@@ -714,14 +714,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-dialogue-0.1.0.jar",
+      "file": "tokemon-dialogue-0.2.0.jar",
       "id": "tokemon_dialogue",
-      "version": "0.1.0",
-      "size": 1065538,
-      "md5": "277a5e2b2e69b776b356e30f1c5613e8",
-      "sha256": "c26ffcb77f1d51ccd107e4c31fac2a12b2590c9208c46be87e2e416a8fbf95c2",
-      "sha512": "353a8c970292c99abe9cec6947fa36feb6938b84a5cdbf1510399e9a8fa9c29f0076cd6897e65da3ac61996d77fa8c08cf9f6c68e654da62f88bf5366a0e1f55",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-dialogue-0.1.0.jar",
+      "version": "0.2.0",
+      "size": 1079996,
+      "md5": "9e31ff49b3b3c395ed9e70e4a173ecd1",
+      "sha256": "571c1c6e8dee8f356beed1ad56ab1720d6b99fc120ba4645cc0a72aa312c394a",
+      "sha512": "f86026c0b5b328160178dd5d56fe94f9693bdee590bd9cfe47badc230cd8c23417650239be7734d788cc949377f49035cc3a363f1e8a8a9ca4b4b5e322c717a6",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-dialogue-0.2.0.jar",
       "custom": true
     }
   ]

@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 47,
+  "modCount": 54,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -523,6 +523,83 @@
       "sha256": "afb31c689b5eea9c57c04c8bc4f9862f5d3d3e454170eec3d88edd8818b4b168",
       "sha512": "f210a7cd37775c3a3f6c995093b3fca2d9d9e81387efbc49c93137b45257fbca0366316d51ccbdbc3a32d6cd39325f37701b1a7487bec0ee07101e1940e61dbb",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.2.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-0.1.0.jar",
+      "id": "tokemon_battle_music",
+      "version": "0.1.0",
+      "size": 20533,
+      "md5": "3e836db413cc7cf27ea6c4492b508525",
+      "sha256": "658980b9a71dd50c4c8f81973f2f13a19288cd2304ce0b65bfa5d36a9caa2a61",
+      "sha512": "569a77f7d27ec1d264898835190c60cc0f86eaff313efdb364dddcf6707564303eb69b64fa4601fcefcb8de0df8ca4f66af55be866489e158bdd60042fd30936",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-assets-1-0.1.0.jar",
+      "id": "tokemon_battle_music_assets_1",
+      "version": "0.1.0",
+      "size": 57202042,
+      "md5": "5dea20583dbe98c5180678b1d12847aa",
+      "sha256": "3c7088ae2684748c6064dcfeeb090d1bd759c4f39f2869bcb29ceb0eb8f26d13",
+      "sha512": "1b08ced2d6f844368f702e26b039855b64b237bf27e694eaa715430ebd6c320f51dccec51a319256e65a0b0a7ed1b6f1a1e54f07ebf41fd7dcb6fdc637e32bdd",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-1-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-assets-2-0.1.0.jar",
+      "id": "tokemon_battle_music_assets_2",
+      "version": "0.1.0",
+      "size": 55021248,
+      "md5": "e1e60cd8465318e83ba64d21225dfedc",
+      "sha256": "73bde657898e1522a6136576b568b6ebbd00700c095433199b76444fc57ed08e",
+      "sha512": "31ae4f197b720bc0ae4a68760d5be74283ca0c3c7b87e3b770f54a6965fe2b2e34967a71d8d3204e2046e608a92ecdc0f0660bb34ebcbe276e071604a6f9687c",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-2-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-assets-3-0.1.0.jar",
+      "id": "tokemon_battle_music_assets_3",
+      "version": "0.1.0",
+      "size": 54165242,
+      "md5": "8098b1e5650a5a93e40fece72a657d10",
+      "sha256": "9d9184c60f831c41e353f38e42d8524e98b9ffa0d1056a14830ed67b261f7ec7",
+      "sha512": "4198e750dc4b5f30d8e11d154204b94dc80b6dd6b51c9c1fde1b995309ee9da615a0cc3969618f427394e625b2979ab8d312eeaba344f1d4fbc02415c8fc7e18",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-3-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-assets-4-0.1.0.jar",
+      "id": "tokemon_battle_music_assets_4",
+      "version": "0.1.0",
+      "size": 57533992,
+      "md5": "5e07f1f0eb6c945e7227f4da133611ce",
+      "sha256": "b861ed1cd7281a0d7ad0d7bade09174fcc466dff6f168732f502a2e28a4c05ac",
+      "sha512": "2ef44a107a079f50899edb491b31e612ad5b652a21a42be25d3340229c45b758a96266666335bb4e5bbe9549b6c7d9fc7d77f66f3ed2ed79d88d34897e598e04",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-4-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-assets-5-0.1.0.jar",
+      "id": "tokemon_battle_music_assets_5",
+      "version": "0.1.0",
+      "size": 55549073,
+      "md5": "f362ed818cf13d7d38548e31bba22860",
+      "sha256": "44d4132a45386361d85c71303066fb78e720c3da4c886fbb35daee6cd8f7ffb2",
+      "sha512": "4669213fa3757e5fc62720a579a36725fdfb1a12a806b3996b85a715a5f1485b7fac58a32c20da7a18b626be2d3b838b93de2ee0ed99247a8ba369232341a457",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-5-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-battle-music-assets-6-0.1.0.jar",
+      "id": "tokemon_battle_music_assets_6",
+      "version": "0.1.0",
+      "size": 9630570,
+      "md5": "bde82a29d00ee8a4a329a19bfaac12a7",
+      "sha256": "acd8cbaf48cdc0d2dcbe499ab233c410c1b1afee51a9efa8dc8011b3a56d89b7",
+      "sha512": "2b8e03f1dfa7c1a917671c075bf344a2a8097b5b8c04de8f80de9d1178c5578b784633312652d967ff1e46553c6b4cdbb8e3371dedfc75094a81765a4caedf56",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/tokemon-bgm-0.1.0/tokemon-battle-music-assets-6-0.1.0.jar",
       "custom": true
     }
   ]

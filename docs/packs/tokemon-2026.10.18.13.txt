@@ -1,0 +1,10 @@
+Tokemon pack 2026.10.18.13
+
+74 battle songs from the two selected playlists, uniformly random initial selection and another random song at audio completion. The preceding song cannot repeat immediately. Korean now-playing title appears at the top for 5 seconds.
+Native wild/NPC/PvP battles share the same client lifecycle, covering gyms, matchmaking, factory, tower and Raid Dens. Existing battle music packets are replaced. Ordinary field music resumes when battle music fades.
+Music & Sounds includes a Battle Sound slider with default volume 30%. It operates independently of ordinary music and is saved per client; master volume still applies.
+Client commands: /배틀음악 켜기, /배틀음악 끄기, /배틀음악 음량 0..100, /배틀음악 알림 켜기|끄기.
+
+Close Minecraft and PLAY Tokemon to download the seven required music modules. No KTZ executable reinstall is needed. Login, Java, game options, server address, all existing mods, worlds and player data are preserved.
+
+Audio and isolated native runtime QA are recorded separately from authenticated production-player listening.

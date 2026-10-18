@@ -1,0 +1,11 @@
+Tokemon pack 2026.10.18.19
+
+Shop 0.4.1 reduces the shop to a compact seven-column, three-row catalog on wide screens. Cards, item icons and Korean text are smaller; the search field shares the controls row. Small windows adapt their column count.
+NPC category scope and delete/admin functions are preserved. Prices, balances, stock policy, factory/rewards and all unrelated modules remain unchanged.
+
+This is a client layout and font update. It uses the existing Shop 0.4.0 server and protocol; no server restart is required.
+Close the running game and PLAY Tokemon in KTZ to load the new client. No launcher executable reinstall is needed.
+
+Shop SHA256 5cc98e3e6c64fc5a25664f4882ad167b7e49df69eb76ef07cbf2cc8c146cb74e
+
+Isolated native game QA and launcher download/list checks do not claim an authenticated production player trade.

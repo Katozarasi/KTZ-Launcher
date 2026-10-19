@@ -2398,16 +2398,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_pokemon_boxes:25f3def008b8",
-          "name": "tokemon_pokemon_boxes 0.1.0",
+          "id": "ktz.tokemon:tokemon_pokemon_boxes:c49a473c7b61",
+          "name": "tokemon_pokemon_boxes 0.1.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 35353,
-            "MD5": "95dd77ad01feee2bb6f908e3d3e3c0be",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.0.jar"
+            "size": 87839,
+            "MD5": "40337ea31291f9430c3481c18909aa3b",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.1.jar"
           }
         }
       ]

@@ -736,14 +736,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-pokemon-boxes-0.1.0.jar",
+      "file": "tokemon-pokemon-boxes-0.1.1.jar",
       "id": "tokemon_pokemon_boxes",
-      "version": "0.1.0",
-      "size": 35353,
-      "md5": "95dd77ad01feee2bb6f908e3d3e3c0be",
-      "sha256": "25f3def008b811e94d2c3bbfd65bd8ffd4448fa0522b499de3b01356072bc804",
-      "sha512": "1ad2bfd8e848dc68892c580814ddef3192c29d762913ac23f3068bf4a64c3a84a1a34d1d342e52b1a33cfa2a1e4e52b4ea23989952cd0ec686b4a3f60ed516c5",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.0.jar",
+      "version": "0.1.1",
+      "size": 87839,
+      "md5": "40337ea31291f9430c3481c18909aa3b",
+      "sha256": "c49a473c7b61864c13417f9a528fb85771926b1b8e12a6c47840640a65312e58",
+      "sha512": "9fe7599b39fdfd23a57f84e63af38c088a1205520e6e63ef9eb70bad4bd2bd1d245ec8664df55d4d7f365d4a3dba5e3433fbb3f5803000d2126c6c718dff71c4",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.1.jar",
       "custom": true
     }
   ]

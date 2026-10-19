@@ -7,9 +7,9 @@ const checked=read('C:/codex/Projects/Tokemon/reports/pokemon-boxes-20261020/can
 assert.equal(checked.status,'QA_PASSED_READY_FOR_APPROVAL');assert.equal(checked.newbiePool,27);assert.equal(checked.devilPool,113)
 assert(checked.nativeChecks>=483&&checked.restartChecks>=22&&checked.extraChecks>=11&&checked.nativeRendererVerified)
 const bytes=fs.readFileSync(checked.jar),zip=new AdmZip(bytes),meta=JSON.parse(zip.readAsText('fabric.mod.json'))
-assert.equal(hash(bytes),checked.sha256);assert.equal(meta.id,'tokemon_pokemon_boxes');assert.equal(meta.version,'0.1.0');assert.equal(meta.environment,'*')
+assert.equal(hash(bytes),checked.sha256);assert.equal(meta.id,'tokemon_pokemon_boxes');assert.equal(meta.version,'0.1.1');assert.equal(meta.environment,'*');assert.equal(checked.itemStyle,'flat-128px')
 assert(!zip.getEntries().some(e=>/pokemonboxesqa|PoolRulesTest|(^|\/)qa\//.test(e.entryName)))
-for(const item of ['newbie_box','devil_box'])assert(JSON.parse(zip.readAsText('assets/tokemon_pokemon_boxes/models/item/'+item+'.json')).elements.length>10)
+for(const item of ['newbie_box','devil_box']){const model=JSON.parse(zip.readAsText('assets/tokemon_pokemon_boxes/models/item/'+item+'.json')),png=zip.readFile('assets/tokemon_pokemon_boxes/textures/item/'+item+'.png');assert.equal(model.parent,'minecraft:item/generated');assert.equal(model.elements,undefined);assert.equal(png.readUInt32BE(16),128);assert.equal(png.readUInt32BE(20),128)}
 const files=['distribution.json','docs/packs/tokemon-files.json'],original=files.map(f=>fs.readFileSync(path.join(root,f)))
 const before=JSON.parse(original[0]),inventoryBefore=JSON.parse(original[1]),distro=structuredClone(before),inventory=structuredClone(inventoryBefore)
 const server=distro.servers.find(s=>s.id==='tokemon'),old=before.servers.find(s=>s.id==='tokemon')

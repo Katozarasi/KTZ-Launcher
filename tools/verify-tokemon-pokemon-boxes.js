@@ -10,6 +10,8 @@ const added=server.modules.at(-1),bytes=fs.readFileSync(root+'/files/mods/tokemo
 assert.equal(mod.sha256,staged.changes[0].record.sha256);assert.equal(hash(bytes),mod.sha256);assert.equal(hash(bytes,'md5'),mod.md5);assert.equal(hash(bytes,'sha512'),mod.sha512);assert.equal(bytes.length,mod.size)
 assert.equal(added.artifact.url,mod.url);assert.equal(added.artifact.size,mod.size);assert.equal(added.artifact.MD5,mod.md5);assert.equal(added.required.value,true)
 const zip=new AdmZip(bytes),meta=JSON.parse(zip.readAsText('fabric.mod.json'));assert.equal(meta.id,mod.id);assert.equal(meta.version,mod.version);assert.equal(meta.environment,'*')
+assert.equal(meta.version,'0.1.1')
+for(const item of ['newbie_box','devil_box']){const model=JSON.parse(zip.readAsText('assets/tokemon_pokemon_boxes/models/item/'+item+'.json')),png=zip.readFile('assets/tokemon_pokemon_boxes/textures/item/'+item+'.png');assert.equal(model.parent,'minecraft:item/generated');assert.equal(model.elements,undefined);assert.equal(png.readUInt32BE(16),128);assert.equal(png.readUInt32BE(20),128)}
 assert(!zip.getEntries().some(e=>/pokemonboxesqa|PoolRulesTest|(^|\/)qa\//.test(e.entryName)))
 const lang=JSON.parse(zip.readAsText('assets/tokemon_pokemon_boxes/lang/ko_kr.json'))
 assert.equal(lang['item.tokemon_pokemon_boxes.newbie_box'],'뉴비 포켓몬 랜덤 상자');assert.equal(lang['item.tokemon_pokemon_boxes.devil_box'],'악마의 포켓몬 랜덤 상자')

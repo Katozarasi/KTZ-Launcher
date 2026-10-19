@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.19.4",
+      "version": "2026.10.19.5",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2385,16 +2385,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_quests:dabb4be0b1ae",
-          "name": "토켓몬 퀘스트 · 카박사 0.1.0",
+          "id": "ktz.tokemon:tokemon_quests:999e03c9b093",
+          "name": "토켓몬 퀘스트 · 관리 화면·초기화 수정 0.1.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 165716,
-            "MD5": "7beaecac37820ff7efe5d0b7bbe5500b",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.0.jar"
+            "size": 166739,
+            "MD5": "84ab3fc22c6963796079b784cd1fe895",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.1.jar"
           }
         }
       ]

@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 66,
+  "modCount": 67,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -733,6 +733,17 @@
       "sha256": "999e03c9b0932d7959ddace0376156b50a3f30d36a9d9c2b31ab7c8d9d2edb44",
       "sha512": "eb62408c835498c16093fff4a488a3926f98bbe556266e84abf6745cb62cbd7d4e12222ba87bded7f15181d60e65957e7580304cce1d7b64af8e701527bee3d5",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.1.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-pokemon-boxes-0.1.0.jar",
+      "id": "tokemon_pokemon_boxes",
+      "version": "0.1.0",
+      "size": 35353,
+      "md5": "95dd77ad01feee2bb6f908e3d3e3c0be",
+      "sha256": "25f3def008b811e94d2c3bbfd65bd8ffd4448fa0522b499de3b01356072bc804",
+      "sha512": "1ad2bfd8e848dc68892c580814ddef3192c29d762913ac23f3068bf4a64c3a84a1a34d1d342e52b1a33cfa2a1e4e52b4ea23989952cd0ec686b4a3f60ed516c5",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.0.jar",
       "custom": true
     }
   ]

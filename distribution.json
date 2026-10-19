@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.19.6",
+      "version": "2026.10.20.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2395,6 +2395,19 @@
             "size": 166739,
             "MD5": "84ab3fc22c6963796079b784cd1fe895",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.1.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_pokemon_boxes:25f3def008b8",
+          "name": "tokemon_pokemon_boxes 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 35353,
+            "MD5": "95dd77ad01feee2bb6f908e3d3e3c0be",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.0.jar"
           }
         }
       ]

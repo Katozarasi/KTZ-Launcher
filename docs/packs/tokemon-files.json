@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 65,
+  "modCount": 66,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -401,14 +401,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-starterbox-0.2.0.jar",
+      "file": "tokemon-starterbox-0.3.0.jar",
       "id": "tokemon_starterbox",
-      "version": "0.2.0",
-      "size": 44994,
-      "md5": "baf91d3dd2f333a1062e4858a39e1ef0",
-      "sha256": "7d2f9e71ee2162c7e01ff314826e4ae2d95c3ffc5d767a9d9107c285b6aabb87",
-      "sha512": "055e84ed4d9e404e299404980f6b5c813790e29ab1351def886ddd9cbfa48086977ba559997ec706cacca270f6bae698e45ce93a6311fca8086caa1962e7a93a",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.2.0.jar",
+      "version": "0.3.0",
+      "size": 39737,
+      "md5": "494e6e3195277e98d0afbbfce35a00f7",
+      "sha256": "903541e11acf2c2a7cb826178c214c49d8e66cee9eb10d3e5e62b401a2f71a53",
+      "sha512": "70655c71554865c1d1ccb52aac86a37a8d6c1ab7948e6f60eff259b2cfab93e9bc3978594eb4444206a7d62279bb688a79f2b971ed169145ae51505a4f376d29",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.3.0.jar",
       "custom": true
     },
     {
@@ -722,6 +722,17 @@
       "sha256": "571c1c6e8dee8f356beed1ad56ab1720d6b99fc120ba4645cc0a72aa312c394a",
       "sha512": "f86026c0b5b328160178dd5d56fe94f9693bdee590bd9cfe47badc230cd8c23417650239be7734d788cc949377f49035cc3a363f1e8a8a9ca4b4b5e322c717a6",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-dialogue-0.2.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-quests-0.1.0.jar",
+      "id": "tokemon_quests",
+      "version": "0.1.0",
+      "size": 165716,
+      "md5": "7beaecac37820ff7efe5d0b7bbe5500b",
+      "sha256": "dabb4be0b1ae2568a9a9940ff7313c6dc7417e594f8a3a9ed030f1b2cc79e91d",
+      "sha512": "3ddf9c8d3bd5f3ff5df91f7c869004a4f5b2561489a77849aa02f237fa1122ab37d4b287338825e10b87d46fe481844519a78424fdd4be9c535466c922aab3cc",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.0.jar",
       "custom": true
     }
   ]

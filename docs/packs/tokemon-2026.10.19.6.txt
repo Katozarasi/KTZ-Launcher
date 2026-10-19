@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.19.6
+
+Battle 0.2.5 fixes battle type cards and effectiveness labels to follow the current publicly visible form and active Terastallization. Crowned Zacian, regional and appliance forms, Mega forms, and public in-battle type changes use the same defensive typing source. Stellar retains its existing defensive types. Selecting a tera option does not count as activation; native battle events control updates.
+
+Close Minecraft and PLAY Tokemon in KTZ to load the client update. The public current-type snapshot becomes available after the operator next normally restarts the server and its staged battle update is applied. Existing field hazard displays, larger gimmick buttons, menu shortcuts, saved data, settings and all other modules are preserved.
+
+Battle 0.2.5 SHA256 eab31b3487ea8814270b14f809ddfb10ca6dda3bd7507f533a709b7df4b53d6a
+
+Verified with the installed species/form registry, battle engine oracle, and isolated native two-client battles. Authenticated production player gameplay is not claimed.

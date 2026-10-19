@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.19.2",
+      "version": "2026.10.19.3",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1887,16 +1887,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_battle:bf20d453372d",
-          "name": "tokemon_battle 0.2.2",
+          "id": "ktz.tokemon:tokemon_battle:8218d3e27109",
+          "name": "tokemon_battle 0.2.3",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1878914,
-            "MD5": "d4c2ea1d02ea7df2f06ffb5af2920020",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.2.jar"
+            "size": 1879687,
+            "MD5": "6242a6143626293e7ba9e6072d8f0983",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.3.jar"
           }
         },
         {

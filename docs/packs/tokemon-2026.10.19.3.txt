@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.19.3
+
+Battle 0.2.3 adds Quest and Battle Factory shortcuts to the Shift+F menu. Existing navigation, configurable menu keys, battle features and other mods are preserved.
+
+Only client menu classes changed; server classes, protocol, dependencies and entrypoints are unchanged. No server update or restart is required. Close the running game and PLAY Tokemon in KTZ to load it.
+
+Battle 0.2.3 SHA256 8218d3e271090c971c6b9b171edb676300116264eeb912ad5c1b278278cbd2d1
+
+Isolated native game verification and launcher download/list checks do not claim an authenticated production player session.

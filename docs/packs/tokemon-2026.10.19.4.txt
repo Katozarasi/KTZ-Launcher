@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.19.4
+
+Battle 0.2.4 enlarges the Mega Evolution, Terastallization, Z-Move and Dynamax buttons and click targets by 25 percent, with matching spacing. Both battle sides show Stealth Rock, Spikes, Toxic Spikes and Sticky Web, including layer counts, removal and side swaps. Existing menu shortcuts, configurable menu keys, battle actions, saved data and other mods are preserved.
+
+Close the running game and PLAY Tokemon in KTZ to load the client update. Field hazards become available after the operator next normally restarts the server and its staged battle update is applied. This launcher publication does not restart or alter the running server. Network serialization, dependencies and entrypoints remain unchanged; public snapshot JSON gains optional field data.
+
+Battle 0.2.4 SHA256 68739714cb38a730a409fa0027cf5511a035950203b809be05b6486f42caff2a
+
+Isolated native game verification and launcher download/list checks do not claim an authenticated production player session.

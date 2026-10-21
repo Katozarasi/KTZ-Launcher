@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.21.9
+
+Battle 0.2.8 removes the standalone Trainer card from the Shift+F main menu and closes the gap by moving Battle Factory and Quests forward. The Battle / Trainer sidebar, warp and land navigation, command routing and existing functionality remain unchanged.
+
+This is a client-only menu update. No server update or restart is required. Close Minecraft and PLAY Tokemon in KTZ to load the new menu.
+
+Battle 0.2.8 SHA256 64d406419d1308ebdfd67140d205ecd2f102e4eee5001ab68cca8705e38de4bf
+
+Verified by the existing screen regressions, rendered native menu and actual Battle Factory / Quest navigation on the unchanged 0.2.6 server. Authenticated production player gameplay is not claimed.

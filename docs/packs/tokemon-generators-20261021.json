@@ -25,7 +25,10 @@
       "custom": true
     }
   ],
-  "serverStatus": "APPROVED_NEXT_RESTART",
+  "serverStatus": "APPLIED_ON_SEPARATE_NORMAL_START",
+  "serverStartedByThisDeploymentTask": false,
+  "separateNormalStartupObservedAt": "2026-10-21T19:56:56+09:00",
+  "serverModLoadObserved": true,
   "prices": {
     "apiary": 100000,
     "sculk_generator": 60000

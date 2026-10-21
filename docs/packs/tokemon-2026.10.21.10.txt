@@ -1,0 +1,11 @@
+Tokemon pack 2026.10.21.10
+
+Battle 0.2.9 displays the owner's current battle speed using the native engine, including individual stats, battle level, stages, paralysis, held items, abilities and Tailwind. Opponents retain a public basic estimate; exact private opposing stats are never transmitted.
+
+Protean, Libero, Water Tera and Grass Tera defensive types and weaknesses/resistances/immunities were checked through actual native battles on two isolated clients. Existing type-handling classes remain unchanged.
+
+Relaunch Minecraft through KTZ for this client update. The new speed service is staged separately for the operator's next normal server start; the running production server was not restarted. Older servers retain a clearly labelled basic-speed fallback. Menus, user settings and existing stored data are unchanged.
+
+Battle 0.2.9 SHA256 010fa1b8bb415c7d5b2dc3b3349b715d5139e2397260975f4b85064ff5115e62
+
+Isolated native gameplay and engine regressions passed. Authenticated production player gameplay is not claimed.

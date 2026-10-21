@@ -1,9 +1,12 @@
-Tokemon pack 2026.10.21.7
+토켓몬 2026.10.21.7
 
-Battle 0.2.7 adds Land Management directly below Warp in the Shift+F navigation. The button opens the existing /땅 management screen, using the same font, rounded navigation card and Cobblemon GUI click sound. It is also available while viewing the Warp menu.
+양봉장과 스컬크 생성기를 기존 '토켓몬' 크리에이티브 탭에 추가합니다.
+설치 한도 등으로 설치가 거부될 때 아이템이 사라져 보이는 현상을 수정합니다.
+가격(양봉장 100,000원 / 스컬크 60,000원), 각 2개 제한, 포켓몬 등급과 생산 규칙은 유지합니다.
 
-This is a client-only menu update. All server classes, protocols, claims rules and stored land/home data are unchanged. The installed Battle 0.2.6 server already supports the existing /땅 command; no server restart is required for this menu addition. Close Minecraft and PLAY Tokemon in KTZ to load the client update.
+Minecraft를 종료한 뒤 KTZ 토켓몬 → PLAY로 클라이언트를 갱신하세요.
+운영 서버는 재시작하지 않으며 서버 수정본은 다음 정상 시작 때 적용됩니다.
+기존 월드·포켓몬·상점 잔액·다른 모드와 런처 설정은 유지합니다.
 
-Battle 0.2.7 SHA256 54655ab70cf03d3ea15ef5c5fde52d0f2d20bb03c7e4909c4d2ecf2f31010ebe
-
-Verified with real Shift+F input, native clicks from the main and warp menus, the unchanged 0.2.6 server and real claims management screen, preserved land ledger and GUI sound. Existing regression checks pass. Authenticated production player gameplay is not claimed.
+검증: 빌드, 핵심 검사 87개, 격리 실제 아이템 탭 레지스트리 확인, 다음 시작 업데이트 안전성 검사 10개. 새 탭의 렌더링 화면은 이 검사에 포함하지 않습니다.
+tokemon-generators-1.0.2.jar SHA256 643edf13462440da1167f80662f423a47fb4776850422dbd0077b6deb860092b

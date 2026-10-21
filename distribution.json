@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.20.1",
+      "version": "2026.10.21.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1952,16 +1952,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_starterbox:903541e11acf",
-          "name": "스타팅 랜덤박스 0.3.0",
+          "id": "ktz.tokemon:tokemon_starterbox:89576c1091de",
+          "name": "tokemon_starterbox 0.4.0",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 39737,
-            "MD5": "494e6e3195277e98d0afbbfce35a00f7",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.3.0.jar"
+            "size": 41171,
+            "MD5": "c56516dc72e3dabfce08f8d2ab1e029e",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.4.0.jar"
           }
         },
         {
@@ -2385,29 +2385,55 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_quests:999e03c9b093",
-          "name": "토켓몬 퀘스트 · 관리 화면·초기화 수정 0.1.1",
+          "id": "ktz.tokemon:tokemon_quests:824dfd62a060",
+          "name": "tokemon_quests 0.2.0",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 166739,
-            "MD5": "84ab3fc22c6963796079b784cd1fe895",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.1.jar"
+            "size": 200747,
+            "MD5": "7e7f3443f2be063bb44732698ffbc233",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.2.0.jar"
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_pokemon_boxes:c49a473c7b61",
-          "name": "tokemon_pokemon_boxes 0.1.1",
+          "id": "ktz.tokemon:pokebike:ca3635e6b472",
+          "name": "PokeBike 4.0",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 87839,
-            "MD5": "40337ea31291f9430c3481c18909aa3b",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.1.1.jar"
+            "size": 1003847,
+            "MD5": "3b70385c5976fc533406bace547af581",
+            "url": "https://cdn.modrinth.com/data/8eqU62OI/versions/AK9vIaHl/pokebike-fabric-4.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_pokebike_korean:b2065bb679a7",
+          "name": "포케바이크 한국어 · 단축키 충돌 방지",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 6623,
+            "MD5": "777ea52bff3342c585103c2e24be046a",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokebike-korean-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_pokemon_boxes:16244bdc527b",
+          "name": "tokemon_pokemon_boxes 0.2.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 73555,
+            "MD5": "64daaa51e2e4d96b0408f4d47c85d4ae",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.2.0.jar"
           }
         }
       ]

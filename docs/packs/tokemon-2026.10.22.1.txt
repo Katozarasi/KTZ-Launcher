@@ -1,0 +1,11 @@
+Tokemon pack 2026.10.22.1
+
+Adds the Shift+F card flea market: seven cards per row, no categories, name search and price sorting. Only Pokemon cards may be listed, with at most three active listings per player and no cards with three or more natural perfect IVs. Listings expire after 24 real hours; expired or cancelled cards remain in custody until the owner presses Reclaim. Full inventories retain custody. Native Pokemon forms and shiny appearances are rendered on cards.
+
+Uses existing WON accounts with confirmation and replay-safe payment. Basic Cobblemon trading and card transfers through drops, foreign containers, backpacks, hoppers and droppers are blocked; own-land chests and death preservation are supported.
+
+Relaunch Minecraft through KTZ to load the client. The server component is staged separately for the next normal server start. The running production server was not restarted. Existing mods, other server packs and player settings are preserved.
+
+Market 0.1.0 SHA256 8cef3e9193ab4acb59dad69bd2aea2d4858cd686eb350ab170019478768b6b53
+
+Verified by 37 ledger checks, 38 isolated native checks for each of two dependency combinations, eight installer checks, rendered UI checks and client/server purchase, registration, reclaim and restart-custody scenarios. The 24-hour expiry boundary was advanced in the disposable test fixture; no 24-hour wall-clock wait or authenticated production-player gameplay is claimed.

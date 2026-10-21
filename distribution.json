@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.21.10",
+      "version": "2026.10.22.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2460,6 +2460,19 @@
             "size": 38339,
             "MD5": "4d55105ee538452a848bf79eb578688e",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-daily-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_market:8cef3e9193ab",
+          "name": "tokemon_market 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 74108,
+            "MD5": "bfc013eba7f3a37be92abe6286fedabe",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-market-0.1.0.jar"
           }
         }
       ]

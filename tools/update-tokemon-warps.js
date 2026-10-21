@@ -63,18 +63,18 @@ const actualAdded = newEntries.filter(name => !oldEntries.includes(name))
 const actualRemoved = oldEntries.filter(name => !newEntries.includes(name))
 const actualChanges = newEntries.filter(name => oldEntries.includes(name) && !archive.readFile(name).equals(oldArchive.readFile(name)))
 const allowedAdded = [
-    "dev/tokemon/battle/core/WarpHomeStore$Home.class",
-    "dev/tokemon/battle/core/WarpHomeStore$Point.class",
-    "dev/tokemon/battle/core/WarpHomeStore$State.class",
-    "dev/tokemon/battle/core/WarpHomeStore.class",
-    "dev/tokemon/battle/server/WarpService.class"
+    'dev/tokemon/battle/core/WarpHomeStore$Home.class',
+    'dev/tokemon/battle/core/WarpHomeStore$Point.class',
+    'dev/tokemon/battle/core/WarpHomeStore$State.class',
+    'dev/tokemon/battle/core/WarpHomeStore.class',
+    'dev/tokemon/battle/server/WarpService.class'
 ]
 const allowedChanges = [
-    "dev/tokemon/battle/client/screen/BattleScreen.class",
-    "dev/tokemon/battle/client/screen/UiTheme$FlatButton.class",
-    "dev/tokemon/battle/client/screen/UiTheme.class",
-    "dev/tokemon/battle/server/BattleServer.class",
-    "fabric.mod.json"
+    'dev/tokemon/battle/client/screen/BattleScreen.class',
+    'dev/tokemon/battle/client/screen/UiTheme$FlatButton.class',
+    'dev/tokemon/battle/client/screen/UiTheme.class',
+    'dev/tokemon/battle/server/BattleServer.class',
+    'fabric.mod.json'
 ]
 assert.deepEqual(actualAdded, allowedAdded, 'Unexpected added class outside the reviewed warp/home implementation')
 assert.deepEqual(actualRemoved, [], 'No existing archive entry may be removed')

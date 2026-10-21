@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.21.6",
+      "version": "2026.10.21.7",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2437,16 +2437,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_generators:5c87be524dd8",
-          "name": "tokemon_generators 1.0.0",
+          "id": "ktz.tokemon:tokemon_generators:643edf134624",
+          "name": "tokemon_generators 1.0.2",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 84506,
-            "MD5": "9f2b0d409c1f00743f40aa23e7e9333e",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-generators-1.0.0.jar"
+            "size": 84891,
+            "MD5": "1ee1c81757ef8fd3c3fc09c174864fa1",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-generators-1.0.2.jar"
           }
         },
         {

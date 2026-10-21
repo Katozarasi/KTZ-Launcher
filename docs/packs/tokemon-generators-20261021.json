@@ -1,0 +1,38 @@
+{
+  "version": "2026.10.21.3",
+  "modCount": 70,
+  "changes": [
+    {
+      "file": "tokemon-generators-1.0.0.jar",
+      "id": "tokemon_generators",
+      "version": "1.0.0",
+      "size": 84506,
+      "md5": "9f2b0d409c1f00743f40aa23e7e9333e",
+      "sha256": "5c87be524dd857f2e547a67dd7ac1aeb0f210ea7dc0d2993038042441e2fde80",
+      "sha512": "d31d5f54844799f9c25da99914217dbf2a459f3171431c80f6847cbc117d2223e72981b41fd092385509dd23c31f8ff11ee73c1302d0bf4b8d9409f75876d037",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-generators-1.0.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-shop-0.4.5.jar",
+      "id": "tokemon_shop",
+      "version": "0.4.5",
+      "size": 1770743,
+      "md5": "f90c6b9eb6abd3701649542255404b6d",
+      "sha256": "926308fb459bcc349cc2f6d1854535f6cc380eda31cc8409192b1423c5a757e4",
+      "sha512": "4e747db74979b7936d886e75169bb03d938596ede47991ff2ea8db5aa86fc0d348b02e0ebd3ab108f35a9203d30de3936119468d46fa8215bff4f3c0b687aa9f",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.5.jar",
+      "custom": true
+    }
+  ],
+  "serverStatus": "APPROVED_NEXT_RESTART",
+  "prices": {
+    "apiary": 100000,
+    "sculk_generator": 60000
+  },
+  "limits": {
+    "apiary": 2,
+    "sculk_generator": 2
+  },
+  "authenticatedGameplayVerified": false
+}

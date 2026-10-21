@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.21.2",
+      "version": "2026.10.21.3",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -1926,16 +1926,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_shop:bd62bd784414",
-          "name": "토켓몬 상점 0.4.4",
+          "id": "ktz.tokemon:tokemon_shop:926308fb459b",
+          "name": "tokemon_shop 0.4.5",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1768214,
-            "MD5": "ecdb366e46e4ba47c1f609013f5b380b",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.4.jar"
+            "size": 1770743,
+            "MD5": "f90c6b9eb6abd3701649542255404b6d",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.5.jar"
           }
         },
         {
@@ -2434,6 +2434,19 @@
             "size": 73555,
             "MD5": "64daaa51e2e4d96b0408f4d47c85d4ae",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.2.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_generators:5c87be524dd8",
+          "name": "tokemon_generators 1.0.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 84506,
+            "MD5": "9f2b0d409c1f00743f40aa23e7e9333e",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-generators-1.0.0.jar"
           }
         }
       ]

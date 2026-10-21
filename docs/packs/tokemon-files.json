@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 69,
+  "modCount": 70,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -379,14 +379,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-shop-0.4.4.jar",
+      "file": "tokemon-shop-0.4.5.jar",
       "id": "tokemon_shop",
-      "version": "0.4.4",
-      "size": 1768214,
-      "md5": "ecdb366e46e4ba47c1f609013f5b380b",
-      "sha256": "bd62bd7844149f4b857ff1f84670b4ca841c8daf1a73b7cda9fa2cf479eaf9fd",
-      "sha512": "691b0daac28a2bea24ee2e7cfdfda7ce472f9135686abdd4db146d309350ab36acd67631f0aa69b43d5025786c9f44ba62d0c618fec28f2019282c21f81fa393",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.4.jar",
+      "version": "0.4.5",
+      "size": 1770743,
+      "md5": "f90c6b9eb6abd3701649542255404b6d",
+      "sha256": "926308fb459bcc349cc2f6d1854535f6cc380eda31cc8409192b1423c5a757e4",
+      "sha512": "4e747db74979b7936d886e75169bb03d938596ede47991ff2ea8db5aa86fc0d348b02e0ebd3ab108f35a9203d30de3936119468d46fa8215bff4f3c0b687aa9f",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-shop-0.4.5.jar",
       "custom": true
     },
     {
@@ -766,6 +766,17 @@
       "sha256": "16244bdc527b0789060a32b8fe4bcb229c24d1bf08d7ad16cfd78af4689f0afe",
       "sha512": "fe96df06181f357c22acabff49996f562f034f440810a8d335c9ffaa641c6ab22e7f9c8c49a12662e6151d4edc0dee980080ebe7df5009baa31c5f3433d7881a",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.2.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-generators-1.0.0.jar",
+      "id": "tokemon_generators",
+      "version": "1.0.0",
+      "size": 84506,
+      "md5": "9f2b0d409c1f00743f40aa23e7e9333e",
+      "sha256": "5c87be524dd857f2e547a67dd7ac1aeb0f210ea7dc0d2993038042441e2fde80",
+      "sha512": "d31d5f54844799f9c25da99914217dbf2a459f3171431c80f6847cbc117d2223e72981b41fd092385509dd23c31f8ff11ee73c1302d0bf4b8d9409f75876d037",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-generators-1.0.0.jar",
       "custom": true
     }
   ]

@@ -1,0 +1,9 @@
+Tokemon pack 2026.10.21.7
+
+Battle 0.2.7 adds Land Management directly below Warp in the Shift+F navigation. The button opens the existing /땅 management screen, using the same font, rounded navigation card and Cobblemon GUI click sound. It is also available while viewing the Warp menu.
+
+This is a client-only menu update. All server classes, protocols, claims rules and stored land/home data are unchanged. The installed Battle 0.2.6 server already supports the existing /땅 command; no server restart is required for this menu addition. Close Minecraft and PLAY Tokemon in KTZ to load the client update.
+
+Battle 0.2.7 SHA256 54655ab70cf03d3ea15ef5c5fde52d0f2d20bb03c7e4909c4d2ecf2f31010ebe
+
+Verified with real Shift+F input, native clicks from the main and warp menus, the unchanged 0.2.6 server and real claims management screen, preserved land ledger and GUI sound. Existing regression checks pass. Authenticated production player gameplay is not claimed.

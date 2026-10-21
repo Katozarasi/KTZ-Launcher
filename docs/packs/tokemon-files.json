@@ -346,14 +346,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-battle-0.2.6.jar",
+      "file": "tokemon-battle-0.2.7.jar",
       "id": "tokemon_battle",
-      "version": "0.2.6",
-      "size": 1920307,
-      "md5": "3e8215f5853a5669707020d7dba50a8f",
-      "sha256": "366c8c9d89911bcff3b2a1f1f6158596a20006bb3acc17a76b7676207bb8538a",
-      "sha512": "305cebbe9115c0e31128fd83b22b8113f857ebfeae46ede1197a0bb350d447d353cd4f88887d3de3f90124b96c1ee94319895b7ec5bb445b8cdd38cac476ec7f",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.6.jar",
+      "version": "0.2.7",
+      "size": 1920532,
+      "md5": "57e8f8918a5844f1e253ad18b566d5c4",
+      "sha256": "54655ab70cf03d3ea15ef5c5fde52d0f2d20bb03c7e4909c4d2ecf2f31010ebe",
+      "sha512": "b34e21ba955d74d1351eb362c21e5087c7adf23b1d0c352df46d3703190a674faa03a553ccbba13086376bcd3904755245d13e38d0a2a6880a343e1ff4a4e8d1",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-battle-0.2.7.jar",
       "custom": true
     },
     {

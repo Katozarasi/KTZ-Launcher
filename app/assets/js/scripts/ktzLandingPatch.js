@@ -108,6 +108,7 @@ async function ktzApplyLandingBackground(){
         const server = await ktzGetSelectedDistroServer()
 
         if(server == null){
+            document.documentElement.style.removeProperty('--ktz-hero-image')
             return
         }
 
@@ -115,9 +116,13 @@ async function ktzApplyLandingBackground(){
         const background = meta.landingBackground || meta.background || server.rawServer.icon
 
         if(background != null){
-            document.body.style.backgroundImage = `url('${background}')`
+            const image = `url(${JSON.stringify(background)})`
+            document.documentElement.style.setProperty('--ktz-hero-image', image)
+            document.body.style.backgroundImage = image
             document.body.style.backgroundSize = 'cover'
             document.body.style.backgroundPosition = 'center center'
+        } else {
+            document.documentElement.style.removeProperty('--ktz-hero-image')
         }
     } catch(err) {
         console.error('Unable to apply KTZ landing background.', err)

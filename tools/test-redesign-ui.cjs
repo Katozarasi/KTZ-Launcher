@@ -33,11 +33,31 @@ fs.writeJsonSync(path.join(profile, 'config.json'), {
     newsCache: { date: null, content: null, dismissed: false }
 })
 const distro = fs.readJsonSync(path.join(root, 'distribution.json'))
+const bundledImagePrefix = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/'
+function bundledServerImage(url){
+    if(typeof url !== 'string' || !url.startsWith(bundledImagePrefix)) return url
+    const name = url.slice(bundledImagePrefix.length)
+    assert.match(name, /^[a-zA-Z0-9_.-]+\.(?:png|jpe?g|svg|webp)$/i, 'Server image must be a bundled filename')
+    const file = path.join(root, 'app/assets/images/servers', name)
+    assert.ok(fs.existsSync(file), `Missing bundled server image: ${name}`)
+    return pathToFileURL(file).href
+}
+const tokemonArt = `${bundledImagePrefix}tokemon_bg_20261022.png`
+const tokemonMeta = distro.servers.find(server => server.id === 'tokemon').ktz
+assert.equal(tokemonMeta.landingBackground, tokemonArt, 'Tokemon home must use the approved versioned art')
+assert.equal(tokemonMeta.serverSelectBackground, tokemonArt, 'Tokemon selector must use the same approved art')
 distro.rss = null
 if(distro.ktz) distro.ktz.globalNews = null
 for(const server of distro.servers){
     server.address = '127.0.0.1:1'
-    if(server.ktz){ server.ktz.news = null; server.ktz.rss = null }
+    if(server.ktz){
+        server.ktz.news = null
+        server.ktz.rss = null
+        // Only this disposable distribution uses bundled images; external requests stay blocked.
+        for(const field of ['landingBackground', 'serverSelectBackground']){
+            server.ktz[field] = bundledServerImage(server.ktz[field])
+        }
+    }
 }
 fs.writeJsonSync(path.join(profile, 'distribution_dev.json'), distro)
 const remote = require('@electron/remote/main')
@@ -61,7 +81,7 @@ async function capture(name){
     await sleep(300)
     const png = await win.webContents.capturePage()
     fs.writeFileSync(path.join(out, `${name}-${locale}.png`), png.toPNG())
-    const state = await execute("({view: getCurrentView(), size:[innerWidth,innerHeight], active:Array.from(document.querySelectorAll('[data-ktz-page][aria-current]')).map(n=>n.dataset.ktzPage)})")
+    const state = await execute("({view: getCurrentView(), size:[innerWidth,innerHeight], active:Array.from(document.querySelectorAll('[data-ktz-page][aria-current]')).map(n=>n.dataset.ktzPage), heroBackground:getComputedStyle(document.getElementById('ktzDashboard'), '::before').backgroundImage})")
     fs.writeJsonSync(path.join(out, `${name}-${locale}.json`), state, { spaces: 2 })
 }
 async function waitFor(code, timeout = 20000){
@@ -73,6 +93,20 @@ async function waitFor(code, timeout = 20000){
     }
     const state = await execute("({shell:typeof window.ktzShell, view: typeof getCurrentView==='function' ? getCurrentView():null, loading: getComputedStyle(document.getElementById('loadingContainer')).display})").catch(err => err.message)
     throw new Error(`Timed out: ${code}; error=${lastError}; state=${JSON.stringify(state)}`)
+}
+async function checkHeroBackground(serverId, label){
+    const expected = distro.servers.find(server => server.id === serverId).ktz.landingBackground
+    const selected = `ConfigManager.getSelectedServer() === ${JSON.stringify(serverId)}`
+    const visibleBackground = `getComputedStyle(document.getElementById('ktzDashboard'), '::before').backgroundImage.includes(${JSON.stringify(expected)})`
+    await waitFor(`${selected} && ${visibleBackground}`)
+    check(`${label}: selected home renders its metadata background`, await execute(`${selected} && ${visibleBackground}`))
+    const decoded = await execute(`(async () => {
+        const image = new Image();
+        image.src = ${JSON.stringify(expected)};
+        await image.decode();
+        return image.naturalWidth > 0 && image.naturalHeight > 0;
+    })()`)
+    check(`${label}: bundled background image decodes`, decoded)
 }
 async function test(){
     // Block external UI requests. No real login, game process, server or download is invoked.
@@ -101,6 +135,7 @@ async function test(){
         switchView(getCurrentView(), VIEWS.landing, 0, 0);
     })()`)
     await waitFor("document.body.dataset.ktzAuthenticated === 'true'")
+    await checkHeroBackground('tokemon', 'Tokemon startup')
     check('Original Play node retained once', await execute("document.querySelectorAll('#launch_button').length === 1 && document.getElementById('ktzLaunchSlot').contains(document.getElementById('launch_button'))"))
     check('Original launch guard is installed', await execute("document.getElementById('launch_button').hasAttribute('ktz-launch-guard')"))
     await execute("ktzShell.renderNews([{title: '새로운 KTZ Launcher를 만나보세요', date: '2026-09-24', content: '<p>화면 테스트용 예시 공지입니다.</p><p>홈, 라이브러리, 지원 도구를 더 편하게 이용해요.</p>', link: 'https://github.com/Katozarasi/KTZ-Launcher'}, {title: '내 설정은 그대로, 더 편리하게', date: '2026-09-24', content: '음성채팅과 외형 숨김 등 개인 설정을 유지하는 기존 업데이트 흐름을 사용해요.', link: 'https://github.com/Katozarasi/KTZ-Launcher'}])")
@@ -112,6 +147,7 @@ async function test(){
     await capture('server-selection')
     await execute("document.querySelector('[data-server-id=tokemon]').onclick()")
     check('Tokemon card updates the preview', await execute("ktzSelectedServerId === 'tokemon' && document.getElementById('ktzServerPreviewVersion').textContent === '1.21.1' && ['토켓몬','Tokemon','トケモン'].includes(document.getElementById('ktzServerPreviewName').textContent)"))
+    check('Tokemon selector renders the approved art', await execute(`getComputedStyle(document.getElementById('ktzServerPreviewImage')).backgroundImage.includes(${JSON.stringify(tokemonMeta.serverSelectBackground)})`))
     await capture('server-selection-tokemon')
     await execute("document.getElementById('ktzServerSelectConfirm').onclick()")
     check('Tokemon selection is saved and returns to home', await execute("ConfigManager.getSelectedServer() === 'tokemon' && getCurrentView() === VIEWS.landing"))
@@ -119,13 +155,26 @@ async function test(){
     check('Pre-launch distribution refresh preserves Tokemon', await execute("ConfigManager.getSelectedServer() === 'tokemon'"))
     await execute('populateServerListings()')
     check('Settings server picker includes Tokemon and retains its selection', await execute("document.querySelector('.serverListing[servid=tokemon]').hasAttribute('selected') && document.querySelectorAll('.serverListing').length === 2"))
+    await checkHeroBackground('tokemon', 'Tokemon after distribution refresh')
     await capture('tokemon-home')
+    win.setSize(980, 640)
+    await sleep(200)
+    await capture('tokemon-home-compact')
+    check('Tokemon compact Play remains on screen', await execute("(() => {const r=document.getElementById('launch_button').getBoundingClientRect();return r.bottom <= innerHeight && r.right <= innerWidth && r.y>0})()"))
+    win.setSize(1280, 800)
+    await sleep(150)
     await execute('ktzShowServerSelect(VIEWS.landing)')
     check('Reopening the selector retains Tokemon', await execute("document.querySelector('.ktzServerCard[selected]').dataset.serverId === 'tokemon'"))
     await execute("(async () => { (await DistroAPI.getDistribution()).getServerById('tokemon').rawServer.ktz.serverSelectVisible = false; await ktzPopulateServerSelect() })()")
     check('Explicitly hidden server cannot be selected', await execute("!document.querySelector('[data-server-id=tokemon]') && ktzSelectedServerId === 'astervale'"))
     await execute("(async () => { (await DistroAPI.getDistribution()).getServerById('tokemon').rawServer.ktz.serverSelectVisible = true; await ktzPopulateServerSelect(); await document.querySelector('[data-server-id=astervale]').onclick(); await document.getElementById('ktzServerSelectConfirm').onclick() })()")
     check('Server selection returns to home', await execute('getCurrentView() === VIEWS.landing'))
+    await checkHeroBackground('astervale', 'Switch from Tokemon to Aster Vale')
+    await capture('astervale-home-restored')
+    await execute("(async () => { await ktzShowServerSelect(VIEWS.landing); await document.querySelector('[data-server-id=tokemon]').onclick(); await document.getElementById('ktzServerSelectConfirm').onclick() })()")
+    await checkHeroBackground('tokemon', 'Switch back to Tokemon')
+    await execute("(async () => { await ktzShowServerSelect(VIEWS.landing); await document.querySelector('[data-server-id=astervale]').onclick(); await document.getElementById('ktzServerSelectConfirm').onclick() })()")
+    await checkHeroBackground('astervale', 'Restore Aster Vale after round trip')
     await execute("ktzShell.navigate('library')")
     check('Library route active', await execute("getCurrentView() === VIEWS.library"))
     await capture('library-first-install')

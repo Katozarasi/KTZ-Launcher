@@ -108,8 +108,8 @@ async function main() {
                 ja_JP: { name: 'トケモン', subtitle: 'Cobblemon · Minecraft 1.21.1' }
             },
             thumbnail: `${rawBase}/app/assets/images/servers/default_thumb.svg`,
-            serverSelectBackground: `${rawBase}/app/assets/images/servers/default_bg.svg`,
-            landingBackground: `${rawBase}/app/assets/images/servers/default_bg.svg`,
+            serverSelectBackground: `${rawBase}/app/assets/images/servers/tokemon_bg_20261022.png`,
+            landingBackground: `${rawBase}/app/assets/images/servers/tokemon_bg_20261022.png`,
             maintenance: false
         }
     }

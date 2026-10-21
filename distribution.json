@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.21.3",
+      "version": "2026.10.21.4",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2447,6 +2447,19 @@
             "size": 84506,
             "MD5": "9f2b0d409c1f00743f40aa23e7e9333e",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-generators-1.0.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_daily:3a03f4ba902b",
+          "name": "토켓몬 일일 퀘스트 · 이로치 조각",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 38339,
+            "MD5": "4d55105ee538452a848bf79eb578688e",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-daily-0.1.0.jar"
           }
         }
       ]

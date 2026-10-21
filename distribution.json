@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.21.4",
+      "version": "2026.10.21.5",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2385,16 +2385,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_quests:824dfd62a060",
-          "name": "tokemon_quests 0.2.0",
+          "id": "ktz.tokemon:tokemon_quests:dc009b8e42ea",
+          "name": "tokemon_quests 0.2.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 200747,
-            "MD5": "7e7f3443f2be063bb44732698ffbc233",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.2.0.jar"
+            "size": 202410,
+            "MD5": "8742bde6e871581f989f16720f0d2aae",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.2.1.jar"
           }
         },
         {

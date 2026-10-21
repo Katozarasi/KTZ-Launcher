@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 66,
+  "modCount": 68,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -733,6 +733,28 @@
       "sha256": "999e03c9b0932d7959ddace0376156b50a3f30d36a9d9c2b31ab7c8d9d2edb44",
       "sha512": "eb62408c835498c16093fff4a488a3926f98bbe556266e84abf6745cb62cbd7d4e12222ba87bded7f15181d60e65957e7580304cce1d7b64af8e701527bee3d5",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.1.jar",
+      "custom": true
+    },
+    {
+      "file": "pokebike-fabric-4.0.jar",
+      "id": "pokebike",
+      "version": "4.0",
+      "size": 1003847,
+      "md5": "3b70385c5976fc533406bace547af581",
+      "sha256": "ca3635e6b472dc389355d9c88a3b347f0f22e46c08109e8877ec621114b3789e",
+      "sha512": "8380bb5ce508d12e814aeef6e91e02ab299aad8b2a2479c9beab25738e25dd8a169f039d9eae2c3c3026afc06a1955e4b83069d0b257a08f69dfb5eb31dabdd6",
+      "url": "https://cdn.modrinth.com/data/8eqU62OI/versions/AK9vIaHl/pokebike-fabric-4.0.jar",
+      "custom": false
+    },
+    {
+      "file": "tokemon-pokebike-korean-0.1.0.jar",
+      "id": "tokemon_pokebike_korean",
+      "version": "0.1.0",
+      "size": 6623,
+      "md5": "777ea52bff3342c585103c2e24be046a",
+      "sha256": "b2065bb679a779f107a510fb0208e6be3f68cf8d2116f21600d8681cb574abf7",
+      "sha512": "3bbf5ecb09174c7f183ddd43866dfc63a94337c8150c393a641335d7a12d879e9f565e6fa5c63a1aab6a61dbc22722e184a9f5a63f9834ea06fb65eca1fca8cc",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokebike-korean-0.1.0.jar",
       "custom": true
     }
   ]

@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.19.6",
+      "version": "2026.10.21.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
       "modules": [
         {
@@ -2395,6 +2395,32 @@
             "size": 166739,
             "MD5": "84ab3fc22c6963796079b784cd1fe895",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.1.1.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:pokebike:ca3635e6b472",
+          "name": "PokeBike 4.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1003847,
+            "MD5": "3b70385c5976fc533406bace547af581",
+            "url": "https://cdn.modrinth.com/data/8eqU62OI/versions/AK9vIaHl/pokebike-fabric-4.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_pokebike_korean:b2065bb679a7",
+          "name": "포케바이크 한국어 · 단축키 충돌 방지",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 6623,
+            "MD5": "777ea52bff3342c585103c2e24be046a",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokebike-korean-0.1.0.jar"
           }
         }
       ]

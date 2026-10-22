@@ -1,0 +1,11 @@
+Tokemon pack 2026.10.22.2
+
+Land reclaim in Shift+F > Land Management > My Land. Select an owned chunk while standing inside it, review its coordinates and confirm within 30 seconds to release protection and receive one chunk deed. Buildings, containers and their contents remain in place. Cancel leaves ownership and inventory unchanged.
+
+Only the owner can reclaim. Full inventories, held cursor items, stored Pokemon cards, stale or repeated confirmations and releases that split the remaining property are rejected. Durable inventory and ownership journaling completes interrupted returns once after reconnect. Free-grant receipts, shared permissions and the existing 100000 WON deed price are preserved.
+
+Claims 0.3.2 hides the new action when connected to an older server. Server deployment is staged separately for the next normal server start; production was not restarted. Players receive the client by relaunching Tokemon through KTZ.
+
+Validation: 16 store checks, 125 isolated native server checks including restart recovery, 10 installer checks including rollback, and actual isolated Minecraft client confirmation/cancel/render checks at 1280x720 GUI3 and 1600x900 GUI2. Offline QA identities were used; authenticated production-player gameplay is not claimed.
+
+Claims SHA256 09b610afde38634245ebd6529f6444935163e162853d8c8b33627fa2afddfd0c

@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.22.1",
+      "version": "2026.10.22.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2138,16 +2138,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_claims:15767a12985c",
-          "name": "tokemon_claims 0.3.1",
+          "id": "ktz.tokemon:tokemon_claims:09b610afde38",
+          "name": "tokemon_claims 0.3.2",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 90666,
-            "MD5": "fbaeb3ceb55ced9bcd3a0ee88620f5a2",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.1.jar"
+            "size": 95772,
+            "MD5": "e6324db96e27a07384c84a2fc48e4a27",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.2.jar"
           }
         },
         {

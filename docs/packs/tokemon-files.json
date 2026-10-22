@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 73,
+  "modCount": 74,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -811,6 +811,17 @@
       "sha512": "224e369a3afa3a26de7b492d8e218b42a6d5e086b5ca67c43860e81bee55700b2afe656a81ac83ae855120d860d95111fd3f9b69b5009411638b92079c7afb4c",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-titles-0.1.0.jar",
       "custom": true
+    },
+    {
+      "file": "Jade-1.21.1-Fabric-15.10.6.jar",
+      "id": "jade",
+      "version": "15.10.6+fabric",
+      "size": 740746,
+      "md5": "be81fdbb2c03889c463260b52739621c",
+      "sha256": "fb834cc77804a6f509690c54b4af56305ce7a7f3171f8616310710f0af1f673a",
+      "sha512": "fbae1c796368a09c579dd780a1d510fa5ab73f0eca370ddbfe0a9e6ca162e1b806261577306a259773f309dc4938a839b2065c5eef98b2810855c241addf17f5",
+      "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/adpNvTZS/Jade-1.21.1-Fabric-15.10.6.jar",
+      "custom": false
     }
   ]
 }

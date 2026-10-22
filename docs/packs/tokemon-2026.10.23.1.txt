@@ -1,0 +1,7 @@
+Tokemon pack 2026.10.23.1
+
+Adds upstream Jade 15.10.6 for Minecraft 1.21.1 Fabric. Looking at a Raid Dens crystal displays its boss and star tier through Raid Dens' built-in Jade integration. Native raytrace, two different bosses/tiers, live tooltip changes and server data were verified on an isolated server/client.
+
+All 73 existing mods, other servers, resource packs and user settings are preserved. Relaunch Minecraft through KTZ. Server-side Jade is staged separately for the next normal Start-Tokemon.cmd; production was not restarted.
+
+Jade SHA256 fb834cc77804a6f509690c54b4af56305ce7a7f3171f8616310710f0af1f673a

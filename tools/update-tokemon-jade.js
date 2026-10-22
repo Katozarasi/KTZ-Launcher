@@ -1,0 +1,65 @@
+const fs = require('fs')
+const path = require('path')
+const crypto = require('crypto')
+const assert = require('assert/strict')
+const AdmZip = require('adm-zip')
+const root = path.resolve(__dirname, '..')
+const report = 'C:/codex/Projects/Tokemon/reports/jade-raid-20261023'
+const work = 'C:/codex/Builds/KTZ-Tokemon-Jade-20261023'
+const read = file => JSON.parse(fs.readFileSync(file, 'utf8').replace(/^\uFEFF/, ''))
+const hash = (file, algorithm = 'sha256') => crypto.createHash(algorithm).update(fs.readFileSync(file)).digest('hex')
+const write = (file, value) => fs.writeFileSync(file, JSON.stringify(value, null, 2) + '\n')
+const reviewed = read(report + '/candidate.json')
+assert.equal(read(report + '/native-verification.json').status, 'PASS')
+assert.equal(read(report + '/native-verification.json').jadeSha256, reviewed.sha256)
+assert.equal(read(report + '/next-restart-verification.json').status, 'PASS')
+assert.equal(hash(reviewed.downloadedFile), 'fb834cc77804a6f509690c54b4af56305ce7a7f3171f8616310710f0af1f673a')
+const meta = JSON.parse(new AdmZip(reviewed.downloadedFile).readAsText('fabric.mod.json'))
+assert.equal(meta.id, 'jade')
+assert.equal(meta.version, '15.10.6+fabric')
+const original = fs.readFileSync(root + '/distribution.json')
+const originalInventory = fs.readFileSync(root + '/docs/packs/tokemon-files.json')
+const before = JSON.parse(original), inventoryBefore = JSON.parse(originalInventory)
+const distribution = structuredClone(before), inventory = structuredClone(inventoryBefore)
+const old = before.servers.find(s => s.id === 'tokemon'), server = distribution.servers.find(s => s.id === 'tokemon')
+assert.equal(old.modules.filter(m => m.type === 'FabricMod').length, inventoryBefore.modCount)
+assert.equal(inventoryBefore.mods.length, inventoryBefore.modCount)
+assert.ok(!inventoryBefore.mods.some(m => ['jade', 'wthit'].includes(m.id)), 'Preserve an existing overlay release')
+const file = reviewed.files.find(f => f.primary)
+assert.match(file.url, /^https:\/\/cdn\.modrinth\.com\/data\/nvQzSEkH\//)
+const record = { file: file.filename, id: meta.id, version: meta.version, size: fs.statSync(reviewed.downloadedFile).size, md5: hash(reviewed.downloadedFile, 'md5'), sha256: hash(reviewed.downloadedFile), sha512: hash(reviewed.downloadedFile, 'sha512'), url: file.url, custom: false }
+assert.equal(record.sha512, file.hashes.sha512)
+server.modules.push({ id: 'ktz.tokemon:jade:' + record.sha256.slice(0, 12), name: 'jade ' + record.version, type: 'FabricMod', required: { value: true }, artifact: { size: record.size, MD5: record.md5, url: record.url } })
+const prefix = '2026.10.23.'
+server.version = old.version.startsWith(prefix) ? prefix + (Number(old.version.slice(prefix.length)) + 1) : prefix + '1'
+inventory.mods.push(record)
+inventory.modCount++
+assert.deepEqual(server.modules.slice(0, -1), old.modules)
+assert.deepEqual(inventory.mods.slice(0, -1), inventoryBefore.mods)
+assert.deepEqual({ ...server, version: '', modules: [] }, { ...old, version: '', modules: [] })
+assert.deepEqual(distribution.servers.filter(s => s.id !== 'tokemon'), before.servers.filter(s => s.id !== 'tokemon'))
+assert.deepEqual({ ...before, servers: [] }, { ...distribution, servers: [] })
+assert.deepEqual({ ...inventory, mods: [], modCount: 0 }, { ...inventoryBefore, mods: [], modCount: 0 })
+const backup = work + '/backup'
+assert.ok(!fs.existsSync(backup), 'Preserve prior staging backup')
+fs.mkdirSync(backup, { recursive: true })
+for (const name of ['distribution.json', 'docs/packs/tokemon-files.json', 'admin/servers.json']) {
+    fs.mkdirSync(path.dirname(backup + '/' + name), { recursive: true })
+    fs.copyFileSync(root + '/' + name, backup + '/' + name, fs.constants.COPYFILE_EXCL)
+}
+const launcher = 'C:/Users/nabar/AppData/Roaming/KTZ Launcher'
+const config = read(launcher + '/config.json'), instance = path.join(config.settings.launcher.dataDirectory, 'instances/tokemon')
+const protectedPaths = [launcher + '/config.json', instance + '/options.txt', instance + '/config/tokemon-battle-keys.json', instance + '/config/jade/jade.json', instance + '/config/jade/plugins.json']
+const maps = path.join(instance, 'journeymap/config/6.0')
+if (fs.existsSync(maps)) protectedPaths.push(...fs.readdirSync(maps).filter(n => n.endsWith('.config')).map(n => path.join(maps, n)))
+const snapshot = file => ({ file, existed: fs.existsSync(file), sha256: fs.existsSync(file) ? hash(file) : null })
+const protectedFiles = protectedPaths.map(snapshot)
+const runtimeFiles = [launcher + '/distribution.json', instance + '/forgeMods.list'].map(snapshot)
+assert.equal(hash(root + '/distribution.json'), crypto.createHash('sha256').update(original).digest('hex'))
+assert.equal(hash(root + '/docs/packs/tokemon-files.json'), crypto.createHash('sha256').update(originalInventory).digest('hex'))
+write(root + '/distribution.json', distribution)
+write(root + '/docs/packs/tokemon-files.json', inventory)
+const version = server.version
+fs.writeFileSync(root + '/docs/packs/tokemon-' + version + '.txt', `Tokemon pack ${version}\n\nAdds upstream Jade 15.10.6 for Minecraft 1.21.1 Fabric. Looking at a Raid Dens crystal displays its boss and star tier through Raid Dens' built-in Jade integration. Native raytrace, two different bosses/tiers, live tooltip changes and server data were verified on an isolated server/client.\n\nAll ${inventoryBefore.modCount} existing mods, other servers, resource packs and user settings are preserved. Relaunch Minecraft through KTZ. Server-side Jade is staged separately for the next normal Start-Tokemon.cmd; production was not restarted.\n\nJade SHA256 ${record.sha256}\n`)
+write(work + '/staging.json', { status: 'STAGED', createdAt: new Date().toISOString(), version, oldVersion: old.version, modCount: inventory.modCount, unchangedModCount: inventoryBefore.modCount, record, source: reviewed.downloadedFile, root, backup, protectedFiles, runtimeFiles, existingModsPreserved: true, otherServersPreserved: true, productionServerModifiedByLauncher: false })
+console.log(JSON.stringify({ version, modCount: inventory.modCount, unchangedModCount: inventoryBefore.modCount, jadeSha256: record.sha256 }))

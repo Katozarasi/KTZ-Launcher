@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.22.7",
+      "version": "2026.10.23.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2486,6 +2486,19 @@
             "size": 50389,
             "MD5": "7ea7e69328475ecdb6aa2eaf29247b77",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-titles-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:jade:fb834cc77804",
+          "name": "jade 15.10.6+fabric",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 740746,
+            "MD5": "be81fdbb2c03889c463260b52739621c",
+            "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/adpNvTZS/Jade-1.21.1-Fabric-15.10.6.jar"
           }
         }
       ]

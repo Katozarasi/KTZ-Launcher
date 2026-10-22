@@ -725,14 +725,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-quests-0.2.1.jar",
+      "file": "tokemon-quests-0.3.0.jar",
       "id": "tokemon_quests",
-      "version": "0.2.1",
-      "size": 202410,
-      "md5": "8742bde6e871581f989f16720f0d2aae",
-      "sha256": "dc009b8e42ea710bd6a897f3d0cdee6850302ab573e3036df9cefe768b2f8da5",
-      "sha512": "2b7f9844cd35eca9adafe3a691dcaf44332efd32edb1ff777b29e2fe6f40fd4a19b7391a7a772fd760d68b99c45935b59f50b4d5a2469bfcd90105bb1fa43978",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.2.1.jar",
+      "version": "0.3.0",
+      "size": 218608,
+      "md5": "3f450512bb364125e95e7309e891dd13",
+      "sha256": "ade4f23edfd6d0c3a8457d4a25e28884cddf369b07cb62fb7cc465799b3f3667",
+      "sha512": "cb1ac60528f449a4903c6594b0ae77667cce1628bb1437e258bdbbf9878854f29336bdc0a5699b073ee1656bbb8c32d805ae9872ca2698e1b613fb5cdaf635b8",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.3.0.jar",
       "custom": true
     },
     {

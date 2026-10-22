@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 72,
+  "modCount": 73,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -799,6 +799,17 @@
       "sha256": "8cef3e9193ab4acb59dad69bd2aea2d4858cd686eb350ab170019478768b6b53",
       "sha512": "515911a2b9302bb6912abf14a4f1ea59fffdf9894b0f164d3bf29ca9dd5fd5e1269b382fa768794120d3359a5e41b0b97b8888c8fa9133c7ab74422327151c22",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-market-0.1.0.jar",
+      "custom": true
+    },
+    {
+      "file": "tokemon-titles-0.1.0.jar",
+      "id": "tokemon_titles",
+      "version": "0.1.0",
+      "size": 50389,
+      "md5": "7ea7e69328475ecdb6aa2eaf29247b77",
+      "sha256": "33eb7009b3dd50a1cf6ec8e43e289d5bf31bf8eede742bfc4205a1caa35f396b",
+      "sha512": "224e369a3afa3a26de7b492d8e218b42a6d5e086b5ca67c43860e81bee55700b2afe656a81ac83ae855120d860d95111fd3f9b69b5009411638b92079c7afb4c",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-titles-0.1.0.jar",
       "custom": true
     }
   ]

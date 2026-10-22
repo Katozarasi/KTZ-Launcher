@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.22.2",
+      "version": "2026.10.22.3",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -1952,16 +1952,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_starterbox:89576c1091de",
-          "name": "tokemon_starterbox 0.4.0",
+          "id": "ktz.tokemon:tokemon_starterbox:681f2610a0eb",
+          "name": "tokemon_starterbox 0.4.2",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 41171,
-            "MD5": "c56516dc72e3dabfce08f8d2ab1e029e",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.4.0.jar"
+            "size": 40857,
+            "MD5": "92a93da2207011fa3dab5a76e795335f",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.4.2.jar"
           }
         },
         {
@@ -2424,16 +2424,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_pokemon_boxes:16244bdc527b",
-          "name": "tokemon_pokemon_boxes 0.2.0",
+          "id": "ktz.tokemon:tokemon_pokemon_boxes:7400daff0feb",
+          "name": "tokemon_pokemon_boxes 0.3.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 73555,
-            "MD5": "64daaa51e2e4d96b0408f4d47c85d4ae",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.2.0.jar"
+            "size": 104446,
+            "MD5": "c6063e40fb747aa536448d76016978b8",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.3.1.jar"
           }
         },
         {

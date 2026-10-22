@@ -401,14 +401,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-starterbox-0.4.0.jar",
+      "file": "tokemon-starterbox-0.4.2.jar",
       "id": "tokemon_starterbox",
-      "version": "0.4.0",
-      "size": 41171,
-      "md5": "c56516dc72e3dabfce08f8d2ab1e029e",
-      "sha256": "89576c1091de44c63940c24ce89120608a91e7c5c551faa0c60973d084c222fe",
-      "sha512": "59c863f8b6307bddd0b118035d081de9601402bf5fc68ac1160decb94c312348657fa3c3934518e71bbccbbd6546d077711c4af787801f3f44e82af6df2f8f8c",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.4.0.jar",
+      "version": "0.4.2",
+      "size": 40857,
+      "md5": "92a93da2207011fa3dab5a76e795335f",
+      "sha256": "681f2610a0eb014fba73478fcefcf4ed968956820eabd3eed5c24e861aa92124",
+      "sha512": "0f59a68b92a131b3bd03f11f6dc27c8bf4003c37525bfcef746f01c542cc30284d537958032c110cf7915de8e1c91f83db2853224e692f4f25a12f9068e8b142",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-starterbox-0.4.2.jar",
       "custom": true
     },
     {
@@ -758,14 +758,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-pokemon-boxes-0.2.0.jar",
+      "file": "tokemon-pokemon-boxes-0.3.1.jar",
       "id": "tokemon_pokemon_boxes",
-      "version": "0.2.0",
-      "size": 73555,
-      "md5": "64daaa51e2e4d96b0408f4d47c85d4ae",
-      "sha256": "16244bdc527b0789060a32b8fe4bcb229c24d1bf08d7ad16cfd78af4689f0afe",
-      "sha512": "fe96df06181f357c22acabff49996f562f034f440810a8d335c9ffaa641c6ab22e7f9c8c49a12662e6151d4edc0dee980080ebe7df5009baa31c5f3433d7881a",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.2.0.jar",
+      "version": "0.3.1",
+      "size": 104446,
+      "md5": "c6063e40fb747aa536448d76016978b8",
+      "sha256": "7400daff0feb9f9905ee1ce92072e10a1e4511e0698a53338463fb10e533f5c3",
+      "sha512": "64c4895491944d176b0e52841e10dff69a3ee0545cb112d0463312da244d2fac98212b5357af5155f3866db81e1fcfe6cca52b5457834d6859e7ce284eea7540",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokemon-boxes-0.3.1.jar",
       "custom": true
     },
     {

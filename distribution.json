@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.22.5",
+      "version": "2026.10.22.6",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2385,16 +2385,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_quests:88654974b369",
-          "name": "토켓몬 퀘스트 · 트레이너들의 이야기 0.4.0",
+          "id": "ktz.tokemon:tokemon_quests:bdc0dbee4b2c",
+          "name": "토켓몬 퀘스트 · 트레이너 대화 수정 0.4.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 267170,
-            "MD5": "8a05f8b0928eeabb602fe069e43f8920",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.4.0.jar"
+            "size": 267629,
+            "MD5": "7b1d4e89c3c2fd2b04a4bd1032426701",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-quests-0.4.1.jar"
           }
         },
         {

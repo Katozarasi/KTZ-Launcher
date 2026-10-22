@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.23.1",
+      "version": "2026.10.23.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -1978,19 +1978,6 @@
           }
         },
         {
-          "id": "ktz.tokemon:waystones:06f4c8364e38",
-          "name": "waystones 21.1.46",
-          "type": "FabricMod",
-          "required": {
-            "value": true
-          },
-          "artifact": {
-            "size": 1248666,
-            "MD5": "a62313ad106b7745b5d5b81abacc19d1",
-            "url": "https://cdn.modrinth.com/data/LOpKHB2A/versions/nSAwjAk4/waystones-fabric-1.21.1-21.1.46.jar"
-          }
-        },
-        {
           "id": "ktz.tokemon:zamega:816bdfad0324",
           "name": "zamega 1.8.2+1.8.2",
           "type": "FabricMod",
@@ -2138,16 +2125,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_claims:09b610afde38",
+          "id": "ktz.tokemon:tokemon_claims:bd5bcd6f59ac",
           "name": "tokemon_claims 0.3.2",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 95772,
-            "MD5": "e6324db96e27a07384c84a2fc48e4a27",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.2.jar"
+            "size": 95308,
+            "MD5": "1c8c508e2e249b527edf3c6a5574ce2a",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.3-bd5bcd6f59ac.jar"
           }
         },
         {

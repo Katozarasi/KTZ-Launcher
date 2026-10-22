@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 74,
+  "modCount": 73,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -423,17 +423,6 @@
       "custom": false
     },
     {
-      "file": "waystones-fabric-1.21.1-21.1.46.jar",
-      "id": "waystones",
-      "version": "21.1.46",
-      "size": 1248666,
-      "md5": "a62313ad106b7745b5d5b81abacc19d1",
-      "sha256": "06f4c8364e38ddff5d1afd100ca2f2d38b10a95f89a4b1d95b2a117accae24c1",
-      "sha512": "b301a1afb7e13fe8a4a28330b0bd8c0da3eb829d85e50fc04fc86868388ecf3222d24ce49a361bbac2153ce3abf792d7c0dc91fc94022f5b4f5f214a0ef0e183",
-      "url": "https://cdn.modrinth.com/data/LOpKHB2A/versions/nSAwjAk4/waystones-fabric-1.21.1-21.1.46.jar",
-      "custom": false
-    },
-    {
       "file": "zamega-fabric-1.8.2+1.8.2.jar",
       "id": "zamega",
       "version": "1.8.2+1.8.2",
@@ -515,14 +504,14 @@
       "custom": true
     },
     {
-      "file": "tokemon-claims-0.3.2.jar",
+      "file": "tokemon-claims-0.3.3-bd5bcd6f59ac.jar",
       "id": "tokemon_claims",
-      "version": "0.3.2",
-      "size": 95772,
-      "md5": "e6324db96e27a07384c84a2fc48e4a27",
-      "sha256": "09b610afde38634245ebd6529f6444935163e162853d8c8b33627fa2afddfd0c",
-      "sha512": "5a1a3db4879803fe7b5ef4974258e61f2b0efaf052654c52353fd96af999c65e53d036d8f4acee06e4f31d1ef6cb9eff2888c81ee5557d15ff1a02f6157ccf61",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.2.jar",
+      "version": "0.3.3",
+      "size": 95308,
+      "md5": "1c8c508e2e249b527edf3c6a5574ce2a",
+      "sha256": "bd5bcd6f59aca5a1712c20e9c9a374aa089c306cfa4306962116a3fd8602af63",
+      "sha512": "4a1936122be5618b74dbd0671ecd44b80990bda5b80012ab6699b4fa88027b03ed970bffae528071b54f9b87c991c79a647069a9fd7545c591f14e1194c57b25",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-claims-0.3.3-bd5bcd6f59ac.jar",
       "custom": true
     },
     {

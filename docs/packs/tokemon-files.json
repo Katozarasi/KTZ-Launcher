@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 73,
+  "modCount": 74,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -810,6 +810,17 @@
       "sha256": "fb834cc77804a6f509690c54b4af56305ce7a7f3171f8616310710f0af1f673a",
       "sha512": "fbae1c796368a09c579dd780a1d510fa5ab73f0eca370ddbfe0a9e6ca162e1b806261577306a259773f309dc4938a839b2065c5eef98b2810855c241addf17f5",
       "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/adpNvTZS/Jade-1.21.1-Fabric-15.10.6.jar",
+      "custom": false
+    },
+    {
+      "file": "lootr-fabric-1.21.1-1.11.38.127.jar",
+      "id": "lootr",
+      "version": "1.21.1-1.11.38.127",
+      "size": 1111591,
+      "md5": "be2724760a4dcfc906fc7ad7f38368f8",
+      "sha256": "2b33fa73a28c14f0983459c165e8c7b491cd1d798c947b967207f66194fb531d",
+      "sha512": "6a0d50423c76740b3da18853af743d697127cd38a83b98b363305aae0cf74a18fe9b61a68ffe25498232344fe2d1b325fd960396ae49135f59458ea1ec6efab1",
+      "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/nar56EsW/lootr-fabric-1.21.1-1.11.38.127.jar",
       "custom": false
     }
   ]

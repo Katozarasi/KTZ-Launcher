@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.23.3",
+      "version": "2026.10.23.4",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2486,6 +2486,19 @@
             "size": 740746,
             "MD5": "be81fdbb2c03889c463260b52739621c",
             "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/adpNvTZS/Jade-1.21.1-Fabric-15.10.6.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:lootr:2b33fa73a28c",
+          "name": "lootr 1.21.1-1.11.38.127",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 1111591,
+            "MD5": "be2724760a4dcfc906fc7ad7f38368f8",
+            "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/nar56EsW/lootr-fabric-1.21.1-1.11.38.127.jar"
           }
         }
       ]

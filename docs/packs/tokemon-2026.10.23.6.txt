@@ -1,0 +1,7 @@
+Tokemon pack 2026.10.23.6
+
+Adds upstream Cobblemon Ride Expansion 0.0.3 Fabric for Cobblemon 1.8.2, including Noctowl land and air riding. The upstream package contains 932 species riding additions and an emergency slow-falling function. Adds a client compatibility pack that preserves the 10 overlapping installed Mega Showdown models and adds only seat locators. It also preserves the installed Corsola geometry. It activates automatically without changing user options.
+
+Native isolated server mounting, held-item and shoulder interactions and the existing basic-trade restriction were checked. A real isolated client verified the winning resource models and Noctowl seat. These are not authenticated production-player gameplay checks.
+
+All 74 existing mods, other servers and user settings are preserved. Relaunch Minecraft through KTZ. The operating server is staged separately for its next normal Start-Tokemon.cmd; it was not restarted.

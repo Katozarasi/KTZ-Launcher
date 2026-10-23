@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.23.5",
+      "version": "2026.10.23.6",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2499,6 +2499,32 @@
             "size": 1111591,
             "MD5": "be2724760a4dcfc906fc7ad7f38368f8",
             "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/nar56EsW/lootr-fabric-1.21.1-1.11.38.127.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:cobblemon_ride_expansion:b37d237c6fdd",
+          "name": "cobblemon_ride_expansion 0.0.3",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 3843591,
+            "MD5": "3d4d5e0f7622b6edf3319251d241c01a",
+            "url": "https://cdn.modrinth.com/data/ovZcfCSI/versions/MjxGgCzG/CRE-v0.0.3-Fabric.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_riding_compat:f9acd63f2d27",
+          "name": "tokemon_riding_compat 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 38498,
+            "MD5": "226f712e5e94a47518690dcd9fe2d4e7",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-riding-compat-0.1.0.jar"
           }
         }
       ]

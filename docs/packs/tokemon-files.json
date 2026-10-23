@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 74,
+  "modCount": 76,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -822,6 +822,28 @@
       "sha512": "6a0d50423c76740b3da18853af743d697127cd38a83b98b363305aae0cf74a18fe9b61a68ffe25498232344fe2d1b325fd960396ae49135f59458ea1ec6efab1",
       "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/nar56EsW/lootr-fabric-1.21.1-1.11.38.127.jar",
       "custom": false
+    },
+    {
+      "file": "CRE-v0.0.3-Fabric.jar",
+      "id": "cobblemon_ride_expansion",
+      "version": "0.0.3",
+      "size": 3843591,
+      "md5": "3d4d5e0f7622b6edf3319251d241c01a",
+      "sha256": "b37d237c6fddd638d819464e9266fe0b6e89bc3ecd1ad4aa8eb357b86c6491e1",
+      "sha512": "bec271e5319438632a48db42729277ccf11388bd9eaf79a30db81ea7f70cd0c788e5454b57936fe4093fc8e875b196e9a2678e74bf2dbb6c8d5478dafbc651be",
+      "url": "https://cdn.modrinth.com/data/ovZcfCSI/versions/MjxGgCzG/CRE-v0.0.3-Fabric.jar",
+      "custom": false
+    },
+    {
+      "file": "tokemon-riding-compat-0.1.0.jar",
+      "id": "tokemon_riding_compat",
+      "version": "0.1.0",
+      "size": 38498,
+      "md5": "226f712e5e94a47518690dcd9fe2d4e7",
+      "sha256": "f9acd63f2d275c434b6febb4967976b786b66925a9e27faec2d2ce38b8b411c2",
+      "sha512": "101ee3dbc3c5254ca1aa2f3b2002adb884bcd7a7d1d61a5534ada03541416bec6c6296931bb180da1b016b3f1b130967e3ef64f7a0c8f781d6fb9623216ba39a",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-riding-compat-0.1.0.jar",
+      "custom": true
     }
   ]
 }

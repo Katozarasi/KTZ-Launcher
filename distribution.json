@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.23.2",
+      "version": "2026.10.23.3",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2019,16 +2019,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_factory_gui:b25b05f44681",
-          "name": "tokemon_factory_gui 0.1.4",
+          "id": "ktz.tokemon:tokemon_factory_gui:2761fed2d1f0",
+          "name": "tokemon_factory_gui 0.2.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 62956,
-            "MD5": "439e5d8a010be198f81042260b4ae17f",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.1.4.jar"
+            "size": 79250,
+            "MD5": "1a5e9405a97c3feab9ca1d47f4a4b891",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.2.1.jar"
           }
         },
         {

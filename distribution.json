@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.24.1",
+      "version": "2026.10.24.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2525,6 +2525,19 @@
             "size": 38498,
             "MD5": "226f712e5e94a47518690dcd9fe2d4e7",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-riding-compat-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:cobblemonopponents:e8b8f559f8e3",
+          "name": "Cobblemon Trainer Structures 1.8.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 30740566,
+            "MD5": "a79e8cf612d193a6a7ad2f85d66e8e18",
+            "url": "https://cdn.modrinth.com/data/12e2QV8Q/versions/nmq9DGIq/cobblemonopponents-fabric-1.8.0.jar"
           }
         }
       ]

@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 76,
+  "modCount": 77,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -844,6 +844,17 @@
       "sha512": "101ee3dbc3c5254ca1aa2f3b2002adb884bcd7a7d1d61a5534ada03541416bec6c6296931bb180da1b016b3f1b130967e3ef64f7a0c8f781d6fb9623216ba39a",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-riding-compat-0.1.0.jar",
       "custom": true
+    },
+    {
+      "file": "cobblemonopponents-fabric-1.8.0.jar",
+      "id": "cobblemonopponents",
+      "version": "1.8.0",
+      "size": 30740566,
+      "md5": "a79e8cf612d193a6a7ad2f85d66e8e18",
+      "sha256": "e8b8f559f8e3bc38b1a1c29183903b44baf003e971c19eec82094c10dc467611",
+      "sha512": "32205040422c5d06e843328b8736a2a2c73bd049c8b4a680ea7f98787b427b08c8206366f90b73228835749135d2be0d5cf1da4db1171444e0d878049b032887",
+      "url": "https://cdn.modrinth.com/data/12e2QV8Q/versions/nmq9DGIq/cobblemonopponents-fabric-1.8.0.jar",
+      "custom": false
     }
   ]
 }

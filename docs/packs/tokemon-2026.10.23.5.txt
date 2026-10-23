@@ -1,0 +1,8 @@
+Tokemon pack 2026.10.23.5
+
+Battle 0.2.10 adds the player's current WON balance below Land Management in the Shift F menu, including its warp view. The amount comes from the existing server shop ledger and refreshes every five seconds while the menu is open. Wallet-only updates preserve the current view and home cooldown timer. Unavailable or locked ledgers display an unavailable message instead of zero.
+
+Client relaunch through KTZ is required. The server update and a PvP dependency metadata-only compatibility adjustment are staged separately for the next normal server start. Existing running games and servers are preserved.
+
+Battle 0.2.10 SHA256 15ed9f2ae211938c9de20a3edba22d752b65f8099b74fa270b1f7c928470ed97
+Native menu and shop-ledger QA passed in an isolated environment. Authenticated production player gameplay is not claimed.

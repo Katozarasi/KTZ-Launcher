@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 77,
+  "modCount": 78,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -854,6 +854,17 @@
       "sha256": "e8b8f559f8e3bc38b1a1c29183903b44baf003e971c19eec82094c10dc467611",
       "sha512": "32205040422c5d06e843328b8736a2a2c73bd049c8b4a680ea7f98787b427b08c8206366f90b73228835749135d2be0d5cf1da4db1171444e0d878049b032887",
       "url": "https://cdn.modrinth.com/data/12e2QV8Q/versions/nmq9DGIq/cobblemonopponents-fabric-1.8.0.jar",
+      "custom": false
+    },
+    {
+      "file": "Cobbreeding-fabric-2.4.1.jar",
+      "id": "cobbreeding",
+      "version": "2.4.1",
+      "size": 477771,
+      "md5": "300d60afe47c6e63d25bf2fc1a2ef045",
+      "sha256": "25c512ea59891c5873e54c4606e71324314017eb9233d670ae23d0f12fb9f63d",
+      "sha512": "5c1d192d82d61b47233625a4780600c81eb7d807103bf40954ea2d55fca4e1e71d9d45168d2cb1e55fe96d0cb92b6f5d702bfc7090702907bc51412dc1e4e468",
+      "url": "https://cdn.modrinth.com/data/ItmVb4zY/versions/QEX1BKMf/Cobbreeding-fabric-2.4.1.jar",
       "custom": false
     }
   ]

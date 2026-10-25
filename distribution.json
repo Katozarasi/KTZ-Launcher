@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.25.1",
+      "version": "2026.10.25.2",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2554,16 +2554,16 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_morph:2626d881563e",
-          "name": "Tokemon Morph 0.1.0",
+          "id": "ktz.tokemon:tokemon_morph:20b46cdcc902",
+          "name": "Tokemon Morph 0.1.1",
           "type": "FabricMod",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 43138,
-            "MD5": "ee5ddef77c40eb3ccf9edb3939b3e9f9",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.0.jar"
+            "size": 53432,
+            "MD5": "f126b1b580edc8a326a5cd654ead2350",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.1.jar"
           }
         }
       ]

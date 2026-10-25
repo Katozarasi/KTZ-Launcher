@@ -868,14 +868,14 @@
       "custom": false
     },
     {
-      "file": "tokemon-morph-0.1.0.jar",
+      "file": "tokemon-morph-0.1.1.jar",
       "id": "tokemon_morph",
-      "version": "0.1.0",
-      "size": 43138,
-      "md5": "ee5ddef77c40eb3ccf9edb3939b3e9f9",
-      "sha256": "2626d881563e719ce1e654d224aadf0b86a27a9bc5a70b5a40e386e78c073a39",
-      "sha512": "ca217d67200983f0c72a330c47a2260417dcd8fbb9eb876c0136fa80e9b02e0b48c1b03acfe5bc8d03369f40d5c9837d969739c03babeba0505a740d3b4739e6",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.0.jar",
+      "version": "0.1.1",
+      "size": 53432,
+      "md5": "f126b1b580edc8a326a5cd654ead2350",
+      "sha256": "20b46cdcc902f13f0a74c2ba9468f93a589fff9f67e0ab395936c5b8facc9470",
+      "sha512": "388ad0287c85389608d7d6f97e9623ea04b848f121112b034b96c93ee4e1359f6f33b2acb59da667336d1ebee460ff50f7d963b0c1c5ecf67045a06a0fb3b376",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.1.jar",
       "custom": true
     }
   ]

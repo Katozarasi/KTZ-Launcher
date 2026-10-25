@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 78,
+  "modCount": 79,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -866,6 +866,17 @@
       "sha512": "5c1d192d82d61b47233625a4780600c81eb7d807103bf40954ea2d55fca4e1e71d9d45168d2cb1e55fe96d0cb92b6f5d702bfc7090702907bc51412dc1e4e468",
       "url": "https://cdn.modrinth.com/data/ItmVb4zY/versions/QEX1BKMf/Cobbreeding-fabric-2.4.1.jar",
       "custom": false
+    },
+    {
+      "file": "tokemon-morph-0.1.0.jar",
+      "id": "tokemon_morph",
+      "version": "0.1.0",
+      "size": 43138,
+      "md5": "ee5ddef77c40eb3ccf9edb3939b3e9f9",
+      "sha256": "2626d881563e719ce1e654d224aadf0b86a27a9bc5a70b5a40e386e78c073a39",
+      "sha512": "ca217d67200983f0c72a330c47a2260417dcd8fbb9eb876c0136fa80e9b02e0b48c1b03acfe5bc8d03369f40d5c9837d969739c03babeba0505a740d3b4739e6",
+      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.0.jar",
+      "custom": true
     }
   ]
 }

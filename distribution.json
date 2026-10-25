@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.24.3",
+      "version": "2026.10.25.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2551,6 +2551,19 @@
             "size": 477771,
             "MD5": "300d60afe47c6e63d25bf2fc1a2ef045",
             "url": "https://cdn.modrinth.com/data/ItmVb4zY/versions/QEX1BKMf/Cobbreeding-fabric-2.4.1.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_morph:2626d881563e",
+          "name": "Tokemon Morph 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 43138,
+            "MD5": "ee5ddef77c40eb3ccf9edb3939b3e9f9",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.0.jar"
           }
         }
       ]

@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.25.2",
+      "version": "2026.10.26.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -2564,6 +2564,33 @@
             "size": 53432,
             "MD5": "f126b1b580edc8a326a5cd654ead2350",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-morph-0.1.1.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:tokemon_hydro_xerneas:d38d71ed404e",
+          "name": "Tokemon Hydro Xerneas 0.1.0",
+          "type": "FabricMod",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "size": 8761,
+            "MD5": "3bcaabc36e16793b4eea6700e377391d",
+            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-hydro-xerneas-0.1.0.jar"
+          }
+        },
+        {
+          "id": "ktz.tokemon:hydro_xerneas_source:39129b708d2f",
+          "name": "Official Hydro Reanimodel 1.02 - selected Xerneas source",
+          "type": "File",
+          "required": {
+            "value": true
+          },
+          "artifact": {
+            "path": "config/tokemon-models/upstream/Hydro-Reanimodel-1.02.zip",
+            "size": 3160083,
+            "MD5": "8f01b5e9056daeed73ccbf58489bf821",
+            "url": "https://cdn.modrinth.com/data/lYp6oiT3/versions/xNDcJiVo/Hydro%20Reanimodel%20Pack%201.02.zip"
           }
         }
       ]

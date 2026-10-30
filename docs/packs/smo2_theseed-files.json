@@ -4346,11 +4346,11 @@
     {
       "path": "mods/daswordartonmine-3.4.jar",
       "kind": "mod",
-      "size": 35681926,
-      "md5": "cf9919ee5bcebe144b12fb05857b0caf",
-      "sha256": "80feece79e58a8b00804da0f62313d7091bc44c9f3e649d19415ac8c09ca2375",
-      "releaseAsset": "smo2-80feece79e58a8b00804da0f.jar",
-      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.30.1/smo2-80feece79e58a8b00804da0f.jar"
+      "size": 35681940,
+      "md5": "0180f8e8318eb08c4311c61b288eabed",
+      "sha256": "a7f1b248a73bf2a70d284f45f0759d25dbaddbed8ae504709ec136dab8bd8888",
+      "releaseAsset": "smo2-a7f1b248a73bf2a70d284f45.jar",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.30.1/smo2-a7f1b248a73bf2a70d284f45.jar"
     },
     {
       "path": "mods/DDmeter-1.0.1.jar",

@@ -2617,7 +2617,7 @@
         "loaderVersion": "47.4.10",
         "shortName": "KAO - THE SEED",
         "subtitle": "Minecraft 1.20.1 · Forge 47.4.10",
-        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kao_kato_thumb_20261031.png",
         "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kao_seaside_bg_20261030.png",
         "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kao_seaside_bg_20261030.png",
         "serverSelectVisible": true,
@@ -2638,7 +2638,7 @@
         }
       },
       "version": "2026.10.31.1",
-      "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+      "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kao_kato_thumb_20261031.png",
       "modules": [
         {
           "id": "net.minecraftforge:forge:1.20.1-47.4.10:universal",

@@ -168,7 +168,7 @@ function main() {
         ktz: {
             loader: 'forge', loaderName: 'Forge', loaderVersion: FORGE,
             shortName: 'KAO - THE SEED', subtitle: 'Minecraft 1.20.1 · Forge 47.4.10',
-            thumbnail: RAW + '/app/assets/images/servers/default_thumb.svg',
+            thumbnail: RAW + '/app/assets/images/servers/kao_kato_thumb_20261031.png',
             serverSelectBackground: RAW + '/app/assets/images/servers/kao_seaside_bg_20261030.png',
             landingBackground: RAW + '/app/assets/images/servers/kao_seaside_bg_20261030.png',
             serverSelectVisible: true, maintenance: true,

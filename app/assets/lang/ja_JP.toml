@@ -171,6 +171,7 @@ offline = "オフライン"
 players = "プレイヤー"
 
 [js.landing.systemScan]
+timeoutMessage = "Java の自動検出がタイムアウトしました。設定 → Java で対応する Java 実行ファイルを選択してから、もう一度起動してください。"
 checking = "システム情報を確認中.."
 noCompatibleJava = "互換性のある Java が<br>インストールされていません"
 installJavaMessage = "Minecraft の起動には 64-bit Java {major} が必要です。Java をインストールしますか？"

@@ -1,13 +1,15 @@
-const { DistributionAPI } = require('helios-core/common')
+const ConfiguredDistributionAPI = require('./configureddistribution')
 
 const ConfigManager = require('./configmanager')
 
 exports.REMOTE_DISTRO_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/distribution.json'
 
-const api = new DistributionAPI(
+const api = new ConfiguredDistributionAPI(
     ConfigManager.getLauncherDirectory(),
-    null, // Injected forcefully by the preloader.
-    null, // Injected forcefully by the preloader.
+    () => ({
+        commonDir: ConfigManager.getCommonDirectory(),
+        instanceDir: ConfigManager.getInstanceDirectory()
+    }),
     exports.REMOTE_DISTRO_URL,
     false
 )

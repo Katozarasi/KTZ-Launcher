@@ -41,12 +41,17 @@ jobs:
           npm run test:launch-guard
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           npm run test:skins
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          npm run test:launcher-runtime
 
       - name: Lint launcher redesign and skin service
         run: npx eslint app/assets/js/scripts/ktzRedesign.js app/assets/js/scripts/ktzSkins.js app/assets/js/skinmanager.js app/assets/js/skinstrings.js app/assets/js/skinpreview.js tools/test-launch-guard.js tools/test-skin-manager.js tools/test-redesign-ui.cjs tools/ui-test-preload.cjs tools/skin-test-fixtures.cjs tools/verify-release.js
 
       - name: Lint changed runtime files
         run: npx eslint app/assets/js/astervalepackmanager.js app/assets/js/neoforgeprocessbuilder.js app/assets/js/scripts/ktzLandingPatch.js app/assets/js/scripts/serverSelect.js app/assets/js/scripts/uibinder.js app/assets/js/scripts/overlay.js tools/test-astervale-live-patch.js tools/test-neoforge-managed-pack.js tools/build-astervale-pack.js tools/import-tokemon-profile.js
+
+      - name: Lint Java discovery and distribution directory refresh
+        run: npx eslint app/assets/js/javadiscovery.js app/assets/js/javadiscoveryworker.js app/assets/js/configureddistribution.js app/assets/js/distromanager.js app/assets/js/preloader.js app/assets/js/scripts/landing.js app/assets/js/scripts/settings.js tools/test-launcher-runtime.js
 
       - name: Build Windows installer
         if: github.event_name == 'pull_request'
@@ -60,6 +65,13 @@ jobs:
 
       - name: Verify installer and automatic update metadata
         run: npm run verify:release
+
+      - name: Test packaged Java discovery and data paths
+        shell: pwsh
+        run: |
+          $env:ELECTRON_RUN_AS_NODE = '1'
+          $env:KTZ_RUNTIME_APP_ROOT = Join-Path $pwd 'dist/win-unpacked/resources/app.asar'
+          node -e "const c=require('child_process');const r=c.spawnSync(require('electron'),['tools/test-launcher-runtime.js'],{env:process.env,stdio:'inherit',windowsHide:true});process.exit(r.status??1)"
 
       - name: Test packaged UI in three languages
         shell: pwsh

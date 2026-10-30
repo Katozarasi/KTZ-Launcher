@@ -19,10 +19,8 @@ const {
     downloadFile
 }                             = require('helios-core/dl')
 const {
-    validateSelectedJvm,
     ensureJavaDirIsRoot,
     javaExecFromRoot,
-    discoverBestJvmInstallation,
     latestOpenJDK,
     extractJdk
 }                             = require('helios-core/java')
@@ -30,6 +28,7 @@ const {
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
 const ProcessBuilder          = require('./assets/js/processbuilder')
+const { discoverPreferredJvm, validateJvm } = require('./assets/js/javadiscovery')
 
 // Launch Elements
 const launch_content          = document.getElementById('launch_content')
@@ -112,7 +111,7 @@ document.getElementById('launch_button').addEventListener('click', async e => {
             toggleLaunchArea(true)
             setLaunchPercentage(0, 100)
 
-            const details = await validateSelectedJvm(ensureJavaDirIsRoot(jExe), server.effectiveJavaOptions.supported)
+            const details = await validateJvm(ensureJavaDirIsRoot(jExe), server.effectiveJavaOptions.supported)
             if(details != null){
                 loggerLanding.info('Jvm Details', details)
                 await dlAsync()
@@ -123,7 +122,9 @@ document.getElementById('launch_button').addEventListener('click', async e => {
         }
     } catch(err) {
         loggerLanding.error('Unhandled error in during launch process.', err)
-        showLaunchFailure(Lang.queryJS('landing.launch.failureTitle'), Lang.queryJS('landing.launch.failureText'))
+        showLaunchFailure(Lang.queryJS('landing.launch.failureTitle'), Lang.queryJS(
+            err.code === 'JAVA_SCAN_TIMEOUT' ? 'landing.systemScan.timeoutMessage' : 'landing.launch.failureText'
+        ))
     }
 })
 
@@ -312,10 +313,19 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
     toggleLaunchArea(true)
     setLaunchPercentage(0, 100)
 
-    const jvmDetails = await discoverBestJvmInstallation(
-        ConfigManager.getDataDirectory(),
-        effectiveJavaOptions.supported
-    )
+    let jvmDetails
+    try {
+        jvmDetails = await discoverPreferredJvm(
+            ConfigManager.getDataDirectory(),
+            effectiveJavaOptions.supported
+        )
+    } catch(err) {
+        loggerLanding.error('Java discovery failed.', err)
+        showLaunchFailure(Lang.queryJS('landing.launch.failureTitle'), Lang.queryJS(
+            err.code === 'JAVA_SCAN_TIMEOUT' ? 'landing.systemScan.timeoutMessage' : 'landing.launch.failureText'
+        ))
+        return
+    }
 
     if(jvmDetails == null) {
         // If the result is null, no valid Java installation was found.

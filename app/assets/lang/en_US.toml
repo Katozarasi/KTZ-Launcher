@@ -172,6 +172,7 @@ offline = "OFFLINE"
 players = "PLAYERS"
 
 [js.landing.systemScan]
+timeoutMessage = "Java discovery timed out. Select a compatible Java executable in Settings → Java, then try launching again."
 checking = "Checking system info.."
 noCompatibleJava = "No Compatible<br>Java Installation Found"
 installJavaMessage = "In order to launch Minecraft, you need a 64-bit installation of Java {major}. Would you like us to install a copy?"

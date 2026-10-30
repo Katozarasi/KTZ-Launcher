@@ -32,6 +32,7 @@ async function main(){
     const archive = path.join(directory, 'win-unpacked/resources/app.asar')
     const files = asar.listPackage(archive).map(file => file.split(path.sep).join('/'))
     for(const required of ['/app/launcherShell.ejs', '/app/skins.ejs', '/app/assets/js/scripts/ktzSkins.js', '/app/assets/js/skinmanager.js']) assert.ok(files.includes(required), `Missing ${required}`)
+    for(const required of ['/app/assets/js/javadiscovery.js', '/app/assets/js/javadiscoveryworker.js', '/app/assets/js/configureddistribution.js']) assert.ok(files.includes(required), `Missing runtime fix ${required}`)
     for(const privateRoot of ['/tools', '/admin', '/.codex-remote-attachments', '/.github']) assert.ok(!files.some(file => file === privateRoot || file.startsWith(privateRoot + '/')), `Private files packaged: ${privateRoot}`)
     assert.equal(JSON.parse(asar.extractFile(archive, 'package.json')).version, version)
     const update = yaml.load(fs.readFileSync(path.join(directory, 'win-unpacked/resources/app-update.yml'), 'utf8'))

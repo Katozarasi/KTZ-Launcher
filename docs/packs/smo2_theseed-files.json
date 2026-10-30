@@ -4355,11 +4355,11 @@
     {
       "path": "mods/DDmeter-1.0.1.jar",
       "kind": "mod",
-      "size": 24020,
-      "md5": "331efc53f2b37ad0d1493bb93faba0f4",
-      "sha256": "04cc3b858f71e643ee878364ea32da4d93c202b08fcbd1396726489f3c4627ba",
-      "releaseAsset": "smo2-04cc3b858f71e643ee878364.jar",
-      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.30.1/smo2-04cc3b858f71e643ee878364.jar"
+      "size": 24073,
+      "md5": "b11c415dafa0991c2eb9f4e20d4b70d0",
+      "sha256": "4e3b3006fbefb72bd5717f95f36440bfcf94cf22421002ad1574d1206bfb6eb2",
+      "releaseAsset": "smo2-4e3b3006fbefb72bd5717f95.jar",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.30.1/smo2-4e3b3006fbefb72bd5717f95.jar"
     },
     {
       "path": "mods/deeperdarker-forge-1.20.1-1.3.3.jar",

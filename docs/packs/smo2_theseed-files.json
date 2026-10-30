@@ -1,5 +1,5 @@
 {
-  "version": "2026.10.31.7",
+  "version": "2026.10.31.8",
   "minecraftVersion": "1.20.1",
   "forgeVersion": "47.4.10",
   "files": [
@@ -5201,11 +5201,11 @@
     {
       "path": "mods/kao-adventure.jar",
       "kind": "mod",
-      "size": 1803813,
-      "md5": "0fbb9ecb2b8cb11ceb4c81a6a754ad8a",
-      "sha256": "49c96dd9dc807034344fd1955399446d29d0f2a522a4b7947140ac20de24cc53",
-      "releaseAsset": "smo2-49c96dd9dc807034344fd195.jar",
-      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.31.7/smo2-49c96dd9dc807034344fd195.jar"
+      "size": 1803765,
+      "md5": "cf25dda2de0603e199b8f7d6cc134f4e",
+      "sha256": "dafad554cab26120ce08a2da9ca5c573743a619f8572bb8fe25d02bedfdc58e4",
+      "releaseAsset": "smo2-dafad554cab26120ce08a2da.jar",
+      "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.31.8/smo2-dafad554cab26120ce08a2da.jar"
     }
   ]
 }

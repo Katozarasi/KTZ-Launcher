@@ -2637,7 +2637,7 @@
           }
         }
       },
-      "version": "2026.10.31.7",
+      "version": "2026.10.31.8",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/kao_kato_thumb_20261031.png",
       "modules": [
         {
@@ -10684,17 +10684,17 @@
           }
         },
         {
-          "id": "ktz.smo2_theseed:kao-adventure:0.2.1",
-          "name": "KAO Adventure 0.2.1",
+          "id": "ktz.smo2_theseed:kao-adventure:0.2.2",
+          "name": "KAO Adventure 0.2.2",
           "type": "File",
           "required": {
             "value": true
           },
           "artifact": {
-            "size": 1803813,
-            "MD5": "0fbb9ecb2b8cb11ceb4c81a6a754ad8a",
+            "size": 1803765,
+            "MD5": "cf25dda2de0603e199b8f7d6cc134f4e",
             "path": "mods/kao-adventure.jar",
-            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.31.7/smo2-49c96dd9dc807034344fd195.jar"
+            "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/smo2-client-2026.10.31.8/smo2-dafad554cab26120ce08a2da.jar"
           }
         }
       ]

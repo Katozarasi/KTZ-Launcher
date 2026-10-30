@@ -157,6 +157,48 @@
         "maintenance": false,
         "serverSelectVisible": true
       }
+    },
+    "smo2_theseed": {
+      "name": "KAO - THE SEED",
+      "description": "KAO - THE SEED · Minecraft 1.20.1 / Forge 47.4.10",
+      "address": "1.224.237.11:25566",
+      "minecraftVersion": "1.20.1",
+      "mainServer": false,
+      "autoconnect": true,
+      "javaOptions": {
+        "supported": "21.x",
+        "suggestedMajor": 21,
+        "ram": {
+          "recommended": 8192,
+          "minimum": 6144
+        }
+      },
+      "ktz": {
+        "loader": "forge",
+        "loaderName": "Forge",
+        "loaderVersion": "47.4.10",
+        "shortName": "KAO - THE SEED",
+        "subtitle": "Minecraft 1.20.1 · Forge 47.4.10",
+        "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_thumb.svg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/default_bg.svg",
+        "serverSelectVisible": true,
+        "maintenance": false,
+        "i18n": {
+          "ko_KR": {
+            "name": "KAO - THE SEED",
+            "subtitle": "Minecraft 1.20.1 · Forge 47.4.10"
+          },
+          "en_US": {
+            "name": "KAO - THE SEED",
+            "subtitle": "Minecraft 1.20.1 · Forge 47.4.10"
+          },
+          "ja_JP": {
+            "name": "KAO - THE SEED",
+            "subtitle": "Minecraft 1.20.1 · Forge 47.4.10"
+          }
+        }
+      }
     }
   }
 }

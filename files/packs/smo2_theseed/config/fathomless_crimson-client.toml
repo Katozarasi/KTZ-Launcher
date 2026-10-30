@@ -1,0 +1,3 @@
+#Disables the Undaunted's Red Flashes whenever they attack you. Default: false
+"Undaunted Flashing" = true
+

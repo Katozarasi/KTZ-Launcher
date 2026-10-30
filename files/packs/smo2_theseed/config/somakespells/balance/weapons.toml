@@ -1,0 +1,2589 @@
+
+[weaponBalance]
+
+	[weaponBalance.sword]
+
+		[weaponBalance.sword.sharpenedDarkMetalSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.borealBlade]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = true
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.15
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.fluixSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.15
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.soulBreaker]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = true
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.15
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = true
+			#Range: -100.0 ~ 100.0
+			spellResist = -0.1
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.spiderBiteSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = true
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.15
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.hallowSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = true
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.15
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.centauri]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = true
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.15
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.lastMourning]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = true
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.15
+
+		[weaponBalance.sword.mirroredEdge]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 15.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = true
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.15
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.monolithSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = true
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.15
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.radiantJudgment]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 15.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = true
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.15
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.scorn]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = true
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.15
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.ruinedBlade]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = true
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.15
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.clefSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 13.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = true
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.15
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.sword.rockSword]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#If true, shows this weapon in creative tab listings. If false, the weapon stays registered but is hidden from listings.
+			showInListings = true
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 15.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 0.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = true
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.15
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+	[weaponBalance.axe]
+
+		[weaponBalance.axe.greatReaperAxe]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 11.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.axe.glaciumGreataxe]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 18.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = true
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.25
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.axe.coreSplitter]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 20.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.25
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.axe.sculkborneAxe]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 15.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = true
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.15
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.axe.trumpetAxe]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 15.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = true
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.15
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+	[weaponBalance.hammer]
+
+		[weaponBalance.hammer.skullbreakerHammer]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 11.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 0.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.hammer.forbiddenHammer]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 15.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 0.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = true
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.15
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+	[weaponBalance.foices]
+
+		[weaponBalance.foices.decrepitScythe]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.5
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.foices.nightmareScythe]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 10.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.5
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.foices.hellrazor]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.0
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.5
+			overrideFireSpellPower = true
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.15
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+	[weaponBalance.spears]
+
+		[weaponBalance.spears.tridentHayfork]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.1
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 4.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.spears.jadeGuandao]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.1
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 4.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = true
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.15
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.spears.coralBardiche]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.1
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 4.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = true
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.15
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.spears.mowzieSpear]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.1
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 4.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = true
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.15
+
+		[weaponBalance.spears.twilightGale]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.1
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 4.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.15
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.spears.tidePiercer]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.1
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 4.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = true
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.15
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.spears.witheriteGlaive]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 18.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.5
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.25
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+	[weaponBalance.soul_sabers]
+
+		[weaponBalance.soul_sabers.keeperFlamberge]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 6.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.soul_sabers.soulCutlass]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 8.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.soul_sabers.legionnaireFlamberge]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = true
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.15
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.soul_sabers.spellbreaker]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = true
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.15
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.soul_sabers.soulKatana]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.15
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.soul_sabers.muramasa]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.15
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.soul_sabers.amethystRapier]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 12.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 1.7
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 3.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = true
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.15
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+	[weaponBalance.dagger]
+
+		[weaponBalance.dagger.intoxicatingDagger]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 5.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 2.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 2.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.dagger.darkRitualDagger]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 8.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 2.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 2.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = true
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.15
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.dagger.nagaFang]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 8.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 2.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 2.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = true
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.15
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+
+		[weaponBalance.dagger.totemDagger]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 8.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 2.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 2.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = true
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.15
+
+		[weaponBalance.dagger.boltcutterDagger]
+			#If true, overrides this weapon attributes using values below. If false, keeps original mod defaults.
+			enabled = false
+			#Final attack damage value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackDamage = 9.0
+			#Final attack speed value shown in-game for this weapon.
+			#Range: -1024.0 ~ 1024.0
+			attackSpeed = 2.5
+			#Final entity interaction range value for this weapon.
+			#Range: 0.0 ~ 1024.0
+			entityInteractionRange = 2.0
+			overrideFireSpellPower = false
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.15
+			overrideEnderSpellPower = false
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideSpellResist = false
+			#Range: -100.0 ~ 100.0
+			spellResist = 0.0
+			overrideHolySpellPower = false
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEldritchSpellPower = false
+			#Range: -100.0 ~ 100.0
+			eldritchSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+

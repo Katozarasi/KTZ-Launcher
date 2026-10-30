@@ -1,0 +1,13 @@
+
+["Resurrection config"]
+	#enable dodge sound
+	enable_dodge_sound = false
+	#enable dodge success sound
+	enable_dodgesuccess_sound = true
+	#enable slow_time
+	slow_time = false
+	#enable execute skill
+	enable_execute_skill = true
+	#enable parry high impact animation
+	enable_parry_impact_animation = false
+

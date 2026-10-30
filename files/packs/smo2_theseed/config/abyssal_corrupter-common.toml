@@ -1,0 +1,40 @@
+
+[boss]
+	#Multiplier applied to the Abyssal Corrupter's max health.
+	#Range: 0.1 ~ 20.0
+	bossHealthMultiplier = 1.0
+	#Multiplier applied to configured boss skill damage.
+	#Range: 0.1 ~ 20.0
+	bossDamageMultiplier = 1.0
+	#Multiplier applied to boss skill cooldowns. Lower values make skills happen more often.
+	#Range: 0.25 ~ 5.0
+	cooldownMultiplier = 1.0
+	#Extra cooldown multiplier used below 60% health.
+	#Range: 0.25 ~ 2.0
+	phaseTwoCooldownMultiplier = 0.86
+	#If false, skills keep their hit logic but avoid temporary terrain replacement.
+	allowTerrainChanges = true
+
+[visuals]
+	#Server-side particle packet quality for boss effects.
+	#Allowed Values: OFF, LOW, NORMAL, HIGH
+	particleQuality = "NORMAL"
+
+[summoning]
+	#Duration of the altar summoning sequence in ticks.
+	#Range: 20 ~ 400
+	altarSummonTicks = 100
+	#Cooldown after a successful altar summon in ticks.
+	#Range: 0 ~ 72000
+	altarCooldownTicks = 1200
+	#If true, survival players must spend an echo shard to activate the altar.
+	altarConsumesCatalyst = false
+	#If true and terrain changes are allowed, activating the altar builds a small abyssal ritual site around it.
+	altarBuildsRitualSite = true
+	#Radius of the generated abyssal ritual site around the altar.
+	#Range: 60 ~ 96
+	altarRitualRadius = 60
+	#Short invulnerable entrance time applied after altar summoning.
+	#Range: 0 ~ 200
+	entranceInvulnerableTicks = 80
+

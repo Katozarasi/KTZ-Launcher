@@ -1,0 +1,13 @@
+#If true, overrides vanilla minecraft:speed scaling to 10% per level (I=10%, II=20%, III=30%).
+modifyVanillaSpeedEffect = false
+#If true, removes MOVEMENT_SPEED from Born In Chaos effects: light/medium/strong/furious/rampant rampage and obsession.
+removeBornInChaosRampageSpeed = false
+#If true, sets born_in_chaos_v1:rabbit_agility to +50% movement speed and -50% attack damage.
+adjustBornInChaosRabbitAgility = false
+#If true, removes MOVEMENT_SPEED from born_in_chaos_v1:predators_desire.
+removeBornInChaosPredatorsDesireSpeed = false
+#If true, stone_persistence no longer applies Resistance IV every tick, and gains +5 Armor attribute.
+modifyBornInChaosStonePersistence = false
+#If true, born_in_chaos_v1:transforming_easter_cake effects last 1-2 minutes instead of 10-30 minutes.
+reduceTransformingEasterCakeDuration = false
+

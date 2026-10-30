@@ -1,0 +1,11 @@
+#自定义技能图标的x位置偏移
+#Range: > -2147483647
+ui_x = 0
+#自定义技能图标的y位置偏移
+#Range: > -2147483647
+ui_y = 0
+#是否启用全局的充能设置
+global_charge = false
+#是否自定义充能
+custom_charge = false
+

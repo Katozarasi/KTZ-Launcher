@@ -1,0 +1,11 @@
+
+[Items]
+	#Enable cape animation for the Apprentice Mage Robe.
+	enableApprenticeMageRobeCapeAnimation = true
+	#Show Spellgun ammo HUD near the crosshair.
+	enableSpellgunAmmoHud = true
+
+[Blocks]
+	#Disable Essence Smoker particle texture analysis and always use fallback colors.
+	disableEssenceSmokerParticleTextureAnalysis = false
+

@@ -1,0 +1,22 @@
+
+[music]
+	#Should CE Music Play (Such as Boss BGM)
+	playCEMusic = true
+
+[hud]
+	#The execution HUD type used for rendering, e.g. 'combat_evolution:default'
+	hudType = "combat_evolution:default"
+	#Whether to show the icon in the execution HUD
+	iconDisplay = true
+	#Whether to show text display in the execution HUD
+	showTextDisplay = true
+	#Icon Alignment
+	#Allowed Values: CENTER, CENTER_LEFT, CENTER_RIGHT, TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT
+	iconAlignment = "CENTER"
+	#Position X of Execution Icon
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	iconX = 30.0
+	#Position Y of Execution Icon
+	#Range: -1.7976931348623157E308 ~ 1.7976931348623157E308
+	iconY = 30.0
+

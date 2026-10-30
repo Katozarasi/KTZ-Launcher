@@ -1,0 +1,7 @@
+
+[Camera]
+	#Camera Shake
+	cameraShake = true
+	#Camera Zoom
+	cameraZoom = true
+

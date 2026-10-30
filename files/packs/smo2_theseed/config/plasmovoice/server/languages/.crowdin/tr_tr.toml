@@ -1,0 +1,57 @@
+[client.pv.activation]
+proximity = "Yakınlık"
+
+[server.pv.command.list]
+empty = "Plasmo Voice kullanan bir oyuncu yok"
+message = "Clients (%1$s/%2$s): %3$s"
+
+[server.pv.command.mute]
+already_muted = "%s zaten susturulmuş"
+permanently_muted = "%1$s kalıcı olarak susturuldu. Sebep: %2$s"
+temporarily_muted = "%1$s %2$s susturuldu. Sebep: %3$s"
+usage = "Kullanım: /vmute <oyuncu> [süre] [sebep]"
+
+[server.pv.command.mute_list]
+empty = "Susturulmuş oyuncu yok"
+entry = "%1$s, kalan süre: %2$s. Sebep: %3$s"
+entry_muted_by = "%1$s oyuncusu %2$s tarafından susturuldu, kalan süre: %3$s. Sebep: %4$s"
+expiration_date = "yyyy.MM.dd"
+expiration_time = "HH:mm:ss"
+expire_at = "%1$s, %2$s tarihinde"
+header = "Susturulan oyuncular:"
+never_expires = "asla"
+
+[server.pv.command.reconnect]
+message = "Yeniden bağlanma paketi gönderildi"
+
+[server.pv.command.reload]
+message = "Konfigürasyon yeniden yüklendi"
+
+[server.pv.command.unmute]
+not_muted = "%s susturulmamış"
+unmuted = "%s susturulması kaldırıldı"
+usage = "Kullanım: vunmute <oyuncu>"
+
+[server.pv.error]
+mod_missing_kick_message = """
+Üzgünüz, bu sunucuda oynamak için Plasmo Voice modunu yüklemen gerekiyor.
+Buradan indirebilirsin: https://modrinth.com/plugin/plasmo-voice"""
+no_permissions = "&cÜzgünüm, ancak bu komutu kullanmak için iznin yok. Bunun hatalı olduğunu düşünüyorsan lütfen sunucu yöneticileriyle iletişime geç."
+player_not_found = "Böyle bir oyuncu bulunamadı"
+player_only_command = "Bu komutu yalnızca oyuncular çalıştırabilir"
+version_not_supported = "Üzgünüz, Plasmo Voice sürümünüz bu sunucuda desteklenmiyor. %s"
+version_not_supported_click = "Desteklenen sürümü indirin"
+version_not_supported_hover = "%s"
+
+[server.pv.mutes]
+empty_reason = "belirtilmemiş"
+permanently_muted = "Kalıcı olarak susturuldun: Sebep: %s"
+temporarily_muted = "Moderatör tarafından susturuldun: %1$s. Sebep: %2$s"
+unmuted = "Susturulman kaldırıldı"
+
+[server.pv.mutes.durations]
+days = "%s gün boyunca"
+hours = "%s saat boyunca"
+minutes = "%s dakika boyunca"
+seconds = "%s saniye boyunca"
+weeks = "%s hafta boyunca"

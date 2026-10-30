@@ -1,0 +1,134 @@
+
+#Ares HUD UI Properties
+[properties]
+	#Type of hotbar layout to use.
+	#Allowed Values: DEFAULT, HOTBAR_1X9, HOTBAR_1X9_VERTICAL, HOTBAR_3X3
+	hotbarType = "HOTBAR_1X9"
+
+	[properties.Layout_DEFAULT]
+		hotbarDefaultProperties = "0.0011709601,0.8694779277,0.8003640175"
+		offhandDefaultProperties = "0.2729170024,0.7968130112,0.7514969707"
+		centerHudDefaultProperties = "0.3390625119,0.8862275481,0.7060214877"
+		xpBarDefaultProperties = "0.4859375060,0.8832335472,0.7970403433"
+		statusValueBarDefaultProperties = "0.3375000060,0.9640718699,0.9422094822"
+		DefaultMainHandOffsets = "0,0,0,0"
+		hotbarEnabled = true
+		centerHudEnabled = true
+		xpBarEnabled = true
+		statusValueBarEnabled = true
+		offhandEnabled = false
+		healthBarEnabled = true
+		foodBarEnabled = true
+		staminaBarEnabled = true
+		armorBarEnabled = true
+		#Range: 0 ~ 50
+		statusHorizontalPadding = 22
+		#Range: 0 ~ 50
+		statusBarVerticalSpacing = 1
+		#Bounds for Flask UI in Default layout. DuelCraft Only
+		flaskDefaultProperties = "0.2734375000,0.8892215490,1.1126120090"
+		#Enable Flask UI in Default layout. DuelCraft Only
+		flaskEnabledDefault = true
+
+	[properties.Layout_HOTBAR_1X9]
+		hotbar1x9Properties = "0.6696969867,0.8276836276,0.6379733682"
+		offhand1x9Properties = "0.2893939316,0.8587570786,0.6388363242"
+		centerHud1x9Properties = "0.3546875119,0.8583569527,0.6223731041"
+		xpBar1x9Properties = "0.4890624881,0.8615819216,0.6152254939"
+		statusValueBar1x9Properties = "0.3750000000,0.8271954656,0.7018814683"
+		1x9MainHandOffsets = "0,1,0,0"
+		hotbarEnabled = false
+		centerHudEnabled = true
+		xpBarEnabled = true
+		statusValueBarEnabled = true
+		offhandEnabled = false
+		healthBarEnabled = true
+		foodBarEnabled = true
+		staminaBarEnabled = true
+		armorBarEnabled = true
+		#Range: 0 ~ 50
+		statusHorizontalPadding = 18
+		#Range: 0 ~ 50
+		statusBarVerticalSpacing = 2
+		#Bounds for Flask UI in 1x9 layout. DuelCraft Only
+		flask1x9Properties = "0.6578124762,0.8832335472,1.1501494646"
+		#Enable Flask UI in 1x9 layout. DuelCraft Only
+		flaskEnabled1x9 = true
+
+	[properties.Layout_HOTBAR_1X9_VERTICAL]
+		hotbar1x9VerticalProperties = "0.0040404042,0.4463276863,0.6929452419"
+		offhand1x9VerticalProperties = "0.9609375000,0.7934131622,0.7177624702"
+		centerHud1x9VerticalProperties = "0.3646464646,0.8926553726,0.6039901972"
+		xpBar1x9VerticalProperties = "0.4858585894,0.8964218497,0.5634480119"
+		statusValueBar1x9VerticalProperties = "0.3406249881,0.9610778689,0.9156376719"
+		1x9VerticalMainHandOffsets = "1,1,0,0"
+		hotbarEnabled = true
+		centerHudEnabled = true
+		xpBarEnabled = true
+		statusValueBarEnabled = true
+		offhandEnabled = true
+		healthBarEnabled = true
+		foodBarEnabled = true
+		staminaBarEnabled = true
+		armorBarEnabled = true
+		#Range: 0 ~ 50
+		statusHorizontalPadding = 19
+		#Range: 0 ~ 50
+		statusBarVerticalSpacing = 2
+		#Bounds for Flask UI in 1x9Vertical layout. DuelCraft Only
+		flask1x9VerticalProperties = "0.2671875060,0.8802395463,1.1501494646"
+		#Enable Flask UI in 1x9Vertical layout. DuelCraft Only
+		flaskEnabled1x9Vertical = true
+
+	[properties.Layout_HOTBAR_3X3]
+		hotbar3x3Properties = "0.0046838406,0.8112449646,0.7814065218"
+		offhand3x3Properties = "0.1124999970,0.9401197433,0.7012566924"
+		centerHud3x3Properties = "0.3484374881,0.8862275481,0.6714066863"
+		xpBar3x3Properties = "0.4730679095,0.8835341334,0.8033816218"
+		statusValueBar3x3Properties = "0.3484374881,0.9640718699,0.8780996799"
+		3x3MainHandOffsets = "1,1,1,0"
+		hotbarEnabled = true
+		centerHudEnabled = true
+		xpBarEnabled = true
+		statusValueBarEnabled = true
+		offhandEnabled = true
+		healthBarEnabled = true
+		foodBarEnabled = true
+		staminaBarEnabled = true
+		armorBarEnabled = true
+		#Range: 0 ~ 50
+		statusHorizontalPadding = 20
+		#Range: 0 ~ 50
+		statusBarVerticalSpacing = 4
+		#Bounds for Flask UI in 3x3 layout. DuelCraft Only
+		flask3x3Properties = "0.2687500119,0.8802395463,1.1876868010"
+		#Enable Flask UI in 3x3 layout. DuelCraft Only
+		flaskEnabled3x3 = true
+
+	[properties.Global_Offsets]
+		defaultOffHandOffsets = "0,0,0,0"
+		separateOffHandOffsets = "-2,-3,0,0"
+		selectedItemNameOffsets = "2,0,0,0"
+
+	[properties.Global_Buff_Settings]
+		#Scale factor for buff icons.
+		#Range: 0.1 ~ 5.0
+		buffFrameScaleFactor = 0.5
+		#Vertical offset of buff bar from the bottom center HUD.
+		#Range: -100 ~ 100
+		buffBarVerticalOffset = 2
+		#Horizontal gap between buff icons.
+		#Range: 0 ~ 50
+		buffIconHorizontalGap = 2
+		#Vertical gap between rows of buff icons.
+		#Range: 0 ~ 50
+		buffRowVerticalGap = 2
+
+	[properties.Global_Toggles]
+		#Allow Ares HUD to override Iron's Spells/Covenant of the Seven Mana/LP bars.
+		#Set to false if you want to use the original mod's UI.
+		overrideSpellBars = true
+		#Replace the food/hunger bar with the mana bar.
+		#Functions similarly to the TcrCore/DuelCraft integration. Suitable for magic-heavy modpacks.
+		replaceFoodWithMana = false
+

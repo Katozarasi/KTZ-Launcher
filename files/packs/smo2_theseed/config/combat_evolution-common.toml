@@ -1,0 +1,17 @@
+
+[common]
+	#Enable execution
+	enabledExecution = true
+	#Execution damage multiplier to player
+	#Range: 0.0 ~ 1.7976931348623157E308
+	executionDamageToPlayer = 1.0
+	#Enable EX damage source to player(e.g bypass armor, bypass effect)
+	enableDamageSourceToPlayer = true
+	#Execution item blacklist - items in this list will be disabled
+	#Format: modid:itemname
+	#Example: 'minecraft:netherite_sword', 'minecraft:diamond_axe'
+	executionItemBlacklist = []
+	#The damage multiplier increased by each enchantment level
+	#Range: 0.0 ~ 1.7976931348623157E308
+	massacreEnchantment = 0.16
+

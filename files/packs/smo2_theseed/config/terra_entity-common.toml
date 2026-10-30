@@ -1,0 +1,62 @@
+
+[client]
+	#Boss Bar Style.
+	#0: Default, 1: Still Style, 2: Dynamic Style
+	#Range: 0 ~ 2
+	boss_bar_style = 1
+	#Boss Bar Number Offset X.
+	#Range: -150 ~ 300
+	boss_bar_number_offset_x = 0
+	#Boss Bar Number Offset Y.
+	#Range: -100 ~ 200
+	boss_bar_number_offset_y = 0
+	#Generate Projectile Particle.
+	generate_projectile_particle = true
+	enableNonSpiderModel = false
+	#NPC Chat Bubble Style.
+	#Allowed Values: CLOUD, RECT
+	npc_chat_bubble_style = "RECT"
+	#Enable Entity Motion Blur.
+	enable_entity_motion_blur = true
+
+[server]
+	#When a boss has no target, should it be cleared?
+	boss_clear_when_no_target = true
+	#Multiplier for boss attributes health.
+	#Range: 0.0625 ~ 10.0
+	boss_attributes_multiplier_health = 0.5
+	#Multiplier for boss attributes damage.
+	#Range: 0.0625 ~ 10.0
+	boss_attributes_multiplier_damage = 0.5
+	#Should the boss have no physics? Only for some bosses.
+	boss_no_physics = true
+	#Should the boss leave on day? Only for some bosses.
+	boss_leave_on_day = false
+	#Should bosses random stroll when have no target? 
+	boss_keep_wandering = true
+	#Should all monsters be enhanced?
+	#If false, only specific monsters in this mod.
+	enhance_all_monster = false
+	#Multiplier for monster attributes health.
+	#Range: 0.0625 ~ 100.0
+	monster_attributes_multiplier_health = 0.5
+	#Multiplier for monster attributes damage.
+	#Range: 0.0625 ~ 100.0
+	monster_attributes_multiplier_damage = 0.5
+	#Should the built-in attributes setting be disabled for monsters?
+	#For kjs modify
+	disable_builtin_health_attack_modifier = false
+	#Should monsters spawn without light?
+	spawn_without_light = false
+	#Chance to spawn slime on zombie head.
+	#Range: 0.0 ~ 1.0
+	chance_to_spawn_slime_on_zombie_head = 0.05
+	#Chance to spawn a monster.
+	#Range: 0.0 ~ 1.0
+	enemy_spawn_chance = 1.0
+	#Should the chance to spawn a monster apply to all monsters?
+	enemy_spawn_chance_apply_all = false
+	#Port for behavior web viewer.
+	#Range: 1024 ~ 65535
+	behavior_tree_web_viewer_server_port = 59160
+

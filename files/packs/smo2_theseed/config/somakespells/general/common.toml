@@ -1,0 +1,8 @@
+#If true, the 'Charge' effect from Iron's Spells 'n Spellbooks will be modified to give Lightning Spell Power instead of generic Spell Power and Movement Speed.
+modifyChargeEffect = true
+#The maximum number of familiars a player can tame from the Alshanex Familiars mod (if installed). Default is 10.
+#Range: > 1
+familiarLimit = 10
+#If true, Krampus and Krampus Henchman from Born in Chaos can no longer disarm players (item steal/drop is blocked).
+disableKrampusItemSteal = true
+

@@ -1,0 +1,12 @@
+
+[Items]
+	disableApprenticeDeskRecipe = false
+	disableArcanumInAJarRecipe = false
+	disableExplorersCodexRecipe = false
+
+#Entries for schoolAffinityPriority and schoolAffinityDeny use "modid:school_id".
+#If non-empty files exist under "data/apprenticecodex/school_affinity_policies/*.json", those files take precedence.
+[SchoolAffinity]
+	schoolAffinityPriority = []
+	schoolAffinityDeny = []
+

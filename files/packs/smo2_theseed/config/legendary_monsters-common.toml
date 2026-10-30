@@ -1,0 +1,312 @@
+
+["Mob Settings"]
+
+	["Mob Settings"."General Settings"]
+		#allow Camera Shake
+		"Allow Camera Shake" = true
+		#allow custom bossbars
+		"Allow Custom Boss Bars" = true
+		#for example when boss heals up after killing all players the boss will go back to previous phase
+		"Allow Boss phase reset" = true
+		#allow bosses healing when out of combat
+		"Allow Bosses Natural Healing" = true
+		#allow boss music
+		"Allow Boss Music" = true
+		#if Boss has no target and is > 15 blocks away from the spawn he will teleport back to the spawn position. That applies to mini bosses too.
+		"Allow Bosses and Mini Bosses teleport back to their spawn Position" = true
+		#Boss Music Volume Multiplier
+		#Range: 0.0 ~ 1000.0
+		"Boss Music Volume Multiplier" = 1.0
+		#Allow Falling Cloud Particles
+		"Allow Falling Cloud Particles" = true
+
+	["Mob Settings"."Chorusling Settings"]
+		#Multiplies damage dealt by Chorusling
+		#Range: 0.0 ~ 1000.0
+		"Chorusling Damage Multiplier" = 1.0
+		#Multiplies health of Chorusling
+		#Range: 0.0 ~ 1000.0
+		"Chorusling Health Multiplier" = 1.0
+
+	["Mob Settings"."Endersent Settings"]
+		#Multiplies damage dealt by Endersent
+		#Range: 0.0 ~ 1000.0
+		"Endersent Damage Multiplier" = 1.0
+		#Multiplies health of Endersent
+		#Range: 0.0 ~ 1000.0
+		"Endersent Health Multiplier" = 1.0
+
+	["Mob Settings"."Spiky Worm Settings"]
+		#Multiplies damage dealt by Spiky Worm
+		#Range: 0.0 ~ 1000.0
+		"Spiky Worm Damage Multiplier" = 1.0
+		#Multiplies health of Spiky Worm
+		#Range: 0.0 ~ 1000.0
+		"Spiky Worm Health Multiplier" = 1.0
+
+	["Mob Settings"."Ambusher Settings"]
+		#Multiplies damage dealt by Ambusher
+		#Range: 0.0 ~ 1000.0
+		"Ambusher Damage Multiplier" = 1.0
+		#Multiplies health of Ambusher
+		#Range: 0.0 ~ 1000.0
+		"Ambusher Health Multiplier" = 1.0
+		#Enables/Disables Projectile Damage For Ambusher
+		"Allow Ambusher Projectile Immunity" = true
+
+	["Mob Settings"."Stratling Settings"]
+		#Multiplies damage dealt by Stratling
+		#Range: 0.0 ~ 1000.0
+		"Stratling Damage Multiplier" = 1.0
+		#Multiplies health of Stratling
+		#Range: 0.0 ~ 1000.0
+		"Stratling Health Multiplier" = 1.0
+
+	["Mob Settings"."Hovering Hurricane Settings"]
+		#Multiplies damage dealt by Hovering Hurricane
+		#Range: 0.0 ~ 1000.0
+		"Hovering Hurricane Damage Multiplier" = 1.0
+		#Multiplies health of Hovering Hurricane
+		#Range: 0.0 ~ 1000.0
+		"Hovering Hurricane Health Multiplier" = 1.0
+
+	["Mob Settings"."Ancient Guardian Settings"]
+		#Multiplies damage dealt by Ancient Guardian
+		#Range: 0.0 ~ 1000.0
+		"Ancient Guardian Damage Multiplier" = 1.0
+		#Multiplies health of Ancient Guardian
+		#Range: 0.0 ~ 1000.0
+		"Ancient Guardian Health Multiplier" = 1.0
+		#Enables/Disables Stun Ability for Ancient Guardian. §cNOTE: Disabling This may make the bossfight less fun.
+		"Allow Ancient Guardian Stun Ability" = true
+		#Enables/Disables Projectile Damage for Ancient Guardian
+		"Allow Ancient Guardian Projectile Immunity" = true
+
+	["Mob Settings"."Haunted Knight Settings"]
+		#Multiplies damage dealt by Haunted Knight
+		#Range: 0.0 ~ 1000.0
+		"Haunted Knight Damage Multiplier" = 1.0
+		#Multiplies health of Haunted Knight
+		#Range: 0.0 ~ 1000.0
+		"Haunted Knight Health Multiplier" = 1.0
+		#Enables/Disables Projectile Immunity For Haunted Knight
+		"Allow Haunted Knight Projectile Immunity" = true
+
+	["Mob Settings"."Haunted Guard Settings"]
+		#Multiplies damage dealt by Haunted Guard
+		#Range: 0.0 ~ 1000.0
+		"Haunted Guard Damage Multiplier" = 1.0
+		#Multiplies health of Haunted Guard
+		#Range: 0.0 ~ 1000.0
+		"Haunted Guard Health Multiplier" = 1.0
+		#Enables/Disables Projectile Immunity For Haunted Guard
+		"Allow Haunted Guard Projectile Immunity" = true
+
+	["Mob Settings"."Posessed Paladin Settings"]
+		#Multiplies damage dealt by Posessed Paladin
+		#Range: 0.0 ~ 1000.0
+		"Posessed Paladin Damage Multiplier" = 1.0
+		#Multiplies health of Posessed Paladin. §cNOTE: Disabling This may make the bossfight less fun.
+		#Range: 0.0 ~ 1000.0
+		"Posessed Paladin Health Multiplier" = 1.0
+		#Enables/Disables Stun Ability for Posessed Paladin
+		"Allow Posessed Paladin Stun Ability" = true
+		#Enables/Disables Projectile Immunity for Posessed Paladin
+		"Allow Posessed Paladin Projectile Immunity" = true
+
+	["Mob Settings"."Overgrown Colosuss Settings"]
+		#Multiplies damage dealt by Overgrown Colosuss
+		#Range: 0.0 ~ 1000.0
+		"Overgrown Colosuss Damage Multiplier" = 1.0
+		#Multiplies health of Overgrown Colosuss
+		#Range: 0.0 ~ 1000.0
+		"Overgrown Colosuss Health Multiplier" = 1.0
+		#Enables/Disables Stun Ability for Overgrown Colosuss. §cNOTE: Disabling This may make the bossfight less fun.
+		"Allow Overgrown Colosuss Stun Ability" = true
+		#Enables/Disables Projectile Immunity for Overgrown Colosuss
+		"Allow Overgrown Colosuss Projectile Immunity" = true
+
+	["Mob Settings"."Mossy Golem Settings"]
+		#Multiplies damage dealt by Mossy Golem
+		#Range: 0.0 ~ 1000.0
+		"Mossy Golem Damage Multiplier" = 1.0
+		#Multiplies health of Mossy Golem
+		#Range: 0.0 ~ 1000.0
+		"Mossy Golem Health Multiplier" = 1.0
+
+	["Mob Settings"."Cloud Golem Settings"]
+		#Multiplies damage dealt by Cloud Golem
+		#Range: 0.0 ~ 1000.0
+		"Cloud Golem Damage Multiplier" = 1.0
+		#Multiplies health of Cloud Golem
+		#Range: 0.0 ~ 1000.0
+		"Cloud Golem Health Multiplier" = 1.0
+		#Enables Projectile Damage for Cloud Golem
+		"Allow Cloud Golem Projectile Damage" = false
+		#Cloud Golem loses Consciousness after Laser Attack
+		"Allow Cloud Golem Loses Consciousness" = true
+		#Cloud Golem can Charge once more after missing when he is low on HP
+		"Allow Cloud Golem Charge once More" = true
+		#Enables/Disables Cloud Golem Invulnerability Time (this boss is not getting schredded in 0.5seconds by frame - ignore weapons)
+		"Allow Cloud Golem Invulnerability Time" = true
+		#Maximum damage that can be dealt to Cloud Golem
+		#Range: 0.0 ~ 1000.0
+		"Cloud Golem Damage Cap" = 18.0
+
+	["Mob Settings"."Cloud Golem's Falling Cloud Settings"]
+		#Multiplies damage dealt by Falling Cloud
+		#Range: 0.0 ~ 1000.0
+		"Falling Cloud Damage Multiplier" = 1.0
+
+	["Mob Settings"."Frostbitten Golem Settings"]
+		#Multiplies damage dealt by Frostbitten Golem
+		#Range: 0.0 ~ 1000.0
+		"Frostbitten Golem Damage Multiplier" = 1.0
+		#Multiplies health of Frostbitten Golem
+		#Range: 0.0 ~ 1000.0
+		"Frostbitten Golem Health Multiplier" = 1.0
+		#Enables/Disables Projectile Immunity for Frostbitten Golem
+		"Allow Frostbitten Golem Projectile Immunity" = true
+
+	["Mob Settings"."Dune Sentinel Settings"]
+		#Multiplies damage dealt by Dune Sentinel
+		#Range: 0.0 ~ 1000.0
+		"Dune Sentinel Damage Multiplier" = 1.0
+		#Multiplies health of Dune Sentinel
+		#Range: 0.0 ~ 1000.0
+		"Dune Sentinel Health Multiplier" = 1.0
+		#Enables/Disables Projectile Immunity for Dune Sentinel
+		"Allow Dune Sentinel Projectile Immunity" = true
+		#Multiplies damage dealt by Bomber
+		#Range: 0.0 ~ 1000.0
+		"Bomber Damage Multiplier" = 1.0
+		#Multiplies health of Bomber
+		#Range: 0.0 ~ 1000.0
+		"Bomber Health Multiplier" = 1.0
+
+	["Mob Settings"."Skeletosaurus Settings"]
+		#Multiplies damage dealt by Skeletosaurus
+		#Range: 0.0 ~ 1000.0
+		"Skeletosaurus Damage Multiplier" = 1.0
+		#Multiplies health of Skeletosaurus
+		#Range: 0.0 ~ 1000.0
+		"Skeletosaurus Health Multiplier" = 1.0
+
+	["Mob Settings"."Lava Eater Settings"]
+		#Multiplies damage dealt by Lava Eater
+		#Range: 0.0 ~ 1000.0
+		"Lava Eater Damage Multiplier" = 1.0
+		#Multiplies health of Lava Eater
+		#Range: 0.0 ~ 1000.0
+		"Lava Eater Health Multiplier" = 1.0
+		#Disables/Enables Projectile Immunity for Lava Eater
+		"Allow Lava Eater Projectile Immunity" = true
+
+	["Mob Settings"."Warped Fungussus Settings"]
+		#Multiplies damage dealt by Warped Fungussus
+		#Range: 0.0 ~ 1000.0
+		"Warped Fungussus Damage Multiplier" = 1.0
+		#Multiplies health of Warped Fungussus
+		#Range: 0.0 ~ 1000.0
+		"Warped Fungussus Health Multiplier" = 1.0
+
+	["Mob Settings"."Withered Abomination Settings"]
+		#Multiplies damage dealt by Withered Abomination
+		#Range: 0.0 ~ 1000.0
+		"Withered Abomination Damage Multiplier" = 1.0
+		#Multiplies health of Withered Abomination
+		#Range: 0.0 ~ 1000.0
+		"Withered Abomination Health Multiplier" = 1.0
+		#Enables/Disables Stun Ability for Withered Abomination
+		"Allow Withered Abomination Stun Ability" = false
+
+	["Mob Settings"."Shulker Mimic Settings"]
+		#Multiplies damage dealt by Shulker Mimic
+		#Range: 0.0 ~ 1000.0
+		"Shulker Mimic Damage Multiplier" = 1.0
+		#Multiplies health of Shulker Mimic
+		#Range: 0.0 ~ 1000.0
+		"Shulker Mimic Health Multiplier" = 1.0
+		#Enables/Disables Projectile immunity for Shulker Mimic
+		"Allow Shulker Mimic Projectile Immunity" = true
+
+	["Mob Settings"."Tamable Knight Settings"]
+		#Multiplies damage dealt by Knight
+		#Range: 0.0 ~ 100.0
+		"Knight Damage Multiplier" = 1.0
+		#Multiplies health of Knight
+		#Range: 0.0 ~ 100.0
+		"Knight Health Multiplier" = 1.0
+
+	["Mob Settings"."Tamable Guard Settings"]
+		#Multiplies damage dealt by Guard
+		#Range: 0.0 ~ 1000.0
+		"Guard Damage Multiplier" = 1.0
+		#Multiplies health of Guard
+		#Range: 0.0 ~ 1000.0
+		"Guard Health Multiplier" = 1.0
+
+	["Mob Settings"."Skeloraptor Settings"]
+		#Multiplies damage dealt by Skeloraptor
+		#Range: 0.0 ~ 1000.0
+		"Skeloraptor Damage Multiplier" = 1.0
+		#Multiplies health of Skeloraptor
+		#Range: 0.0 ~ 1000.0
+		"Skeloraptor Health Multiplier" = 1.0
+
+	["Mob Settings"."Flameborn Guard Settings"]
+		#Multiplies damage dealt by Flameborn Guard
+		#Range: 0.0 ~ 1000.0
+		"The Flameborn Guard Damage Multiplier" = 1.0
+		#Multiplies damage of Flameborn Guard
+		#Range: 0.0 ~ 1000.0
+		"Flameborn Guard Damage Multiplier" = 1.0
+
+	["Mob Settings"."Annihilation Pursuer Settings"]
+		#Multiplies damage of Annihilation Pursuer
+		#Range: 0.0 ~ 1000.0
+		"Annihilation Pursuer Damage Multiplier" = 1.0
+
+	["Mob Settings"."The Obliterator Settings"]
+		#Multiplies damage dealt by The Obliterator
+		#Range: 0.0 ~ 1000.0
+		"The Obliterator Damage Multiplier" = 1.0
+		#Multiplies Health of The Obliterator
+		#Range: 0.0 ~ 1000.0
+		"The Obliterator Health Multiplier" = 1.0
+		#The bigger it is the stronger the Damage Adaptation is
+		#Range: 0 ~ 1000
+		"The Obliterator Damage Adaptation Multiplier" = 1
+		#ON/OFF Obliterator I Frame protection
+		"The Obliterator Invulnerability Time" = true
+		#Increases/Decreases Anti Cheese(Airborne Variation) distance which makes the Boss invulnerable when player has a high ground, default is -4 below the boss and 4 above. chaning the value will change both '-' and '+' values.
+		#Range: 0 ~ 1000
+		"Protection against airborne cheese" = 4
+		#ON/OFF Annihilation effect that The Obliterator Inflicts after hitting you, it's a stacking debuff that reduces your attack speed.
+		"The Obliterator Annihilation Debuff Effect" = false
+		#% Damage for Obliterator's clones(punching)
+		#Range: 0 ~ 1000
+		"% Damage for Obliterator's clones(punching)" = 7
+		#% Damage for Obliterator's portals
+		#Range: 0 ~ 1000
+		"% Damage for Obliterator's portals" = 5
+		#% Damage for Obliterator's portal Explosion
+		#Range: 0 ~ 1000
+		"% Damage for Obliterator's portal Explosion" = 3
+
+	["Mob Settings"."Flame Drifter Settings"]
+		#Multiplies damage dealt by Flame Drifter
+		#Range: 0.0 ~ 1000.0
+		"Flame Drifter Damage Multiplier" = 1.0
+		#Multiplies Health of Flame Drifter
+		#Range: 0.0 ~ 1000.0
+		"Flame Drifter Health Multiplier" = 1.0
+
+	["Mob Settings"."Wandering Eye Settings"]
+		#Multiplies damage dealt by Wandering Eye
+		#Range: 0.0 ~ 1000.0
+		"Wandering Eye Damage Multiplier" = 1.0
+		#Multiplies Health of Wandering Eye
+		#Range: 0.0 ~ 1000.0
+		"Wandering Eye Health Multiplier" = 1.0
+

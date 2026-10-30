@@ -1,0 +1,181 @@
+
+[hud]
+	#Enable the SAO-style HUD overlay
+	enableSaoHud = true
+	#Show player level on the HUD
+	showLevelOnHud = false
+	#Show player name on the HUD
+	showPlayerNameOnHud = false
+	#Show current biome as Floor indicator at top center
+	showFloorIndicator = false
+	#Show floating damage numbers
+	enableDamageNumbers = true
+	#Show SAO-style boss health bars
+	enableBossHpBar = true
+	#Show numeric HP text on the health bar
+	showHpText = true
+	#Show XP progress bar below the HUD frame
+	showXpBarOnHud = true
+	#Scale of the SAO HUD (0.5 = half, 1.0 = default, 1.5 = bigger)
+	#Range: 0.3 ~ 2.0
+	hudScale = 0.8500000000000001
+	#Horizontal pixel offset for HUD position
+	#Range: -500 ~ 500
+	hudOffsetX = 2
+	#Vertical pixel offset for HUD position
+	#Range: -500 ~ 500
+	hudOffsetY = 99
+	#Show the main SAO player health frame/name/level/HP text
+	showHealthHud = true
+	#Show the custom hunger bar under the SAO HUD
+	showHungerBarOnHud = true
+	#Show the custom air/oxygen bar while underwater
+	showAirBarOnHud = true
+	#Show the custom circular hotbar. Disable to use another mod/vanilla hotbar.
+	showCircularHotbar = true
+	#Hide the vanilla crosshair. Default false so the crosshair stays visible.
+	hideVanillaCrosshair = false
+	#Show SAO health bars above entities. Default false: keeps the cursor icon but removes the health bar spam.
+	enableEntityHealthBars = false
+	#Show the SAO cursor/player icon above entities
+	enableEntityCursors = true
+
+[death_screen]
+	#Enable the custom SAO death screen
+	enableSaoDeathScreen = true
+	#Show XP loss percentage on the death screen
+	deathScreenShowXpLoss = true
+	#Minimum ticks before player can respawn (20 ticks = 1 second)
+	#Range: 0 ~ 200
+	deathScreenDelayTicks = 20
+
+[level_system]
+	#Enable the XP/Level system
+	enableLevelSystem = true
+	#Base XP required for level 1
+	#Range: 10 ~ 10000
+	baseXpPerLevel = 100
+	#XP scaling factor per level (exponential)
+	#Range: 1.0 ~ 3.0
+	xpScalingFactor = 1.15
+	#Percentage of XP lost on death (0.0 - 1.0)
+	#Range: 0.0 ~ 1.0
+	deathXpLossPercent = 0.3
+	#Maximum player level
+	#Range: 1 ~ 1000
+	maxLevel = 100
+	#Multiplier for XP gained from mobs (based on mob max HP)
+	#Range: 0.1 ~ 50.0
+	mobXpMultiplier = 2.5
+	#Minimum XP gained per mob kill
+	#Range: 1 ~ 1000
+	minXpPerKill = 5
+
+[combat]
+	#Enable the duel system between players
+	enableDuelSystem = false
+	#Duel ends at half HP (true) or on death (false)
+	duelHalfHpMode = true
+	#Max distance in blocks to send a duel request
+	#Range: 3 ~ 50
+	duelMaxDistance = 10
+	#Duel request timeout in seconds
+	#Range: 10 ~ 120
+	duelRequestTimeout = 30
+
+[party]
+	#Enable the party system
+	enablePartySystem = true
+	#Maximum party size
+	#Range: 2 ~ 20
+	maxPartySize = 6
+	#Share XP between nearby party members
+	partySharedXp = true
+	#XP sharing radius in blocks
+	#Range: 5.0 ~ 500.0
+	partyXpShareRadius = 50.0
+	#Show party member HP bars on the HUD
+	partyShowOnHud = true
+	#Party-only display mode: hides the main SAO HUD (HP bar, name, level) and shows only the party window
+	partyOnlyDisplay = true
+	#If true, party XP is divided by the number of eligible nearby party members. If false, every eligible member receives the full XP amount.
+	partyDivideXpAmongMembers = true
+
+[cursors]
+	#Enable SAO color cursors above players
+	enablePlayerCursors = true
+	#Player kills before cursor turns orange
+	#Range: 1 ~ 100
+	cursorPkThreshold = 3
+
+[items]
+	#Enable Teleport Crystal item
+	enableTeleportCrystal = true
+	#Enable Healing Crystal item
+	enableHealingCrystal = true
+	#HP percentage restored by Healing Crystal (0.0 - 1.0)
+	#Range: 0.1 ~ 1.0
+	healingCrystalPercent = 0.5
+	#Teleport Crystal cooldown in ticks
+	#Range: 0 ~ 6000
+	teleportCrystalCooldown = 100
+	#Healing Crystal cooldown in ticks
+	#Range: 0 ~ 6000
+	healingCrystalCooldown = 60
+	#Loot multiplier for the SAO fishing rod (default: 2 = twice as much fish/loot as vanilla)
+	#Range: 1 ~ 10
+	fishingRodMultiplier = 2
+
+[sounds]
+	#Enable SAO sound effects
+	enableSaoSounds = true
+	#SAO OST music volume (0-100%)
+	#Range: 0 ~ 100
+	ostVolume = 100
+
+[optimization]
+	#Reduce particle count for better performance
+	optimizeParticles = true
+	#Skip HUD animations for better FPS
+	optimizeHudRender = false
+	#Particle density for skill effects (10-100%)
+	#Range: 10 ~ 100
+	particleDensity = 100
+
+[titles]
+	#Enable automatic title progression
+	enableTitleSystem = true
+	#Replace the vanilla title and pause menus with the SAO custom menus
+	enableCustomMenus = false
+
+[notifications]
+	#Enable toast notifications
+	enableToastNotifications = true
+	#Enable floating +XP popups
+	enableXpPopup = true
+	#Enable Level Up screen animation
+	enableLevelUpAnimation = true
+
+[stats]
+	#Bonus max HP gained per level above 1 (default: 5.0 = +5 HP / +2.5 hearts per level)
+	#Range: 0.0 ~ 100.0
+	hpPerLevel = 5.0
+	#Bonus max HP gained per vitality point above 1 (default: 2.0)
+	#Range: 0.0 ~ 50.0
+	hpPerVitality = 2.0
+	#Flat bonus damage added to EVERY weapon attack per strength point above 1 (default: 0.25 = +0.25 dmg per STR)
+	#Range: 0.0 ~ 10.0
+	damagePerStrength = 1.0
+	#Agility points (above 1) required to unlock one speed tier (default: 10)
+	#Range: 1 ~ 100
+	agilityPerSpeedTier = 10
+	#Hard cap on speed tiers, regardless of agility (default: 5)
+	#Range: 1 ~ 20
+	maxSpeedTier = 5
+	#Movement speed multiplier added per active speed tier (default: 0.20 = +20% per tier, stacked additively)
+	#Range: 0.0 ~ 2.0
+	speedBonusPerTier = 0.2
+	#Skill points granted per level up (default: 3)
+	#Range: 1 ~ 20
+	skillPointsPerLevel = 3
+

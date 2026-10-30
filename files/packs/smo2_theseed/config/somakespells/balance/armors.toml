@@ -1,0 +1,1719 @@
+
+[armorBalance]
+
+	[armorBalance.cataclysm]
+
+		[armorBalance.cataclysm.ignitium]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = false
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 0.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 0.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 0.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 0.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = false
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 0.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 200.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = true
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.2
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.cataclysm.cursium]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = false
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 0.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 0.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 0.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 0.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = false
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 0.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 200.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = true
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.1
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = true
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.1
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+	[armorBalance.companions]
+
+		[armorBalance.companions.crystallizedBlood]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = false
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 0.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 0.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 0.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 0.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = false
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 0.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 200.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = true
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.2
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+	[armorBalance.somake]
+
+		[armorBalance.somake.ceranium]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = false
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 0.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 0.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 0.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 0.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = false
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 0.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 200.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.1
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = true
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.1
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.somake.abyssium]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = false
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 0.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 0.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 0.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 0.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = false
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 0.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 200.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = true
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.1
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = true
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.1
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.somake.darkMetalBattlemage]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = false
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 0.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 0.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 0.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 0.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = false
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 0.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = false
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.0
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.somake.aquamancer]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 3.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 8.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 6.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = true
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.1
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+	[armorBalance.bornInChaos]
+
+		[armorBalance.bornInChaos.darkMetalArmor]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = false
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 0.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = false
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.0
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+	[armorBalance.mowziesmobs]
+
+		[armorBalance.mowziesmobs.geomancer]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = true
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.1
+
+	[armorBalance.ironsSpellbooks]
+
+		[armorBalance.ironsSpellbooks.cultist]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = true
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.1
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.cryomancer]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = true
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.1
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.electromancer]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = true
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.1
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.pyromancer]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = true
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.1
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.priest]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = true
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.1
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.plagued]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = true
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.1
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.archevoker]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = true
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.1
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.ironsSpellbooks.shadowwalker]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = true
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.1
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+	[armorBalance.magicFromTheEast]
+
+		[armorBalance.magicFromTheEast.onmyoji]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = true
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.1
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+		[armorBalance.magicFromTheEast.taoist]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = true
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.1
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = false
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.0
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+
+	[armorBalance.familiars]
+
+		[armorBalance.familiars.bard]
+			#If true, overrides this armor set attributes. If false, keeps original mod defaults.
+			enabled = true
+			#If true, overrides base armor points for each armor piece.
+			overrideArmor = true
+			#Final armor value for helmet piece.
+			#Range: -1024.0 ~ 1024.0
+			armorHelmet = 4.0
+			#Final armor value for chestplate piece.
+			#Range: -1024.0 ~ 1024.0
+			armorChestplate = 10.0
+			#Final armor value for leggings piece.
+			#Range: -1024.0 ~ 1024.0
+			armorLeggings = 7.0
+			#Final armor value for boots piece.
+			#Range: -1024.0 ~ 1024.0
+			armorBoots = 3.0
+			#If true, overrides armor toughness.
+			overrideArmorToughness = true
+			#Final armor toughness value for all pieces.
+			#Range: -1024.0 ~ 1024.0
+			armorToughness = 5.0
+			#If true, overrides max mana bonus.
+			overrideMaxMana = true
+			#Max mana bonus per armor piece.
+			#Range: -100000.0 ~ 100000.0
+			maxMana = 125.0
+			#If true, overrides generic spell power bonus.
+			overrideSpellPower = true
+			#Generic Spell Power bonus as decimal (0.05 = 5%).
+			#Range: -100.0 ~ 100.0
+			spellPower = 0.05
+			overrideFireSpellPower = false
+			#Fire Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			fireSpellPower = 0.0
+			overrideIceSpellPower = false
+			#Ice Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			iceSpellPower = 0.0
+			overrideLightningSpellPower = false
+			#Lightning Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			lightningSpellPower = 0.0
+			overrideEnderSpellPower = false
+			#Ender Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			enderSpellPower = 0.0
+			overrideBloodSpellPower = false
+			#Blood Spell Power bonus as decimal (0.20 = 20%).
+			#Range: -100.0 ~ 100.0
+			bloodSpellPower = 0.0
+			overrideNatureSpellPower = false
+			#Nature Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			natureSpellPower = 0.0
+			overrideSpiritSpellPower = false
+			#Spirit Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			spiritSpellPower = 0.0
+			overrideSymmetrySpellPower = false
+			#Symmetry Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			symmetrySpellPower = 0.0
+			overrideAquaSpellPower = false
+			#Aqua Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			aquaSpellPower = 0.0
+			overrideHolySpellPower = false
+			#Holy Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			holySpellPower = 0.0
+			overrideEvocationSpellPower = false
+			#Evocation Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			evocationSpellPower = 0.0
+			overrideSoundSpellPower = true
+			#Sound Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			soundSpellPower = 0.1
+			overrideGeoSpellPower = false
+			#Geo Spell Power bonus as decimal (0.10 = 10%).
+			#Range: -100.0 ~ 100.0
+			geoSpellPower = 0.0
+

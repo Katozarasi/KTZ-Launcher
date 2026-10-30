@@ -1,0 +1,18 @@
+
+[Settings]
+	#disable/enable camera shakes in various place
+	cameraShakes = true
+	#disable/enable fancy shader effects in various place
+	shaderEffects = true
+	#disable/enable natural spawning of jellyfish in celestial field
+	spawnJellyfish = true
+	#spawning chance of wormhole in end
+	#Range: 0.0 ~ 100.0
+	wormholeSpawnChance = 1.0
+	#deal time after dash for phase 1 (in ticks)
+	#Range: 0 ~ 1000
+	phaseOneDealTime = 250
+	#deal time after dash for phase 2 (in ticks)
+	#Range: 0 ~ 1000
+	phaseTwoDealTime = 150
+

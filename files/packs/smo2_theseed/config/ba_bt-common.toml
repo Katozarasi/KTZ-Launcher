@@ -1,0 +1,90 @@
+
+#General Settings -- Negative values are ignored
+[general]
+	#Tower Separation values below only change how often the game tries to spawn the structure. Several other factors (Land height/other structures) can affect whether the structure actually spawns.
+	#Minimum distance from spawn a Tower can be measured in chunks (Applies to X and Z). Default: 30 chunks 
+	firstTowerDistance = 30
+	#Length of time in seconds after Golem is defeated before the Land Tower collapses
+	#Range: 5 ~ 60
+	landCollapseTimer = 30
+	#Length of time in seconds after Golem is defeated before the Ocean Tower crumbles
+	#Range: 5 ~ 60
+	oceanCollapseTimer = 45
+	#Length of time in seconds after Golem is defeated before the Core Tower crumbles
+	#Range: 5 ~ 60
+	coreCollapseTimer = 45
+	#Length of time in seconds after Golem is defeated before the Core Tower crumbles
+	#Range: 5 ~ 60
+	netherCollapseTimer = 45
+	#Length of time in seconds after Golem is defeated before the Core Tower crumbles
+	#Range: 5 ~ 60
+	endCollapseTimer = 45
+	#Length of time in seconds after Golem is defeated before the Core Tower crumbles
+	#Range: 5 ~ 60
+	skyCollapseTimer = 45
+	#How much of the Land tower remains after defeating the Golem. Default: 7% of tower.
+	#Range: 0.0 ~ 1.0
+	landTowerDestruction = 0.07
+	#How much of the Ocean tower remains after defeating the Golem. Default: 5% of tower.
+	#Range: 0.0 ~ 1.0
+	oceanTowerDestruction = 0.05
+	#How much of the Core tower remains after defeating the Golem. Default: 0% of tower.
+	#Range: 0.0 ~ 1.0
+	coreTowerDestruction = 0.0
+	#How much of the Nether tower remains after defeating the Golem. Default: 0% of tower.
+	#Range: 0.0 ~ 1.0
+	netherTowerDestruction = 0.0
+	#How much of the End tower remains after defeating the Golem. Default: 0% of tower.
+	#Range: 0.0 ~ 1.0
+	endTowerDestruction = 0.0
+	#How much of the Sky tower remains after defeating the Golem. Default: 0% of tower.
+	#Range: 0.0 ~ 1.0
+	skyTowerDestruction = 0.0
+	#Makes the Ocean trench around the Ocean tower much smaller, reducing the lag on load
+	smallOceanTrench = false
+	#Whether the ocean tower destruction leaves a hole into the void. Default: true.
+	oceanTowerVoidHole = true
+	#Whether the Depth Dropper effect given by the Ocean Tower affects mobs.
+	depthDropperAffectsMobs = false
+	#The total health of the Land Golem, divide by two per heart. I.E a value of 300 is 150 hearts
+	#Range: 200.0 ~ 100000.0
+	landGolemHealth = 250.0
+	#The total health of the Ocean Golem, divide by two per heart. I.E a value of 300 is 150 hearts
+	#Range: 250.0 ~ 100000.0
+	oceanGolemHealth = 300.0
+	#The total health of the Core Golem, divide by two per heart. I.E a value of 300 is 150 hearts
+	#Range: 300.0 ~ 100000.0
+	coreGolemHealth = 350.0
+	#The total health of the Nether Golem, divide by two per heart. I.E a value of 300 is 150 hearts
+	#Range: 350.0 ~ 100000.0
+	netherGolemHealth = 400.0
+	#The total health of the End Golem, divide by two per heart. I.E a value of 300 is 150 hearts
+	#Range: 400.0 ~ 100000.0
+	endGolemHealth = 450.0
+	#The total health of the Sky Golem, divide by two per heart. I.E a value of 300 is 150 hearts
+	#Range: 450.0 ~ 100000.0
+	skyGolemHealth = 500.0
+
+#Crashable settings -- If you edit these, and the game crashes, its on you
+[crashable]
+
+	[crashable.towerMobs]
+		#Lists of mob ids of possible mobs to spawn in spawners inside each Tower. Each list must contain at least one value
+		landTowerMobs = ["minecraft:zombie", "minecraft:zombie", "minecraft:skeleton", "minecraft:spider"]
+		oceanTowerMobs = ["minecraft:drowned", "minecraft:guardian", "minecraft:drowned", "minecraft:drowned", "minecraft:drowned", "minecraft:pufferfish"]
+		coreTowerMobs = ["minecraft:magma_cube", "minecraft:zombie", "minecraft:skeleton", "minecraft:spider", "minecraft:cave_spider"]
+		netherTowerMobs = []
+		endTowerMobs = []
+		skyTowerMobs = []
+
+[towerChestLootTableReplacements]
+	#Adding a resource location of a custom loot-table to one of these lists replaces the loot generated 
+	#    using the Tower Extendable Loot Pools above  for floor/golem chests with loot from the supplied loot-table.
+	#Each list is in floor order with the first item being the table for floor 1 and the last item being the table for the Golem (Boss) chest
+	landTowerChestPools = ["", "", "", "", "", "", "", "", ""]
+	oceanTowerChestLootTables = ["", "", "", "", "", "", "", "", ""]
+	coreTowerChestLootTables = ["", "", "", "", "", "", "", "", ""]
+	netherTowerChestLootTables = ["", "", "", "", "", "", "", "", ""]
+	endTowerChestLootTables = ["", "", "", "", "", "", "", "", ""]
+	skyTowerChestLootTables = ["", "", "", "", "", "", "", "", ""]
+

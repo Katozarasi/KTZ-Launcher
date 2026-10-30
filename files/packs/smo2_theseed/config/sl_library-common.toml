@@ -1,0 +1,10 @@
+
+["SL Library"]
+	#Determine how SL Library will handle errors.
+	#
+	#RESIST: It increases the system's resilience, preventing executions from collapsing when errors occur.
+	#
+	#ABORT: Close the game immediately if you encounter a fatal error; as a result, you will get debugging. If you are in a development environment, this option will be the preferred one regardless of what you select.
+	#Allowed Values: RESIST, ABORT
+	fatalEpicFightRuntimeHandler = "RESIST"
+

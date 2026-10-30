@@ -1,0 +1,17 @@
+
+[HadeanEnforcer]
+	#Hadean Enforcer Damage Time
+	#Range: > 0
+	hadeanEnforcerDamageTime = 25
+	#Hadean Enforcer Damage Cap
+	#Range: 0.0 ~ 3.4028234663852886E38
+	hadeanEnforcerDamageCap = 12.0
+
+[HadeanSmasher]
+	#Hadean Smasher Damage Time
+	#Range: > 0
+	hadeanSmasherDamageTime = 25
+	#Hadean Smasher Damage Cap
+	#Range: 0.0 ~ 3.4028234663852886E38
+	hadeanSmasherDamageCap = 12.0
+

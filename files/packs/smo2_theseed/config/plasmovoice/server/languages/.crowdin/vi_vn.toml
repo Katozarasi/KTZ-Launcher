@@ -1,0 +1,57 @@
+[client.pv.activation]
+proximity = "Mọi người"
+
+[server.pv.command.list]
+empty = "không có người chơi nào cài Plasmo Voice"
+message = "Clients (%1$s/%2$s): %3$s"
+
+[server.pv.command.mute]
+already_muted = "%s đã bị tắt tiếng"
+permanently_muted = "%1$s bị tắt tiếng vĩnh viễn. Lý do: %2$s"
+temporarily_muted = "Tắt tiếng %1$s %2$s. Lý do: %3$s"
+usage = "Dùng: /vmute <player> [trong bao lâu] [lý do]"
+
+[server.pv.command.mute_list]
+empty = "Không có người chơi nào đang bị tắt tiếng"
+entry = "%1$s, thời hạn: %2$s. Lý do: %3$s"
+entry_muted_by = "%1$s bị tắt tiếng bởi %2$s, thời hạn: %3$s. Lý do: %4$s"
+expiration_date = "yyyy.MM.dd"
+expiration_time = "HH.mm.ss"
+expire_at = "%1$s lúc %2$s"
+header = "Tắt tiếng người chơi"
+never_expires = "không bao giờ"
+
+[server.pv.command.reconnect]
+message = "Gói tin kết nối lại đã được gửi"
+
+[server.pv.command.reload]
+message = "Plasmo Voice tải lại thành công"
+
+[server.pv.command.unmute]
+not_muted = "%s không bị tắt tiếng"
+unmuted = "Bỏ Tắt Tiếng"
+usage = "Dùng:/vunmute <player>"
+
+[server.pv.error]
+mod_missing_kick_message = """
+Xin lỗi, bạn cần tải Plasmo Voice mod để chơi trong server này.
+Tải tại đây: https://modrinth.com/plugin/plasmo-voice"""
+no_permissions = "&cTôi xin lỗi, nhưng bạn không có quyền để dùng lệnh này. Hãy liên hệ với admin server nếu bạn tin rằng đây là lỗi."
+player_not_found = "Không tìm thấy người chơi"
+player_only_command = "Chỉ người chơi mới có thể dùng lệnh này"
+version_not_supported = "Phiên bản Plastmo Voice của bạn không tương thích với server. %s"
+version_not_supported_click = "Hãy tải phiên bản được hỗ trợ"
+version_not_supported_hover = "%s"
+
+[server.pv.mutes]
+empty_reason = "không được chỉ định"
+permanently_muted = "Bạn đã bị tắt tiếng vĩnh viễn. Lý do: %s"
+temporarily_muted = "Bạn đã bị tắt tiếng %1$s. Lý do: %2$s"
+unmuted = "Bạn đã được bỏ tắt tiếng"
+
+[server.pv.mutes.durations]
+days = "trong %s d"
+hours = "trong %s h"
+minutes = "trong %s phút"
+seconds = "trong %s giây"
+weeks = "trong %s w"

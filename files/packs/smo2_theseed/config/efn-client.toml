@@ -1,0 +1,213 @@
+
+[judgementcut_end_camera]
+	#Enable/disable camera animations for JudgementCut-End
+	#When enabled, JudgementCut-End will play cinematic camera animations
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableCameraAnimations = true
+
+[judgementcut_end_particles]
+	#Enable/disable particle effects for JudgementCut-End
+	#Disable Judgement Cut End's particle effects that may cause rendering incompatibility
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableJudgementCutEndParticles = true
+
+[judgementcut_end_screendistortion_effect]
+	#Enable/disable screendistortion effects for JudgementCut-End
+	#Disable Judgement Cut End's screendistortion effects
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableJudgementCutEndScreendistortion = true
+
+[bloodlust_posteffect]
+	#Enable/disable post-effect when bloodlust's skill active
+	#When enabled, bloodlust's skill will play post-effect
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableBloodlustPostEffect = true
+
+[beastclaw_posteffect]
+	#Enable/disable post-effect when beastclaw's skill active
+	#When enabled, beastclaw's skill will play post-effect
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableBeastclawPostEffect = true
+
+["VFX Plus"]
+	#When enabled, AAAParticle will work to enhance VFX
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableVFXPlus = true
+	#Enable/disable Ground-Slam VFX
+	enableGroundSlamVFX = true
+	#Enable/disable yamato-judgement-cut VFX
+	enableYamatoJudgementCutVFX = true
+	#Enable/disable Claw-Skill VFX
+	enableClawSkillVFX = true
+	#Enable/disable DualSword-Skill VFX
+	enableDualSwordSkillVFX = true
+	#Enable/disable Tachi-Skill VFX
+	enableTachiSkillVFX = true
+	#Enable/disable Falchion-Skill VFX
+	enableFalchionSkillVFX = true
+	#Enable/disable GreatSword-ChargeSkill VFX
+	enableGreatSwordChargeSkillVFX = true
+	#Enable/disable Spear-Charge VFX
+	enableSpearChargeVFX = true
+	#Enable/disable Spear-Finisher VFX
+	enableSpearFinisherVFX = true
+	#Enable/disable Scythe-Finisher VFX
+	enableScytheFinisherVFX = true
+	#Enable/disable HfBlade-Charge VFX
+	enableMurasamaChargeVFX = true
+	#Enable/disable HfBlade-Flash VFX
+	enableMurasamaFlashVFX = true
+	#Enable/disable MortalBlade VFX
+	enableMortalBladeVFX = true
+	#Enable/disable DragonFlash VFX
+	enableDragonFlashVFX = true
+
+[zandatsu_camera_animations]
+	#Enable/disable camera animations for Zandatsu
+	#When enabled, Zandatsu will play cinematic camera animations
+	#This is a CLIENT-SIDE only setting
+	#Default: false (disabled)
+	enableCameraAnimations = false
+
+[zansetsu_gesture_sensitivity]
+	#Minimum gesture distance required to trigger a slash
+	#Higher values require larger mouse movements
+	#Default: 40.0
+	#Range: 10.0 ~ 200.0
+	minGestureDistance = 30.0
+	#Minimum gesture speed required to trigger a slash
+	#Higher values require faster mouse movements
+	#Default: 40.0
+	#Range: 10.0 ~ 200.0
+	minGestureSpeed = 30.0
+	#Threshold for detecting significant movement to start gesture recognition
+	#Lower values make gesture detection more sensitive
+	#Default: 20.0
+	#Range: 5.0 ~ 100.0
+	significantMovementThreshold = 15.0
+	#Increased distance requirement for vertical gestures after horizontal gestures
+	#Helps prevent accidental vertical gestures after horizontal ones
+	#Default: 50.0
+	#Range: 30.0 ~ 150.0
+	verticalAfterHorizontalDistance = 40.0
+	#Increased speed requirement for vertical gestures after horizontal gestures
+	#Helps prevent accidental vertical gestures after horizontal ones
+	#Default: 50.0
+	#Range: 30.0 ~ 150.0
+	verticalAfterHorizontalSpeed = 40.0
+	#Speed sensitivity multiplier for gesture detection
+	#Higher values make speed requirements more strict
+	#Default: 1.0
+	#Range: 0.1 ~ 5.0
+	speedSensitivity = 1.0
+	#Timeout ticks for gesture recognition
+	#How long to wait before resetting an incomplete gesture (in ticks)
+	#Default: 8
+	#Range: 1 ~ 20
+	gestureTimeoutTicks = 10
+	#Cooldown ticks for same direction gestures
+	#Prevents triggering the same direction repeatedly (in ticks)
+	#Default: 8
+	#Range: 0 ~ 40
+	sameDirectionCooldownTicks = 0
+	#Cooldown ticks after horizontal gestures
+	#Prevents accidental vertical gestures after horizontal ones (in ticks)
+	#Default: 20
+	#Range: 0 ~ 60
+	horizontalCooldownTicks = 0
+
+[zansetsu_camera_settings]
+	#Enable/disable all camera adjustments during Zansetsu mode
+	#When enabled, all camera effects (offset, view lock, shake) will be active
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	zansetsuCameraEnabled = true
+	#Enable/disable FOV adjustment during Zansetsu mode
+	#When enabled, the field of view will be adjusted during Zansetsu mode
+	#This provides a more focused combat perspective
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	zansetsuFovEnabled = true
+
+[zansetsu_camera_offset]
+	#Camera elevation (vertical offset) during Zansetsu mode
+	#Positive values move the camera upward, negative values downward
+	#Default: -0.2
+	#Range: -5.0 ~ 5.0
+	zansetsuCameraElevation = -0.2
+	#Camera forward offset during Zansetsu mode
+	#Positive values move the camera forward, negative values backward
+	#Default: 0.4
+	#Range: -5.0 ~ 10.0
+	zansetsuCameraForwardOffset = 0.4
+	#Camera side offset during Zansetsu mode
+	#Positive values move the camera to the right, negative values to the left
+	#Default: 0.7
+	#Range: -5.0 ~ 5.0
+	zansetsuCameraSideOffset = 0.7
+	#Camera position transition duration in seconds
+	#How long it takes for the camera to move to its Zansetsu position
+	#Default: 0.25
+	#Range: 0.1 ~ 2.0
+	zansetsuCameraTransitionDuration = 0.25
+	#FOV value during Zansetsu mode
+	#The field of view value to use during Zansetsu mode
+	#Lower values create a more zoomed-in effect
+	#Default: 30.0
+	#Range: 30.0 ~ 110.0
+	zansetsuFovValue = 30.0
+	#FOV transition duration in seconds
+	#How long it takes for the FOV to transition to Zansetsu value
+	#Default: 0.3
+	#Range: 0.1 ~ 2.0
+	zansetsuFovTransitionDuration = 0.3
+
+[zansetsu_view_lock]
+	#Enable/disable view lock during Zansetsu mode
+	#When enabled, the camera's vertical angle will be locked during Zansetsu mode
+	#This provides a more stable combat perspective
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	zansetsuViewLockEnabled = true
+	#Locked X rotation (vertical angle) during Zansetsu mode
+	#The vertical angle to lock the camera to during Zansetsu mode
+	#0 = horizontal, positive = looking down, negative = looking up
+	#Default: 0.0 (horizontal)
+	#Range: -90.0 ~ 90.0
+	zansetsuCameraLockedXRot = 0.0
+	#View lock transition duration in seconds
+	#How long it takes for the camera view to lock/unlock during Zansetsu mode
+	#Default: 0.4
+	#Range: 0.1 ~ 2.0
+	zansetsuViewLockTransitionDuration = 0.4
+
+[aaa_particles_warning]
+	#Enable the warning when AAA Particles mod is not installed
+	#When enabled, shows a warning on first launch if AAA Particles is missing
+	#Default: true (enabled)
+	enableAAAWarning = true
+	#Internal: Whether the AAA Particles warning has been shown
+	#Do not modify manually - this is managed by the mod
+	hasShownAAAWarning = true
+
+[impact_frame]
+	#if enable it, some weapons will have impact frame effect
+	impact_frame = true
+
+[judgementcut_end_weapon_model]
+	#Enable/disable weapon model fix for JudgementCut-End
+	#When enabled, JudgementCut-End will use the DMC4 Yamato Model
+	#This is a CLIENT-SIDE only setting
+	#Default: true (enabled)
+	enableModelFix = true
+
+[afterimage]
+	#if enable it, some weapons will have unique afterimage
+	afterimage = true
+

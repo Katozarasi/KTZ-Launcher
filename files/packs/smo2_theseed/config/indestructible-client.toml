@@ -1,8 +1,0 @@
-
-["replace health_bar"]
-	#replace original health_bar, 0: don't replace, 1: only replace advanced patch, 2: replace all
-	replace_health_bar = 1
-
-["cancel original boss bar"]
-	name = []
-

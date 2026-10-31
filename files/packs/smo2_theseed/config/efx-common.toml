@@ -1,9 +1,0 @@
-
-[animation_speed]
-	#Enable maximum animation speed limit
-	enable_animation_playspeed_lock = false
-
-[stun_animation]
-	#Replace player stun animation
-	replace_player_stunanimation = true
-

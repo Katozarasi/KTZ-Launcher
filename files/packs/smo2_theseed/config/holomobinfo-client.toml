@@ -1,9 +1,0 @@
-#Maximum distance in blocks to show health tags
-#Range: 8 ~ 64
-maxDistance = 20
-#Scale of the holographic panel (0.5 to 2.0)
-#Range: 0.5 ~ 2.0
-panelScale = 1.0
-#Whether holographic panels may expand into the full view
-panelExpansionEnabled = true
-

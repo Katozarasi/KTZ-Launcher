@@ -1,9 +1,0 @@
-#A list of entities that can't do Clash Blade
-#Input: ["minecraft"] will disable Clash Blade for all of entities from Minecraft
-#Input: ["minecraft:zombie"] will disable Clash Blade for zombie entity from Minecraft.
-blackList = ["nightfall_invade"]
-#The value for breaking weapon value for each successfullly clashing
-#Set to 0 to disable.
-#Range: 0 ~ 10000
-breakWeaponValueOnClash = 1
-

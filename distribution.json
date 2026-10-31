@@ -1330,8 +1330,8 @@
           }
         },
         "thumbnail": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_thumb.png",
-        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_bg.jpg",
-        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_bg.jpg",
+        "serverSelectBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_seaside_bg_20261031.png",
+        "landingBackground": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/astervale_seaside_bg_20261031.png",
         "news": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/news/astervale.xml",
         "maintenance": false,
         "shortName": "에스터베일",

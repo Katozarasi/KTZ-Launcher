@@ -1,28 +1,33 @@
-const childProcess = require('child_process')
+const AdmZip = require('adm-zip')
 const crypto = require('crypto')
 const fs = require('fs')
 const path = require('path')
 
 const projectRoot = path.resolve(__dirname, '..')
-const defaultProfile = 'C:\\Users\\TK\\AppData\\Roaming\\ModrinthApp\\profiles\\NeoForge 1.21.4'
-const defaultBuildRoot = 'E:\\Codex\\Builds\\KTZ-AsterVale'
+const defaultProfile = path.join(process.env.APPDATA || 'C:\\Users\\nabar\\AppData\\Roaming', 'ModrinthApp', 'profiles', 'NeoForge 1.21.4')
+const defaultBuildRoot = 'C:\\codex\\Builds\\KTZ-AsterVale'
 const manifestPath = path.join(projectRoot, 'docs', 'packs', 'astervale.json')
 const inventoryPath = path.join(projectRoot, 'docs', 'packs', 'astervale-files.json')
 
 const CONFIG_FILES = [
-    'dreamdisplays/client-display-settings.json',
+    'dynamic_fps.json',
     'emotecraft.json',
+    'entityculling.json',
+    'ferritecore-mixin.toml',
+    'immediatelyfast.json',
+    'iris-excluded.json',
     'katoquest-hud.properties',
+    'koreanpatch.json5',
+    'legendarytooltips.toml',
+    'lithium.properties',
+    'modernfix-common.toml',
+    'modernfix-mixins.properties',
     'MouseTweaks.cfg',
     'skinlayers.json',
     'sodium-mixins.properties',
     'sodium-options.json',
     'transition.json',
     'trender.json'
-]
-
-const SHADER_PACK_FILES = [
-    '에스텔서버 쉐이더.zip'
 ]
 
 function argument(name, fallback){
@@ -35,6 +40,10 @@ function assertSafeBuildPath(target){
     const root = path.parse(resolved).root
     if(resolved === root || resolved === path.resolve(projectRoot) || resolved.length < root.length + 12){
         throw new Error(`Refusing to use unsafe build path: ${resolved}`)
+    }
+    const allowedRoot = path.resolve('C:\\codex\\Builds') + path.sep
+    if(!resolved.toLowerCase().startsWith(allowedRoot.toLowerCase())){
+        throw new Error('Pack builds must remain under C:\\codex\\Builds: ' + resolved)
     }
 }
 
@@ -133,26 +142,10 @@ function diffInventories(previous, current){
     return { added, removed, changed }
 }
 
-function quotePowerShell(value){
-    return `'${String(value).replaceAll('\'', '\'\'')}'`
-}
-
 function createZip(packRoot, zipPath){
-    if(process.platform !== 'win32'){
-        throw new Error('Aster Vale pack creation currently requires Windows PowerShell.')
-    }
-    const command = [
-        '$ProgressPreference=\'SilentlyContinue\'',
-        `Compress-Archive -Path ${quotePowerShell(path.join(packRoot, '*'))} -DestinationPath ${quotePowerShell(zipPath)} -CompressionLevel Optimal -Force`
-    ].join('; ')
-    const result = childProcess.spawnSync('powershell.exe', ['-NoProfile', '-Command', command], {
-        encoding: 'utf8',
-        windowsHide: true,
-        maxBuffer: 16 * 1024 * 1024
-    })
-    if(result.status !== 0){
-        throw new Error((result.stderr || result.stdout || 'Compress-Archive failed').trim())
-    }
+    const zip = new AdmZip()
+    zip.addLocalFolder(packRoot)
+    zip.writeZip(zipPath)
 }
 
 function printDiff(diff){
@@ -182,7 +175,9 @@ function main(){
         throw new Error(`NeoForge profile mods directory was not found: ${profile}`)
     }
 
-    fs.rmSync(buildRoot, { recursive: true, force: true })
+    if(fs.existsSync(buildRoot)){
+        throw new Error('Build already exists; use a new version/output root: ' + buildRoot)
+    }
     ensureDirectory(packRoot)
 
     const inventory = []
@@ -216,10 +211,26 @@ function main(){
         inventory,
         file => file.toLowerCase().endsWith('.emotecraft')
     )
+    // An empty development profile must not discard the already published emotes.
+    const preservedEmoteRoot = argument('preserve-emotes', null)
+    if(emoteFiles.length === 0 && preservedEmoteRoot != null){
+        const previous = readJson(inventoryPath, { files: [] })
+        for(const item of previous.files.filter(item => item.path.startsWith('emotes/') && item.path.endsWith('.emotecraft'))){
+            const source = path.join(preservedEmoteRoot, ...item.path.slice('emotes/'.length).split('/'))
+            if(!fs.existsSync(source) || hashFile(source) !== item.sha256){
+                throw new Error('Previously published emote is missing or changed: ' + item.path)
+            }
+            copyManagedFile(source, packRoot, item.path, inventory)
+            emoteFiles.push(item.path)
+        }
+    }
 
     const shaderPackDir = path.join(profile, 'shaderpacks')
     const shaderPackFiles = []
-    for(const file of SHADER_PACK_FILES){
+    const sourceShaders = fs.existsSync(shaderPackDir) ? fs.readdirSync(shaderPackDir, { withFileTypes: true })
+        .filter(entry => entry.isFile() && entry.name.toLowerCase().endsWith('.zip'))
+        .map(entry => entry.name).sort((a, b) => a.localeCompare(b, 'ko')) : []
+    for(const file of sourceShaders){
         if(copyManagedFile(path.join(shaderPackDir, file), packRoot, `shaderpacks/${file}`, inventory)){
             shaderPackFiles.push(file)
         }
@@ -263,6 +274,23 @@ function main(){
     manifest.size = zipSize
     manifest.sha256 = zipSha256
     manifest.livePatch = null
+    const options = fs.readFileSync(path.join(profile, 'options.txt'), 'utf8')
+    const optionList = key => {
+        const line = options.split(/\r?\n/).find(value => value.startsWith(key + ':'))
+        return line ? JSON.parse(line.slice(key.length + 1)) : []
+    }
+    const incompatible = new Set(optionList('incompatibleResourcePacks'))
+    manifest.resourcePacks = optionList('resourcePacks').filter(value => value.startsWith('file/'))
+        .map(value => ({ file: value.slice(5), incompatible: incompatible.has(value) }))
+        .filter(item => inventory.some(file => file.path === 'resourcepacks/' + item.file))
+    const irisPath = path.join(profile, 'config', 'iris.properties')
+    const iris = fs.existsSync(irisPath) ? fs.readFileSync(irisPath, 'utf8') : ''
+    const selectedShader = (iris.match(/^shaderPack=(.*)$/m)?.[1] || '').trim()
+    manifest.shaderPacks = shaderPackFiles.map(file => ({
+        file,
+        optionsFile: inventory.some(item => item.path === `shaderpacks/${file}.txt`) ? `${file}.txt` : '',
+        enabled: file === selectedShader
+    }))
 
     fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8')
     fs.writeFileSync(inventoryPath, JSON.stringify(nextInventory, null, 2) + '\n', 'utf8')

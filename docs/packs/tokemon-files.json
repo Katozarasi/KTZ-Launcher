@@ -2,7 +2,7 @@
   "minecraft": "1.21.1",
   "loader": "0.18.4",
   "address": "1.224.237.11",
-  "modCount": 80,
+  "modCount": 78,
   "mods": [
     {
       "file": "CobbleFurnies-fabric-1.2.jar",
@@ -368,17 +368,6 @@
       "custom": true
     },
     {
-      "file": "tokemon-pokestick-0.1.1.jar",
-      "id": "tokemon_pokestick",
-      "version": "0.1.1",
-      "size": 117275,
-      "md5": "efcb37722e140978cab08a0779572fda",
-      "sha256": "56321b3e2763e571aec6a5e3d5c30250de60f9e1d64aff682a49159b8114a3be",
-      "sha512": "28cfde89a05630253a8240a91f2e60fa3455d7a86ee1ff93f0b4955f4426bee43d8be4b0821df946bddd3c3847917f13f689adf1f7afd9e909ca03526a814ae0",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokestick-0.1.1.jar",
-      "custom": true
-    },
-    {
       "file": "tokemon-shop-0.4.5.jar",
       "id": "tokemon_shop",
       "version": "0.4.5",
@@ -442,17 +431,6 @@
       "sha256": "2761fed2d1f00f2abab3e3a167091d6f681f23779c4a86bf13a066e0665369db",
       "sha512": "17054a424e17c8bfaf33c1975a1ac26554170f99e93b54f9ad600fd0d20d29d37663f7dae99a190acc8a2459f92e739d53866af0dfc44e5592e10484efad2df6",
       "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.2.1.jar",
-      "custom": true
-    },
-    {
-      "file": "tokemon-prizes-0.1.1.jar",
-      "id": "tokemon_prizes",
-      "version": "0.1.1",
-      "size": 17487,
-      "md5": "d6dd327cc3488df928703c32fe01ac52",
-      "sha256": "91ed81181ab8302bbed7add5d2ca80d8161a1cf79320c8423900401280ac6626",
-      "sha512": "ebedf5d025a7ca929f28214d3d14dc4a5718722600b58789c8d4a90bbbbcc7979976309438faa2dbc1f31c16c7ad9e9d8c735894ce82e0f03b30b88c94b9ba56",
-      "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-prizes-0.1.1.jar",
       "custom": true
     },
     {

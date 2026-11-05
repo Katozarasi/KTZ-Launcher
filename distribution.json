@@ -1380,7 +1380,7 @@
         "serverSelectVisible": true
       },
       "id": "tokemon",
-      "version": "2026.10.26.1",
+      "version": "2026.11.05.1",
       "icon": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/app/assets/images/servers/tokemon_thumb_sd_20261022.png",
       "modules": [
         {
@@ -1913,19 +1913,6 @@
           }
         },
         {
-          "id": "ktz.tokemon:tokemon_pokestick:56321b3e2763",
-          "name": "tokemon_pokestick 0.1.1",
-          "type": "FabricMod",
-          "required": {
-            "value": true
-          },
-          "artifact": {
-            "size": 117275,
-            "MD5": "efcb37722e140978cab08a0779572fda",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-pokestick-0.1.1.jar"
-          }
-        },
-        {
           "id": "ktz.tokemon:tokemon_shop:926308fb459b",
           "name": "tokemon_shop 0.4.5",
           "type": "FabricMod",
@@ -2029,19 +2016,6 @@
             "size": 79250,
             "MD5": "1a5e9405a97c3feab9ca1d47f4a4b891",
             "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-factory-gui-0.2.1.jar"
-          }
-        },
-        {
-          "id": "ktz.tokemon:tokemon_prizes:91ed81181ab8",
-          "name": "tokemon_prizes 0.1.1",
-          "type": "FabricMod",
-          "required": {
-            "value": true
-          },
-          "artifact": {
-            "size": 17487,
-            "MD5": "d6dd327cc3488df928703c32fe01ac52",
-            "url": "https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/files/mods/tokemon/tokemon-prizes-0.1.1.jar"
           }
         },
         {

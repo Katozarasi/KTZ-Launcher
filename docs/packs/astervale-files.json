@@ -1,71 +1,56 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.4.0",
-  "minecraftVersion": "1.21.4",
-  "loader": "neoforge-21.4.157",
-  "generatedAt": "2026-10-31T09:09:40.065Z",
-  "sourceProfile": "NeoForge 1.21.4",
+  "version": "2.0.0",
+  "minecraftVersion": "26.3",
+  "loader": "neoforge-26.3.0.101",
+  "generatedAt": "2026-11-06T17:34:33.028Z",
+  "sourceProfile": "release-profile",
   "files": [
     {
       "path": "config/dynamic_fps.json",
-      "size": 3,
-      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+      "size": 1696,
+      "sha256": "8808dbd6426b838854c2b8c77c3e5c8a3298506a08668eb46029018432a3f347"
     },
     {
       "path": "config/emotecraft.json",
-      "size": 668,
-      "sha256": "8cfb42df2afa3b8aed623ab5ad0310181693831f55f092ebcef87b299ccc03e6"
+      "size": 982,
+      "sha256": "b0a8b58a5b641276d6041cc13f29d7009ffdd3c93d1813a29ea2dd7d90f7b994"
     },
     {
       "path": "config/entityculling.json",
-      "size": 2248,
-      "sha256": "4a6d510b7e0157027b1cf2022184567fd5387aa09d08db108cb0369ba371ddbe"
+      "size": 2249,
+      "sha256": "29823e5ff89b9e2df48deff6bb30aff3f7a782338e382d30ddcfb56692b9e63c"
     },
     {
       "path": "config/ferritecore-mixin.toml",
-      "size": 1603,
-      "sha256": "1356f9d52b2dcb2afa5a593e53c286d9c1c3778a6f8b1cf761953b185b7dce78"
+      "size": 809,
+      "sha256": "f5659957a2583f18c9c45c2053e3c3c84022499555c30ed54fa4d36e7bca3ad5"
     },
     {
       "path": "config/immediatelyfast.json",
-      "size": 1114,
-      "sha256": "a6c9d147a51c9e432c5c74c00285cfc5ba8b6fa4a0c6686051a7168b158d0d7a"
+      "size": 951,
+      "sha256": "351554b5d847acfb0dcdd05a93b5b93f27035178bcbde4d5193b4dc5a5a2f11b"
     },
     {
       "path": "config/iris-excluded.json",
-      "size": 31,
-      "sha256": "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
+      "size": 45,
+      "sha256": "405990363231668df64d5fcc4f49d6d97a0be19d5f308525dca68d7697c431ff"
     },
     {
       "path": "config/katoquest-hud.properties",
-      "size": 151,
-      "sha256": "443886cbc42694ce6c419263d41ac110fa6d3c165e879c113ed12721ba5750f7"
-    },
-    {
-      "path": "config/koreanpatch.json5",
-      "size": 1513,
-      "sha256": "0b9f2cbe0343ff078bc1966257f6e30d5ef1a13b77e1ef4e19762d1dd4671dcc"
+      "size": 145,
+      "sha256": "6f32823ae0031154720134e18df5b78e7788bdf709f6497fcd7137821bcebce5"
     },
     {
       "path": "config/legendarytooltips.toml",
-      "size": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "size": 9069,
+      "sha256": "44fb54f4520726060c7ba8579965c23041bfd1f6fcf890d5810989a3df782905"
     },
     {
       "path": "config/lithium.properties",
       "size": 267,
       "sha256": "6cf6f83720071fd1657c8e79b357caf68d40f410ae123e5f922483eb1d1d25be"
-    },
-    {
-      "path": "config/modernfix-common.toml",
-      "size": 105,
-      "sha256": "72ca2bcea2a9946a3a54842f14eff6f7b47d8fc96ef497c1b56406643b153fd7"
-    },
-    {
-      "path": "config/modernfix-mixins.properties",
-      "size": 3915,
-      "sha256": "499c5a27abd39bd650d69880d193eb7698084aea3eaec47f42c8405a3dcea5f4"
     },
     {
       "path": "config/MouseTweaks.cfg",
@@ -74,8 +59,8 @@
     },
     {
       "path": "config/skinlayers.json",
-      "size": 497,
-      "sha256": "45162f45aa2db525a0edc483959f35b6d958ba2e54066a4f87e7f3c3f0f99166"
+      "size": 498,
+      "sha256": "24506cceedad088b07fd98458d7c41dff9ee1d66baefb6bbeefe5d9decfbc697"
     },
     {
       "path": "config/sodium-mixins.properties",
@@ -84,18 +69,18 @@
     },
     {
       "path": "config/sodium-options.json",
-      "size": 685,
-      "sha256": "00c7dd465e12693baeb0f9844848eb087f627d98827df51111b080af462d7d73"
+      "size": 742,
+      "sha256": "f6f002ae6ee1308b3c19b308cc5ea6be55f81c082d7e297270c51308ac8002a5"
     },
     {
       "path": "config/transition.json",
-      "size": 97,
-      "sha256": "60420a41571a4658b91babfa2b47d6fefb7c1766eeea969f51ff98ab34c2431c"
+      "size": 98,
+      "sha256": "eee5ce2a7bee4f86976a4028be6da8b6b8782aca2dd22f073d60ffe5977ff724"
     },
     {
       "path": "config/trender.json",
-      "size": 47,
-      "sha256": "0a282f3623f7f9443a1d10b5768865f69e58b74e000dcfb4f40399626b7a6124"
+      "size": 48,
+      "sha256": "3540896a8097ba9cfdeee2888e13780d68c56e1e999aad4cfe7389e6d6bbb25f"
     },
     {
       "path": "emotes/들어눕기.emotecraft",
@@ -154,8 +139,8 @@
     },
     {
       "path": "emotes/Lethal Company.emotecraft",
-      "size": 53477,
-      "sha256": "1f570120a66a2fcabde412c96ed342a4000109c60b90aadab097a7103e54efcd"
+      "size": 246655,
+      "sha256": "ece72a2d6c7ecfdaefe33426e67738a8344e5871764a3af41caa0b9efa0686d8"
     },
     {
       "path": "emotes/Pulo Do CR7.emotecraft",
@@ -258,149 +243,149 @@
       "sha256": "c370171a207aff41ac4fde0a5b62aeca59467e1c0815d2d815ef9016c6ba7664"
     },
     {
-      "path": "mods/카토 UI 클라이언트-NeoForge-1.21.4-0.9.3.jar",
-      "size": 24244887,
-      "sha256": "cac3ee6de004cfb59c0b3c641d41c60e24271809fe4a1fa1c09bd38e24f785b7"
+      "path": "mods/dreamdisplays-neoforge-26.3-1.9.4-esterveil.2-mc26.3.1.jar",
+      "size": 26196216,
+      "sha256": "256adc26e4b6e066184f98ba551a7947452de3ea65f391bea4bd00ee34163d03"
     },
     {
-      "path": "mods/dreamdisplays-neoforge-1.21.4-1.9.4-esterveil.2.jar",
-      "size": 26128745,
-      "sha256": "a2803c7a2539df5a6ee79a6784f282334e14e2748910bcd20c71b1bddbcf3dc8"
+      "path": "mods/dynamic-fps-3.11.10+minecraft-26.3.0-neoforge.jar",
+      "size": 186475,
+      "sha256": "71af4f7839096fa17f24d758682786cead49c71182decb0d3dc5a228be2fe077"
     },
     {
-      "path": "mods/dynamic-fps-3.11.8+minecraft-1.21.2-neoforge.jar",
-      "size": 225129,
-      "sha256": "b647ec45f508d644c3e5808a79b5410b85f6790c205c5cfd6ba414c64aee978a"
+      "path": "mods/emotecraft-for-MC26.3-3.5.0-b.build.179.jar",
+      "size": 2246411,
+      "sha256": "46e281d928c9806c06b73eb4185a185ff085a8dfa42c974c98b4251f7b12c8c8"
     },
     {
-      "path": "mods/emotecraft-neoforge-for-MC1.21.4-2.5.8-ktz.1.jar",
-      "size": 1255852,
-      "sha256": "0e3f0436938a1d93689466b5f9d2d85d601554253994d20aef9a96b283633906"
+      "path": "mods/entityculling-neoforge-1.11.3-mc26.3.jar",
+      "size": 1498685,
+      "sha256": "08ef339292ef63f22f1c22bed5df9d6ed5bed595fc712af73f121907d1babc5b"
     },
     {
-      "path": "mods/entityculling-neoforge-1.11.3-mc1.21.4.jar",
-      "size": 1512702,
-      "sha256": "8ea11940f54306b13f71cc559b2ebbb466944e215454b10b3bbbf04d712107e0"
+      "path": "mods/ferritecore-9.0.0-neoforge.jar",
+      "size": 71947,
+      "sha256": "a3292dadb1caf7ad220d3a4b68abff2ad58592ddd372160f9cf66c57d159b539"
     },
     {
-      "path": "mods/ferritecore-7.1.3-neoforge.jar",
-      "size": 107961,
-      "sha256": "6d9e76c230ff75d6dbe3cf063d8d42d4f13cace321d4a0728997d9854df2bf17"
+      "path": "mods/hangul-1.3.0-beta.11-ktz.26.3.0.101.1-neoforge.jar",
+      "size": 81867,
+      "sha256": "e3b84be91711fac92d2d618960d1eaa12306717a7d348566752d6cb0080c362c"
     },
     {
-      "path": "mods/Iceberg-1.21.4-neoforge-1.2.13.jar",
-      "size": 185058,
-      "sha256": "78387c10d6e4f9fb4275c002b2aca42697ae5908e72bb9276a10589c0dd61221"
+      "path": "mods/Iceberg-26.3-neoforge-1.4.3.2.jar",
+      "size": 165630,
+      "sha256": "dc5ffd20a2dc1f582c21ecd48f117a68677dbcb7afb554bbcfbd1c1916d6a98c"
     },
     {
-      "path": "mods/ImmediatelyFast-NeoForge-1.8.7+1.21.4.jar",
-      "size": 338194,
-      "sha256": "ad847b07c74b411eaf291b0d89b0ed2bb81630915f913ada5ada83c9fd7b7734"
+      "path": "mods/ImmediatelyFast-NeoForge-1.17.1+26.3.jar",
+      "size": 109497,
+      "sha256": "447a22be8b4610d8c2fe35c5a3ea3f445a2cb7151650dd9fec1149ebe8e8bf67"
     },
     {
-      "path": "mods/iris-neoforge-1.8.8+mc1.21.4.jar",
-      "size": 2622578,
-      "sha256": "589ad5a844ca6ab5746ed5f0bb7d997df98e88bc2212d81be801400a132b622d"
+      "path": "mods/iris-neoforge-1.11.7+mc26.3.jar",
+      "size": 2804761,
+      "sha256": "2260506334a17ac566ea30169ab491201208f55c1c7212bb987bc0c7c59a8d93"
     },
     {
-      "path": "mods/journeymap-neoforge-1.21.4-6.0.0-beta.47.jar",
-      "size": 3485461,
-      "sha256": "ef353b81426b6f0094fcccc9035ff4cb0e0e19ac8be6f38244e893645177dbf3"
+      "path": "mods/journeymap-neoforge-26.3-6.0.10.jar",
+      "size": 4355097,
+      "sha256": "b5080ed83b58d2bd2479a189eb3f8c8c5d51fb66675c8809ddd76107dc4cfba0"
     },
     {
-      "path": "mods/KatoArtStudio-NeoForge-1.21.4-1.0.0-rc.3.jar",
-      "size": 371413,
-      "sha256": "a1d3205363951b833fbc99fa8255d9443917cbc32354aa1eec67163622a0985a"
+      "path": "mods/KatoArtStudio-NeoForge-26.3-1.0.0-rc.4-mc26.3.1.jar",
+      "size": 596156,
+      "sha256": "9a1a6ceff6e531039e5deec7e2a9d7ee4a782ed359f7cbd2a02fa4d8d7bf62ce"
     },
     {
-      "path": "mods/KatoDialogue-Client-NeoForge-1.21.4-1.5.3.jar",
-      "size": 12053889,
-      "sha256": "1dd5b90c8b7d28f93c3e46e76b868acfca3eacb9ecf644bd7961bce4cce2cdb0"
+      "path": "mods/KatoDialogue-Client-NeoForge-26.3-1.5.3-mc26.3.1.jar",
+      "size": 12060211,
+      "sha256": "83c26eb5f43bb3373a9ce31c20708c2eaee3785bd10788cef6577bcad86d4dc1"
     },
     {
-      "path": "mods/KatoFishingTrial-Client-NeoForge-1.21.4-0.6.4-feedback.1.jar",
-      "size": 166428,
-      "sha256": "5bc19cc640f34778f25be974f060431e67c9a3feda53d5844f958751e2c57b6b"
+      "path": "mods/KatoFishingTrial-Client-NeoForge-26.3-0.6.4-mc26.3.1.jar",
+      "size": 167102,
+      "sha256": "e221bce98fb5e83fcb83f114c22e1c107e18b9bd31b3ad37e9f9f295512147e5"
     },
     {
-      "path": "mods/KatoQuest-Client-NeoForge-1.21.4-1.7.2.jar",
-      "size": 4716746,
-      "sha256": "c82a852eff4a078ac63b2bf3939aa577ab05abbd6ef1801f4f43d1a932a5a20f"
+      "path": "mods/KatoQuest-Client-NeoForge-26.3-1.7.2-mc26.3.1.jar",
+      "size": 4724224,
+      "sha256": "c0286d5887ecc142a77b5883b0df3b9b528f771aa26bcd5950ffbda0ae3ecda5"
     },
     {
-      "path": "mods/KatoSmithing-Client-NeoForge-1.21.4-0.4.3-inventory-style.jar",
-      "size": 10880475,
-      "sha256": "adb3e88abe59f24662f42dbcf24bfaac8c2da87c5abfdae26429b51251f1697e"
+      "path": "mods/KatoSmithing-Client-NeoForge-26.3-0.4.3-mc26.3.1.jar",
+      "size": 10882749,
+      "sha256": "7fa81f0e6781b348edebdc03c4f593cfe9ada05e4e4e69b5294da53defe8e9e5"
     },
     {
-      "path": "mods/KatoTaser-Client-NeoForge-1.21.4-0.1.1.jar",
-      "size": 45070,
-      "sha256": "5c6733276cd4f07d2082f0afade832affda3ae38f681e37fba2cddd4dea65da3"
+      "path": "mods/KatoTaser-Client-NeoForge-26.3-0.1.1-mc26.3.1.jar",
+      "size": 45392,
+      "sha256": "3591dae9ecb948f6357b4daf8bdd6b2a981f7ec54194b7fe519380dbf57050c2"
     },
     {
-      "path": "mods/KatoTax-Client-NeoForge-1.21.4-0.2.1.jar",
-      "size": 5876944,
-      "sha256": "9e2aca84cfe6fe0d98a6126b9edaa834699256e31c896849f0e1ef32dd07b155"
+      "path": "mods/KatoTax-Client-NeoForge-26.3-0.2.1-mc26.3.1.jar",
+      "size": 5877917,
+      "sha256": "6025a13de0d9c31a3c37cda6842d63225803f0767b89f3b0233bb08308574ac0"
     },
     {
-      "path": "mods/KatoWardrobe-Client-NeoForge-1.21.4-0.1.1-inventory-style.jar",
-      "size": 5796520,
-      "sha256": "bd871bc3c5a01e4586b676e4aede80fc8c9ef22316ed59eb5776500a1fd2d5e1"
+      "path": "mods/KatoUI-NeoForge-26.3-0.9.3-mc26.3.1.jar",
+      "size": 24231316,
+      "sha256": "4bb5042159958658c79a39f58864b39fc9f636aa8d89d14514d4ba191ee6b5ae"
     },
     {
-      "path": "mods/koreanpatch-neoforge-1.9.6+mc1.21.3.jar",
-      "size": 373020,
-      "sha256": "3116ce7b301319d628d2e22a710535df125a914dc95d776c1e788e7d70991085"
+      "path": "mods/KatoWardrobe-Client-NeoForge-26.3-0.1.1-mc26.3.1.jar",
+      "size": 5798614,
+      "sha256": "6118c969342ef9caf99f5195ac89ef0d7dc4df7f92e8673291f4c6010251ea32"
     },
     {
-      "path": "mods/LegendaryTooltips-1.21.4-neoforge-1.5.1.jar",
-      "size": 61377,
-      "sha256": "36373dfee9a08b567b184d5a98e947a97be71ec821f4f592bb82b46db7571b2d"
+      "path": "mods/LegendaryTooltips-26.3-neoforge-1.6.3.jar",
+      "size": 63346,
+      "sha256": "2065b9a81c2a73b24829cedb9aab3887a0de7c271b133de857b3c0fe77f2ec2b"
     },
     {
-      "path": "mods/lithium-neoforge-0.15.3+mc1.21.4.jar",
-      "size": 774741,
-      "sha256": "df0636106dc7205c49722ea708d252c840f87b28bd4efa2de3e2b9e824190e8d"
+      "path": "mods/lithium-neoforge-0.26.3+mc26.3.jar",
+      "size": 908506,
+      "sha256": "03eae4f0908f1ff9705143e54efbe92b4da4634b0a0f601fa86b7f3bd704dda4"
     },
     {
-      "path": "mods/modernfix-neoforge-5.20.3+mc1.21.4.jar",
-      "size": 470519,
-      "sha256": "8370af4dd2b52e5f366dea08aac1c3ef91178bf7210953ee55cbd3e579dccaad"
+      "path": "mods/MouseTweaks-neoforge-mc26.3-2.31.jar",
+      "size": 74133,
+      "sha256": "e9ec08badec2e36f875a6b001b456284a40e337f6f224e85c7373770bce8103f"
     },
     {
-      "path": "mods/MouseTweaks-neoforge-mc1.21.3-2.26.1.jar",
-      "size": 73946,
-      "sha256": "d8bce5a93d783869af0cc214126a6e38d9ca77ef3d45d99047b64865977263e8"
+      "path": "mods/PlayerAnimationLibMerged-1.2.9+mc.26.3.jar",
+      "size": 411384,
+      "sha256": "4e9e78a1607223342566978b9c3522172879d1aa08412a6c3072468a60c57035"
     },
     {
-      "path": "mods/Prism-1.21.4-neoforge-1.0.10.jar",
-      "size": 61997,
-      "sha256": "667516350f80a40229bcb6ae47b2addde365b5fbbac6cfc13a5c0cbf36821131"
+      "path": "mods/Prism-26.3-neoforge-1.1.3.jar",
+      "size": 61255,
+      "sha256": "adab5bbda1147163c09b66732f3575bff0a943ee4e1e74655c2fdc7d69c614a6"
     },
     {
-      "path": "mods/skinlayers3d-neoforge-1.11.3-mc1.21.4.jar",
-      "size": 1898911,
-      "sha256": "c7e6845a1da9e46fdf5411187b8b49e48f0d917034702eb6bcaa31b38cd1d800"
+      "path": "mods/skinlayers3d-neoforge-1.11.4-mc26.3.jar",
+      "size": 1882611,
+      "sha256": "c4e9cad7c759c024bc9a33d1c3c3ff953a0bb48a5f055b089a4284203242050d"
     },
     {
-      "path": "mods/sodium-neoforge-0.6.13+mc1.21.4.jar",
-      "size": 1161460,
-      "sha256": "78a1615506430f7d91793777dc9439188f5a56316111c3100c896eee8910d556"
+      "path": "mods/sodium-neoforge-0.9.3-beta.1+mc26.3.jar",
+      "size": 1209577,
+      "sha256": "2d6dc7b223f93ce5c5fcedbddacdeb175c1e65484a5bc115e954465aebc8291f"
     },
     {
-      "path": "mods/UniversalShop-Client-NeoForge-1.21.4-0.6.0.jar",
-      "size": 8503984,
-      "sha256": "01a7e2d17a584e5e5e00929d23369739a60622bd20a7836ba78ca7fa2635433e"
+      "path": "mods/UniversalShop-Client-NeoForge-26.3-0.6.0-mc26.3.1.jar",
+      "size": 8506784,
+      "sha256": "2e75f9d910df755f1fcc9fb88cca938abf06abe7a919f03d0c498b67c000336b"
     },
     {
-      "path": "mods/voicechat-neoforge-1.21.4-2.6.22.jar",
-      "size": 4920154,
-      "sha256": "66c4e7692266c9c1aed370f6688137f6232f6e6588188a9be520542ea029e7f2"
+      "path": "mods/voicechat-neoforge-2.6.27+26.3.jar",
+      "size": 4939338,
+      "sha256": "c9e8f94880751c5b7bd187b5a63cec721c13b0e0e1a783a9442deee028f6cd4a"
     },
     {
-      "path": "mods/WallImages-NeoForge-1.21.4-0.1.0-rc.8.jar",
-      "size": 272366,
-      "sha256": "46bb13b77e58e5b21b8594179a7b9fcd9506a21189f4c6ef9227e581cd25fa4a"
+      "path": "mods/WallImages-NeoForge-26.3-0.1.0-rc.8-mc26.3.1.jar",
+      "size": 277466,
+      "sha256": "c24792f1c604003770a9b4f5acf12482bfafb27da7620fdb7b20957bd2896c99"
     },
     {
       "path": "resourcepacks/AddCook-pack.zip",
@@ -409,8 +394,8 @@
     },
     {
       "path": "resourcepacks/Better-Leaves-9.6.zip",
-      "size": 1977146,
-      "sha256": "cbeeccd774f910ed270dbe9651d789a8f785d055499f846e466d86f9cae91e90"
+      "size": 1964246,
+      "sha256": "19b3d8a35e3204e0a3eb19439c1c2aee7d47ba9825638caa21679b65625257a8"
     },
     {
       "path": "resourcepacks/BorderLess Glass v1.zip",
@@ -419,18 +404,18 @@
     },
     {
       "path": "resourcepacks/Faithful 64x - December 2024 Release.zip",
-      "size": 10526243,
-      "sha256": "d8501b69d919075ff5c7972ca5b3627429b9a5006ceb01f909f71fcd5acf666e"
+      "size": 19411638,
+      "sha256": "b97da00361427e0ee815383c1c95ff1ba152b9662e6757d753c0f97c9bbdbe8f"
     },
     {
       "path": "resourcepacks/Kato-Autumn-Travel-0.1.0-resourcepack.zip",
-      "size": 17963,
-      "sha256": "9c2d34396c9c7da9fc49c9856872752e6c8bd242903739ab2894063963f79829"
+      "size": 17991,
+      "sha256": "89625177b7d39079d5ad603bfdb5864951a15d266c26284a58a05e2938e582a7"
     },
     {
       "path": "resourcepacks/SodiumTranslations.zip",
-      "size": 286582,
-      "sha256": "e55492cbee5839dedd829dd938cc77dc6cd18668961457595c7842cea896379d"
+      "size": 288636,
+      "sha256": "2f421ed0baf71343ddd882e89e80d617410231b9eaafc9e77c3cbb1d2bb1960e"
     },
     {
       "path": "shaderpacks/BSL_v10.1.8.zip",

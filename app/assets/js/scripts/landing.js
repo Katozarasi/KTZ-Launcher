@@ -9,26 +9,23 @@ const {
 }                             = require('helios-core/mojang')
 const {
     RestResponseStatus,
-    isDisplayableError,
-    validateLocalFile
+    isDisplayableError
 }                             = require('helios-core/common')
 const {
     FullRepair,
     DistributionIndexProcessor,
-    MojangIndexProcessor,
-    downloadFile
+    MojangIndexProcessor
 }                             = require('helios-core/dl')
 const {
     ensureJavaDirIsRoot,
-    javaExecFromRoot,
-    latestOpenJDK,
-    extractJdk
+    javaExecFromRoot
 }                             = require('helios-core/java')
 
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
 const ProcessBuilder          = require('./assets/js/processbuilder')
 const { discoverPreferredJvm, validateJvm } = require('./assets/js/javadiscovery')
+const { installJavaRuntime } = require('./assets/js/javaruntime')
 
 // Launch Elements
 const launch_content          = document.getElementById('launch_content')
@@ -336,12 +333,12 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
             Lang.queryJS('landing.systemScan.installJava'),
             Lang.queryJS('landing.systemScan.installJavaManually')
         )
-        setOverlayHandler(() => {
+        setOverlayHandler(async () => {
             setLaunchDetails(Lang.queryJS('landing.systemScan.javaDownloadPrepare'))
             toggleOverlay(false)
             
             try {
-                downloadJava(effectiveJavaOptions, launchAfter)
+                await downloadJava(effectiveJavaOptions, launchAfter)
             } catch(err) {
                 loggerLanding.error('Unhandled error in Java Download', err)
                 showLaunchFailure(Lang.queryJS('landing.systemScan.javaDownloadFailureTitle'), Lang.queryJS('landing.systemScan.javaDownloadFailureText'))
@@ -390,67 +387,22 @@ async function asyncSystemScan(effectiveJavaOptions, launchAfter = true){
 }
 
 async function downloadJava(effectiveJavaOptions, launchAfter = true) {
-
-    // TODO Error handling.
-    // asset can be null.
-    const asset = await latestOpenJDK(
-        effectiveJavaOptions.suggestedMajor,
-        ConfigManager.getDataDirectory(),
-        effectiveJavaOptions.distribution)
-
-    if(asset == null) {
-        throw new Error(Lang.queryJS('landing.downloadJava.findJdkFailure'))
+    const serverId = ConfigManager.getSelectedServer()
+    try {
+        const executable = await installJavaRuntime(effectiveJavaOptions, ConfigManager.getDataDirectory(), (stage, percent) => {
+            if(stage === 'download') setDownloadPercentage(percent)
+            else {
+                remote.getCurrentWindow().setProgressBar(2)
+                setLaunchDetails(Lang.queryJS('landing.downloadJava.extractingJava'))
+            }
+        })
+        ConfigManager.setJavaExecutable(serverId, executable)
+        ConfigManager.save()
+        setLaunchDetails(Lang.queryJS('landing.downloadJava.javaInstalled'))
+        if(ConfigManager.getSelectedServer() === serverId) await asyncSystemScan(effectiveJavaOptions, launchAfter)
+    } finally {
+        remote.getCurrentWindow().setProgressBar(-1)
     }
-
-    let received = 0
-    await downloadFile(asset.url, asset.path, ({ transferred }) => {
-        received = transferred
-        setDownloadPercentage(Math.trunc((transferred/asset.size)*100))
-    })
-    setDownloadPercentage(100)
-
-    if(received != asset.size) {
-        loggerLanding.warn(`Java Download: Expected ${asset.size} bytes but received ${received}`)
-        if(!await validateLocalFile(asset.path, asset.algo, asset.hash)) {
-            log.error(`Hashes do not match, ${asset.id} may be corrupted.`)
-            // Don't know how this could happen, but report it.
-            throw new Error(Lang.queryJS('landing.downloadJava.javaDownloadCorruptedError'))
-        }
-    }
-
-    // Extract
-    // Show installing progress bar.
-    remote.getCurrentWindow().setProgressBar(2)
-
-    // Wait for extration to complete.
-    const eLStr = Lang.queryJS('landing.downloadJava.extractingJava')
-    let dotStr = ''
-    setLaunchDetails(eLStr)
-    const extractListener = setInterval(() => {
-        if(dotStr.length >= 3){
-            dotStr = ''
-        } else {
-            dotStr += '.'
-        }
-        setLaunchDetails(eLStr + dotStr)
-    }, 750)
-
-    const newJavaExec = await extractJdk(asset.path)
-
-    // Extraction complete, remove the loading from the OS progress bar.
-    remote.getCurrentWindow().setProgressBar(-1)
-
-    // Extraction completed successfully.
-    ConfigManager.setJavaExecutable(ConfigManager.getSelectedServer(), newJavaExec)
-    ConfigManager.save()
-
-    clearInterval(extractListener)
-    setLaunchDetails(Lang.queryJS('landing.downloadJava.javaInstalled'))
-
-    // TODO Callback hell
-    // Refactor the launch functions
-    asyncSystemScan(effectiveJavaOptions, launchAfter)
-
 }
 
 // Keep reference to Minecraft Process
@@ -573,7 +525,7 @@ async function dlAsync(login = true) {
         if(serv.rawServer.ktz?.packManifest != null){
             try {
                 setLaunchDetails('에스터베일 클라이언트팩 업데이트를 확인하고 있어요...')
-                await require('./assets/js/astervalepackmanager').prepare(serv.rawServer.id)
+                await require('./assets/js/astervalepackmanager').prepare(serv.rawServer.id, serv.rawServer)
             } catch(err) {
                 loggerLaunchSuite.error('Error while preparing the managed server pack.', err)
                 showLaunchFailure(

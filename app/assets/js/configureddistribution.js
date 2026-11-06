@@ -1,4 +1,5 @@
 const { DistributionAPI, HeliosDistribution } = require('helios-core/common')
+const { applyMinecraftJavaRequirements } = require('./javaruntime')
 
 // Helios caches resolved module paths. Rebuild that cache when the user
 // changes the data directory, including when a refresh falls back offline.
@@ -20,17 +21,17 @@ class ConfiguredDistributionAPI extends DistributionAPI {
 
     async getDistribution() {
         this.syncDirectories()
-        return super.getDistribution()
+        return applyMinecraftJavaRequirements(await super.getDistribution())
     }
 
     async getDistributionLocalLoadOnly() {
         this.syncDirectories()
-        return super.getDistributionLocalLoadOnly()
+        return applyMinecraftJavaRequirements(await super.getDistributionLocalLoadOnly())
     }
 
     async refreshDistributionOrFallback() {
         this.syncDirectories()
-        return super.refreshDistributionOrFallback()
+        return applyMinecraftJavaRequirements(await super.refreshDistributionOrFallback())
     }
 }
 

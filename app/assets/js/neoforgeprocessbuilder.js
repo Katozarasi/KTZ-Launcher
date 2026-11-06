@@ -30,15 +30,17 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             }
 
             if(runtime != null) {
+                if(this._usesUnobfuscatedRuntime()) this.modManifest = fs.readJsonSync(runtime.json)
                 this.neoForgeRuntimeId = runtime.id
                 this.neoForgeCommonDir = officialMinecraftDir
                 this.neoForgeLibPath = path.join(officialMinecraftDir, 'libraries')
                 logger.info('Using official Minecraft directory for NeoForge runtime:', officialMinecraftDir)
                 logger.info('Using NeoForge runtime id:', this.neoForgeRuntimeId)
-                if(runtime.jar == null) {
+                if(runtime.jar == null && !this._usesUnobfuscatedRuntime()) {
                     logger.info('NeoForge generated version jar missing; using launcher-provided generated jar fallback.')
                 }
             } else {
+                if(this._usesUnobfuscatedRuntime()) throw new Error('NeoForge 26.x 설치를 확인할 수 없습니다. 다시 시도해 주세요.')
                 logger.warn('Official NeoForge runtime is still missing. Falling back to launcher common directory.')
             }
         }
@@ -50,7 +52,14 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     }
 
     _officialMinecraftDir() {
+        if(this._usesUnobfuscatedRuntime()) {
+            return path.join(this.commonDir, 'neoforge', this._neoForgeVersion())
+        }
         return process.env.APPDATA != null ? path.join(process.env.APPDATA, '.minecraft') : null
+    }
+
+    _usesUnobfuscatedRuntime() {
+        return /^26\./.test(this.vanillaManifest.id)
     }
 
     _defaultNeoForgeId() {
@@ -104,9 +113,11 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     _findOfficialRuntime(minecraftDir) {
         const version = this._neoForgeVersion()
         const universalJar = path.join(minecraftDir, 'libraries', 'net', 'neoforged', 'neoforge', version, 'neoforge-' + version + '-universal.jar')
-        const clientSrgJar = this._findClientSrgJar(minecraftDir)
+        const clientSrgJar = this._usesUnobfuscatedRuntime()
+            ? path.join(minecraftDir, 'libraries', 'net', 'neoforged', 'minecraft-client-patched', version, `minecraft-client-patched-${version}.jar`)
+            : this._findClientSrgJar(minecraftDir)
 
-        if(!fs.existsSync(universalJar) || clientSrgJar == null) {
+        if(!fs.existsSync(universalJar) || clientSrgJar == null || !fs.existsSync(clientSrgJar)) {
             return null
         }
 
@@ -115,6 +126,14 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             const json = path.join(minecraftDir, 'versions', id, id + '.json')
 
             if(fs.existsSync(json)) {
+                let manifest
+                try { manifest = fs.readJsonSync(json) } catch { continue }
+                if(manifest.inheritsFrom !== this.vanillaManifest.id) continue
+                if(this._usesUnobfuscatedRuntime() && (manifest.mainClass !== 'net.neoforged.fml.startup.Client' || !manifest.libraries?.length)) continue
+                if(this._usesUnobfuscatedRuntime() && !(manifest.libraries || []).every(lib => {
+                    const artifact = lib.downloads?.artifact
+                    return artifact?.path && fs.existsSync(path.join(minecraftDir, 'libraries', artifact.path))
+                })) continue
                 return {
                     id,
                     jar: fs.existsSync(jar) ? jar : null,
@@ -167,17 +186,28 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
 
     _downloadInstallerIfNeeded() {
         const installerPath = this._installerPath()
-        if(fs.existsSync(installerPath) && fs.statSync(installerPath).size > 1024 * 1024) {
-            return installerPath
-        }
-
         fs.ensureDirSync(path.dirname(installerPath))
-        logger.info('Downloading NeoForge installer:', this._installerUrl())
-
-        const psCommand = '$ProgressPreference=\'SilentlyContinue\'; Invoke-WebRequest -UseBasicParsing -Uri \'' + this._installerUrl() + '\' -OutFile \'' + installerPath.replace(/'/g, '\'\'') + '\''
+        logger.info('Verifying NeoForge installer:', this._installerUrl())
+        const quote = value => '\'' + value.replace(/'/g, '\'\'') + '\''
+        const psCommand = [
+            '$ErrorActionPreference=\'Stop\'',
+            '$ProgressPreference=\'SilentlyContinue\'',
+            '$url=' + quote(this._installerUrl()),
+            '$target=' + quote(installerPath),
+            '$checksumPath=$target+\'.sha256\'',
+            'Invoke-WebRequest -UseBasicParsing -TimeoutSec 60 -Uri ($url+\'.sha256\') -OutFile $checksumPath',
+            '$expected=((Get-Content -LiteralPath $checksumPath -Raw) -split \'\\s+\')[0].Trim()',
+            'if($expected -notmatch \'^[0-9a-fA-F]{64}$\'){throw \'Invalid NeoForge checksum\'}',
+            'function Get-InstallerHash([string]$file){$stream=[IO.File]::OpenRead($file);$sha=[Security.Cryptography.SHA256]::Create();try{[BitConverter]::ToString($sha.ComputeHash($stream)).Replace(\'-\',\'\').ToLowerInvariant()}finally{$stream.Dispose();$sha.Dispose()}}',
+            'if(!(Test-Path -LiteralPath $target) -or (Get-InstallerHash $target) -ne $expected){' +
+                '$partial=$target+\'.part\'; Invoke-WebRequest -UseBasicParsing -TimeoutSec 180 -Uri $url -OutFile $partial; ' +
+                'if((Get-InstallerHash $partial) -ne $expected){throw \'NeoForge installer checksum mismatch\'}; ' +
+                'Move-Item -LiteralPath $partial -Destination $target -Force}'
+        ].join('; ')
         const result = child_process.spawnSync('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command', psCommand], {
             encoding: 'utf8',
-            windowsHide: true
+            windowsHide: true,
+            timeout: 300000
         })
 
         if(result.status !== 0 || !fs.existsSync(installerPath)) {
@@ -193,7 +223,9 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
         const result = child_process.spawnSync(javaExec, ['-jar', installerPath].concat(args), {
             cwd: minecraftDir,
             encoding: 'utf8',
-            windowsHide: true
+            windowsHide: true,
+            timeout: 600000,
+            maxBuffer: 8 * 1024 * 1024
         })
 
         if(result.stdout) {
@@ -224,7 +256,9 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             const installerPath = this._downloadInstallerIfNeeded()
             const javaExec = ConfigManager.getJavaExecutable(this.server.rawServer.id) || 'java'
 
-            const attempts = [
+            const attempts = this._usesUnobfuscatedRuntime() ? [
+                ['--install-client', minecraftDir]
+            ] : [
                 ['--install-client'],
                 ['--installClient'],
                 ['--install-client', minecraftDir],
@@ -247,7 +281,9 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
 
     _neoForgeVersion() {
         const rawVersion = this.server.rawServer.ktz?.loaderVersion || '21.4.157'
-        return String(rawVersion).replace('neoforge-', '')
+        const version = String(rawVersion).replace(/^neoforge-/, '')
+        if(!/^\d+(?:\.\d+)+(?:-[a-zA-Z0-9.]+)?$/.test(version)) throw new Error('Invalid NeoForge version: ' + version)
+        return version
     }
 
     _neoForgeId() {
@@ -257,6 +293,12 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     _neoForgeVersionJar() {
         const id = this._neoForgeId()
         const version = this._neoForgeVersion()
+
+        if(this._usesUnobfuscatedRuntime()) {
+            // FML detects production from the unpatched vanilla bootstrap JAR.
+            // It loads patched Minecraft and NeoForge itself via libraryDirectory.
+            return path.join(this.commonDir, 'versions', this.vanillaManifest.id, this.vanillaManifest.id + '.jar')
+        }
 
         const officialJar = path.join(this.neoForgeCommonDir, 'versions', id, id + '.jar')
         if(fs.existsSync(officialJar)) {
@@ -359,7 +401,8 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
                 continue
             }
 
-            if(lib.downloads?.artifact?.path != null && !lib.name.includes('natives-')) {
+            if(lib.downloads?.artifact?.path != null && (this._usesUnobfuscatedRuntime() || !lib.name.includes('natives-')) &&
+                require('helios-core/common').isLibraryCompatible(lib.rules, lib.natives)) {
                 add(this._vanillaLibraryPath(lib))
             }
         }
@@ -373,7 +416,9 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
     }
 
     classpathArg(_mods, tempNativePath) {
-        this._resolveMojangLibraries(tempNativePath)
+        // 26.x ships native JARs on the classpath and extracts them into the
+        // per-library paths declared in Mojang's JVM arguments.
+        if(!this._usesUnobfuscatedRuntime()) this._resolveMojangLibraries(tempNativePath)
         return this._orderedNeoForgeLibraries()
     }
 
@@ -443,9 +488,9 @@ class NeoForgeProcessBuilder extends ProcessBuilder {
             return value
         }
 
-        return value
-            .replaceAll(this.libPath, this.neoForgeLibPath)
-            .replaceAll(this.commonDir, this.neoForgeCommonDir)
+        // Modern runtimes live beneath commonDir. Two replacements would nest
+        // common/neoforge/<version> twice in -DlibraryDirectory and module paths.
+        return value.includes(this.neoForgeCommonDir) ? value : value.replaceAll(this.commonDir, this.neoForgeCommonDir)
     }
 
     _remapNeoForgeJvmArgument(value, previousArg) {

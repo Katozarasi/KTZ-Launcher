@@ -8,6 +8,7 @@ const { pipeline } = require('stream')
 const { promisify } = require('util')
 
 const ConfigManager = require('./configmanager')
+const { assertPackCompatibility } = require('./packcompatibility')
 
 const MANIFEST_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale.json'
 const INVENTORY_URL = 'https://raw.githubusercontent.com/Katozarasi/KTZ-Launcher/main/docs/packs/astervale-files.json'
@@ -837,6 +838,44 @@ function retainLatestBackup(backupRoot, previousVersion){
     return path.basename(backupRoot)
 }
 
+function mergeConfigDefaults(defaults, previous){
+    if(previous != null && typeof previous === 'object' && !Array.isArray(previous)){
+        const merged = defaults != null && typeof defaults === 'object' && !Array.isArray(defaults) ? { ...defaults } : {}
+        for(const [key, value] of Object.entries(previous)){
+            if(['config_version', 'schemaVersion', 'version'].includes(key) && key in merged) continue
+            merged[key] = mergeConfigDefaults(merged[key], value)
+        }
+        return merged
+    }
+    return previous
+}
+
+function preserveExistingConfig(backupRoot, gameDir){
+    const source = path.join(backupRoot, 'config')
+    if(!fs.existsSync(source)) return
+    const visit = (directory, relative = '') => {
+        for(const entry of fs.readdirSync(directory, { withFileTypes: true })){
+            const nested = path.join(relative, entry.name)
+            const previous = path.join(source, nested)
+            if(entry.isDirectory()) { visit(previous, nested); continue }
+            if(!entry.isFile()) continue
+            const target = path.join(gameDir, 'config', nested)
+            const original = fs.readFileSync(previous)
+            if(original.toString('utf8').trim().length === 0 && fs.existsSync(target)) continue
+            fs.ensureDirSync(path.dirname(target))
+            if(entry.name.endsWith('.json') && fs.existsSync(target)){
+                try {
+                    const merged = mergeConfigDefaults(fs.readJsonSync(target), JSON.parse(original.toString('utf8')))
+                    fs.writeJsonSync(target, merged, { spaces: 2 })
+                    continue
+                } catch(_err) { /* Keep non-standard player config bytes unchanged. */ }
+            }
+            fs.writeFileSync(target, original)
+        }
+    }
+    visit(source)
+}
+
 function installStagedPayload(stagingRoot, manifest){
     const gameDir = gameDirectory()
     const backupRoot = path.join(packRoot(), 'backup', Date.now().toString())
@@ -877,9 +916,13 @@ function installStagedPayload(stagingRoot, manifest){
                 fs.ensureDirSync(target)
             }
             installedTargets.push(target)
-            removePreviousMergedManagedFiles(gameDir, previousManagedFiles, name)
+            if(!(manifest.preserveClientPreferences === true && name === 'shaderpacks')){
+                removePreviousMergedManagedFiles(gameDir, previousManagedFiles, name)
+            }
             fs.copySync(source, target, { overwrite: true, errorOnExist: false })
         }
+
+        if(manifest.preserveClientPreferences === true) preserveExistingConfig(backupRoot, gameDir)
 
         for(const relativePath of USER_PRESERVED_PATHS){
             const source = managedPath(backupRoot, relativePath)
@@ -947,6 +990,10 @@ function enableManagedResourcePacks(manifest){
     }
 
     const enabled = manifest.resourcePacks.map(item => `file/${item.file}`)
+    if(manifest.preserveClientPreferences === true && lines.some(line => line.startsWith('resourcePacks:'))){
+        console.log('[KTZ AsterVale] Preserved existing resource pack selection.')
+        return
+    }
     const incompatible = manifest.resourcePacks
         .filter(item => item.incompatible)
         .map(item => `file/${item.file}`)
@@ -986,8 +1033,16 @@ function javaPropertiesValue(value){
 
 function applyManagedClientPreferences(manifest){
     const gameDir = gameDirectory()
-    upsertOption(path.join(gameDir, 'options.txt'), ':', 'menuBackgroundBlurriness', '0')
-    console.log('[KTZ AsterVale] Forced menu background blur off.')
+    if(manifest.preserveClientPreferences !== true){
+        upsertOption(path.join(gameDir, 'options.txt'), ':', 'menuBackgroundBlurriness', '0')
+        console.log('[KTZ AsterVale] Forced menu background blur off.')
+    }
+
+    const irisOptions = path.join(gameDir, 'config', 'iris.properties')
+    if(manifest.preserveClientPreferences === true && fs.existsSync(irisOptions)){
+        const existing = fs.readFileSync(irisOptions, 'utf8')
+        if(/^shaderPack=/m.test(existing) || /^enableShaders=/m.test(existing)) return
+    }
 
     const selected = manifest.shaderPacks.find(item => item.enabled) || manifest.shaderPacks[0]
     if(selected == null){
@@ -1002,19 +1057,19 @@ function applyManagedClientPreferences(manifest){
         throw new Error('Aster Vale managed shaderpack options are missing: ' + selected.optionsFile)
     }
 
-    const irisOptions = path.join(gameDir, 'config', 'iris.properties')
     upsertOption(irisOptions, '=', 'enableShaders', 'true')
     upsertOption(irisOptions, '=', 'shaderPack', javaPropertiesValue(selected.file))
     console.log('[KTZ AsterVale] Selected managed shaderpack:', selected.file)
 }
 
-async function prepare(serverId){
+async function prepare(serverId, expectedServer){
     if(serverId !== SERVER_ID){
         return null
     }
 
     setStatus('에스터베일 클라이언트팩 업데이트를 확인하고 있어요...')
     const manifest = await loadRemoteManifest()
+    assertPackCompatibility(manifest, expectedServer)
     enforceMinimumLauncherVersion(manifest)
 
     const installed = readInstalledState()

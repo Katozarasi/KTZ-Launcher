@@ -35,6 +35,7 @@ module.exports.__test = {
     normalizeManifest,
     applyLivePatch,
     applyManagedClientPreferences,
+    enableManagedResourcePacks,
     installStagedPayload,
     isUserPreservedPath,
     normalizeInventory,
@@ -225,6 +226,32 @@ async function main(){
     assert.strictEqual(installedState.managedFiles.includes('config/user-only.json'), false)
     assert.ok(installedState.backupPath)
     assert.strictEqual(fs.existsSync(path.join(commonDir, 'packs', 'astervale', 'backup', installedState.backupPath)), true)
+
+    const migratedStaging = path.join(testRoot, 'migration-staging')
+    fs.copySync(gameDir, migratedStaging)
+    fs.outputJsonSync(path.join(gameDir, 'config', 'personal.json'), { config_version: 1, volume: 0.2, nested: { selected: 'mine' } })
+    fs.outputJsonSync(path.join(migratedStaging, 'config', 'personal.json'), { config_version: 2, volume: 1, newOption: true, nested: { selected: 'default', newKey: 4 } })
+    fs.outputFileSync(path.join(gameDir, 'config', 'iris.properties'), 'enableShaders=false\nshaderPack=User Shader.zip\n')
+    fs.outputFileSync(path.join(gameDir, 'shaderpacks', 'Previously Managed.zip'), 'old-selected-shader')
+    api.writeInstalledState(preservationManifest, 0, [...api.readInstalledState().managedFiles, 'shaderpacks/Previously Managed.zip'])
+    fs.outputFileSync(path.join(gameDir, 'config', 'user.toml'), '[screen]\nscale = 1.75\n')
+    fs.outputFileSync(path.join(migratedStaging, 'config', 'user.toml'), '[screen]\nscale = 1.0\n')
+    fs.outputFileSync(path.join(gameDir, 'options.txt'), 'menuBackgroundBlurriness:7\nfov:0.6\nresourcePacks:["vanilla","file/User Pack.zip"]\n')
+    const migrationManifest = api.normalizeManifest({ ...preservationManifest, version: '2.0.0', preserveClientPreferences: true, resourcePacks: [{ file: 'new.zip' }], shaderPacks: [{ file: 'new.zip', enabled: true }] })
+    api.installStagedPayload(migratedStaging, migrationManifest)
+    assert.deepStrictEqual(fs.readJsonSync(path.join(gameDir, 'config', 'personal.json')), { config_version: 2, volume: 0.2, newOption: true, nested: { selected: 'mine', newKey: 4 } })
+    assert.strictEqual(fs.readFileSync(path.join(gameDir, 'config', 'user.toml'), 'utf8'), '[screen]\nscale = 1.75\n')
+    assert.strictEqual(fs.readFileSync(path.join(gameDir, 'config', 'iris.properties'), 'utf8'), 'enableShaders=false\nshaderPack=User Shader.zip\n')
+    assert.strictEqual(fs.readFileSync(path.join(gameDir, 'shaderpacks', 'Previously Managed.zip'), 'utf8'), 'old-selected-shader')
+    assert.match(fs.readFileSync(path.join(gameDir, 'options.txt'), 'utf8'), /^menuBackgroundBlurriness:7$/m)
+    assert.match(fs.readFileSync(path.join(gameDir, 'options.txt'), 'utf8'), /^fov:0\.6$/m)
+    assert.match(fs.readFileSync(path.join(gameDir, 'options.txt'), 'utf8'), /^resourcePacks:\["vanilla","file\/User Pack.zip"\]$/m)
+    fs.writeFileSync(path.join(gameDir, 'options.txt'), 'resourcePacks:[]\n')
+    api.enableManagedResourcePacks(migrationManifest)
+    assert.strictEqual(fs.readFileSync(path.join(gameDir, 'options.txt'), 'utf8'), 'resourcePacks:[]\n')
+    fs.writeFileSync(path.join(gameDir, 'options.txt'), 'fov:0.6\n')
+    api.enableManagedResourcePacks(migrationManifest)
+    assert.match(fs.readFileSync(path.join(gameDir, 'options.txt'), 'utf8'), /^resourcePacks:\["file\/new.zip"\]$/m)
 
     console.log('Aster Vale live patch tests passed.')
 }

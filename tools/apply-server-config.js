@@ -138,7 +138,9 @@ async function buildNeoForgeModule(serverId, cfg) {
     const manifestFile = path.join(root, 'files', 'loaders', 'neoforge', 'versions', manifestId, `${manifestId}.json`)
     const manifest = readJson(manifestFile)
     const libraries = []
-    for (const lib of manifest.libraries || []) {
+    for (const lib of /^26\./.test(cfg.minecraftVersion) ? [] : (manifest.libraries || [])) {
+        // NeoForge 26 installs its complete isolated runtime through the official
+        // installer. Helios still needs the version manifest for launch preparation.
         const module = await libraryModule(lib)
         if (module) libraries.push(module)
     }

@@ -6,8 +6,8 @@ const path = require('path')
 const projectRoot = path.resolve(__dirname, '..')
 const defaultProfile = path.join(process.env.APPDATA || 'C:\\Users\\nabar\\AppData\\Roaming', 'ModrinthApp', 'profiles', 'NeoForge 1.21.4')
 const defaultBuildRoot = 'C:\\codex\\Builds\\KTZ-AsterVale'
-const manifestPath = path.join(projectRoot, 'docs', 'packs', 'astervale.json')
-const inventoryPath = path.join(projectRoot, 'docs', 'packs', 'astervale-files.json')
+const manifestPath = path.resolve(argument('manifest-path', path.join(projectRoot, 'docs', 'packs', 'astervale.json')))
+const inventoryPath = path.resolve(argument('inventory-path', path.join(projectRoot, 'docs', 'packs', 'astervale-files.json')))
 
 const CONFIG_FILES = [
     'dynamic_fps.json',
@@ -162,6 +162,9 @@ function main(){
     if(manifest == null){
         throw new Error(`Missing manifest: ${manifestPath}`)
     }
+    if(!manifest.minecraftVersion || manifest.loader?.type !== 'neoforge' || !manifest.loader.version){
+        throw new Error('The target manifest must declare minecraftVersion and the NeoForge loader version.')
+    }
 
     const profile = path.resolve(argument('profile', process.env.KTZ_ASTERVALE_PROFILE || defaultProfile))
     const version = argument('version', manifest.version)
@@ -256,8 +259,8 @@ function main(){
         schemaVersion: 1,
         packId: 'astervale',
         version,
-        minecraftVersion: '1.21.4',
-        loader: 'neoforge-21.4.157',
+        minecraftVersion: manifest.minecraftVersion,
+        loader: `neoforge-${manifest.loader.version}`,
         generatedAt: new Date().toISOString(),
         sourceProfile: path.basename(profile),
         files: inventory.sort((a, b) => a.path.localeCompare(b.path, 'ko'))

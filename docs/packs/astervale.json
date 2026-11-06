@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "packId": "astervale",
-  "version": "1.4.0",
-  "minecraftVersion": "1.21.4",
+  "version": "2.0.0",
+  "minecraftVersion": "26.3",
   "loader": {
     "type": "neoforge",
-    "version": "21.4.157"
+    "version": "26.3.0.101"
   },
-  "fileName": "astervale-client-pack-1.4.0.zip",
-  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-1.4.0/astervale-client-pack-1.4.0.zip",
-  "minimumLauncherVersion": "3.3.6",
-  "sha256": "12eac76b3e6a5c1d5f3ff80c4ad71c07f4c23a457f101e737b158177628646f3",
-  "size": 130659833,
+  "fileName": "astervale-client-pack-2.0.0.zip",
+  "url": "https://github.com/Katozarasi/KTZ-Launcher/releases/download/astervale-client-pack-2.0.0/astervale-client-pack-2.0.0.zip",
+  "minimumLauncherVersion": "3.4.5",
+  "sha256": "d06c05b8efbfa67b3f747d89e59a1042b95abce5dfd9871615ab95b92c081e31",
+  "size": 141188710,
   "resourcePacks": [
     {
       "file": "SodiumTranslations.zip",
@@ -44,11 +44,11 @@
   ],
   "livePatch": null,
   "changelog": [
-    "클라이언트 모드 29개, 관리 설정 18개, 리소스팩 6개, 셰이더 2개를 동기화합니다.",
-    "UniversalShop 0.6.0: 토켓몬 스타일의 상품 카드, 금색 선택 표시, 분류·검색·수량 선택 화면을 적용합니다.",
-    "사용자 이모트 32개를 포함합니다. Lethal Company의 새 음악 저장 형식을 현재 Emotecraft 2.5.8이 읽을 수 있도록 변환했으며, 동작·아이콘·음표 181개와 재생 타이밍을 유지합니다.",
-    "Emotecraft 2.5.8 KTZ 보완본: 이모트를 순서대로 읽어, 동시 목록 등록 중 일부 이모트가 간헐적으로 누락되는 문제를 수정합니다.",
-    "활성 리소스팩은 Modrinth 기준으로 구성하고 Complementary Reimagined r5.9.3을 기본 셰이더로 설정합니다. BSL도 포함합니다.",
-    "기존 관리 모드는 새 목록으로 교체합니다. 월드·스크린샷·지도와 음성 채팅 및 외형 숨김 개인 설정은 보존합니다."
-  ]
+    "Minecraft 26.3 / NeoForge 26.3.0.101 / Java 25로 업데이트합니다. Java가 없거나 구버전이면 런처가 자동 설치합니다.",
+    "검증된 클라이언트 모드29개를 설치합니다. KoreanPatch는 Hangul 호환 빌드로 대체하고 미지원 ModernFix는 제외합니다.",
+    "32개 이모트를 유지하고 Lethal Company 음악을 새 Emotecraft가 재생하는 Opus 형식으로 변환했습니다. 동작·아이콘·메타데이터는 유지합니다.",
+    "Better Leaves의 미설치 TwilightForest 전용 자산만 제외했습니다. 나머지 자산과 기존 활성팩4개를 유지합니다.",
+    "개인 설정·마이크/음량·외형 숨김·지도·월드·스크린샷을 보존합니다. Nexo 리소스팩은 서버에서 자동 전송합니다."
+  ],
+  "preserveClientPreferences": true
 }
